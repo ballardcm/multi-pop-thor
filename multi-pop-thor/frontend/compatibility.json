@@ -68,9 +68,10 @@
     "library_header_back_action": true,
     "gesture_regression_checks_passed": true,
     "lower_screen_and_savestate_user_test_passed": "2026-10-04",
-    "latest_device_feedback_pending": true,
+    "latest_device_feedback_pending": false,
     "lower_library_back_user_test_passed": "2026-10-04",
-    "upper_back_action": true
+    "upper_back_action": true,
+    "both_back_arrows_and_hints_user_test_passed": "2026-10-04"
   },
-  "device_feedback_pending": true
+  "device_feedback_pending": false
 }
