@@ -6,7 +6,12 @@
     <!-- The upper display occupies x=1240..3160 and the lower display occupies x=3160..4400. -->
     <view name="screen">
         <controllerActivity name="controllerActivity"><visible>false</visible></controllerActivity>
-        <batteryIndicator name="batteryIndicator"><visible>false</visible></batteryIndicator>
+        <!-- The native battery component also shows connected Wi-Fi, and this inset keeps both on the upper display. -->
+        <batteryIndicator name="batteryIndicator">
+            <pos>0.654545455 0.022222222</pos><size>0.054545455 0.037037037</size>
+            <horizontalAlignment>right</horizontalAlignment><itemSpacing>0.002272727</itemSpacing>
+            <color>${ink}</color><visible>true</visible>
+        </batteryIndicator>
         <text name="clock"><pos>1 1</pos></text>
     </view>
 

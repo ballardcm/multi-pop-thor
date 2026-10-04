@@ -30,10 +30,10 @@ for path in sorted(ROOT.rglob("*.xml")):
             if value.startswith(str(ROOT)) and "${" not in value and not Path(value).is_file():
                 errors.append(f"Missing asset: {value}")
     for view in tree.findall("view"):
-        if view.attrib.get("name") not in ("system", "gamecarousel", "system, gamecarousel"):
+        if view.attrib.get("name") not in ("screen", "system", "gamecarousel", "system, gamecarousel"):
             continue
         for element in view:
-            if element.tag not in ("image", "text", "video", "carousel", "gamecarousel"):
+            if element.tag not in ("image", "text", "video", "carousel", "gamecarousel", "batteryIndicator"):
                 continue
             if element.findtext("visible") == "false" or element.find("pos") is None:
                 continue

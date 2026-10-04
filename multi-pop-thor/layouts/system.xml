@@ -19,8 +19,9 @@
         <!-- Full-color hardware and its matching card identify the system before a game is selected. -->
         <image name="system-hero" extra="true">
             <path>${systemHero}</path>
-            <pos>0.548863636 0.409259259</pos><origin>0.5 0.5</origin>
-            <size>0.325 0.753703704</size><zIndex>3</zIndex>
+            <!-- The upper inset leaves room for the live status indicators above the artwork. -->
+            <pos>0.548863636 0.430092593</pos><origin>0.5 0.5</origin>
+            <size>0.325 0.712037037</size><zIndex>3</zIndex>
         </image>
         <text name="hero-instruction" extra="true">
             <text>Swipe left/right to browse · Tap to select</text>
