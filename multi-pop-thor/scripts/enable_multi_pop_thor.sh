@@ -119,7 +119,7 @@ awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus out
     }
     END { if (invalid) exit 1 }
 ' "$SWAY_CONFIG" > "$sway_temp" || fail "Sway configuration was preserved. Inspect the diagnostic file $sway_temp."
-if ! awk -v include="$INCLUDE_LINE" '$0 == include { found=1 } END { exit !found }' "$sway_temp"; then
+if ! grep -Fxq "$INCLUDE_LINE" "$sway_temp"; then
     printf '\n# The Multi Pop Thor fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$sway_temp"
 fi
 

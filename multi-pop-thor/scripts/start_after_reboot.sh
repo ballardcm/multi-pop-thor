@@ -34,8 +34,8 @@ awk '
     }
     { print }
 ' "$config" > "$staged"
-if ! grep -Fxq 'include "/storage/.config/sway/multi-pop-thor.conf"' "$staged"; then
-    printf '\n# The Multi Pop Thor fragment keeps the dual-screen layout separate from the base configuration.\ninclude "/storage/.config/sway/multi-pop-thor.conf"\n' >> "$staged"
+if ! grep -Fxq "$INCLUDE_LINE" "$staged"; then
+    printf '\n# The Multi Pop Thor fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$staged"
 fi
 if ! cmp -s "$config" "$staged"; then
     # Preserve each generated configuration before changing its display and lower-touchscreen directives.
