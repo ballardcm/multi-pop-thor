@@ -81,6 +81,9 @@ output DSI-2 position 0 0
 output DSI-1 transform 90
 output DSI-1 position 1920 0
 output DSI-1 power on
+# ROCKNIX disables this device for its single-screen frontend, but Multi Pop browses on the lower panel.
+input "0:0:bottom_touchscreen" map_to_output DSI-1
+input "0:0:bottom_touchscreen" events enabled
 # The virtual surface includes a hidden margin that centers native menus on the upper screen.
 floating_maximum_size 4400 x 1080
 for_window [app_id="^emulationstation$"] floating enable
@@ -98,6 +101,8 @@ awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus out
         sub(/^ /, "", normalized)
         sub(/ $/, "", normalized)
         if (normalized == "output DSI-1 power off") next
+        # Remove the stock asynchronous override so it cannot disable the fragment input after reload.
+        if (normalized == "exec_always swaymsg input \"0:0:bottom_touchscreen\" events disabled") next
         if (normalized == stock_exec) {
             # The stock focus command remains useful once its lower-screen power-off clause is removed.
             sub(/,[[:space:]]*output[[:space:]]+DSI-1[[:space:]]+power[[:space:]]+off[[:space:]]*$/, "")

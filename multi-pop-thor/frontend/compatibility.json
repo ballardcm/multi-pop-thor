@@ -1,7 +1,6 @@
 {
-  "renamed_theme_requires_rebuild": false,
-  "artifact_sha256": "f107b0cdc6ba959881d6281b2d9c02a6864b431b3aa8023b0bf0c97a91f694c2",
-  "artifact_bytes": 10341248,
+  "artifact_sha256": "ed5aceec23e059dfd27130c0411004b1921e54cd2f4e84f03613b58b86b4c5c1",
+  "artifact_bytes": 10337152,
   "architecture": "aarch64",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
@@ -39,15 +38,18 @@
   "target_loader_resolved_all_dependencies": true,
   "isolated_help_command_passed": true,
   "sdl_headers": "2.32.10",
-  "source_files_verified": 981,
+  "source_archive_sha256": "c92eb0fd6e1e2b5fa603391f6c0b540d4fad858664c23321237df32efecf68ad",
   "changed_source_files": [
     "es-app/src/guis/GuiSaveState.cpp",
     "es-app/src/views/SystemView.cpp",
     "es-app/src/views/gamelist/CarouselGameListView.cpp",
-    "es-app/src/views/gamelist/CarouselGameListView.h"
+    "es-app/src/views/gamelist/CarouselGameListView.h",
+    "es-core/src/components/CarouselComponent.cpp",
+    "es-core/src/components/CarouselComponent.h",
+    "es-core/src/components/ThorTouchGesture.h",
+    "es-app/src/views/ViewController.cpp",
+    "es-app/src/views/ViewController.h"
   ],
-  "native_library_count": 34,
-  "strong_imports_match_previous_frontend": true,
   "paging": {
     "canvas_width": 4400,
     "canvas_height": 1080,
@@ -57,8 +59,19 @@
     "games_per_page": 3,
     "clamps_at_ends": true,
     "consumes_release": true,
-    "right_trigger_delegates_to_original_behavior": true,
-    "previous_input_harness_cases_passed": 4106
+    "right_trigger_delegates_to_original_behavior": true
   },
-  "device_feedback_pending": true
+  "touch": {
+    "both_screens_swipe": true,
+    "lower_taps_select_visible_card": true,
+    "upper_tap_confirms_after_release": true,
+    "library_header_back_action": true,
+    "gesture_regression_checks_passed": true,
+    "lower_screen_and_savestate_user_test_passed": "2026-10-04",
+    "latest_device_feedback_pending": false,
+    "lower_library_back_user_test_passed": "2026-10-04",
+    "upper_back_action": true,
+    "both_back_arrows_and_hints_user_test_passed": "2026-10-04"
+  },
+  "device_feedback_pending": false
 }

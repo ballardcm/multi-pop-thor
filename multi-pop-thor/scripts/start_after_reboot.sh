@@ -7,7 +7,7 @@ if ! grep -q 'name="ThemeSet" value="multi-pop-thor"' /storage/.config/emulation
     exec /usr/bin/emulationstation --log-path /var/log --no-splash
 fi
 
-# ROCKNIX regenerates this configuration at boot, so reapply only the existing Thor layout.
+# ROCKNIX regenerates this configuration at boot, so restore the Thor display and touch layout.
 config=/storage/.config/sway/config
 fragment=/storage/.config/sway/multi-pop-thor.conf
 launcher=/roms/themes/multi-pop-thor/scripts/start_es_thor.sh
@@ -22,6 +22,7 @@ staged=$(mktemp "$config.multi-pop-startup.XXXXXX")
 trap 'rm -f "$staged"' EXIT
 awk '
     /^[[:space:]]*output DSI-1 power off[[:space:]]*$/ { next }
+    /^[[:space:]]*exec_always[[:space:]]+swaymsg[[:space:]]+input[[:space:]]+"0:0:bottom_touchscreen"[[:space:]]+events[[:space:]]+disabled[[:space:]]*$/ { next }
     /^exec_always swaymsg/ {
         sub(/,[[:space:]]*output DSI-1 power off[[:space:]]*$/, "")
     }
@@ -31,7 +32,7 @@ if ! grep -Fxq 'include "/storage/.config/sway/multi-pop-thor.conf"' "$staged"; 
     printf '\n# The separate Thor fragment restores the theme viewport after ROCKNIX startup.\ninclude "/storage/.config/sway/multi-pop-thor.conf"\n' >> "$staged"
 fi
 if ! cmp -s "$config" "$staged"; then
-    # Preserve each generated configuration before changing its display-only directives.
+    # Preserve each generated configuration before changing its display and lower-touchscreen directives.
     cp -p "$config" "/storage/.config/multi-pop-thor/sway-before-startup-$(date -u +%Y%m%dT%H%M%SZ).conf"
     chmod 644 "$staged"
     mv "$staged" "$config"

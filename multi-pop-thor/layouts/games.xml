@@ -2,7 +2,26 @@
 <theme>
     <formatVersion>7</formatVersion>
     <view name="gamecarousel">
-        <text name="browse-hints" extra="true"><text>‹ › Browse    L1/R1 Page    A Play    B Back</text><fontSize>0.037037037</fontSize></text>
+        <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · L1/R1 page · B back</text><fontSize>0.037037037</fontSize></text>
+        <text name="top-touch-hints" extra="true">
+            <text>Swipe left/right to browse · Tap to select</text>
+            <pos>0.384090909 0.940740741</pos><size>0.325 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+        <!-- The header arrow shares its generous hit area with the frontend back action. -->
+        <text name="library-back" extra="true">
+            <text>‹</text>
+            <pos>0.724545455 0.014814815</pos><size>0.030909091 0.092592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.092592593</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
+        </text>
+        <text name="top-library-back" extra="true">
+            <text>‹</text>
+            <pos>0.288181818 0.014814815</pos><size>0.030909091 0.092592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.092592593</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
+        </text>
         <text name="top-game-system" extra="true">
             <text>{game:system:collection} ? proper({game:system:fullName}) : {game:system:fullName}</text>
             <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
