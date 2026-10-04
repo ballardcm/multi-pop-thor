@@ -64,6 +64,20 @@ int main()
     cards.clear();
     assert(cards.hit(3780, 500) == -1);
 
+    ThorTouchGesture upper;
+    upper.begin(2200, 540, 100, 1240, 3160);
+    assert(upper.move(2100, 540) == 1);
+    assert(!upper.tap(200));
+    upper.begin(2200, 540, 100, 1240, 3160);
+    assert(upper.move(2300, 540) == -1);
+    assert(!upper.tap(200));
+    upper.begin(2200, 540, 100, 1240, 3160);
+    assert(upper.move(2205, 542) == 0);
+    assert(upper.tap(200));
+    upper.begin(3150, 540, 100, 1240, 3160);
+    assert(upper.move(3170, 540) == 0);
+    assert(!upper.tap(200));
+
     ThorTouchGesture gesture;
     gesture.begin(3780, 540, 100);
     assert(gesture.move(3787, 546) == 0);

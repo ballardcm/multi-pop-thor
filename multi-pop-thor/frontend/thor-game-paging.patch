@@ -140,9 +140,93 @@
 +		moveThorTouch(x, y);
 +		return;
 +	}
+--- a/es-app/src/views/ViewController.h
++++ b/es-app/src/views/ViewController.h
+@@ -7,0 +8 @@
++#include "components/ThorTouchGesture.h"
+@@ -69,0 +71,2 @@
++	bool onMouseClick(int button, bool pressed, int x, int y) override;
++	void onMouseMove(int x, int y) override;
+@@ -118,0 +122,4 @@
++	ThorTouchGesture mUpperTouch;
++	bool mUpperTouchActive = false;
++	void cancelUpperTouch();
++	void sendUpperTouchInput(const std::string& name);
+--- a/es-app/src/views/ViewController.cpp
++++ b/es-app/src/views/ViewController.cpp
+@@ -1324,0 +1325 @@
++	cancelUpperTouch();
+@@ -1422,0 +1424,56 @@
++void ViewController::cancelUpperTouch()
++{
++	if (mUpperTouchActive && mWindow->hasMouseCapture(this))
++		mWindow->releaseMouseCapture();
++	mUpperTouchActive = false;
++	mUpperTouch.cancel();
++}
++
++void ViewController::sendUpperTouchInput(const std::string& name)
++{
++	InputConfig config(DEVICE_MOUSE, -1, "Thor touchscreen", "", 0, 0, 0);
++	config.mapInput(name, Input(DEVICE_MOUSE, TYPE_BUTTON, 1, 1, true));
++	input(&config, Input(DEVICE_MOUSE, TYPE_BUTTON, 1, 1, true));
++	input(&config, Input(DEVICE_MOUSE, TYPE_BUTTON, 1, 0, true));
++}
++
++bool ViewController::onMouseClick(int button, bool pressed, int x, int y)
++{
++	if (button != 1)
++		return false;
++	if (pressed)
++	{
++		cancelUpperTouch();
++		const bool wokeScreen = mWindow->cancelScreenSaver();
++		mUpperTouch.begin(x, y, SDL_GetTicks(), 1240, 3160);
++		if (wokeScreen || mLockInput)
++			mUpperTouch.cancel();
++		mUpperTouchActive = true;
++		mWindow->setMouseCapture(this);
++	}
++	else if (mUpperTouchActive)
++	{
++		onMouseMove(x, y);
++		const bool select = mUpperTouchActive && mUpperTouch.tap(SDL_GetTicks());
++		cancelUpperTouch();
++		// Confirm only after a stationary tap ends, so a swipe never becomes a game launch.
++		if (select)
++			sendUpperTouchInput(BUTTON_OK);
++	}
++	return true;
++}
++
++void ViewController::onMouseMove(int x, int y)
++{
++	if (!mUpperTouchActive)
++		return;
++	if (mWindow->peekGui() != this || mLockInput || Settings::getInstance()->getBool("DisableTouchscreen"))
++	{
++		cancelUpperTouch();
++		return;
++	}
++	const int steps = mUpperTouch.move(x, y);
++	for (int step = 0; step < std::abs(steps); ++step)
++		sendUpperTouchInput(steps > 0 ? "right" : "left");
++}
++
+@@ -1424,0 +1482,10 @@
++	// The upper preview has no carousel hit target, so unhandled touch would otherwise confirm immediately.
++	if (Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080 &&
++		Settings::getInstance()->getString("ThemeSet") == "multi-pop-thor" &&
++		(mState.viewing == GAME_LIST || mState.viewing == SYSTEM_SELECT) &&
++		x >= 1240 && x < 3160 && y >= 0 && y < 1080 && mWindow->peekGui() == this)
++	{
++		if (pResult)
++			pResult->push_back(this);
++		return true;
++	}
 --- /dev/null
 +++ b/es-core/src/components/ThorTouchGesture.h
-@@ -0,0 +1,70 @@
+@@ -0,0 +1,73 @@
 +#pragma once
 +
 +#include <cmath>
@@ -153,11 +237,13 @@
 +class ThorTouchGesture
 +{
 +public:
-+	void begin(int x, int y, uint32_t time)
++	void begin(int x, int y, uint32_t time, int left = 3160, int right = 4400)
 +	{
 +		mStartX = mAnchorX = x;
 +		mStartY = y;
 +		mTime = time;
++		mLeft = left;
++		mRight = right;
 +		mCancelled = false;
 +		mMoved = false;
 +	}
@@ -166,7 +252,7 @@
 +
 +	int move(int x, int y)
 +	{
-+		if (x < 3160 || x >= 4400 || y < 0 || y >= 1080)
++		if (x < mLeft || x >= mRight || y < 0 || y >= 1080)
 +			cancel();
 +		const int dx = x - mStartX;
 +		const int dy = y - mStartY;
@@ -189,6 +275,7 @@
 +
 +private:
 +	int mStartX = 0, mStartY = 0, mAnchorX = 0;
++	int mLeft = 3160, mRight = 4400;
 +	uint32_t mTime = 0;
 +	bool mCancelled = true, mMoved = false;
 +};
