@@ -10,9 +10,9 @@ The upper display shows a system's original hardware illustration while browsing
 
 ## Artwork
 
-The 55 artwork entries include Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the editable SVGs are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them.
+The 57 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the editable SVGs are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them.
 
-![All 55 Multi Pop artwork entries](docs/artwork-grid.png)
+![All 57 Multi Pop artwork entries](docs/artwork-grid.png)
 
 ## Controls and compatibility
 
@@ -33,7 +33,7 @@ Every PR produces preview downloads under its GitHub Actions run. Each merge to 
 - `multi-pop-thor/layouts/` and `theme.xml` define the two-screen layout.
 - `multi-pop-thor/assets/systems/` contains the editable hardware drawings; `assets/cards/`, `assets/heroes/`, `palettes/`, and `platforms.json` contain generated artwork and metadata.
 - `tools/build-multi-pop-art.py` rebuilds cards, heroes, palettes, and platform metadata. It needs Python with Pillow and Node.js with Sharp. It uses `node` and `require("sharp")` by default; `MULTIPOP_NODE` and `MULTIPOP_SHARP` can point to an existing runtime. Dependencies are not yet locked for distribution.
-- `tools/check-multi-pop.py` checks XML/SVG parsing, asset references, visible screen bounds, distinct palettes, contrast, and shell syntax. Run `python3 tools/check-multi-pop.py` from this repository.
+- `tools/check-multi-pop.py` checks XML/SVG parsing, complete platform artwork and palette routes, asset references, visible screen bounds, distinct palettes, contrast, and shell syntax. Run `python3 tools/check-multi-pop.py` from this repository.
 - `tools/install-multi-pop-theme.py` updates an already activated Thor from a complete archive with a verified compatible frontend. Media fetch, packaging, and installation tools use separate inventories and staging data; no library or downloaded game media is included here. See [the media tooling notes](docs/media-tools.md).
 
 ## Contributing

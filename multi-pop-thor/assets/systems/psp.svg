@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <!-- This original illustration keeps its own material colors so hardware remains recognizable on every palette. -->
-<defs>
-<linearGradient id="dark" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#4a5362"/><stop offset="0.38" stop-color="#262d3b"/><stop offset="1" stop-color="#10141d"/></linearGradient>
-<linearGradient id="black" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#414751"/><stop offset="0.42" stop-color="#151b25"/><stop offset="1" stop-color="#050b12"/></linearGradient>
-<linearGradient id="rubber" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#545b65"/><stop offset="0.45" stop-color="#303741"/><stop offset="1" stop-color="#111822"/></linearGradient>
-<linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6f8fa"/><stop offset="0.42" stop-color="#bfc7d1"/><stop offset="0.5" stop-color="#8b95a4"/><stop offset="1" stop-color="#dbe2e9"/></linearGradient>
-<linearGradient id="cream" x1="0" y1="0" x2="0.3" y2="1"><stop stop-color="#eee6d2"/><stop offset="0.5" stop-color="#cfc5ad"/><stop offset="1" stop-color="#a19b8c"/></linearGradient>
-<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b8763e"/><stop offset="0.45" stop-color="#80552f"/><stop offset="1" stop-color="#55341f"/></linearGradient>
-<linearGradient id="gold" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#fff0a4"/><stop offset="0.35" stop-color="#ffc841"/><stop offset="0.7" stop-color="#d88a16"/><stop offset="1" stop-color="#ffe380"/></linearGradient>
-<linearGradient id="glass" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#324963"/><stop offset="0.5" stop-color="#0c1525"/><stop offset="1" stop-color="#03101d"/></linearGradient>
-<linearGradient id="red" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#ff665b"/><stop offset="0.55" stop-color="#d63136"/><stop offset="1" stop-color="#8f1628"/></linearGradient>
-<linearGradient id="blue" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#72c1ff"/><stop offset="0.55" stop-color="#258ad2"/><stop offset="1" stop-color="#176087"/></linearGradient>
-<linearGradient id="purple" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#b286ed"/><stop offset="0.55" stop-color="#7551ac"/><stop offset="1" stop-color="#452a6e"/></linearGradient>
-</defs>
-<ellipse cx="401" cy="492" rx="301" ry="18" fill="#162039" opacity="0.17"/><path d="M160 184h478c43 0 74 38 78 107l-2 97c-3 61-34 91-77 91H160c-43 0-74-30-77-91l-2-97c4-69 35-107 79-107Z" fill="url(#black)" stroke="#09131f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M119 213C225 193 575 193 679 212" fill="none" stroke="#91a0b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><rect x="225" y="222" width="350" height="226" rx="7" fill="#101621" stroke="#485564" stroke-width="2" /><rect x="244" y="241" width="311" height="176" rx="5" fill="#173b50" /><path d="M244 371.24L312.42 300.84000000000003L380.84000000000003 350.12L477.25 267.4L555 329.0V417H244Z" fill="#2c617b" /><path d="M244 390.6L324.86 357.16L387.06 381.8L455.48 343.08L555 385.32V417H244Z" fill="#59ada7" /><ellipse cx="499.02" cy="276.2" rx="14.08" ry="14.08" fill="#ffce81" /><path d="M252 249H418.16L252 355.4Z" fill="#ffffff" opacity="0.08"/><path d="M86 299C102 227 125 213 215 214M584 214c90-1 112 14 128 84" fill="none" stroke="#566273" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M151.33333333333334 266h23.333333333333332v23.333333333333332h23.333333333333332v23.333333333333332h-23.333333333333332v23.333333333333332h-23.333333333333332v-23.333333333333332h-23.333333333333332v-23.333333333333332h23.333333333333332Z" fill="#343c48" stroke="#11151e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><ellipse cx="163" cy="403" rx="22" ry="22" fill="#161921" /><ellipse cx="163" cy="403" rx="18" ry="18" fill="url(#rubber)" stroke="#05070b" stroke-width="2" /><ellipse cx="163" cy="399" rx="14" ry="6" fill="#545b69" opacity="0.5"/><ellipse cx="163" cy="403" rx="11" ry="11" fill="none" stroke="#202632" stroke-width="1" /><ellipse cx="637" cy="285" rx="15" ry="15" fill="#20232b" stroke="#08090e" stroke-width="2" /><ellipse cx="654" cy="302" rx="15" ry="15" fill="#20232b" stroke="#08090e" stroke-width="2" /><ellipse cx="637" cy="319" rx="15" ry="15" fill="#20232b" stroke="#08090e" stroke-width="2" /><ellipse cx="620" cy="302" rx="15" ry="15" fill="#20232b" stroke="#08090e" stroke-width="2" /><path d="M633 288l4 -7 4 7Z" fill="none" stroke="#65cbb5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /><ellipse cx="654" cy="302" rx="9" ry="9" fill="none" stroke="#ec687c" stroke-width="1.8" /><path d="M634 316l6 6m0-6-6 6" fill="none" stroke="#6ea5db" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /><rect x="616" y="298" width="8" height="8" rx="0" fill="none" stroke="#d38bbc" stroke-width="1.7" /><ellipse cx="138" cy="436" rx="5" ry="5" fill="#151f2b" /><ellipse cx="186" cy="436" rx="5" ry="5" fill="#151f2b" /><rect x="254" y="457" width="14" height="5" rx="2" fill="#8b96a6" /><rect x="278" y="457" width="14" height="5" rx="2" fill="#8b96a6" /><rect x="302" y="457" width="14" height="5" rx="2" fill="#8b96a6" /><rect x="326" y="457" width="14" height="5" rx="2" fill="#8b96a6" /><rect x="406" y="456" width="26" height="5" rx="2" fill="#8b96a6" /><rect x="447" y="456" width="19" height="5" rx="2" fill="#8b96a6" /><rect x="494" y="456" width="27" height="5" rx="2" fill="#8b96a6" /><rect x="536" y="456" width="20" height="5" rx="2" fill="#8b96a6" /><ellipse cx="207" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="211" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="215" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="207" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="211" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="215" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="207" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="211" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="215" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="595" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="599" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="603" cy="391" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="595" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="599" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="603" cy="396" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="595" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="599" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><ellipse cx="603" cy="401" rx="1.1" ry="1.1" fill="#a3afbb" /><rect x="92" y="280" width="5" height="62" rx="2" fill="#d3dce4" /><rect x="702" y="280" width="5" height="62" rx="2" fill="#d3dce4" /><ellipse cx="682" cy="392" rx="4" ry="4" fill="#61d395" /><ellipse cx="109" cy="392" rx="4" ry="4" fill="#e57c57" />
+  <!-- The original PSP is recognizable by its long display, curved grips, four separate direction keys, and single flush analog nub. -->
+  <defs>
+    <linearGradient id="black" x1="0" y1="0" x2="0.4" y2="1"><stop stop-color="#4B515F"/><stop offset="0.42" stop-color="#252B38"/><stop offset="1" stop-color="#111723"/></linearGradient>
+    <linearGradient id="rubber" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#575E6C"/><stop offset="1" stop-color="#242B38"/></linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F0F4F7"/><stop offset="0.5" stop-color="#A3ADBA"/><stop offset="1" stop-color="#D6DEE7"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0.5" y2="1"><stop stop-color="#12385B"/><stop offset="0.5" stop-color="#216997"/><stop offset="1" stop-color="#60B4CD"/></linearGradient>
+    <pattern id="knurl" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0h2v2H0Z" fill="#77808D" opacity="0.65"/></pattern>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M79 220c9-31 28-54 51-54h56l-18 38Z" fill="url(#silver)" stroke="#929EAE" stroke-width="2"/>
+    <path d="M614 166h56c23 0 42 23 51 54l-89-16Z" fill="url(#silver)" stroke="#929EAE" stroke-width="2"/>
+    <path d="M187 174h426l22 23c10 9 25 10 69 10 53 76 66 165 0 238-44 0-59 1-69 10l-22 13H187l-22-13c-10-9-25-10-69-10-66-73-53-162 0-238 44 0 59-1 69-10Z" fill="url(#silver)" stroke="#14202D" stroke-width="3"/>
+    <path d="M187 168h426l22 23c10 9 25 10 69 10 53 76 66 165 0 238-44 0-59 1-69 10l-22 13H187l-22-13c-10-9-25-10-69-10-66-73-53-162 0-238 44 0 59-1 69-10Z" fill="url(#black)" stroke="#111722" stroke-width="3"/>
+    <path d="M101 209c42 0 57-1 70-11l21-22h416l21 22c13 10 28 11 70 11" fill="none" stroke="#A2ABB7" stroke-width="2" opacity="0.7"/>
+    <path d="M94 427c45 0 60 1 73 12l25 15h416l25-15c13-11 28-12 73-12" fill="none" stroke="#555F6E" stroke-width="2"/>
+    <rect x="208" y="193" width="384" height="230" rx="4" fill="#0B111B" stroke="#6B737F" stroke-width="2"/>
+    <rect x="213" y="199" width="374" height="212" rx="1" fill="url(#screen)"/>
+    <!-- A simple original wave suggests the PSP's display without including a game screenshot. -->
+    <path d="M213 339c97-67 203-95 374-39v29c-178-53-275-25-374 20Z" fill="#65BCDB" opacity="0.26"/>
+    <path d="M213 350c127-54 229-78 374-31" fill="none" stroke="#A7E0E8" stroke-width="2" opacity="0.45"/>
+    <path d="M213 402c118-16 246-9 374-31v40H213Z" fill="#85D1DB" opacity="0.18"/>
+    <path d="M218 204h182L218 324Z" fill="#FFF" opacity="0.05"/>
+    <circle cx="139" cy="292" r="52" fill="#161C27" stroke="#737C88" stroke-width="2"/>
+    <g fill="url(#rubber)" stroke="#0A101A" stroke-width="3">
+      <path d="M123 246h32v27l-16 15-16-15Z"/>
+      <path d="M123 338h32v-27l-16-15-16 15Z"/>
+      <path d="M93 276v32h27l15-16-15-16Z"/>
+      <path d="M185 276v32h-27l-15-16 15-16Z"/>
+    </g>
+    <g fill="none" stroke="#BBC4D0" stroke-width="1.7">
+      <path d="M134 260l5-5 5 5Z"/><path d="M134 324l5 5 5-5Z"/>
+      <path d="M107 287l-5 5 5 5Z"/><path d="M171 287l5 5-5 5Z"/>
+    </g>
+    <circle cx="139" cy="391" r="25" fill="#171D27" stroke="#75808D" stroke-width="2"/>
+    <circle cx="139" cy="391" r="22" fill="url(#rubber)"/>
+    <circle cx="139" cy="391" r="21" fill="url(#knurl)"/>
+    <circle cx="661" cy="292" r="43" fill="#1C2230" stroke="#7A838F" stroke-width="2"/>
+    <g fill="url(#rubber)" stroke="#0A101A" stroke-width="3">
+      <circle cx="661" cy="251" r="20"/><circle cx="702" cy="292" r="20"/>
+      <circle cx="661" cy="333" r="20"/><circle cx="620" cy="292" r="20"/>
+    </g>
+    <g fill="none" stroke="#C8D1DD" stroke-width="2.5">
+      <path d="M652 257l9-15 9 15Z"/><circle cx="702" cy="292" r="10"/>
+      <path d="M654 326l14 14m0-14-14 14"/><path d="M612 284h16v16h-16Z"/>
+    </g>
+    <rect x="173" y="228" width="15" height="8" rx="4" fill="#0B111A" stroke="#626C7B" stroke-width="1.5"/>
+    <rect x="612" y="228" width="15" height="8" rx="4" fill="#0B111A" stroke="#626C7B" stroke-width="1.5"/>
+    <circle cx="81" cy="369" r="3.5" fill="#D8B666"/>
+    <circle cx="87" cy="401" r="3.5" fill="#69BDA4"/>
+    <circle cx="718" cy="369" r="3.5" fill="#7FD2AD"/>
+    <circle cx="711" cy="401" r="3.5" fill="#D9B773"/>
+    <g fill="#1A202C" stroke="#737E8D" stroke-width="1.3">
+      <path d="M197 430h39l-4 15c-7 6-24 6-31 0Z"/>
+      <ellipse cx="267" cy="439" rx="12" ry="8"/><ellipse cx="309" cy="439" rx="12" ry="8"/>
+      <ellipse cx="489" cy="439" rx="12" ry="8"/><ellipse cx="524" cy="439" rx="12" ry="8"/>
+      <path d="M553 430h36l-4 15c-6 6-22 6-28 0Z"/><path d="M596 430h36l-4 15c-6 6-22 6-28 0Z"/>
+    </g>
+    <g fill="none" stroke="#CBD3DD" stroke-width="1.8">
+      <path d="M203 441v-5m0 2.5h4m0-2.5v5m3 0v-5h4v5Zm7 0v-5l2 3 2-3v5m7-5h-4v5h4m-4-2.5h3"/>
+      <path d="M263 439h8m34 0h8m-4-4v8m176-7h8v6h-8Zm36 0v7c-7 3-7-3 0-2m0-5 5-2v7"/>
+      <path d="M562 438h16m-10 3h10m26-3h17m-11 3h11"/>
+    </g>
+    <!-- Outlined model lettering remains crisp and independent of the renderer's installed fonts. -->
+    <path d="M357 447v-8h26v-8h-26m61 0h-26v8h26v8h-26m35 0v-8h26v-8h-26" fill="none" stroke="#D9E0E8" stroke-width="2.5"/>
+    <path d="M651 212h-10v4h10v4h-10m15 0v-8h10v8Zm16 0v-8l10 8v-8m6 0 5 4 5-4m-5 4v4" fill="none" stroke="#D9DFE6" stroke-width="1.7"/>
+  </g>
 </svg>

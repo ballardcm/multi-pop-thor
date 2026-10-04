@@ -1,6 +1,6 @@
 # Multi Pop for AYN Thor
 
-Multi Pop is a ROCKNIX EmulationStation theme with a gameplay preview and game details on the upper display and a three-cover browser on the lower display. Every system in the latest live Thor audit has its own color, original hardware illustration, and matching lower card. Virtual Boy is also included. Missing cover art falls back to the game's image, then to a labeled card for that system.
+Multi Pop is a ROCKNIX EmulationStation theme with a gameplay preview and game details on the upper display and a three-cover browser on the lower display. Every system in the latest live Thor audit has its own color, original hardware illustration, and matching lower card. Virtual Boy, Neo Geo Pocket, Neo Geo Pocket Color, and PlayStation Vita are also included. Missing cover art falls back to the game's image, then to a labeled card for that system.
 
 The upper display is 1920×1080 and the lower display is 1240×1080. The theme uses a 4400×1080 virtual canvas with a hidden 1240px margin so native menus stay centered on the upper display. It is intended for the Thor's ROCKNIX frontend, rather than ES-DE on Android.
 

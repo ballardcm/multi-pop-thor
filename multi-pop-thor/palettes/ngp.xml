@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>646C78FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/ngp.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/ngp.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/ngp.png</systemHero>
+    </variables>
+</theme>

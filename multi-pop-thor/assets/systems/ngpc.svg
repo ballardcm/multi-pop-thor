@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <!-- The navy shell, nearly square reflective screen, and circular microswitch stick identify the original Neo Geo Pocket Color rather than a generic handheld. -->
+  <!-- The blue shell, COLOR bezel mark, and accurate B-over-A controls distinguish the Color model while preserving the Pocket family silhouette. -->
   <defs>
-    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6B85AC"/><stop offset="0.45" stop-color="#405C8B"/><stop offset="1" stop-color="#263960"/></linearGradient>
-    <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#34476D"/><stop offset="1" stop-color="#192644"/></linearGradient>
-    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4B5058"/><stop offset="1" stop-color="#181E27"/></linearGradient>
-    <linearGradient id="button" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#C3C8CF"/><stop offset="1" stop-color="#758092"/></linearGradient>
-    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9BAB97"/><stop offset="1" stop-color="#6E847A"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#779BB7"/><stop offset="0.55" stop-color="#517A9A"/><stop offset="1" stop-color="#385674"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#527997"/><stop offset="1" stop-color="#243C58"/></linearGradient>
+    <linearGradient id="bezel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#454B50"/><stop offset="1" stop-color="#191F23"/></linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6C747B"/><stop offset="0.45" stop-color="#343E44"/><stop offset="1" stop-color="#1B252B"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#87A79F"/><stop offset="1" stop-color="#52786F"/></linearGradient>
   </defs>
   <g stroke-linejoin="round" stroke-linecap="round">
-    <path d="M140 154h521c34 0 56 16 65 47l8 180c1 49-18 89-63 94H145c-39-4-64-34-64-79l6-191c5-29 22-47 53-51Z" fill="url(#edge)" stroke="#1E2F4E" stroke-width="3"/>
-    <path d="M127 140h521c34 0 56 16 65 47l8 180c1 49-18 89-63 94H132c-39-4-64-34-64-79l6-191c5-29 22-47 53-51Z" fill="url(#navy)" stroke="#2E466D" stroke-width="3"/>
-    <path d="M117 154c8-4 21-6 37-6h473c28 0 46 9 56 25M78 195l-3 171" fill="none" stroke="#A0B5D0" stroke-width="4" opacity="0.55"/>
-    <path d="M84 419c10 19 29 27 54 28h511c27-1 43-10 49-31" fill="none" stroke="#8CA3C3" stroke-width="3" opacity="0.3"/>
-    <path d="M257 174h271c12 0 20 9 20 20v205c0 13-9 24-22 25H265c-12-1-20-10-20-23V195c0-12 3-21 12-21Z" fill="url(#black)" stroke="#293D5A" stroke-width="3"/>
-    <text x="394" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" letter-spacing="1.2" fill="#CED3D4">COLOR</text>
-    <rect x="283" y="206" width="221" height="211" rx="3" fill="#131D23"/>
-    <rect x="290" y="213" width="207" height="197" rx="2" fill="url(#lcd)"/>
-    <path d="M291 222h173L291 379Z" fill="#D9E3D4" opacity="0.12"/>
-    <path d="M291 402h205" fill="none" stroke="#516C62" stroke-width="2" opacity="0.3"/>
-    <text x="395" y="444" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold" letter-spacing="0.7" fill="#D9E0E7">NEO·GEO POCKET</text>
-    <rect x="144" y="176" width="57" height="16" rx="8" fill="url(#button)" stroke="#273B59" stroke-width="2"/>
-    <text x="172" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#C9D4E2">POWER</text>
-    <circle cx="118" cy="185" r="5" fill="#D25459" stroke="#843C4C" stroke-width="1.5"/>
-    <rect x="602" y="176" width="57" height="16" rx="8" fill="url(#button)" stroke="#273B59" stroke-width="2"/>
-    <text x="630" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#C9D4E2">OPTION</text>
-    <circle cx="170" cy="292" r="62" fill="#263F68" stroke="#7594BD" stroke-width="2"/>
-    <circle cx="170" cy="292" r="54" fill="#151F2E" stroke="#27384F" stroke-width="3"/>
-    <circle cx="170" cy="290" r="46" fill="url(#button)" stroke="#626F82" stroke-width="3"/>
-    <circle cx="170" cy="290" r="34" fill="#8E9AAA" stroke="#B9C3CF" stroke-width="2"/>
-    <circle cx="170" cy="290" r="24" fill="#778599" opacity="0.7"/>
-    <path d="M142 278c7-15 34-20 49-6" fill="none" stroke="#E3E8EB" stroke-width="3" opacity="0.55"/>
-    <g fill="#25395C"><path d="m170 217-6 9h12Z"/><path d="m170 367-6-9h12Z"/><path d="m95 292 9-6v12Z"/><path d="m245 292-9-6v12Z"/></g>
-    <ellipse cx="626" cy="293" rx="60" ry="87" transform="rotate(36 626 293)" fill="#2D4873"/>
-    <circle cx="650" cy="264" r="35" fill="#263653"/>
-    <circle cx="650" cy="261" r="31" fill="url(#button)" stroke="#62718A" stroke-width="2.5"/>
-    <path d="M630 253c9-14 29-16 40-3" fill="none" stroke="#EBEFF1" stroke-width="3" opacity="0.5"/>
-    <circle cx="599" cy="333" r="35" fill="#263653"/>
-    <circle cx="599" cy="330" r="31" fill="url(#button)" stroke="#62718A" stroke-width="2.5"/>
-    <path d="M579 322c9-14 29-16 40-3" fill="none" stroke="#EBEFF1" stroke-width="3" opacity="0.5"/>
-    <g font-family="Arial,sans-serif" font-size="19" font-weight="bold" text-anchor="middle" fill="#41536E"><text x="650" y="268">A</text><text x="599" y="337">B</text></g>
-    <g stroke="#213652" stroke-width="5"><path d="m139 386 22-11"/><path d="m145 396 29-14"/><path d="m153 405 31-15"/><path d="m164 413 29-14"/><path d="m177 419 23-12"/></g>
-    <text x="640" y="424" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold" fill="#9BAECB" opacity="0.8">SNK</text>
-    <rect x="323" y="465" width="35" height="8" rx="3" fill="#15233F"/>
-    <rect x="448" y="465" width="32" height="8" rx="3" fill="#15233F"/>
+    <path d="M95 126Q398 114 706 126q19 1 20 23l-1 311q-1 36-34 42-292 27-582 0-31-3-34-38l-2-313q0-23 22-25Z" fill="url(#edge)" stroke="#263E57" stroke-width="3"/>
+    <path d="M83 113Q389 102 696 113q18 1 19 23l-1 311q-1 34-32 40-293 27-582 0-31-3-33-37l-3-312q0-23 19-25Z" fill="url(#blue)" stroke="#314F6C" stroke-width="3"/>
+    <path d="M84 122q304-11 605 0M73 140l3 299" fill="none" stroke="#BED8E5" stroke-width="4" opacity="0.65"/>
+    <path d="M91 475q301 31 593 0" fill="none" stroke="#243F5D" stroke-width="3" opacity="0.35"/>
+    <path d="M254 127h278q13 0 13 14v298q0 13-14 15-140 11-279 0-12-1-12-15V142q0-15 14-15Z" fill="url(#bezel)" stroke="#7293AD" stroke-width="3"/>
+    <text x="507" y="154" text-anchor="end" font-family="Arial,sans-serif" font-size="17" font-style="italic" font-weight="bold" letter-spacing="3" fill="#E16058">COLOR</text>
+    <rect x="262" y="165" width="261" height="251" rx="3" fill="#111A1B"/>
+    <rect x="272" y="175" width="241" height="229" rx="2" fill="url(#lcd)"/>
+    <path d="M273 176h190L273 354Z" fill="#C9E3D4" opacity="0.16"/>
+    <path d="M273 401h238" fill="none" stroke="#3E665F" stroke-width="2"/>
+    <text x="393" y="438" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="bold" letter-spacing="0.7" fill="#DDE1DE">NEO·GEO POCKET</text>
+    <text x="392" y="485" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" font-style="italic" fill="#A5BECE">SNK</text>
+    <text x="142" y="149" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="#C1D2DF">POWER</text>
+    <rect x="111" y="160" width="58" height="27" rx="13" fill="#375A7B"/>
+    <rect x="114" y="162" width="51" height="22" rx="11" fill="url(#button)" stroke="#213D58" stroke-width="2"/>
+    <path d="M171 174h22" fill="none" stroke="#819FB5" stroke-width="3"/>
+    <circle cx="202" cy="174" r="7" fill="#F34C59" stroke="#9EC0D3" stroke-width="2"/>
+    <text x="626" y="162" text-anchor="end" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#BAD0DF">OPTION</text>
+    <circle cx="655" cy="158" r="17" fill="#345773"/>
+    <circle cx="655" cy="157" r="13" fill="url(#button)" stroke="#263E56" stroke-width="2"/>
+    <circle cx="158" cy="275" r="57" fill="#5D85A5" stroke="#9BB9CC" stroke-width="3"/>
+    <circle cx="158" cy="275" r="49" fill="#3D607F" stroke="#294963" stroke-width="3"/>
+    <g stroke="#294A68" stroke-width="5"><path d="M158 221v6"/><path d="M158 323v6"/><path d="M104 275h6"/><path d="M206 275h6"/><path d="m120 237 4 4"/><path d="m192 309 4 4"/><path d="m120 313 4-4"/><path d="m192 241 4-4"/></g>
+    <circle cx="158" cy="275" r="35" fill="url(#button)" stroke="#1D2B31" stroke-width="3"/>
+    <circle cx="158" cy="273" r="25" fill="#343E43" stroke="#768089" stroke-width="2"/>
+    <path d="M139 263q17-16 35-1" fill="none" stroke="#B4BDC2" stroke-width="3" opacity="0.5"/>
+    <circle cx="652" cy="239" r="27" fill="#2B4A64"/>
+    <circle cx="652" cy="237" r="23" fill="url(#button)" stroke="#192E43" stroke-width="2.5"/>
+    <circle cx="593" cy="284" r="27" fill="#2B4A64"/>
+    <circle cx="593" cy="282" r="23" fill="url(#button)" stroke="#192E43" stroke-width="2.5"/>
+    <path d="M637 229q15-12 30 0M578 274q15-12 30 0" fill="none" stroke="#B4C4CB" stroke-width="3" opacity="0.65"/>
+    <g font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#B9CEDD"><text x="652" y="202">B</text><text x="593" y="247">A</text></g>
+    <g fill="#193247" stroke="#87A8BE" stroke-width="1.2">
+      <circle cx="135" cy="394" r="3.5"/><circle cx="147" cy="394" r="3.5"/><circle cx="159" cy="394" r="3.5"/><circle cx="171" cy="394" r="3.5"/><circle cx="183" cy="394" r="3.5"/>
+      <circle cx="135" cy="406" r="3.5"/><circle cx="147" cy="406" r="3.5"/><circle cx="159" cy="406" r="3.5"/><circle cx="171" cy="406" r="3.5"/><circle cx="183" cy="406" r="3.5"/>
+      <circle cx="135" cy="418" r="3.5"/><circle cx="147" cy="418" r="3.5"/><circle cx="159" cy="418" r="3.5"/><circle cx="171" cy="418" r="3.5"/><circle cx="183" cy="418" r="3.5"/>
+      <circle cx="135" cy="430" r="3.5"/><circle cx="147" cy="430" r="3.5"/><circle cx="159" cy="430" r="3.5"/><circle cx="171" cy="430" r="3.5"/><circle cx="183" cy="430" r="3.5"/>
+    </g>
+    <g fill="#395F7F" stroke="#779BB8" stroke-width="1.5"><circle cx="587" cy="363" r="3"/><circle cx="629" cy="363" r="3"/><circle cx="671" cy="363" r="3"/><circle cx="587" cy="408" r="3"/><circle cx="629" cy="408" r="3"/><circle cx="671" cy="408" r="3"/><circle cx="587" cy="453" r="3"/><circle cx="629" cy="453" r="3"/><circle cx="671" cy="453" r="3"/></g>
   </g>
 </svg>
