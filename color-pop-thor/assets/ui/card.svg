@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <!-- The inset border keeps the rounded card edge visible when scaled down for the lower screen. -->
+  <rect x="4" y="4" width="392" height="592" rx="26" fill="#FFFFFF" stroke="#DADDE5" stroke-width="8"/>
+</svg>

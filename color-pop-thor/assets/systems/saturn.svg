@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The Saturn uses the black export case, circular disc lid, two front ports and six-button pad so it reads as Sega's CD console at card size. -->
+  <defs>
+    <linearGradient id="case" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#51555b"/><stop offset=".5" stop-color="#292d33"/><stop offset="1" stop-color="#151a22"/></linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#454a51"/><stop offset=".6" stop-color="#282c32"/><stop offset="1" stop-color="#1b2027"/></linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c4c7c9"/><stop offset="1" stop-color="#6e7780"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="349" cy="398" rx="249" ry="24" fill="#172235" opacity=".14"/>
+    <path d="M305 375C204 430 283 487 399 443S498 421 557 439" fill="none" stroke="#292e35" stroke-width="8"/>
+    <path d="M177 139Q189 127 216 126L495 126Q515 125 529 139L617 224Q627 235 622 260L607 359Q604 375 584 381L282 407Q263 409 246 399L121 328Q110 321 110 303L110 220Q110 203 124 190Z" fill="url(#case)" stroke="#172235" stroke-width="5"/>
+    <path d="M184 138L496 135Q514 136 526 147L608 226Q617 237 606 243L273 283Q256 284 242 277L123 211Q116 207 124 196L165 150Z" fill="url(#top)" stroke="#172235" stroke-width="5"/>
+    <path d="M122 214L255 287L614 248L599 352Q597 362 583 367L283 395Q267 397 254 389L125 317Z" fill="#20252c" stroke="#172235" stroke-width="4"/>
+    <path d="M259 287L255 389M131 311L252 379L595 350" fill="none" stroke="#50565e" stroke-width="3"/>
+    <ellipse cx="366" cy="208" rx="122" ry="66" fill="#1c2027" stroke="#0e141f" stroke-width="5"/>
+    <ellipse cx="366" cy="203" rx="118" ry="63" fill="url(#top)" stroke="#687078" stroke-width="2.5"/>
+    <path d="M278 175Q350 137 431 165" fill="none" stroke="#79828b" stroke-width="3" opacity=".75"/>
+    <g fill="#e1e5e7" stroke="none" transform="translate(357 191) skewY(-5)">
+      <ellipse cx="0" cy="0" rx="20" ry="10" fill="none" stroke="#d5dce4" stroke-width="3" transform="rotate(-25)"/>
+      <ellipse cx="0" cy="0" rx="9" ry="8"/>
+      <text x="0" y="25" font-family="sans-serif" font-weight="bold" font-size="13" text-anchor="middle">SEGA SATURN</text>
+    </g>
+    <path d="M277 142L440 142L458 158L298 164Z" fill="#101720" stroke="#59616c" stroke-width="2"/>
+    <path d="M290 150L443 150" stroke="#7b838c" stroke-width="3"/>
+    <ellipse cx="184" cy="216" rx="26" ry="13" fill="#111924" stroke="#0d131c" stroke-width="3"/>
+    <ellipse cx="184" cy="210" rx="25" ry="12" fill="url(#button)" stroke="#172235" stroke-width="3"/>
+    <ellipse cx="548" cy="251" rx="25" ry="13" fill="#111924" stroke="#0d131c" stroke-width="3"/>
+    <ellipse cx="548" cy="245" rx="24" ry="12" fill="url(#button)" stroke="#172235" stroke-width="3"/>
+    <ellipse cx="502" cy="257" rx="17" ry="9" fill="#111924" stroke="#0d131c" stroke-width="3"/>
+    <ellipse cx="502" cy="252" rx="16" ry="8" fill="url(#button)" stroke="#172235" stroke-width="2"/>
+    <circle cx="256" cy="283" r="5" fill="#4fd28a" stroke="#aee8cc" stroke-width="1"/>
+    <text x="137" y="245" fill="#b5bec7" stroke="none" font-family="sans-serif" font-size="9" transform="rotate(29 137 245)">POWER</text>
+    <text x="532" y="271" fill="#b5bec7" stroke="none" font-family="sans-serif" font-size="9" transform="rotate(-6 532 271)">OPEN</text>
+    <path d="M288 323L345 316L353 323L350 352L295 359L286 352Z" fill="#0b121a" stroke="#0c121a" stroke-width="4"/>
+    <path d="M386 312L443 305L451 312L448 341L393 348L384 341Z" fill="#0b121a" stroke="#0c121a" stroke-width="4"/>
+    <path d="M298 327L336 323L338 345L300 350ZM396 316L434 312L436 334L398 339Z" fill="#57636d" stroke="#899099" stroke-width="2"/>
+    <path d="M511 309L564 303M510 318L562 312M509 327L560 321" stroke="#0d141d" stroke-width="4"/>
+    <text x="150" y="296" fill="#c7d2de" stroke="none" font-family="sans-serif" font-weight="bold" font-size="15" transform="rotate(29 150 296)">SEGA</text>
+    <ellipse cx="580" cy="526" rx="147" ry="21" fill="#172235" opacity=".14"/>
+    <path d="M478 408Q492 390 515 392L552 400Q578 408 602 399L631 389Q654 384 672 398L710 430Q729 448 721 470L697 512Q685 529 669 516L634 491Q621 479 604 481L552 485Q533 486 521 499L496 526Q485 538 468 528L445 510Q428 497 440 476L459 442Z" fill="#171d24" stroke="#172235" stroke-width="5"/>
+    <path d="M479 404Q492 392 514 398L550 407Q579 415 606 405L633 396Q654 390 670 405L705 433Q720 446 710 464L689 503Q681 514 666 505L631 481Q617 471 602 474L549 478Q532 479 515 495L491 520Q483 528 471 520L450 502Q439 493 449 476L468 440Z" fill="url(#case)" stroke="#5c626b" stroke-width="2"/>
+    <circle cx="503" cy="451" r="35" fill="#171c23" stroke="#56606b" stroke-width="2"/>
+    <path d="M492 424h20v17h17v20h-17v17h-20v-17h-17v-20h17Z" fill="#4c535c" stroke="#101721" stroke-width="4"/>
+    <circle cx="502" cy="451" r="9" fill="#616975" stroke="#3b444f" stroke-width="2"/>
+    <path d="M568 456L578 438L589 451Z" fill="#929ca4" stroke="#101721" stroke-width="3"/>
+    <text x="573" y="474" fill="#afbac4" stroke="none" font-family="sans-serif" font-size="7" text-anchor="middle">START</text>
+    <g stroke="#131b25" stroke-width="3">
+      <circle cx="611" cy="425" r="11" fill="#8d959b"/>
+      <circle cx="637" cy="418" r="11" fill="#8d959b"/>
+      <circle cx="662" cy="412" r="11" fill="#8d959b"/>
+      <circle cx="618" cy="458" r="15" fill="#555e67"/>
+      <circle cx="649" cy="450" r="15" fill="#555e67"/>
+      <circle cx="678" cy="441" r="15" fill="#555e67"/>
+    </g>
+    <g fill="#f1f4f7" stroke="none" font-family="sans-serif" font-size="9" text-anchor="middle">
+      <text x="611" y="428">X</text><text x="637" y="421">Y</text><text x="662" y="415">Z</text>
+      <text x="618" y="461">A</text><text x="649" y="453">B</text><text x="678" y="444">C</text>
+    </g>
+    <path d="M543 425Q567 433 591 426" fill="none" stroke="#c6d1dc" stroke-width="2" opacity=".55"/>
+  </g>
+</svg>

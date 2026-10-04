@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>EF70A5FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/pico8.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/pico8.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/pico8.png</systemHero>
+    </variables>
+</theme>

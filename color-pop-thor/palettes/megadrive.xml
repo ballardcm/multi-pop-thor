@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>172D3BFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/megadrive.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/megadrive.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/megadrive.png</systemHero>
+    </variables>
+</theme>

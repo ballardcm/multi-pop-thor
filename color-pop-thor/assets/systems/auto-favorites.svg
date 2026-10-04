@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- This original illustration keeps its own material colors so hardware remains recognizable on every palette. -->
+<defs>
+<linearGradient id="dark" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#4a5362"/><stop offset="0.38" stop-color="#262d3b"/><stop offset="1" stop-color="#10141d"/></linearGradient>
+<linearGradient id="black" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#414751"/><stop offset="0.42" stop-color="#151b25"/><stop offset="1" stop-color="#050b12"/></linearGradient>
+<linearGradient id="rubber" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#545b65"/><stop offset="0.45" stop-color="#303741"/><stop offset="1" stop-color="#111822"/></linearGradient>
+<linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6f8fa"/><stop offset="0.42" stop-color="#bfc7d1"/><stop offset="0.5" stop-color="#8b95a4"/><stop offset="1" stop-color="#dbe2e9"/></linearGradient>
+<linearGradient id="cream" x1="0" y1="0" x2="0.3" y2="1"><stop stop-color="#eee6d2"/><stop offset="0.5" stop-color="#cfc5ad"/><stop offset="1" stop-color="#a19b8c"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b8763e"/><stop offset="0.45" stop-color="#80552f"/><stop offset="1" stop-color="#55341f"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#fff0a4"/><stop offset="0.35" stop-color="#ffc841"/><stop offset="0.7" stop-color="#d88a16"/><stop offset="1" stop-color="#ffe380"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#324963"/><stop offset="0.5" stop-color="#0c1525"/><stop offset="1" stop-color="#03101d"/></linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#ff665b"/><stop offset="0.55" stop-color="#d63136"/><stop offset="1" stop-color="#8f1628"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#72c1ff"/><stop offset="0.55" stop-color="#258ad2"/><stop offset="1" stop-color="#176087"/></linearGradient>
+<linearGradient id="purple" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#b286ed"/><stop offset="0.55" stop-color="#7551ac"/><stop offset="1" stop-color="#452a6e"/></linearGradient>
+</defs>
+<ellipse cx="401" cy="527" rx="220" ry="18" fill="#162039" opacity="0.17"/><path d="M254 78l86 10 61 153-68 27-59-136Z" fill="#2e85b8" stroke="#155375" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M544 78l-86 10-61 153 68 27 59-136Z" fill="#ea675c" stroke="#ab3742" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M287 95l29 4 70 159-20 8Z" fill="#9bd9ed" /><path d="M512 95l-27 4-70 159 20 8Z" fill="#ffbba0" /><ellipse cx="401" cy="338" rx="144" ry="164" fill="url(#gold)" stroke="#ad761e" stroke-width="5" /><ellipse cx="401" cy="338" rx="128" ry="148" fill="none" stroke="#ffed9f" stroke-width="4" /><ellipse cx="401" cy="342" rx="118" ry="139" fill="#dc9b26" opacity="0.4"/><polygon points="401.00,229.00 430.98,295.74 503.71,303.63 449.50,352.76 464.48,424.37 401.00,388.00 337.52,424.37 352.50,352.76 298.29,303.63 371.02,295.74" fill="#fff1a1" stroke="#b87d1a" stroke-width="4" stroke-linejoin="round" /><path d="M401 229v109l-103 33 58-48Z" fill="#ffe26a" /><path d="M401 338l64-46-11 80 50 33-71-17-32 47Z" fill="#edb839" /><ellipse cx="357" cy="275" rx="38" ry="12" fill="#fff8d2" transform="rotate(-37 357 275)" opacity="0.5"/><path d="M353 185C346 201 362 225 377 213M449 185c8 16-8 40-23 28" fill="none" stroke="#ffdfa0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

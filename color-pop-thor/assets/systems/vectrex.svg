@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The portrait CRT, vector-only display, folded-controller recess, and four-button hand controller make the 1982 Vectrex recognizable at small card sizes. -->
+  <defs>
+    <linearGradient id="black" x2="0.2" y2="1"><stop stop-color="#4a515d"/><stop offset="0.4" stop-color="#242b36"/><stop offset="1" stop-color="#0b111b"/></linearGradient>
+    <linearGradient id="side" x2="0" y2="1"><stop stop-color="#303844"/><stop offset="1" stop-color="#080e16"/></linearGradient>
+    <linearGradient id="silver" x2="0" y2="1"><stop stop-color="#f2f5f6"/><stop offset="0.38" stop-color="#d0d6da"/><stop offset="0.55" stop-color="#8c98a1"/><stop offset="1" stop-color="#c7cfd5"/></linearGradient>
+    <linearGradient id="gold" x2="0.7" y2="1"><stop stop-color="#efdc9d"/><stop offset="0.38" stop-color="#c6ab6e"/><stop offset="0.6" stop-color="#9b804c"/><stop offset="1" stop-color="#dec98d"/></linearGradient>
+    <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#987052"/><stop offset="0.5" stop-color="#654936"/><stop offset="1" stop-color="#392a23"/></linearGradient>
+    <linearGradient id="glass" x2="0.7" y2="1"><stop stop-color="#273d48"/><stop offset="0.4" stop-color="#071821"/><stop offset="1" stop-color="#01070e"/></linearGradient>
+    <radialGradient id="disc"><stop stop-color="#e7d695"/><stop offset="0.6" stop-color="#bd9f5f"/><stop offset="1" stop-color="#8f713a"/></radialGradient>
+  </defs>
+  <ellipse cx="415" cy="534" rx="252" ry="20" fill="#162039" opacity="0.17"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M257 72Q261 48 286 48h207l53 31v397l-32 32H275q-26 0-29-30Z" fill="url(#black)" stroke="#0c121c" stroke-width="4"/>
+    <path d="M493 48l53 31v397l-32 32V95Z" fill="url(#side)" stroke="#131a25" stroke-width="2"/>
+    <path d="M277 69Q279 57 291 57h190q12 0 21 15l9 382q0 30-22 37H282q-25-7-25-30Z" fill="url(#black)" stroke="#606977" stroke-width="2"/>
+    <rect x="280" y="94" width="205" height="263" rx="30" fill="#050b12" stroke="#7b8490" stroke-width="4"/>
+    <rect x="292" y="106" width="181" height="239" rx="26" fill="url(#glass)" stroke="#27333f" stroke-width="3"/>
+    <path d="M305 117q-9 10-8 36v40q18-38 94-82h-61q-17 0-25 6Z" fill="#617384" opacity="0.16"/>
+    <g fill="none" stroke="#c6e8ed" stroke-width="2" opacity="0.93">
+      <path d="M378 243l-11 24 13-7 11 7Z"/>
+      <path d="M337 189l13-18 18 3 13 23-16 16-23-3Z"/>
+      <path d="M409 213l20-6 13 16-10 23-22-4-8-16Z"/>
+      <path d="M321 280l16-12 18 11-6 21-15 3-14-10Z"/>
+      <path d="M415 293l12-5 14 11-4 14-16 6-13-11Z"/>
+      <path d="M375 139l8-6 12 6-3 11-11 3-8-7Z"/>
+      <path d="M352 231v-4M380 212v-4M395 283v-4M442 164v-4M324 225v-4"/>
+    </g>
+    <text x="310" y="131" font-family="monospace" font-size="8" letter-spacing="1" fill="#b9dbe3">1 UP  003400</text>
+    <text x="345" y="329" font-family="monospace" font-size="8" letter-spacing="2" fill="#91c0cc">MINE STORM</text>
+    <text x="289" y="87" font-family="Arial,sans-serif" font-weight="bold" font-size="11" letter-spacing="2.5" fill="#dfe5e9">VECTREX</text>
+    <path d="M288 381h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 382h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 386h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 387h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 391h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 392h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 396h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 397h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 401h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 402h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 406h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 407h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 411h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 412h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 416h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 417h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 421h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 422h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 426h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 427h80" stroke="#56606e" stroke-width="0.7"/>
+    <path d="M288 431h80" stroke="#050b12" stroke-width="2.2"/><path d="M288 432h80" stroke="#56606e" stroke-width="0.7"/>
+    <circle cx="433" cy="405" r="19" fill="#0a111b" stroke="#64717f" stroke-width="2"/>
+    <circle cx="433" cy="405" r="12" fill="url(#silver)"/><path d="M433 396v7" stroke="#354758" stroke-width="2"/>
+    <text x="417" y="435" font-family="Arial,sans-serif" font-size="6" fill="#b5c0cb">OFF / VOLUME</text>
+    <path d="M277 450h217v32H277Z" fill="#060c15" stroke="#516071" stroke-width="1.5"/>
+    <path d="M305 454h64v17h-64ZM401 454h64v17h-64Z" fill="#182333"/>
+    <g fill="#d3d7dc"><circle cx="318" cy="462" r="2"/><circle cx="329" cy="462" r="2"/><circle cx="340" cy="462" r="2"/><circle cx="351" cy="462" r="2"/><circle cx="414" cy="462" r="2"/><circle cx="425" cy="462" r="2"/><circle cx="436" cy="462" r="2"/><circle cx="447" cy="462" r="2"/></g>
+    <path d="M454 466C546 460 653 403 683 463C697 492 655 518 617 520" fill="none" stroke="#111925" stroke-width="6"/>
+    <path d="M455 466C546 462 651 408 681 462" fill="none" stroke="#596775" stroke-width="1.4"/>
+    <g transform="translate(420 434) rotate(-7 132 46)">
+      <path d="M18 0h231l18 21v63q-5 13-19 13H19Q5 94 2 84V20Z" fill="url(#black)" stroke="#111925" stroke-width="4"/>
+      <path d="M18 0h231l18 21H3Z" fill="#525e6b"/>
+      <path d="M16 24h236v50H16Z" fill="#162332" stroke="#7d8b99" stroke-width="1"/>
+      <circle cx="60" cy="49" r="22" fill="#0a1019" stroke="#566575" stroke-width="2"/>
+      <rect x="54" y="20" width="12" height="29" rx="4" fill="url(#silver)"/>
+      <ellipse cx="60" cy="19" rx="14" ry="9" fill="#202d3c" stroke="#5e6d7a" stroke-width="1.5"/>
+      <g fill="url(#silver)" stroke="#1b2838" stroke-width="2"><circle cx="126" cy="51" r="13"/><circle cx="160" cy="51" r="13"/><circle cx="194" cy="51" r="13"/><circle cx="228" cy="51" r="13"/></g>
+      <g font-family="Arial,sans-serif" font-size="7" text-anchor="middle" fill="#c9d5df"><text x="126" y="31">1</text><text x="160" y="31">2</text><text x="194" y="31">3</text><text x="228" y="31">4</text></g>
+      <text x="190" y="88" font-family="Arial,sans-serif" font-size="8" font-weight="bold" letter-spacing="1" fill="#c6d1da">VECTREX</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>243858FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/genesis.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/genesis.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/genesis.png</systemHero>
+    </variables>
+</theme>

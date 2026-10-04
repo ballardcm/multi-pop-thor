@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>D81F36FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/virtualboy.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/virtualboy.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/virtualboy.png</systemHero>
+    </variables>
+</theme>

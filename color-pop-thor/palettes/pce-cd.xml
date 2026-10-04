@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>A88872FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/pce-cd.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/pce-cd.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/pce-cd.png</systemHero>
+    </variables>
+</theme>

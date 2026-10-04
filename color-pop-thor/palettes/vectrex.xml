@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>427D80FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/vectrex.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/vectrex.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/vectrex.png</systemHero>
+    </variables>
+</theme>

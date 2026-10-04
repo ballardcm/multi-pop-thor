@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>357D28FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/xbox.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/xbox.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/xbox.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>623C7EFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/mame.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/mame.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/mame.png</systemHero>
+    </variables>
+</theme>

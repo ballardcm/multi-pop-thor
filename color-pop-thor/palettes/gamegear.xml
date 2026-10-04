@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>177D8DFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/gamegear.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/gamegear.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/gamegear.png</systemHero>
+    </variables>
+</theme>

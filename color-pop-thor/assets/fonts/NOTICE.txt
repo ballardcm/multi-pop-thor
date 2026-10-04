@@ -1,0 +1,8 @@
+Roboto and Roboto Condensed
+Copyright 2011 Google Inc. All Rights Reserved.
+
+These font binaries declare the Apache License, Version 2.0 in their embedded license metadata.
+Source project: https://github.com/googlefonts/roboto
+License: https://www.apache.org/licenses/LICENSE-2.0
+
+The filenames are normalized for theme use, and the font binaries are unmodified.

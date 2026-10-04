@@ -1,0 +1,8 @@
+Patched ROCKNIX EmulationStation frontend
+
+Original frontend source: ROCKNIX/emulationstation, revision cada856d86e3115fbbf0bce09dd761b0ee8fa9fd.
+The local modifications adjust the B navigation popup and savestate manager placement on the Thor 4400 x 1080 canvas. The Color Pop game carousel also pages three games left with L1 and three games right with R1 on that canvas.
+
+These files retain the original notices for the frontend, statically embedded pugixml, NanoSVG, id3v2lib, rcheevos/libretro-common, cpp-httplib, ZIP/MD5 utility code, and frontend font resources. Embedded-source-notices.txt retains source-specific notices, including zlib, FLAC, CHD, LZMA/7-Zip, and their contributors.
+
+RapidJSON and system-header notices accompany the compiler/runtime notices. Graphics, media, and other shared libraries are supplied by the installed ROCKNIX system rather than bundled in this package.

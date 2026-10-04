@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="menu">
+        <!-- The native menu remains on the upper screen because its virtual center is preserved. -->
+        <menuBackground name="menubg">
+            <color>E1E4EFFF</color><centerColor>FAFBFEFF</centerColor>
+            <scrollbarColor>5B32DFFF</scrollbarColor>
+        </menuBackground>
+        <menuText name="menutext, menutitle, menufooter">
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.034259259</fontSize>
+            <color>${ink}</color>
+        </menuText>
+        <!-- Savestate tiles inherit these selection colors, so selection needs a strong fill and readable label. -->
+        <menuText name="menutext">
+            <separatorColor>CFD4E2FF</separatorColor>
+            <selectorColor>5B32DFFF</selectorColor><selectorColorEnd>5B32DFFF</selectorColorEnd>
+            <selectedColor>FFFFFFFF</selectedColor>
+        </menuText>
+        <menuTextSmall name="menutextsmall">
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.030555556</fontSize>
+            <color>${muted}</color>
+        </menuTextSmall>
+        <menuGroup name="menugroup">
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.034259259</fontSize>
+            <color>${ink}</color>
+        </menuGroup>
+    </view>
+</theme>

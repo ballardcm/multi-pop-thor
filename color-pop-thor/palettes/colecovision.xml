@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>BD405BFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/colecovision.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/colecovision.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/colecovision.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810">
+  <!-- The translucent white shapes retain each platform's accent while adding depth behind its system glyph. -->
+  <defs>
+    <clipPath id="canvas"><rect width="1440" height="810" rx="32"/></clipPath>
+  </defs>
+  <g clip-path="url(#canvas)" fill="#FFFFFF">
+    <g fill="none" stroke="#FFFFFF" stroke-width="110">
+      <circle cx="1300" cy="-30" r="225" opacity="0.07"/>
+      <circle cx="1300" cy="-30" r="405" opacity="0.06"/>
+      <circle cx="1300" cy="-30" r="585" opacity="0.05"/>
+    </g>
+    <rect x="-160" y="630" width="870" height="230" rx="90" transform="rotate(-25 275 745)" opacity="0.08"/>
+    <rect x="-80" y="765" width="830" height="95" rx="47" transform="rotate(-25 335 812)" opacity="0.06"/>
+    <rect x="1180" y="615" width="215" height="215" rx="42" transform="rotate(15 1287 722)" opacity="0.07"/>
+    <circle cx="1248" cy="655" r="20" opacity="0.13"/>
+    <circle cx="1306" cy="655" r="20" opacity="0.13"/>
+    <circle cx="1248" cy="713" r="20" opacity="0.13"/>
+    <circle cx="1306" cy="713" r="20" opacity="0.13"/>
+    <circle cx="100" cy="112" r="13" opacity="0.12"/>
+    <circle cx="143" cy="112" r="13" opacity="0.12"/>
+    <circle cx="186" cy="112" r="13" opacity="0.12"/>
+  </g>
+</svg>

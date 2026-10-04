@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The angular case and lavender controls preserve the North American SNES hardware palette. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFCF8"/><stop offset="1" stop-color="#BFC4CB"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9BEC5"/><stop offset="1" stop-color="#6A727D"/></linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4D535C"/><stop offset="1" stop-color="#15191F"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A08BD8"/><stop offset="0.45" stop-color="#6C54A6"/><stop offset="1" stop-color="#44326F"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8A76D2"/><stop offset="0.45" stop-color="#6351A5"/><stop offset="1" stop-color="#392965"/></linearGradient>
+    <linearGradient id="grape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9171C5"/><stop offset="0.45" stop-color="#7650A4"/><stop offset="1" stop-color="#4C2D73"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4E636B"/><stop offset="0.5" stop-color="#263A43"/><stop offset="1" stop-color="#18242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BEC983"/><stop offset="1" stop-color="#8D9E61"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D1DD"/><stop offset="0.45" stop-color="#20A4B9"/><stop offset="1" stop-color="#087487"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF9E7"/><stop offset="1" stop-color="#CBC4AF"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DE455C"/><stop offset="1" stop-color="#911B35"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M271 345C253 438 346 479 440 428" fill="none" stroke="#11151C" stroke-width="9" stroke-linecap="round"/><path d="M271 345C253 438 346 479 440 428" fill="none" stroke="#747982" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <polygon points="79,168 521,168 613,97 166,97" fill="url(#light)" stroke="#737A86" stroke-width="3"/>
+    <polygon points="521,168 613,97 613,312 521,376" fill="#9198A1" stroke="#737A86" stroke-width="3"/>
+    <path d="M79 168h442v177l-21 31H100l-21-31Z" fill="#C9CCD3" stroke="#737A86" stroke-width="3"/>
+    <path d="M79 317h442v28l-21 31H100l-21-31Z" fill="#9197A1"/>
+    <polygon points="169,153 463,153 531,103 237,103" fill="#ADB2BC" stroke="#9096A0" stroke-width="2"/>
+    <polygon points="209,145 461,145 474,135 223,135" fill="#32343A"/>
+    <polygon points="218,132 465,132 475,124 228,124" fill="#5A516E"/>
+    <rect x="170" y="189" width="68" height="69" rx="4" fill="#8B77B2" stroke="#685589" stroke-width="2"/>
+    <rect x="170" y="189" width="68" height="18" rx="4" fill="#B7A6D4"/>
+    <rect x="363" y="189" width="68" height="69" rx="4" fill="#8B77B2" stroke="#685589" stroke-width="2"/>
+    <rect x="363" y="189" width="68" height="18" rx="4" fill="#B7A6D4"/>
+    <rect x="254" y="190" width="95" height="59" rx="3" fill="#ABB0BA" stroke="#898F9A" stroke-width="2"/>
+    <path d="M272 204h59m-59 10h59m-59 10h59" stroke="#858C98" stroke-width="3"/>
+    <rect x="193" y="324" width="49" height="26" rx="6" fill="#272A32"/>
+    <rect x="357" y="324" width="49" height="26" rx="6" fill="#272A32"/>
+    <path d="M204 330h26m138 0h26" stroke="#777F8B" stroke-width="2"/>
+    <rect x="148" y="332" width="8" height="6" rx="2" fill="#D53C54"/>
+    <path d="M87 176h63" stroke="#F9FAFC" stroke-width="3"/>
+    <g transform="translate(425 348) rotate(-8 165 84)">
+      <path d="M82 13h165c46 0 80 36 80 78s-30 72-72 66l-38-25H103l-38 25c-42 6-65-24-65-66s36-78 82-78Z" fill="#777D88" stroke="#49515C" stroke-width="4"/>
+      <path d="M80 8h165c43 0 74 31 74 71s-27 67-65 62l-39-24H104l-37 24C31 146 8 119 8 79S37 8 80 8Z" fill="url(#light)"/>
+      <path d="M18 60c13-31 36-40 67-40h146" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.85"/>
+      <ellipse cx="74" cy="81" rx="49" ry="45" fill="#B3B8C0"/>
+      <path d="M63.66666666666667 51h19.666666666666668v19.666666666666668h19.666666666666668v19.666666666666668h-19.666666666666668v19.666666666666668h-19.666666666666668v-19.666666666666668H44v-19.666666666666668h19.666666666666668Z" fill="#20242A" stroke="#12151A" stroke-width="2"/><path d="M66.66666666666667 55h13.666666666666668v18.666666666666668h18.666666666666668" fill="none" stroke="#67707B" stroke-width="2" opacity="0.6"/><circle cx="73.5" cy="80.5" r="5.9" fill="#171B20" opacity="0.6"/><rect x="127" y="88" width="27" height="12" rx="6" fill="#747982" stroke="#4D525B" stroke-width="1.5" transform="rotate(-25 140.5 94)"/><rect x="166" y="88" width="27" height="12" rx="6" fill="#747982" stroke="#4D525B" stroke-width="1.5" transform="rotate(-25 179.5 94)"/>
+      <ellipse cx="250" cy="82" rx="53" ry="45" fill="#9399A4"/><circle cx="250" cy="63" r="15" fill="#242932" opacity="0.6"/><circle cx="250" cy="61" r="13" fill="#B8A5D7" stroke="#343A44" stroke-width="2"/><path d="M242.2 58.4Q250 49.3 256.5 56.45" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="229" cy="84" r="15" fill="#242932" opacity="0.6"/><circle cx="229" cy="82" r="13" fill="#B8A5D7" stroke="#343A44" stroke-width="2"/><path d="M221.2 79.4Q229 70.3 235.5 77.45" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="271" cy="84" r="15" fill="#242932" opacity="0.6"/><circle cx="271" cy="82" r="13" fill="#695194" stroke="#343A44" stroke-width="2"/><path d="M263.2 79.4Q271 70.3 277.5 77.45" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="250" cy="105" r="15" fill="#242932" opacity="0.6"/><circle cx="250" cy="103" r="13" fill="#695194" stroke="#343A44" stroke-width="2"/><path d="M242.2 100.4Q250 91.3 256.5 98.45" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+    </g>
+  </g>
+</svg>

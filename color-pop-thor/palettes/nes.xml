@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>B83931FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/nes.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/nes.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/nes.png</systemHero>
+    </variables>
+</theme>

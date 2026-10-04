@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>F5A53DFF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/atomiswave.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/atomiswave.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/atomiswave.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The original CD-ROM² system keeps its open Interface Unit, separate left CD player and right PC Engine so CD software has an unmistakable identity beside HuCard software. -->
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fffdf3"/><stop offset=".5" stop-color="#eee9dd"/><stop offset="1" stop-color="#cfc7ba"/></linearGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ddd8cd"/><stop offset="1" stop-color="#b7b0a4"/></linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#dcd6c9"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#727164"/><stop offset="1" stop-color="#303d37"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="361" cy="433" rx="266" ry="23" fill="#172235" opacity=".14"/>
+    <path d="M425 391C376 445 402 494 487 462L556 445" fill="none" stroke="#dfd7c9" stroke-width="8"/>
+    <path d="M168 103Q168 89 185 87L576 80Q592 80 600 94L631 241L167 280Z" fill="url(#base)" stroke="#172235" stroke-width="5"/>
+    <path d="M181 108L572 100L602 224L184 258Z" fill="url(#lid)" stroke="#aaa596" stroke-width="3"/>
+    <path d="M187 116L565 109L590 213L190 244Z" fill="none" stroke="#faf7eb" stroke-width="4"/>
+    <g fill="#6a574d" stroke="none" font-family="sans-serif" transform="translate(370 162) rotate(-3)">
+      <text x="0" y="0" font-size="24" font-weight="bold" text-anchor="middle">PC Engine</text>
+      <text x="0" y="22" font-size="13" letter-spacing="2" text-anchor="middle">CD-ROM² SYSTEM</text>
+    </g>
+    <path d="M145 241L586 223L662 300L636 395L240 447L111 371L110 307Z" fill="#b7b0a4" stroke="#172235" stroke-width="5"/>
+    <path d="M145 230L585 213L660 288L640 376L239 429L110 358L110 298Z" fill="url(#ivory)" stroke="#172235" stroke-width="5"/>
+    <path d="M144 231L585 215L657 288L240 343L113 297Z" fill="#e9e3d6" stroke="#172235" stroke-width="4"/>
+    <path d="M240 343L657 289L640 376L239 429Z" fill="url(#base)" stroke="#172235" stroke-width="4"/>
+    <path d="M241 413L639 362" fill="none" stroke="#f5f0e5" stroke-width="3"/>
+    <path d="M152 225L334 220L369 273L352 340L227 355L144 302Z" fill="#b7b0a5" stroke="#172235" stroke-width="4"/>
+    <path d="M152 216L333 211L370 263L354 328L227 343L144 290L144 250Z" fill="url(#ivory)" stroke="#172235" stroke-width="4"/>
+    <path d="M153 217L333 213L368 262L229 284L146 250Z" fill="#fbf7ec" stroke="#172235" stroke-width="4"/>
+    <ellipse cx="255" cy="248" rx="72" ry="27" fill="#e1dccf" stroke="#9e9b8f" stroke-width="3"/>
+    <ellipse cx="255" cy="245" rx="67" ry="24" fill="#fffaf0" stroke="#c8c2b5" stroke-width="2"/>
+    <text x="255" y="249" fill="#706963" stroke="none" font-family="sans-serif" font-weight="bold" font-size="10" text-anchor="middle">CD-ROM²</text>
+    <path d="M186 233Q240 217 290 228" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <path d="M244 292L295 285L296 306L246 314Z" fill="url(#glass)" stroke="#8b9181" stroke-width="2"/>
+    <text x="270" y="303" fill="#b3c5a2" stroke="none" font-family="monospace" font-size="11" text-anchor="middle" transform="rotate(-7 270 303)">01</text>
+    <path d="M177 273L211 286M179 282L212 294" fill="none" stroke="#6c6258" stroke-width="3"/>
+    <path d="M304 286L341 281L340 291L304 296Z" fill="#d7d0c2" stroke="#746f64" stroke-width="2"/>
+    <path d="M308 307l10-2M326 304l10-2" stroke="#8d897d" stroke-width="5"/>
+    <circle cx="166" cy="299" r="4" fill="#789c83" stroke="#547960" stroke-width="1.5"/>
+    <path d="M379 212L548 204L609 263L595 336L432 359L369 306Z" fill="#b8b0a4" stroke="#172235" stroke-width="4"/>
+    <path d="M379 202L548 195L610 252L598 322L432 345L369 296L369 243Z" fill="url(#ivory)" stroke="#172235" stroke-width="4"/>
+    <path d="M379 204L547 197L606 252L432 278L372 242Z" fill="#faf5e9" stroke="#172235" stroke-width="4"/>
+    <path d="M432 278L607 253L597 322L432 345Z" fill="#dfd7c7" stroke="#172235" stroke-width="3"/>
+    <path d="M404 226L532 214L558 240L426 259Z" fill="#cfbea9" stroke="#a38c78" stroke-width="2"/>
+    <path d="M423 247L545 230L557 240L426 259Z" fill="#171c24" stroke="#172235" stroke-width="2"/>
+    <path d="M432 258L558 240L559 253L433 272Z" fill="#673b31" stroke="#172235" stroke-width="2"/>
+    <path d="M449 262L532 250L541 284L457 299Z" fill="#faf5e8" stroke="#172235" stroke-width="2"/>
+    <path d="M460 279L527 269" stroke="#bd433b" stroke-width="7"/>
+    <text x="450" y="222" fill="#a54c3c" stroke="none" font-family="sans-serif" font-weight="bold" font-size="9" transform="rotate(-6 450 222)">PC Engine</text>
+    <path d="M386 270L413 284L413 300L386 287Z" fill="#734b3d" stroke="#172235" stroke-width="2"/>
+    <circle cx="421" cy="295" r="3" fill="#d94138"/>
+    <path d="M455 320L494 314L494 330L455 336Z" fill="#171d25" stroke="#172235" stroke-width="2"/>
+    <path d="M552 276l-2 30M560 275l-2 30M568 274l-2 30M576 273l-2 30" stroke="#a7a090" stroke-width="2"/>
+    <path d="M278 364L361 353L361 369L278 381Z" fill="#675c4c" stroke="#172235" stroke-width="2"/>
+    <path d="M289 363L307 360L307 372L289 375Z" fill="#a69c89" stroke="#514b43" stroke-width="2"/>
+    <circle cx="378" cy="365" r="4" fill="#63a277" stroke="#37604a" stroke-width="1.5"/>
+    <text x="503" y="378" fill="#675b50" stroke="none" font-family="sans-serif" font-weight="bold" font-size="12" transform="rotate(-7 503 378)">INTERFACE UNIT</text>
+    <ellipse cx="584" cy="524" rx="148" ry="18" fill="#172235" opacity=".14"/>
+    <path d="M457 425L681 413L713 443L705 498L470 524L437 491Z" fill="#beb5a7" stroke="#172235" stroke-width="5"/>
+    <path d="M457 415L681 403L713 432L705 487L470 513L437 481Z" fill="url(#ivory)" stroke="#172235" stroke-width="5"/>
+    <path d="M457 434L687 416L696 477L469 501L448 477Z" fill="#695341" stroke="#172235" stroke-width="3"/>
+    <path d="M461 436L570 427L581 490L472 499L451 475Z" fill="#e8e0d2" stroke="#172235" stroke-width="2"/>
+    <path d="M488 440h18v17h17v18h-17v17h-18v-17h-17v-18h17Z" fill="#343334" stroke="#172235" stroke-width="4"/>
+    <path d="M541 445L560 443M544 465L563 463" stroke="#675448" stroke-width="7"/>
+    <circle cx="615" cy="460" r="22" fill="#171d26" stroke="#172235" stroke-width="3"/>
+    <circle cx="615" cy="456" r="20" fill="#e44238" stroke="#172235" stroke-width="3"/>
+    <circle cx="666" cy="454" r="22" fill="#171d26" stroke="#172235" stroke-width="3"/>
+    <circle cx="666" cy="450" r="20" fill="#e44238" stroke="#172235" stroke-width="3"/>
+    <path d="M603 450Q615 445 627 449M654 444Q666 439 678 443" fill="none" stroke="#ffaaa0" stroke-width="2"/>
+    <text x="615" y="463" fill="#fff0da" stroke="none" font-family="sans-serif" font-size="12" text-anchor="middle">II</text>
+    <text x="666" y="457" fill="#fff0da" stroke="none" font-family="sans-serif" font-size="12" text-anchor="middle">I</text>
+  </g>
+</svg>

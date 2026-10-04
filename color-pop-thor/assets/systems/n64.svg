@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The cartridge slot, four controller ports, and three grip controller preserve the defining Nintendo 64 silhouette. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFCF8"/><stop offset="1" stop-color="#BFC4CB"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9BEC5"/><stop offset="1" stop-color="#6A727D"/></linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4D535C"/><stop offset="1" stop-color="#15191F"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A08BD8"/><stop offset="0.45" stop-color="#6C54A6"/><stop offset="1" stop-color="#44326F"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8A76D2"/><stop offset="0.45" stop-color="#6351A5"/><stop offset="1" stop-color="#392965"/></linearGradient>
+    <linearGradient id="grape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9171C5"/><stop offset="0.45" stop-color="#7650A4"/><stop offset="1" stop-color="#4C2D73"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4E636B"/><stop offset="0.5" stop-color="#263A43"/><stop offset="1" stop-color="#18242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BEC983"/><stop offset="1" stop-color="#8D9E61"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D1DD"/><stop offset="0.45" stop-color="#20A4B9"/><stop offset="1" stop-color="#087487"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF9E7"/><stop offset="1" stop-color="#CBC4AF"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DE455C"/><stop offset="1" stop-color="#911B35"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M361 336C368 431 423 451 470 421" fill="none" stroke="#11151C" stroke-width="9" stroke-linecap="round"/><path d="M361 336C368 431 423 451 470 421" fill="none" stroke="#747982" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <path d="M126 161c-31 17-42 44-45 77l-8 63c-3 28 16 49 46 52h450c38-2 58-16 57-49l-5-81c-1-43-25-65-59-72Z" fill="#171C23" stroke="#303741" stroke-width="3"/>
+    <path d="M151 108h362c42 0 80 29 91 66l18 55c7 27-9 46-35 46H116c-27 0-45-16-39-41l17-58c9-38 32-68 57-68Z" fill="url(#black)" stroke="#343C47" stroke-width="3"/>
+    <path d="M125 143c24-17 45-20 67-20h299c41 0 70 23 84 51" fill="none" stroke="#737C87" stroke-width="4" opacity="0.6"/>
+    <path d="M221 137h236l17 20H205Z" fill="#0B0F15" stroke="#5B626D" stroke-width="3"/>
+    <path d="M230 145h213" stroke="#353E48" stroke-width="5"/>
+    <path d="M280 208h114l10 45H270Z" fill="#262D35" stroke="#56616B" stroke-width="2"/>
+    <path d="M289 215h96" stroke="#89929D" stroke-width="2" opacity="0.6"/>
+    <rect x="133" y="217" width="57" height="30" rx="7" fill="#555D67"/>
+    <rect x="486" y="217" width="57" height="30" rx="7" fill="#555D67"/>
+    <g stroke="#131921" stroke-width="6"><path d="M126 174l-8 29M488 174l8 29"/><path d="M141 174l-8 29M503 174l8 29"/><path d="M156 174l-8 29M518 174l8 29"/><path d="M171 174l-8 29M533 174l8 29"/><path d="M186 174l-8 29M548 174l8 29"/><path d="M201 174l-8 29M563 174l8 29"/></g>
+    <g><ellipse cx="174" cy="309" rx="24" ry="19" fill="#424C58" stroke="#11151D" stroke-width="5"/><ellipse cx="174" cy="309" rx="14" ry="11" fill="#090D13"/><path d="M166 303h16" stroke="#929BA6" stroke-width="2"/><ellipse cx="275" cy="309" rx="24" ry="19" fill="#424C58" stroke="#11151D" stroke-width="5"/><ellipse cx="275" cy="309" rx="14" ry="11" fill="#090D13"/><path d="M267 303h16" stroke="#929BA6" stroke-width="2"/><ellipse cx="376" cy="309" rx="24" ry="19" fill="#424C58" stroke="#11151D" stroke-width="5"/><ellipse cx="376" cy="309" rx="14" ry="11" fill="#090D13"/><path d="M368 303h16" stroke="#929BA6" stroke-width="2"/><ellipse cx="477" cy="309" rx="24" ry="19" fill="#424C58" stroke="#11151D" stroke-width="5"/><ellipse cx="477" cy="309" rx="14" ry="11" fill="#090D13"/><path d="M469 303h16" stroke="#929BA6" stroke-width="2"/></g>
+    <circle cx="119" cy="303" r="5" fill="#DD314C"/>
+    <g transform="translate(398 338) rotate(-7 171 107)">
+      <path d="M138 28h64c24-17 48-23 73-12 35 17 51 48 57 85l16 70c6 27-21 40-38 16l-41-59-24-12-32 107c-6 24-47 24-55 0l-32-107-23 12-38 59c-18 26-46 11-50-16l11-67c3-56 41-112 73-84 15 0 29 5 39 8Z" fill="#7B838F" stroke="#464F5D" stroke-width="4" transform="translate(0 6)"/>
+      <path d="M138 28h64c24-17 48-23 73-12 35 17 51 48 57 85l16 70c6 27-21 40-38 16l-41-59-24-12-32 107c-6 24-47 24-55 0l-32-107-23 12-38 59c-18 26-46 11-50-16l11-67c3-56 41-112 73-84 15 0 29 5 39 8Z" fill="url(#light)"/>
+      <path d="M50 40c21-23 51-23 76-12m88 0c29-12 56-12 75 10" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+      <path d="M72.0 46h19.0v19.0h19.0v19.0h-19.0v19.0h-19.0v-19.0H53v-19.0h19.0Z" fill="#20242A" stroke="#12151A" stroke-width="2"/><path d="M75.0 50h13.0v18.0h18.0" fill="none" stroke="#67707B" stroke-width="2" opacity="0.6"/><circle cx="81.5" cy="74.5" r="5.7" fill="#171B20" opacity="0.6"/>
+      <circle cx="176" cy="109" r="26" fill="#242932" opacity="0.6"/><circle cx="176" cy="107" r="24" fill="#787F89" stroke="#343A44" stroke-width="2"/><path d="M161.6 102.2Q176 85.4 188.0 98.6" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="176" cy="107" r="13" fill="#A8AFB8"/><path d="M167 104h18m-16 6h14" stroke="#697380" stroke-width="2"/>
+      <circle cx="173" cy="49" r="12" fill="#242932" opacity="0.6"/><circle cx="173" cy="47" r="10" fill="#CE3545" stroke="#343A44" stroke-width="2"/><path d="M167.0 45.0Q173 38.0 178.0 43.5" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="244" cy="82" r="19" fill="#242932" opacity="0.6"/><circle cx="244" cy="80" r="17" fill="#2780BD" stroke="#343A44" stroke-width="2"/><path d="M233.8 76.6Q244 64.7 252.5 74.05" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="219" cy="57" r="15" fill="#242932" opacity="0.6"/><circle cx="219" cy="55" r="13" fill="#309167" stroke="#343A44" stroke-width="2"/><path d="M211.2 52.4Q219 43.3 225.5 50.45" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+      <circle cx="287" cy="45" r="11" fill="#242932" opacity="0.6"/><circle cx="287" cy="43" r="9" fill="#DDC449" stroke="#343A44" stroke-width="2"/><path d="M281.6 41.2Q287 34.9 291.5 39.85" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="275" cy="59" r="11" fill="#242932" opacity="0.6"/><circle cx="275" cy="57" r="9" fill="#DDC449" stroke="#343A44" stroke-width="2"/><path d="M269.6 55.2Q275 48.9 279.5 53.85" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="299" cy="59" r="11" fill="#242932" opacity="0.6"/><circle cx="299" cy="57" r="9" fill="#DDC449" stroke="#343A44" stroke-width="2"/><path d="M293.6 55.2Q299 48.9 303.5 53.85" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="287" cy="73" r="11" fill="#242932" opacity="0.6"/><circle cx="287" cy="71" r="9" fill="#DDC449" stroke="#343A44" stroke-width="2"/><path d="M281.6 69.2Q287 62.9 291.5 67.85" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+    </g>
+  </g>
+</svg>

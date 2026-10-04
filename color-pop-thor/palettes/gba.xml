@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>393977FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/gba.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/gba.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/gba.png</systemHero>
+    </variables>
+</theme>

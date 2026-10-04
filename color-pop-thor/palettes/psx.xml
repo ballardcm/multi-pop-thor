@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>77796FFF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/psx.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/psx.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/psx.png</systemHero>
+    </variables>
+</theme>

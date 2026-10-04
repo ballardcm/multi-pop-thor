@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>1F9C94FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/auto-allgames.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/auto-allgames.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/auto-allgames.png</systemHero>
+    </variables>
+</theme>

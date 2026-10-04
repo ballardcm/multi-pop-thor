@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The front loading door, red action buttons, and rectangular controller distinguish the original North American NES. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFCF8"/><stop offset="1" stop-color="#BFC4CB"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9BEC5"/><stop offset="1" stop-color="#6A727D"/></linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4D535C"/><stop offset="1" stop-color="#15191F"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A08BD8"/><stop offset="0.45" stop-color="#6C54A6"/><stop offset="1" stop-color="#44326F"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8A76D2"/><stop offset="0.45" stop-color="#6351A5"/><stop offset="1" stop-color="#392965"/></linearGradient>
+    <linearGradient id="grape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9171C5"/><stop offset="0.45" stop-color="#7650A4"/><stop offset="1" stop-color="#4C2D73"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4E636B"/><stop offset="0.5" stop-color="#263A43"/><stop offset="1" stop-color="#18242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BEC983"/><stop offset="1" stop-color="#8D9E61"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D1DD"/><stop offset="0.45" stop-color="#20A4B9"/><stop offset="1" stop-color="#087487"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF9E7"/><stop offset="1" stop-color="#CBC4AF"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DE455C"/><stop offset="1" stop-color="#911B35"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M285 357C285 443 349 465 426 423" fill="none" stroke="#11151C" stroke-width="9" stroke-linecap="round"/><path d="M285 357C285 443 349 465 426 423" fill="none" stroke="#747982" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <polygon points="78,142 530,142 620,79 166,79" fill="url(#light)" stroke="#616975" stroke-width="3"/>
+    <polygon points="530,142 620,79 620,310 530,373" fill="#8E959E" stroke="#616975" stroke-width="3"/>
+    <rect x="78" y="142" width="452" height="231" fill="#C5C9CE" stroke="#616975" stroke-width="3"/>
+    <rect x="78" y="303" width="452" height="70" fill="#858B93"/>
+    <polygon points="530,303 620,240 620,310 530,373" fill="#6D747D"/>
+    <polygon points="421,79 469,79 379,142 331,142" fill="#484E58"/>
+    <g stroke="#E1E4E8" stroke-width="4"><path d="M429 83l-77 55"/><path d="M438 83l-77 55"/><path d="M447 83l-77 55"/><path d="M456 83l-77 55"/><path d="M465 83l-77 55"/></g>
+    <rect x="164" y="156" width="331" height="99" rx="3" fill="#DDE0E2" stroke="#969CA5" stroke-width="3"/>
+    <path d="M167 248h325" stroke="#505864" stroke-width="6"/>
+    <rect x="423" y="270" width="71" height="97" fill="#262B32"/>
+    <rect x="437" y="326" width="19" height="18" rx="3" fill="#080B10" stroke="#9CA3AC" stroke-width="2"/>
+    <rect x="465" y="326" width="19" height="18" rx="3" fill="#080B10" stroke="#9CA3AC" stroke-width="2"/>
+    <rect x="108" y="325" width="45" height="22" rx="2" fill="#C7CBD0" stroke="#545D68" stroke-width="2"/>
+    <rect x="168" y="325" width="45" height="22" rx="2" fill="#C7CBD0" stroke="#545D68" stroke-width="2"/>
+    <rect x="93" y="332" width="6" height="9" rx="2" fill="#E73347"/>
+    <path d="M87 154h58" stroke="#F7F8F7" stroke-width="3"/>
+    <g transform="translate(402 372) rotate(-7 176 70)">
+      <rect x="0" y="5" width="337" height="144" rx="13" fill="#7D848E" stroke="#474F5B" stroke-width="3"/>
+      <rect x="0" y="0" width="337" height="138" rx="12" fill="url(#light)"/>
+      <rect x="15" y="16" width="307" height="107" rx="4" fill="#272B31"/>
+      <rect x="123" y="16" width="83" height="107" fill="#8D919A"/>
+      <path d="M128 30h73m-73 14h73m-73 14h73m-73 43h73m-73 14h73" stroke="#C7CBD2" stroke-width="5"/>
+      <path d="M58.0 41h21.0v21.0h21.0v21.0h-21.0v21.0h-21.0v-21.0H37v-21.0h21.0Z" fill="#20242A" stroke="#12151A" stroke-width="2"/><path d="M61.0 45h15.0v20.0h20.0" fill="none" stroke="#67707B" stroke-width="2" opacity="0.6"/><circle cx="68.5" cy="72.5" r="6.3" fill="#171B20" opacity="0.6"/>
+      <rect x="135" y="73" width="26" height="9" rx="4" fill="#292D34"/>
+      <rect x="170" y="73" width="26" height="9" rx="4" fill="#292D34"/>
+      <rect x="223" y="54" width="87" height="56" rx="6" fill="#C6CAD1"/>
+      <circle cx="245" cy="84" r="21" fill="#242932" opacity="0.6"/><circle cx="245" cy="82" r="19" fill="#BD293E" stroke="#343A44" stroke-width="2"/><path d="M233.6 78.2Q245 64.9 254.5 75.35" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="289" cy="84" r="21" fill="#242932" opacity="0.6"/><circle cx="289" cy="82" r="19" fill="#BD293E" stroke="#343A44" stroke-width="2"/><path d="M277.6 78.2Q289 64.9 298.5 75.35" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+    </g>
+  </g>
+</svg>

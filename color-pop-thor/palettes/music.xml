@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>A42883FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/music.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/music.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/music.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>B6283DFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/atarijaguar.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>
+    </variables>
+</theme>

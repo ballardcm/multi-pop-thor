@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>9AA4D9FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/segacd.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/segacd.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/segacd.png</systemHero>
+    </variables>
+</theme>

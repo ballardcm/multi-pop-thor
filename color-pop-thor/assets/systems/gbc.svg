@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The grape shell, black screen surround, rounded base, and dark controls distinguish Game Boy Color from the original handheld. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFCF8"/><stop offset="1" stop-color="#BFC4CB"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9BEC5"/><stop offset="1" stop-color="#6A727D"/></linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4D535C"/><stop offset="1" stop-color="#15191F"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A08BD8"/><stop offset="0.45" stop-color="#6C54A6"/><stop offset="1" stop-color="#44326F"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8A76D2"/><stop offset="0.45" stop-color="#6351A5"/><stop offset="1" stop-color="#392965"/></linearGradient>
+    <linearGradient id="grape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9171C5"/><stop offset="0.45" stop-color="#7650A4"/><stop offset="1" stop-color="#4C2D73"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4E636B"/><stop offset="0.5" stop-color="#263A43"/><stop offset="1" stop-color="#18242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BEC983"/><stop offset="1" stop-color="#8D9E61"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D1DD"/><stop offset="0.45" stop-color="#20A4B9"/><stop offset="1" stop-color="#087487"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF9E7"/><stop offset="1" stop-color="#CBC4AF"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DE455C"/><stop offset="1" stop-color="#911B35"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M275 47h272c17 0 28 12 28 29v383c0 64-53 98-149 98s-167-28-167-89V78c0-21 6-31 16-31Z" fill="#472762" stroke="#3E254E" stroke-width="3"/>
+    <path d="M255 39h272c17 0 28 12 28 29v383c0 64-53 98-149 98s-167-28-167-89V70c0-21 6-31 16-31Z" fill="url(#grape)" stroke="#57326F" stroke-width="3"/>
+    <path d="M258 55h264c9 0 16 4 17 12" stroke="#C4A5E0" stroke-width="3" fill="none" opacity="0.55"/>
+    <path d="M270 94h253v203c0 21-16 38-35 38H306c-20 0-36-17-36-38Z" fill="#262530" stroke="#3C3245" stroke-width="3"/>
+    <rect x="305" y="131" width="184" height="164" rx="3" fill="#111C1F"/>
+    <rect x="312" y="138" width="170" height="150" rx="2" fill="url(#lcd)"/>
+    <path d="m317 143 130 0-130 104Z" fill="#ECF1CE" opacity="0.1"/>
+    <circle cx="287" cy="142" r="5" fill="#BF344E"/>
+    <rect x="335" y="308" width="126" height="9" rx="4" fill="#575365"/>
+    <path d="M308.6666666666667 372h25.666666666666668v25.666666666666668h25.666666666666668v25.666666666666668h-25.666666666666668v25.666666666666668h-25.666666666666668v-25.666666666666668H283v-25.666666666666668h25.666666666666668Z" fill="#20242A" stroke="#12151A" stroke-width="2"/><path d="M311.6666666666667 376h19.666666666666668v24.666666666666668h24.666666666666668" fill="none" stroke="#67707B" stroke-width="2" opacity="0.6"/><circle cx="321.5" cy="410.5" r="7.7" fill="#171B20" opacity="0.6"/>
+    <ellipse cx="474" cy="387" rx="54" ry="29" transform="rotate(-25 474 387)" fill="#55347A"/>
+    <circle cx="449" cy="400" r="24" fill="#242932" opacity="0.6"/><circle cx="449" cy="398" r="22" fill="#282B33" stroke="#343A44" stroke-width="2"/><path d="M435.8 393.6Q449 378.2 460.0 390.3" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="498" cy="376" r="24" fill="#242932" opacity="0.6"/><circle cx="498" cy="374" r="22" fill="#282B33" stroke="#343A44" stroke-width="2"/><path d="M484.8 369.6Q498 354.2 509.0 366.3" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+    <rect x="347" y="468" width="34" height="12" rx="6" fill="#747982" stroke="#4D525B" stroke-width="1.5" transform="rotate(-22 364.0 474)"/><rect x="400" y="448" width="34" height="12" rx="6" fill="#747982" stroke="#4D525B" stroke-width="1.5" transform="rotate(-22 417.0 454)"/>
+    <circle cx="469" cy="463" r="2.5" fill="#35223F"/><circle cx="481" cy="463" r="2.5" fill="#35223F"/><circle cx="493" cy="463" r="2.5" fill="#35223F"/><circle cx="505" cy="463" r="2.5" fill="#35223F"/><circle cx="469" cy="475" r="2.5" fill="#35223F"/><circle cx="481" cy="475" r="2.5" fill="#35223F"/><circle cx="493" cy="475" r="2.5" fill="#35223F"/><circle cx="505" cy="475" r="2.5" fill="#35223F"/><circle cx="469" cy="487" r="2.5" fill="#35223F"/><circle cx="481" cy="487" r="2.5" fill="#35223F"/><circle cx="493" cy="487" r="2.5" fill="#35223F"/><circle cx="505" cy="487" r="2.5" fill="#35223F"/><circle cx="469" cy="499" r="2.5" fill="#35223F"/><circle cx="481" cy="499" r="2.5" fill="#35223F"/><circle cx="493" cy="499" r="2.5" fill="#35223F"/><circle cx="505" cy="499" r="2.5" fill="#35223F"/><circle cx="469" cy="511" r="2.5" fill="#35223F"/><circle cx="481" cy="511" r="2.5" fill="#35223F"/><circle cx="493" cy="511" r="2.5" fill="#35223F"/><circle cx="505" cy="511" r="2.5" fill="#35223F"/>
+    <path d="M252 476c15 39 64 55 149 55" fill="none" stroke="#C4A5E0" stroke-width="3" opacity="0.2"/>
+  </g>
+</svg>

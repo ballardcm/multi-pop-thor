@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="260" viewBox="0 0 320 260">
+  <!-- A pale badge separates dark console plastics from each system's accent color. -->
+  <rect x="0" y="0" width="320" height="260" rx="28" fill="#F7F8FC"/>
+</svg>

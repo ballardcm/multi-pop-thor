@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>947146FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/intellivision.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>
+    </variables>
+</theme>

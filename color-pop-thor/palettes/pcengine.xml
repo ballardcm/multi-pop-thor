@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>E8D8AAFF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/pcengine.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/pcengine.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/pcengine.png</systemHero>
+    </variables>
+</theme>

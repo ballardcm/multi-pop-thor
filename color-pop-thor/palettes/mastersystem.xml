@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>D74A49FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/mastersystem.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/mastersystem.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/mastersystem.png</systemHero>
+    </variables>
+</theme>

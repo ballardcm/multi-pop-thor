@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <!-- The geometric controller supplies original fallback artwork when a game has no scraped cover. -->
+  <rect width="400" height="600" rx="26" fill="#5B32DF"/>
+  <circle cx="354" cy="44" r="142" fill="#1261CA"/>
+  <path d="M0 448 400 230v126L0 574Z" fill="#176A5D"/>
+  <circle cx="74" cy="527" r="85" fill="#B6520E"/>
+  <g opacity="0.2" fill="#FFFFFF">
+    <circle cx="45" cy="70" r="7"/><circle cx="74" cy="70" r="7"/><circle cx="103" cy="70" r="7"/>
+    <circle cx="45" cy="99" r="7"/><circle cx="74" cy="99" r="7"/><circle cx="103" cy="99" r="7"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M126 245c-29 0-45 15-53 49l-12 59c-5 23 18 38 35 20l37-38h134l37 38c17 18 40 3 35-20l-12-59c-8-34-24-49-53-49Z"/>
+    <path d="M121 278v50m-25-25h50"/>
+  </g>
+  <circle cx="267" cy="288" r="10" fill="#FFFFFF"/>
+  <circle cx="292" cy="311" r="10" fill="#FFFFFF"/>
+  <rect x="180" y="291" width="40" height="13" rx="6.5" fill="#FFFFFF"/>
+</svg>

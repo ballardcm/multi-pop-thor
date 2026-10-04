@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>3F7269FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/ports.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/ports.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/ports.png</systemHero>
+    </variables>
+</theme>

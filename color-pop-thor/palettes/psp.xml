@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>2A4D62FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/psp.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/psp.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/psp.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>48AABDFF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/wonderswancolor.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/wonderswancolor.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/wonderswancolor.png</systemHero>
+    </variables>
+</theme>

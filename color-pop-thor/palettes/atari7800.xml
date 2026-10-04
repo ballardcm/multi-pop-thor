@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>A9B0B7FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/atari7800.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/atari7800.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/atari7800.png</systemHero>
+    </variables>
+</theme>

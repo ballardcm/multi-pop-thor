@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>9B522BFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/atari2600.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>
+    </variables>
+</theme>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>287BB5FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/steam.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/steam.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/steam.png</systemHero>
+    </variables>
+</theme>

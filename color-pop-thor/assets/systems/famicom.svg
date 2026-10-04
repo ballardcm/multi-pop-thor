@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The cream top loading console, red base, gold controller face, and attached cables preserve the original Japanese Famicom design. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFCF8"/><stop offset="1" stop-color="#BFC4CB"/></linearGradient>
+    <linearGradient id="gray" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9BEC5"/><stop offset="1" stop-color="#6A727D"/></linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4D535C"/><stop offset="1" stop-color="#15191F"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A08BD8"/><stop offset="0.45" stop-color="#6C54A6"/><stop offset="1" stop-color="#44326F"/></linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8A76D2"/><stop offset="0.45" stop-color="#6351A5"/><stop offset="1" stop-color="#392965"/></linearGradient>
+    <linearGradient id="grape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9171C5"/><stop offset="0.45" stop-color="#7650A4"/><stop offset="1" stop-color="#4C2D73"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4E636B"/><stop offset="0.5" stop-color="#263A43"/><stop offset="1" stop-color="#18242D"/></linearGradient>
+    <linearGradient id="lcd" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#BEC983"/><stop offset="1" stop-color="#8D9E61"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D1DD"/><stop offset="0.45" stop-color="#20A4B9"/><stop offset="1" stop-color="#087487"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF9E7"/><stop offset="1" stop-color="#CBC4AF"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DE455C"/><stop offset="1" stop-color="#911B35"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M169 304C41 348 78 491 383 463" fill="none" stroke="#11151C" stroke-width="9" stroke-linecap="round"/><path d="M169 304C41 348 78 491 383 463" fill="none" stroke="#747982" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <path d="M570 303C626 324 649 347 644 368" fill="none" stroke="#11151C" stroke-width="9" stroke-linecap="round"/><path d="M570 303C626 324 649 347 644 368" fill="none" stroke="#747982" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <path d="M87 231h508v120c0 20-16 30-36 30H124c-25 0-37-14-37-36Z" fill="url(#red)" stroke="#8E1830" stroke-width="3"/>
+    <polygon points="90,218 176,103 554,103 619,214 573,319 133,319" fill="url(#cream)" stroke="#A79E88" stroke-width="3"/>
+    <path d="M88 218h79v121H96c-17-17-20-53-8-121Z" fill="#AE2440" stroke="#8F1830" stroke-width="3"/>
+    <path d="M548 214h69c12 56 8 94-16 121h-53Z" fill="#AE2440" stroke="#8F1830" stroke-width="3"/>
+    <path d="M210 103h276l36 62-19 57H194l-19-57Z" fill="#F8F2DF" stroke="#C9C1AA" stroke-width="3"/>
+    <path d="M205 130h285l10 26H195Z" fill="#8F1D31"/>
+    <path d="M219 139h257" stroke="#221923" stroke-width="12"/>
+    <path d="M223 151h249" stroke="#D05B68" stroke-width="3"/>
+    <rect x="199" y="230" width="64" height="40" rx="3" fill="#6D3239"/>
+    <rect x="214" y="231" width="26" height="38" rx="2" fill="#211E23"/>
+    <rect x="437" y="230" width="65" height="40" rx="3" fill="#EAE1CC" stroke="#9C947F" stroke-width="2"/>
+    <rect x="456" y="234" width="27" height="30" rx="2" fill="#AD2440"/>
+    <rect x="289" y="234" width="125" height="46" rx="5" fill="#EEE5CE" stroke="#C1B59B" stroke-width="2"/>
+    <path d="M306 247h91m-91 12h91" stroke="#D4C9B0" stroke-width="4"/>
+    <rect x="138" y="318" width="401" height="48" fill="#AA243D"/>
+    <rect x="269" y="331" width="137" height="20" rx="2" fill="#C1A267"/>
+    <path d="M286 337h103m-103 6h103" stroke="#9B7740" stroke-width="2"/>
+    <g transform="translate(402 374) rotate(-8 177 66)">
+      <rect x="0" y="7" width="337" height="135" rx="14" fill="#7D192C" stroke="#70172A" stroke-width="3"/>
+      <rect x="0" y="0" width="337" height="133" rx="14" fill="url(#red)"/>
+      <rect x="13" y="13" width="310" height="105" rx="5" fill="#C7AA72" stroke="#E8C88D" stroke-width="2"/>
+      <rect x="27" y="24" width="288" height="82" rx="3" fill="#B89459"/>
+      <path d="M58.33333333333333 35h21.333333333333332v21.333333333333332h21.333333333333332v21.333333333333332h-21.333333333333332v21.333333333333332h-21.333333333333332v-21.333333333333332H37v-21.333333333333332h21.333333333333332Z" fill="#20242A" stroke="#12151A" stroke-width="2"/><path d="M61.33333333333333 39h15.333333333333332v20.333333333333332h20.333333333333332" fill="none" stroke="#67707B" stroke-width="2" opacity="0.6"/><circle cx="69.0" cy="67.0" r="6.4" fill="#171B20" opacity="0.6"/>
+      <rect x="119" y="69" width="40" height="13" rx="6" fill="#302830"/>
+      <rect x="174" y="69" width="40" height="13" rx="6" fill="#302830"/>
+      <circle cx="250" cy="74" r="22" fill="#242932" opacity="0.6"/><circle cx="250" cy="72" r="20" fill="#8C1B31" stroke="#343A44" stroke-width="2"/><path d="M238.0 68.0Q250 54.0 260.0 65.0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/><circle cx="294" cy="74" r="22" fill="#242932" opacity="0.6"/><circle cx="294" cy="72" r="20" fill="#8C1B31" stroke="#343A44" stroke-width="2"/><path d="M282.0 68.0Q294 54.0 304.0 65.0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.3"/>
+      <path d="M123 35h82m-82 10h82" stroke="#8D703F" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

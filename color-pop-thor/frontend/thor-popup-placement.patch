@@ -1,0 +1,48 @@
+--- a/es-app/src/views/SystemView.cpp
++++ b/es-app/src/views/SystemView.cpp
+@@ -592,11 +592,18 @@
+ 	float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 31.0f);
+ 	w = Math::max(w, Renderer::getScreenWidth() / 3.0f);
+ 
++	// This Thor canvas places the top display between two 1240-pixel side regions, so its navigation menu must stay within that display.
++	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
++	if (thorCanvas)
++		w = Math::min(w, 1800.0f);
++	const float menuX = thorCanvas ? 2200.0f - w / 2.0f : 0.0f;
++	const float startX = thorCanvas ? 1240.0f - w : -w;
++
+ 	gs->getMenu().setSize(w, Renderer::getScreenHeight());
+ 
+ 	gs->getMenu().animateTo(
+-		Vector2f(-w, 0),
+-		Vector2f(0, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
++		Vector2f(startX, 0),
++		Vector2f(menuX, 0), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+ 
+ 	mWindow->pushGui(gs);
+ }
+--- a/es-app/src/guis/GuiSaveState.cpp
++++ b/es-app/src/guis/GuiSaveState.cpp
+@@ -38,7 +38,10 @@
+ 	addChild(&mLayout);
+ 	
+ 	float cellProportion = 1.77;
+-	float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
++	// Save choices must use the same top-display width as their menu rather than including the Thor canvas's side regions.
++	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
++	const float menuWidth = thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth();
++	float screenProportion = menuWidth / (float)Renderer::getScreenHeight();
+ 
+ 	float sh = (float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth());
+ 	sh = (float) theme->TextSmall.font->getSize() / sh;
+@@ -193,7 +196,9 @@
+ 
+ void GuiSaveState::centerWindow()
+ {
+-	setSize(Renderer::getScreenWidth(), WINDOW_HEIGHT);
++	// Restrict this Thor canvas to its 1920-pixel top display so the existing centering calculation places every save choice at x=1240.
++	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
++	setSize(thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth(), WINDOW_HEIGHT);
+ 	animateTo(
+ 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight()),
+ 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight() - WINDOW_HEIGHT),

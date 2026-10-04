@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>8D1C32FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/famicom.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/famicom.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/famicom.png</systemHero>
+    </variables>
+</theme>

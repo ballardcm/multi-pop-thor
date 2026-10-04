@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>D33D23FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/arcade.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>
+    </variables>
+</theme>

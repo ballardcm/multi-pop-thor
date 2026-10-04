@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The clear blue shell, two independent direction clusters, and amber power button preserve the original WonderSwan Color's horizontal and vertical play identity. -->
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#90D9EE"/><stop offset="0.45" stop-color="#4AA5CB"/><stop offset="1" stop-color="#2874A7"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#397CA2"/><stop offset="1" stop-color="#174569"/></linearGradient>
+    <linearGradient id="bezel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8F5E9"/><stop offset="1" stop-color="#BFBFAF"/></linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#E1E5E2"/><stop offset="1" stop-color="#8B979D"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#A5B496"/><stop offset="1" stop-color="#627A76"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M132 154H673c22 0 38 16 38 39v225c0 31-17 50-43 53H139c-28-2-45-20-45-46V195c0-25 15-41 38-41Z" fill="url(#edge)" stroke="#24577A" stroke-width="3"/>
+    <path d="M120 140H659c23 0 39 15 39 38v227c0 30-16 49-43 51H127c-27-2-44-20-44-46V181c0-26 14-41 37-41Z" fill="url(#shell)" stroke="#3E84AA" stroke-width="3"/>
+    <path d="M119 154H651c17 0 27 6 29 18M97 181v209" fill="none" stroke="#D8F3FC" stroke-width="4" opacity="0.65"/>
+    <path d="M111 166H667v267H114Z" fill="#2E7BA6" opacity="0.3"/>
+    <g fill="none" stroke="#265D82" stroke-width="3" opacity="0.4">
+      <path d="M110 207h34v40h80v-74h44M106 267h24v24h110v-89M107 326h47v48h66v-47h42M115 421h97v-23h60M601 174h61v93h20M594 409h63v22h24"/>
+      <path d="M113 181h18v18M122 301h44v13h56M148 438v-25M217 436v-19M635 293h41v24M611 285h20v22h32"/>
+    </g>
+    <g fill="#20608D" opacity="0.35"><rect x="113" y="188" width="17" height="25" rx="2"/><rect x="125" y="297" width="24" height="17" rx="2"/><rect x="226" y="265" width="20" height="46" rx="2"/><rect x="617" y="187" width="23" height="22" rx="2"/><rect x="643" y="282" width="30" height="16" rx="2"/><rect x="604" y="416" width="22" height="14" rx="2"/></g>
+    <g fill="#BFE9EC" stroke="#36789D" stroke-width="2"><circle cx="109" cy="174" r="6"/><circle cx="667" cy="171" r="6"/><circle cx="107" cy="426" r="6"/><circle cx="670" cy="427" r="6"/></g>
+    <path d="M271 172h303v233c0 10-8 16-18 16H289c-11 0-18-7-18-17Z" fill="url(#bezel)" stroke="#A7B7B7" stroke-width="3"/>
+    <text x="423" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" font-style="italic" fill="#2A4B62">WonderSwan <tspan fill="#487DA2">Color</tspan></text>
+    <rect x="286" y="211" width="273" height="179" rx="4" fill="#263A43"/>
+    <rect x="293" y="218" width="259" height="165" rx="2" fill="url(#screen)"/>
+    <path d="M299 224h220L299 356Z" fill="#D7E1D3" opacity="0.12"/>
+    <path d="M298 379h248" stroke="#455F60" stroke-width="2" opacity="0.4"/>
+    <g fill="url(#button)" stroke="#657D8A" stroke-width="2.5">
+      <path d="m168 215 13-17 14 17-5 12h-17Z"/>
+      <path d="m202 231 17 13-17 14-12-5v-17Z"/>
+      <path d="m195 274-13 17-14-17 5-12h17Z"/>
+      <path d="m153 258-17-13 17-14 12 5v17Z"/>
+      <path d="m168 331 13-17 14 17-5 12h-17Z"/>
+      <path d="m202 347 17 13-17 14-12-5v-17Z"/>
+      <path d="m195 390-13 17-14-17 5-12h17Z"/>
+      <path d="m153 374-17-13 17-14 12 5v17Z"/>
+    </g>
+    <g fill="#2D536C" font-family="Arial,sans-serif" font-size="11" font-weight="bold" text-anchor="middle"><text x="181" y="194">Y1</text><text x="233" y="248">Y2</text><text x="181" y="301">Y3</text><text x="120" y="248">Y4</text><text x="213" y="329">X1</text><text x="233" y="365">X2</text><text x="181" y="422">X3</text><text x="120" y="365">X4</text></g>
+    <g fill="#225C80" stroke="#3F82A6" stroke-width="1.5"><rect x="610" y="225" width="56" height="5" rx="2"/><rect x="610" y="236" width="56" height="5" rx="2"/><rect x="610" y="247" width="56" height="5" rx="2"/><rect x="610" y="258" width="56" height="5" rx="2"/><rect x="610" y="269" width="56" height="5" rx="2"/></g>
+    <g fill="url(#button)" stroke="#677E8A" stroke-width="2.5"><path d="M602 345q3-10 12-9l27 9q8 3 4 12l-15 23q-5 8-12 1l-16-19q-5-8 0-17Z"/><path d="M651 313q3-10 12-9l21 8q8 3 4 12l-13 23q-5 8-12 1l-13-18q-5-8 1-17Z"/></g>
+    <g fill="#304E63" font-family="Arial,sans-serif" font-size="15" font-weight="bold" text-anchor="middle"><text x="620" y="363">B</text><text x="667" y="330">A</text></g>
+    <g fill="url(#button)" stroke="#487993" stroke-width="2"><rect x="307" y="422" width="43" height="13" rx="6"/><rect x="397" y="422" width="43" height="13" rx="6"/></g>
+    <rect x="487" y="422" width="43" height="13" rx="6" fill="#E9A138" stroke="#A6752D" stroke-width="2"/>
+    <g font-family="Arial,sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#294F67"><text x="329" y="448">SOUND</text><text x="419" y="448">START</text><text x="509" y="448">POWER</text></g>
+    <path d="M97 439c4 9 18 12 32 12h517" fill="none" stroke="#A7D9E8" stroke-width="3" opacity="0.55"/>
+    <rect x="658" y="390" width="25" height="24" rx="3" fill="#DAE7E7" opacity="0.8"/>
+    <text x="670.5" y="400" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="bold" fill="#275878">BAN</text><text x="670.5" y="409" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="bold" fill="#275878">DAI</text>
+  </g>
+</svg>

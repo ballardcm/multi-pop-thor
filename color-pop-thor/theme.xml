@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme defaultTransition="instant" defaultView="gamecarousel">
+    <formatVersion>7</formatVersion>
+
+    <!-- These defaults keep collections and uncommon systems readable without a custom palette. -->
+    <variables>
+        <accent>6D4776FF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <paper>F7F8FCFF</paper>
+        <ink>191A2EFF</ink>
+        <muted>646A80FF</muted>
+        <systemIcon>${themePath}/assets/systems/default.svg</systemIcon>
+        <systemCard>${themePath}/assets/cards/default.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/default.png</systemHero>
+    </variables>
+
+    <!-- Every installed system receives a distinct palette and matching hardware cards. -->
+    <include if="${system.theme} == 'fbneo'">./palettes/fbneo.xml</include>
+    <include if="${system.theme} == 'atari2600'">./palettes/atari2600.xml</include>
+    <include if="${system.theme} == 'atari5200'">./palettes/atari5200.xml</include>
+    <include if="${system.theme} == 'atari7800'">./palettes/atari7800.xml</include>
+    <include if="${system.theme} == 'atarilynx'">./palettes/atarilynx.xml</include>
+    <include if="${system.theme} == 'atarijaguar'">./palettes/atarijaguar.xml</include>
+    <include if="${system.theme} == 'wonderswancolor'">./palettes/wonderswancolor.xml</include>
+    <include if="${system.theme} == 'colecovision'">./palettes/colecovision.xml</include>
+    <include if="${system.theme} == 'intellivision'">./palettes/intellivision.xml</include>
+    <include if="${system.theme} == 'c64'">./palettes/c64.xml</include>
+    <include if="${system.theme} == 'pico8'">./palettes/pico8.xml</include>
+    <include if="${system.theme} == 'xbox'">./palettes/xbox.xml</include>
+    <include if="${system.theme} == 'pcengine'">./palettes/pcengine.xml</include>
+    <include if="${system.theme} == 'pce-cd'">./palettes/pce-cd.xml</include>
+    <include if="${system.theme} == 'gc'">./palettes/gc.xml</include>
+    <include if="${system.theme} == 'psx'">./palettes/psx.xml</include>
+    <include if="${system.theme} == 'psp'">./palettes/psp.xml</include>
+    <include if="${system.theme} == 'snes'">./palettes/snes.xml</include>
+    <include if="${system.theme} == 'sfc'">./palettes/sfc.xml</include>
+    <include if="${system.theme} == 'nes'">./palettes/nes.xml</include>
+    <include if="${system.theme} == 'famicom'">./palettes/famicom.xml</include>
+    <include if="${system.theme} == 'gba'">./palettes/gba.xml</include>
+    <include if="${system.theme} == 'gb'">./palettes/gb.xml</include>
+    <include if="${system.theme} == 'gbc'">./palettes/gbc.xml</include>
+    <include if="${system.theme} == 'nds'">./palettes/nds.xml</include>
+    <include if="${system.theme} == '3ds'">./palettes/3ds.xml</include>
+    <include if="${system.theme} == 'virtualboy'">./palettes/virtualboy.xml</include>
+    <include if="${system.theme} == 'n64'">./palettes/n64.xml</include>
+    <include if="${system.theme} == 'dreamcast'">./palettes/dreamcast.xml</include>
+    <include if="${system.theme} == 'sg-1000'">./palettes/sg-1000.xml</include>
+    <include if="${system.theme} == 'mastersystem'">./palettes/mastersystem.xml</include>
+    <include if="${system.theme} == 'gamegear'">./palettes/gamegear.xml</include>
+    <include if="${system.theme} == 'sega32x'">./palettes/sega32x.xml</include>
+    <include if="${system.theme} == 'model3'">./palettes/model3.xml</include>
+    <include if="${system.theme} == 'naomi'">./palettes/naomi.xml</include>
+    <include if="${system.theme} == 'atomiswave'">./palettes/atomiswave.xml</include>
+    <include if="${system.theme} == 'neogeo'">./palettes/neogeo.xml</include>
+    <include if="${system.theme} == 'ps2'">./palettes/ps2.xml</include>
+    <include if="${system.theme} == 'ps3'">./palettes/ps3.xml</include>
+    <include if="${system.theme} == 'steam'">./palettes/steam.xml</include>
+    <include if="${system.theme} == 'music'">./palettes/music.xml</include>
+    <include if="${system.theme} == 'megadrive'">./palettes/megadrive.xml</include>
+    <include if="${system.theme} == 'genesis'">./palettes/genesis.xml</include>
+    <include if="${system.theme} == 'segacd'">./palettes/segacd.xml</include>
+    <include if="${system.theme} == 'saturn'">./palettes/saturn.xml</include>
+    <include if="${system.theme} == 'vectrex'">./palettes/vectrex.xml</include>
+    <include if="${system.theme} == 'ngpc'">./palettes/ngpc.xml</include>
+    <include if="${system.theme} == 'mame'">./palettes/mame.xml</include>
+    <include if="${system.theme} == 'arcade'">./palettes/arcade.xml</include>
+    <include if="${system.theme} == 'ports'">./palettes/ports.xml</include>
+    <include if="${system.theme} == 'tools'">./palettes/tools.xml</include>
+    <include if="${system.theme} == 'auto-allgames'">./palettes/auto-allgames.xml</include>
+    <include if="${system.theme} == 'auto-favorites'">./palettes/auto-favorites.xml</include>
+    <include if="${system.theme} == 'auto-lastplayed'">./palettes/auto-lastplayed.xml</include>
+
+    <include>./layouts/common.xml</include>
+    <include>./layouts/system.xml</include>
+    <include>./layouts/games.xml</include>
+    <include>./layouts/menu.xml</include>
+</theme>

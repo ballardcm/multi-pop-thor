@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="gamecarousel">
+        <text name="browse-hints" extra="true"><text>‹ › Browse    L1/R1 Page    A Play    B Back</text><fontSize>0.037037037</fontSize></text>
+        <text name="top-game-system" extra="true">
+            <text>{game:system:collection} ? proper({game:system:fullName}) : {game:system:fullName}</text>
+            <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.04</fontSize><lineSpacing>1</lineSpacing>
+            <color>${accentInk}</color><alignment>center</alignment><forceUppercase>true</forceUppercase><zIndex>3</zIndex>
+        </text>
+        <text name="library-header" extra="true">
+            <text>Library</text>
+            <pos>0.734545455 0.029629630</pos><size>0.249090909 0.075925926</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.062962963</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
+
+        <!-- One media component owns the snapshot and video so a cover can never overlap the system's artwork. -->
+        <image name="media-well" extra="true">
+            <path>${themePath}/assets/ui/preview-frame.svg</path>
+            <pos>0.384090909 0.074074074</pos><size>0.220454545 0.673148148</size><zIndex>2</zIndex>
+        </image>
+        <video name="md_video">
+            <pos>0.494318182 0.410648148</pos><origin>0.5 0.5</origin>
+            <maxSize>0.213181818 0.643518519</maxSize>
+            <delay>3</delay><audio>false</audio><effect>none</effect>
+            <showSnapshotNoVideo>true</showSnapshotNoVideo><showSnapshotDelay>true</showSnapshotDelay>
+            <snapshotSource>image</snapshotSource><zIndex>5</zIndex>
+        </video>
+        <text name="preview-unavailable" extra="true">
+            <text>Gameplay preview unavailable</text><visible>empty(firstfile({game:image}, {game:thumbnail}, {game:video}))</visible>
+            <pos>0.390454545 0.363888889</pos><size>0.207727273 0.092592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>FFFFFFFF</color><alignment>center</alignment><zIndex>4</zIndex>
+        </text>
+        <text name="preview-label" extra="true">
+            <text>GAMEPLAY PREVIEW</text>
+            <pos>0.384090909 0.791666667</pos><size>0.220454545 0.042592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.028703704</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="preview-caption" extra="true">
+            <text>{game:name}</text><emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.613636364 0.087037037</pos><size>0.095454545 0.202777778</size>
+            <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.046296296</fontSize>
+            <lineSpacing>1</lineSpacing><verticalAlignment>top</verticalAlignment><autoScroll>vertical</autoScroll><autoScrollDelay>5000</autoScrollDelay>
+            <color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="preview-genre" extra="true">
+            <text>{game:genre}</text><emptyTextDefaults>false</emptyTextDefaults><visible>!empty({game:genre})</visible>
+            <pos>0.613636364 0.314814815</pos><size>0.095454545 0.087037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.029629630</fontSize><lineSpacing>1</lineSpacing>
+            <color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="preview-publisher" extra="true">
+            <text>empty({game:releaseyear}) ? {game:publisher} : empty({game:publisher}) ? {game:releaseyear} : {game:releaseyear} + ' · ' + {game:publisher}</text>
+            <emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.613636364 0.421296296</pos><size>0.095454545 0.096296296</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.025925926</fontSize><lineSpacing>1</lineSpacing>
+            <color>${muted}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+        <!-- The description scrolls only when necessary, leaving the screenshot visible while the game details are read. -->
+        <text name="preview-description" extra="true">
+            <text>{game:desc}</text><emptyTextDefaults>false</emptyTextDefaults><visible>!empty({game:desc})</visible>
+            <pos>0.613636364 0.550925926</pos><size>0.095454545 0.354629630</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.028703704</fontSize>
+            <lineSpacing>1.15</lineSpacing><verticalAlignment>top</verticalAlignment><autoScroll>vertical</autoScroll><autoScrollDelay>5000</autoScrollDelay>
+            <color>${ink}</color><alignment>left</alignment><zIndex>6</zIndex>
+        </text>
+
+        <!-- The local carousel coordinates give each cover a usable width on the smaller panel. -->
+        <gamecarousel name="gamecarousel">
+            <type>horizontal</type><pos>0.859090909 0.446296296</pos><origin>0.5 0.5</origin>
+            <size>0.281818182 0.6</size><logoSize>0.25 0.771604938</logoSize>
+            <logoScale>1.15</logoScale><maxLogoCount>3</maxLogoCount><minLogoOpacity>0.7</minLogoOpacity>
+            <imageSource>thumbnail</imageSource><color>00000000</color><zIndex>5</zIndex>
+            <!-- The item template preserves covers and falls back to the image before using the placeholder. -->
+            <itemTemplate>
+                <image name="card" extra="true">
+                    <path>${themePath}/assets/ui/card.svg</path>
+                    <pos>0 0</pos><size>1 1</size><zIndex>0</zIndex>
+                </image>
+                <image name="cover" extra="true">
+                    <path>firstfile({game:thumbnail}, {game:image})</path>
+                    <default>${systemCard}</default>
+                    <pos>0.5 0.5</pos><origin>0.5 0.5</origin><maxSize>0.94 0.94</maxSize><zIndex>1</zIndex>
+                </image>
+                <text name="missing-cover-name" extra="true">
+                    <text>{game:name}</text><visible>empty(firstfile({game:thumbnail}, {game:image}))</visible>
+                    <pos>0.07 0.735</pos><size>0.86 0.23</size>
+                    <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.031481481</fontSize>
+                    <lineSpacing>1</lineSpacing><verticalAlignment>top</verticalAlignment>
+                    <color>${ink}</color><backgroundColor>FAFBFEFF</backgroundColor><alignment>center</alignment><zIndex>2</zIndex>
+                </text>
+            </itemTemplate>
+        </gamecarousel>
+        <text name="gamecarouselLogoText">
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.045370370</fontSize>
+            <color>${ink}</color><alignment>center</alignment>
+        </text>
+        <text name="logoText"><visible>false</visible></text>
+        <text name="md_name">
+            <pos>0.732727273 0.747222222</pos><size>0.252727273 0.133333333</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.052777778</fontSize><lineSpacing>1</lineSpacing>
+            <color>${ink}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="selected-game-meta" extra="true">
+            <text>empty({game:releaseyear}) ? {game:genre} : {game:genre} + ' · ' + {game:releaseyear}</text>
+            <emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.732727273 0.868518519</pos><size>0.252727273 0.046296296</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+        <text name="md_description"><visible>false</visible></text>
+    </view>
+</theme>
