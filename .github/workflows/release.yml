@@ -1,0 +1,88 @@
+name: Release packages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pull request builds need only read access; publishing is isolated to the merged main branch.
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate the theme and media tools
+        run: |
+          python tools/check-multi-pop.py
+          python tools/test-install-multi-pop-media.py
+          python tools/test-package-release.py
+          git diff --check
+      - name: Fetch the verified frontend and its source archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          config = json.loads(Path('frontend-build/release.json').read_text())
+          command = ['gh', 'release', 'download', config['release_tag'],
+                     '--repo', os.environ['GITHUB_REPOSITORY'], '--dir', 'native-build/release-inputs']
+          for key in ('frontend', 'upstream_source', 'sdl_source', 'pugixml_source'):
+              command.extend(['--pattern', config[key]['asset']])
+          subprocess.run(command, check=True)
+          PY
+      - name: Build installable and source archives
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          config = json.loads(Path('frontend-build/release.json').read_text())
+          command = ['python', 'tools/package-release.py']
+          for flag, key in (('--frontend', 'frontend'), ('--upstream-source', 'upstream_source'), ('--sdl-source', 'sdl_source')):
+              command.extend([flag, str(Path('native-build/release-inputs') / config[key]['asset'])])
+          subprocess.run(command, check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: multi-pop-downloads-${{ github.event.pull_request.number || github.sha }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    needs: package
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: multi-pop-downloads-${{ github.sha }}
+          path: dist
+      - name: Publish a release from the merged commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="build-${GITHUB_SHA:0:12}"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists: $tag"
+            exit 0
+          fi
+          gh release create "$tag" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Multi Pop ${GITHUB_SHA:0:12}" \
+            --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. See the included README for installation and build instructions. Other firmware versions require a newly validated frontend." \
+            dist/*

@@ -6,6 +6,8 @@ The upper display is 1920×1080 and the lower display is 1240×1080. The theme u
 
 ## Install
 
+Use `multi-pop-thor-rocknix-20261001.zip` from [Releases](https://github.com/ballardcm/multi-pop-thor/releases) for AYN Thor on **ROCKNIX 20261001**. It includes the verified patched frontend, so compilation is not required. Check the download against `SHA256SUMS`, extract it, and install the `multi-pop-thor` folder. The source ZIP is a separate download for development; it includes the public frontend sources and build instructions. Other firmware versions require a separately validated frontend.
+
 If an earlier version is already activated, run its original restore helper before installing this renamed theme. The new helpers use separate backup and configuration paths, so they cannot restore an earlier installation's activation state.
 
 1. Copy the complete `multi-pop-thor` folder into `/roms/themes/` or `/storage/.config/emulationstation/themes/`.
@@ -34,6 +36,19 @@ The system artwork depicts recognizable original consoles, handhelds, controller
 
 Game media is installed separately from the theme. Existing covers remain available as thumbnails when gameplay screenshots are added. Source and creator credits accompany fetched screenshots, descriptions, and video excerpts in the media installation report.
 
+## Update an activated installation
+
+Upload the new ready-to-install ZIP to the Thor and use the bundled `scripts/update_theme.py` with the archive path and its SHA-256 from `SHA256SUMS`. Run it as root while EmulationStation is idle. It verifies the archive, backs up the current theme, restarts the frontend, and rolls back if verification fails. It preserves settings and Sway configuration and refuses archives that change the active launcher. For a launcher change, use the restore and fresh installation procedure instead.
+
+```sh
+python3 \
+  /roms/themes/multi-pop-thor/scripts/update_theme.py \
+  /storage/downloads/multi-pop-thor-rocknix-20261001.zip \
+  SHA256_FROM_SHA256SUMS
+```
+
+The updater expects the active theme at `/roms/themes/multi-pop-thor`. Installations in the alternative EmulationStation theme directory should use restore and fresh installation instead.
+
 ## Restore
 
 ```sh
@@ -49,7 +64,7 @@ Original Multi Pop material is offered under [CC BY-NC-SA 4.0](https://creativec
 
 The XML, local asset references, screen bounds, distinct palettes, text contrast, and helper syntax have been checked. Hardware illustrations have been rendered and reviewed at upper-screen and lower-card sizes.
 
-The tested device uses an optional frontend in `frontend/emulationstation`, rebuilt from the source revision used by ROCKNIX 20261001 on this Thor. Compiled frontends are excluded from this source repository; see [the native build notes](../frontend-build/README.md). It restricts B navigation and the savestate manager to the upper display and calculates the save row from that display's width. These changes apply only to a 4400×1080 canvas. Selection uses purple with white labels. The frontend also handles L1/R1 paging in Multi Pop's game carousel.
+The ready-to-install download includes the patched frontend in `frontend/emulationstation`, rebuilt from the source revision used by ROCKNIX 20261001 on this Thor. Compiled frontends are excluded from Git; the matching source download includes build instructions in `frontend-build/README.md`. It restricts B navigation and the savestate manager to the upper display and calculates the save row from that display's width. These changes apply only to a 4400×1080 canvas. Selection uses purple with white labels. The frontend also handles L1/R1 paging in Multi Pop's game carousel.
 
 The launcher uses this frontend when present and keeps the system frontend at `/usr/bin/emulationstation` available as a fallback. The build uses the Thor's existing libraries, preserves controller support and online integrations, and has no added library-path override. The tested compatibility report, public source patches, and license notices are retained in `frontend/`. For a different firmware release, verify compatibility before using this optional binary.
 

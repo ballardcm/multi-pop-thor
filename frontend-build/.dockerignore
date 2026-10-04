@@ -1,0 +1,3 @@
+# The builder image needs only its Dockerfile, so local firmware inputs never enter the Docker build context.
+*
+!Dockerfile

@@ -22,6 +22,7 @@ node_modules/
 
 # Compiled frontends remain local build artifacts rather than versioned theme source.
 /multi-pop-thor/frontend/emulationstation
+/multi-pop-thor/frontend/emulationstation.build.json
 /frontend-build/emulationstation-next-*/
 
 # Library inventories, downloaded media and device backups belong outside the theme sources.
