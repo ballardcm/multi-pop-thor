@@ -1,6 +1,7 @@
 """Check the shipped theme's references and the Thor's visible screen boundaries."""
 
 from pathlib import Path
+import json
 import re
 import subprocess
 import xml.etree.ElementTree as ET
@@ -53,6 +54,18 @@ for path in sorted(ROOT.rglob("*.xml")):
 
 for path in sorted(ROOT.rglob("*.svg")):
     ET.parse(path)
+
+# A registered platform needs its own route and complete artwork so it cannot silently use the library fallback.
+platforms = json.loads((ROOT / "platforms.json").read_text())
+routes = {node.get("if"): node.text.strip() for node in ET.parse(ROOT / "theme.xml").getroot().findall("include")}
+for key in platforms:
+    for folder, extension in (("palettes", "xml"), ("assets/systems", "svg"),
+                              ("assets/cards", "png"), ("assets/heroes", "png")):
+        target = ROOT / folder / f"{key}.{extension}"
+        if not target.is_file():
+            errors.append(f"Missing platform artwork: {target.relative_to(ROOT)}")
+    if key != "default" and routes.get(f"${{system.theme}} == '{key}'") != f"./palettes/{key}.xml":
+        errors.append(f"Missing platform palette route: {key}")
 
 for path in sorted((ROOT / "scripts").glob("*.sh")):
     result = subprocess.run(["bash", "-n", str(path)], capture_output=True, text=True)

@@ -215,6 +215,12 @@
     "year": "1990",
     "accent": "D7AD27"
   },
+  "ngp": {
+    "title": "Neo Geo Pocket",
+    "manufacturer": "SNK",
+    "year": "1998",
+    "accent": "646C78"
+  },
   "ngpc": {
     "title": "Neo Geo Pocket Color",
     "manufacturer": "SNK",
@@ -280,6 +286,12 @@
     "manufacturer": "Sony",
     "year": "2004",
     "accent": "2A4D62"
+  },
+  "psvita": {
+    "title": "PlayStation Vita",
+    "manufacturer": "Sony",
+    "year": "2011",
+    "accent": "1686C7"
   },
   "sfc": {
     "title": "Super Famicom",

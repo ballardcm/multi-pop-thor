@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- The OLED model's oval shell, twin analog sticks, camera, and silver edge make the Vita recognizable even at card size. -->
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#424C59"/><stop offset="0.45" stop-color="#222B37"/><stop offset="1" stop-color="#101822"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#E6EBEF"/><stop offset="0.45" stop-color="#81909E"/><stop offset="1" stop-color="#BFCBD4"/></linearGradient>
+    <linearGradient id="control" x1="0" y1="0" x2="0.3" y2="1"><stop stop-color="#606B77"/><stop offset="0.35" stop-color="#353F4B"/><stop offset="1" stop-color="#19222E"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1C5979"/><stop offset="0.5" stop-color="#124766"/><stop offset="1" stop-color="#081D3B"/></linearGradient>
+    <clipPath id="display"><rect x="210" y="187" width="380" height="215" rx="3"/></clipPath>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M150 157q250-26 500 0c68 8 110 60 110 146s-43 141-111 149q-249 26-498 0C83 444 40 389 40 303s42-138 110-146Z" fill="#141F2D" stroke="#16212E" stroke-width="3"/>
+    <path d="M147 146q253-26 506 0c65 8 105 60 105 146s-40 139-105 147q-253 26-506 0C82 431 42 378 42 292s40-138 105-146Z" fill="url(#rim)" stroke="#73818E" stroke-width="3"/>
+    <path d="M149 150q251-24 502 0c62 8 99 57 99 140s-37 135-99 142q-251 27-502 0C87 425 50 373 50 290s37-132 99-140Z" fill="url(#shell)" stroke="#18232E" stroke-width="3"/>
+    <path d="M97 164q15-17 48-23l31-4 1 19-37 5-46 23Z" fill="#B7C4CF" stroke="#798997" stroke-width="2"/>
+    <path d="M703 164q-15-17-48-23l-31-4-1 19 37 5 46 23Z" fill="#B7C4CF" stroke="#798997" stroke-width="2"/>
+    <path d="M193 147q208-18 414 0M71 226q-11 28-12 56" fill="none" stroke="#B5C2CE" stroke-width="2.5" opacity="0.4"/>
+    <rect x="190" y="166" width="420" height="252" rx="10" fill="#111B25" stroke="#475564" stroke-width="1.5"/>
+    <rect x="202" y="179" width="396" height="231" rx="6" fill="#060D16"/>
+    <rect x="210" y="187" width="380" height="215" rx="3" fill="url(#screen)"/>
+    <g clip-path="url(#display)">
+      <path d="M172 403c114-134 222 73 449-176v183H172Z" fill="#2586A0" opacity="0.22"/>
+      <path d="M169 391c153-115 252 52 459-156" fill="none" stroke="#6DC5CA" stroke-width="2.5" opacity="0.4"/>
+      <path d="M211 188h266L211 340Z" fill="#BCE4E8" opacity="0.08"/>
+    </g>
+    <text x="128" y="187" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="bold" letter-spacing="1" fill="#D6DEE5">SONY</text>
+    <text x="400" y="443" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" letter-spacing="2" fill="#C4CDD5">PS VITA</text>
+    <circle cx="639" cy="187" r="8" fill="#101821" stroke="#7A8995" stroke-width="2"/>
+    <circle cx="639" cy="187" r="4" fill="#2B5368"/>
+    <circle cx="637" cy="185" r="1.5" fill="#93B7C9"/>
+    <circle cx="128" cy="254" r="50" fill="#172330" stroke="#9BA8B5" stroke-width="2.5"/>
+    <circle cx="128" cy="254" r="44" fill="#1E2936" stroke="#52606F" stroke-width="1.5"/>
+    <g fill="url(#control)" stroke="#0F1B27" stroke-width="2.5">
+      <path d="M116 216h24v21l-12 12-12-12Z"/>
+      <path d="M116 292h24v-21l-12-12-12 12Z"/>
+      <path d="M90 242v24h21l12-12-12-12Z"/>
+      <path d="M166 242v24h-21l-12-12 12-12Z"/>
+    </g>
+    <path d="m124 230 4-4 4 4m-8 48 4 4 4-4m-31-28-4 4 4 4m54-8 4 4-4 4" fill="none" stroke="#A5B0BA" stroke-width="2" opacity="0.6"/>
+    <circle cx="672" cy="254" r="50" fill="#172330" stroke="#9BA8B5" stroke-width="2.5"/>
+    <circle cx="672" cy="254" r="44" fill="#1E2936" stroke="#52606F" stroke-width="1.5"/>
+    <g fill="url(#control)" stroke="#0F1B27" stroke-width="2">
+      <circle cx="672" cy="226" r="15"/><circle cx="700" cy="254" r="15"/><circle cx="672" cy="282" r="15"/><circle cx="644" cy="254" r="15"/>
+    </g>
+    <g fill="none" stroke="#CDD6DD" stroke-width="2">
+      <path d="m672 218-7 12h14Z"/><circle cx="700" cy="254" r="7"/><path d="m667 277 10 10m0-10-10 10"/><rect x="638" y="248" width="12" height="12" rx="1"/>
+    </g>
+    <g fill="#111C28" stroke="#91A0AD" stroke-width="2">
+      <circle cx="148" cy="350" r="32"/><circle cx="652" cy="350" r="32"/>
+    </g>
+    <g fill="url(#control)" stroke="#101A26" stroke-width="3">
+      <circle cx="148" cy="349" r="26"/><circle cx="652" cy="349" r="26"/>
+    </g>
+    <g fill="#3D4854" stroke="#778491" stroke-width="1.5">
+      <circle cx="148" cy="347" r="20"/><circle cx="652" cy="347" r="20"/>
+    </g>
+    <path d="M134 339q14-13 28 0M638 339q14-13 28 0" fill="none" stroke="#BCC6CD" stroke-width="2" opacity="0.35"/>
+    <g fill="#0B1723" stroke="#556675" stroke-width="0.7">
+      <circle cx="83" cy="331" r="2"/><circle cx="91" cy="331" r="2"/><circle cx="99" cy="331" r="2"/><circle cx="83" cy="339" r="2"/><circle cx="91" cy="339" r="2"/><circle cx="99" cy="339" r="2"/><circle cx="83" cy="347" r="2"/><circle cx="91" cy="347" r="2"/><circle cx="99" cy="347" r="2"/>
+      <circle cx="701" cy="331" r="2"/><circle cx="709" cy="331" r="2"/><circle cx="717" cy="331" r="2"/><circle cx="701" cy="339" r="2"/><circle cx="709" cy="339" r="2"/><circle cx="717" cy="339" r="2"/><circle cx="701" cy="347" r="2"/><circle cx="709" cy="347" r="2"/><circle cx="717" cy="347" r="2"/>
+    </g>
+    <ellipse cx="127" cy="407" rx="26" ry="14" fill="#16273B" stroke="#6E9DC9" stroke-width="2"/>
+    <text x="127" y="412" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#A6D3F5">PS</text>
+    <ellipse cx="638" cy="406" rx="18" ry="9" fill="url(#control)" stroke="#6C7A88" stroke-width="1.5"/>
+    <ellipse cx="687" cy="397" rx="18" ry="9" fill="url(#control)" stroke="#6C7A88" stroke-width="1.5"/>
+    <g font-family="Arial,sans-serif" font-size="7" font-weight="bold" text-anchor="middle" fill="#CBD3DA"><text x="638" y="409">SELECT</text><text x="687" y="400">START</text></g>
+    <path d="M155 437q248 27 490 0" fill="none" stroke="#DDE4E8" stroke-width="2" opacity="0.5"/>
+  </g>
+</svg>
