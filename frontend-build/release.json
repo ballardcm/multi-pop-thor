@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_tag": "frontend-rocknix-20261001-1",
+  "firmware_version": "20261001",
+  "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
+  "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
+  "frontend": {
+    "asset": "emulationstation-aarch64",
+    "sha256": "f107b0cdc6ba959881d6281b2d9c02a6864b431b3aa8023b0bf0c97a91f694c2"
+  },
+  "upstream_source": {
+    "asset": "emulationstation-source-cada856d.tar.gz",
+    "url": "https://github.com/ROCKNIX/emulationstation-next/archive/cada856d86e3115fbbf0bce09dd761b0ee8fa9fd.tar.gz",
+    "sha256": "c92eb0fd6e1e2b5fa603391f6c0b540d4fad858664c23321237df32efecf68ad"
+  },
+  "sdl_source": {
+    "asset": "SDL2-2.32.10.tar.gz",
+    "url": "https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz",
+    "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+  },
+  "build_inputs": {
+    "multi-pop-thor/frontend/thor-popup-placement.patch": "9e1b46a5272e3898885b83bb0b63e2edc39e00d81a23e6813f85ac1c96d8ce97",
+    "multi-pop-thor/frontend/thor-game-paging.patch": "81351e3015337ba5d1592d90982bb7c02e4b1226ff65bc6f83e47b7673bfd0da",
+    "frontend-build/build-frontend.sh": "eb469a75f79215e41bfeb3918d201e3e7871c5b0f4d305ed73437fabdbc77a6b",
+    "frontend-build/Dockerfile": "6db99d7d782be9bfddc202f3e7055b1ecedead23c6761d04156441bc8550eadd"
+  },
+  "pugixml_source": {
+    "asset": "pugixml-source.tar.gz",
+    "url": "https://github.com/zeux/pugixml/archive/61c944895e071872370219cadade8423dc6e04dc.tar.gz",
+    "sha256": "d82e28c844f46165bdb2c160466073087888ec81ea87fbe66e3dc7f36aa5c835"
+  }
+}
