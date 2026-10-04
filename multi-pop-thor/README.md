@@ -22,7 +22,7 @@ If an earlier version is already activated, run its original restore helper befo
 
 The helper verifies both displays, saves the original settings and Sway configuration, and adds a separate layout fragment. With `--prepare`, it restarts the frontend while preserving the current theme selection. Select `multi-pop-thor` in EmulationStation's Theme Set menu afterward. Running the helper without that flag also selects Multi Pop. If another theme's launcher is already mounted, the helper preserves it and stops; disable that theme's startup entry and reboot before activating Multi Pop.
 
-The launcher mount lasts until reboot. Run the helper with `--prepare` again after reboot to restore the full two-screen canvas while keeping the selected theme. The optional `scripts/start_after_reboot.sh` can also be copied to the activation state's `start-after-reboot.sh` for an existing `essway` service override. It reapplies the layout only when Multi Pop is selected and uses the system frontend for other themes. The activation helper does not install a service override automatically.
+Activation installs an `essway` service override automatically. After reboot, it restores the two-screen layout and touchscreen controls whenever Multi Pop is selected; other themes use the system frontend. Both supported theme directories work. Existing installations can enable automatic startup by rerunning the activation helper with `--prepare`. An unrelated or manually installed service override must be removed before activation; the helper preserves it and explains the conflict.
 
 ## Artwork and controls
 
@@ -58,7 +58,7 @@ bash \
   /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh
 ```
 
-Restore uses the original backups in `/storage/.config/multi-pop-thor/`. It accepts the theme and carousel choices saved when you manually select Multi Pop. It stops if other settings or configuration have changed since activation, so newer changes are preserved. Backups remain available for manual recovery.
+Restore removes the automatic startup override and uses the original backups in `/storage/.config/multi-pop-thor/`. It accepts the theme and carousel choices saved when you manually select Multi Pop. It stops if other settings, configuration, or the startup override have changed since activation, so newer changes are preserved. Backups remain available for manual recovery.
 
 ## Validation and credits
 

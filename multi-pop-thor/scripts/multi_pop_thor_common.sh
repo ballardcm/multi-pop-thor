@@ -8,6 +8,7 @@ SWAY_CONFIG=/storage/.config/sway/config
 SWAY_FRAGMENT=/storage/.config/sway/multi-pop-thor.conf
 STATE=/storage/.config/multi-pop-thor
 LAUNCHER_TARGET=/usr/bin/start_es.sh
+SERVICE_OVERRIDE=/storage/.config/system.d/essway.service.d/multi-pop-thor.conf
 INCLUDE_LINE='include "/storage/.config/sway/multi-pop-thor.conf"'
 SERVICE_STOPPED=false
 
@@ -23,7 +24,7 @@ say() {
 check_host() {
     [[ $EUID -eq 0 ]] || fail 'Run this helper as root on the Thor.'
     local command
-    for command in awk cat chmod cmp cp grep mkdir mktemp mount mountpoint mv rmdir sed sort stat swaymsg systemctl umount; do
+    for command in awk cat chmod cmp cp dirname grep mkdir mktemp mount mountpoint mv rm rmdir sed sort stat swaymsg systemctl umount; do
         command -v "$command" >/dev/null 2>&1 || fail "Required command is missing: $command."
     done
     [[ -f "$SETTINGS" ]] || fail "Settings were not found at $SETTINGS."
@@ -89,6 +90,41 @@ guard_launcher_mount() {
     fi
 }
 
+guard_startup_override() {
+    local overrides entry
+    overrides=$(systemctl show essway --property=DropInPaths --value)
+    for entry in $overrides; do
+        [[ "$entry" == "$SERVICE_OVERRIDE" ]] || fail "Another essway service override exists: $entry. It was preserved."
+    done
+    if [[ -e "$SERVICE_OVERRIDE" || -L "$SERVICE_OVERRIDE" ]]; then
+        [[ ! -L "$SERVICE_OVERRIDE" && -f "$STATE/installed.service" ]] &&
+        cmp -s "$SERVICE_OVERRIDE" "$STATE/installed.service" ||
+            fail 'The startup override is not owned by this activation. It was preserved.'
+    elif [[ -f "$STATE/installed.service" ]]; then
+        fail 'The startup override was removed after activation. Inspect its activation record first.'
+    fi
+}
+
+install_startup_override() {
+    mkdir -p "$(dirname "$SERVICE_OVERRIDE")"
+    # Referencing the installed helper keeps startup in sync with future theme updates.
+    cat > "$STATE/installed.service" <<EOF
+[Service]
+# ROCKNIX regenerates its display configuration at boot, so the theme must reapply its layout.
+ExecStart=
+ExecStart=/bin/bash $THEME/scripts/start_after_reboot.sh
+EOF
+    cp "$STATE/installed.service" "$SERVICE_OVERRIDE"
+    systemctl daemon-reload
+}
+
+remove_startup_override() {
+    if [[ -f "$STATE/installed.service" ]]; then
+        rm "$SERVICE_OVERRIDE" "$STATE/installed.service"
+        systemctl daemon-reload
+    fi
+}
+
 lock_state() {
     mkdir -p "$STATE"
     mkdir "$STATE/lock" 2>/dev/null || fail 'Another activation or restore is running, or its lock needs inspection.'
@@ -130,6 +166,8 @@ guard_active_files() {
             <(sed '/<string name="ThemeSet" /d; /<string name="GamelistViewStyle" /d' "$STATE/installed.settings" | LC_ALL=C sort) ||
             fail "Settings changed after activation. They were preserved; inspect $STATE/settings.backup before restoring."
     fi
-    cmp -s "$SWAY_CONFIG" "$STATE/installed.sway" || fail "Sway configuration changed after activation. It was preserved; inspect $STATE/sway.backup before restoring."
+    # Booting with another theme leaves ROCKNIX's original layout in place instead of the prepared one.
+    cmp -s "$SWAY_CONFIG" "$STATE/installed.sway" || cmp -s "$SWAY_CONFIG" "$STATE/sway.backup" ||
+        fail "Sway configuration changed after activation. It was preserved; inspect $STATE/sway.backup before restoring."
     cmp -s "$SWAY_FRAGMENT" "$STATE/installed.fragment" || fail 'The supplemental configuration changed after activation and was preserved.'
 }

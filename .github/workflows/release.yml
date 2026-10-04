@@ -28,6 +28,7 @@ jobs:
           python tools/test-install-multi-pop-media.py
           python tools/test-package-release.py
           python tools/test-thor-touch.py
+          python tools/test-thor-startup.py
           git diff --check
       - name: Fetch the verified frontend and its source archives
         env:
