@@ -8,11 +8,13 @@ check_host
 [[ -f "$STATE/active" ]] || fail 'No completed Multi Pop Thor activation was recorded.'
 [[ -f "$STATE/settings.backup" && -f "$STATE/sway.backup" ]] || fail 'The original backups are incomplete and no files were changed.'
 guard_launcher_mount
+guard_startup_override
 lock_state
 stop_frontend
 
 # Exact comparisons prevent restoration from overwriting settings or configuration edited later.
 guard_active_files
+remove_startup_override
 
 settings_temp=$(mktemp "$SETTINGS.multi-pop-thor.XXXXXX")
 sway_temp=$(mktemp "$SWAY_CONFIG.multi-pop-thor.XXXXXX")

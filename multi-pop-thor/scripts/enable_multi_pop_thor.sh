@@ -18,6 +18,7 @@ check_host
 find_theme
 verify_outputs
 guard_launcher_mount
+guard_startup_override
 lock_state
 stop_frontend
 
@@ -118,7 +119,7 @@ awk -v stock_exec="exec_always swaymsg '[app_id=\"emulationstation\"]' focus out
     }
     END { if (invalid) exit 1 }
 ' "$SWAY_CONFIG" > "$sway_temp" || fail "Sway configuration was preserved. Inspect the diagnostic file $sway_temp."
-if ! awk -v include="$INCLUDE_LINE" '$0 == include { found=1 } END { exit !found }' "$sway_temp"; then
+if ! grep -Fxq "$INCLUDE_LINE" "$sway_temp"; then
     printf '\n# The Multi Pop Thor fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$sway_temp"
 fi
 
@@ -139,6 +140,7 @@ mount --bind "$THEME/scripts/start_es_thor.sh" "$LAUNCHER_TARGET"
 stat -c '%d:%i' "$LAUNCHER_TARGET" > "$STATE/launcher.identity"
 printf '%s\n' "$THEME" > "$STATE/theme.path"
 printf 'active\n' > "$STATE/active"
+install_startup_override
 start_frontend
 
 if [[ "$PREPARE_ONLY" == true ]]; then
@@ -147,8 +149,4 @@ else
     say 'Enabled: artwork above, browsing below, and native menus on the upper screen.'
 fi
 say "Original settings and Sway configuration are backed up in $STATE."
-if [[ "$PREPARE_ONLY" == true ]]; then
-    say 'The launcher mount lasts until reboot. Run this helper with --prepare after reboot to retain your selected theme.'
-else
-    say 'The launcher mount lasts until reboot. Run this helper again after reboot to reactivate the full virtual surface.'
-fi
+say 'Multi Pop will start automatically after reboot whenever it is the selected theme.'

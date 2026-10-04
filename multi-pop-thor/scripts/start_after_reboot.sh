@@ -1,8 +1,13 @@
 #!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
 set -euo pipefail
 
-# Other themes keep the normal frontend so choosing a theme does not require removing this hook.
-if ! grep -q 'name="ThemeSet" value="multi-pop-thor"' /storage/.config/emulationstation/es_settings.cfg; then
+SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
+. "$SCRIPT_DIR/multi_pop_thor_common.sh"
+
+# A fresh --prepare activation owns a live mount and needs the full canvas for theme selection.
+# After reboot that mount is gone, so other themes return to the normal frontend.
+if ! grep -q 'name="ThemeSet" value="multi-pop-thor"' /storage/.config/emulationstation/es_settings.cfg && ! owns_launcher_mount; then
     . /usr/bin/es_settings
     exec /usr/bin/emulationstation --log-path /var/log --no-splash
 fi
@@ -10,7 +15,8 @@ fi
 # ROCKNIX regenerates this configuration at boot, so restore the Thor display and touch layout.
 config=/storage/.config/sway/config
 fragment=/storage/.config/sway/multi-pop-thor.conf
-launcher=/roms/themes/multi-pop-thor/scripts/start_es_thor.sh
+find_theme
+launcher="$THEME/scripts/start_es_thor.sh"
 [[ -f "$fragment" && -x "$launcher" ]]
 export SWAYSOCK=/run/0-runtime-dir/sway-ipc.0.sock
 for attempt in {1..30}; do
@@ -28,14 +34,20 @@ awk '
     }
     { print }
 ' "$config" > "$staged"
-if ! grep -Fxq 'include "/storage/.config/sway/multi-pop-thor.conf"' "$staged"; then
-    printf '\n# The separate Thor fragment restores the theme viewport after ROCKNIX startup.\ninclude "/storage/.config/sway/multi-pop-thor.conf"\n' >> "$staged"
+if ! grep -Fxq "$INCLUDE_LINE" "$staged"; then
+    printf '\n# The Multi Pop Thor fragment keeps the dual-screen layout separate from the base configuration.\n%s\n' "$INCLUDE_LINE" >> "$staged"
 fi
 if ! cmp -s "$config" "$staged"; then
     # Preserve each generated configuration before changing its display and lower-touchscreen directives.
     cp -p "$config" "/storage/.config/multi-pop-thor/sway-before-startup-$(date -u +%Y%m%dT%H%M%SZ).conf"
     chmod 644 "$staged"
     mv "$staged" "$config"
+fi
+# A file bind mount disappears at reboot; recording its new identity also keeps updates and restoration usable.
+guard_launcher_mount
+if ! owns_launcher_mount; then
+    mount --bind "$launcher" "$LAUNCHER_TARGET"
+    stat -c '%d:%i' "$LAUNCHER_TARGET" > "$STATE/launcher.identity"
 fi
 swaymsg reload >/dev/null
 swaymsg 'output * power on' >/dev/null
