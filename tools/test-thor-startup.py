@@ -107,6 +107,7 @@ elif command == 'stat':
         self.assertEqual(self.sway.read_bytes(), (self.state / 'installed.sway').read_bytes())
         self.helper('enable_multi_pop_thor.sh', '--prepare')
         self.reboot()
+        self.assertMultiLineEqual(self.sway.read_text(), (self.state / 'installed.sway').read_text())
         self.helper('restore_multi_pop_thor.sh')
         self.assertFalse(self.override.exists())
         self.assertEqual(self.settings.read_text(), self.stock_settings)
