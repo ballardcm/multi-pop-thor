@@ -1,0 +1,332 @@
+{
+  "fbneo": {
+    "title": "Final Burn Neo",
+    "manufacturer": "Arcade",
+    "year": "2002",
+    "accent": "E9B33F"
+  },
+  "atari2600": {
+    "title": "Atari 2600",
+    "manufacturer": "Atari",
+    "year": "1977",
+    "accent": "9B522B"
+  },
+  "atari5200": {
+    "title": "Atari 5200",
+    "manufacturer": "Atari",
+    "year": "1982",
+    "accent": "5C6774"
+  },
+  "atari7800": {
+    "title": "Atari 7800",
+    "manufacturer": "Atari",
+    "year": "1986",
+    "accent": "A9B0B7"
+  },
+  "atarilynx": {
+    "title": "Atari Lynx",
+    "manufacturer": "Atari",
+    "year": "1989",
+    "accent": "F2CB57"
+  },
+  "atarijaguar": {
+    "title": "Atari Jaguar",
+    "manufacturer": "Atari",
+    "year": "1993",
+    "accent": "B6283D"
+  },
+  "wonderswancolor": {
+    "title": "WonderSwan Color",
+    "manufacturer": "Bandai",
+    "year": "2000",
+    "accent": "48AABD"
+  },
+  "colecovision": {
+    "title": "ColecoVision",
+    "manufacturer": "Coleco",
+    "year": "1982",
+    "accent": "BD405B"
+  },
+  "intellivision": {
+    "title": "Intellivision",
+    "manufacturer": "Mattel",
+    "year": "1979",
+    "accent": "947146"
+  },
+  "c64": {
+    "title": "Commodore 64",
+    "manufacturer": "Commodore",
+    "year": "1982",
+    "accent": "3567A8"
+  },
+  "pico8": {
+    "title": "PICO-8",
+    "manufacturer": "Lexaloffle",
+    "year": "2015",
+    "accent": "EF70A5"
+  },
+  "xbox": {
+    "title": "Xbox",
+    "manufacturer": "Microsoft",
+    "year": "2001",
+    "accent": "357D28"
+  },
+  "pcengine": {
+    "title": "PC Engine",
+    "manufacturer": "NEC",
+    "year": "1987",
+    "accent": "E8D8AA"
+  },
+  "pce-cd": {
+    "title": "PC Engine CD",
+    "manufacturer": "NEC",
+    "year": "1988",
+    "accent": "A88872"
+  },
+  "nes": {
+    "title": "Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "year": "1985",
+    "accent": "B83931"
+  },
+  "gb": {
+    "title": "Game Boy",
+    "manufacturer": "Nintendo",
+    "year": "1989",
+    "accent": "A3AD46"
+  },
+  "snes": {
+    "title": "Super Nintendo",
+    "manufacturer": "Nintendo",
+    "year": "1991",
+    "accent": "B49EE1"
+  },
+  "n64": {
+    "title": "Nintendo 64",
+    "manufacturer": "Nintendo",
+    "year": "1996",
+    "accent": "156B59"
+  },
+  "gbc": {
+    "title": "Game Boy Color",
+    "manufacturer": "Nintendo",
+    "year": "1998",
+    "accent": "78BE48"
+  },
+  "gc": {
+    "title": "GameCube",
+    "manufacturer": "Nintendo",
+    "year": "2001",
+    "accent": "5B32DF"
+  },
+  "gba": {
+    "title": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "year": "2001",
+    "accent": "393977"
+  },
+  "nds": {
+    "title": "Nintendo DS",
+    "manufacturer": "Nintendo",
+    "year": "2004",
+    "accent": "C8D5DF"
+  },
+  "3ds": {
+    "title": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "year": "2011",
+    "accent": "EB5E52"
+  },
+  "virtualboy": {
+    "title": "Virtual Boy",
+    "manufacturer": "Nintendo",
+    "year": "1995",
+    "accent": "D81F36"
+  },
+  "atomiswave": {
+    "title": "Atomiswave",
+    "manufacturer": "Sammy",
+    "year": "2003",
+    "accent": "F5A53D"
+  },
+  "sg-1000": {
+    "title": "SG-1000",
+    "manufacturer": "Sega",
+    "year": "1983",
+    "accent": "6AAAD8"
+  },
+  "mastersystem": {
+    "title": "Master System",
+    "manufacturer": "Sega",
+    "year": "1985",
+    "accent": "D74A49"
+  },
+  "genesis": {
+    "title": "Genesis",
+    "manufacturer": "Sega",
+    "year": "1989",
+    "accent": "243858"
+  },
+  "segacd": {
+    "title": "Sega CD",
+    "manufacturer": "Sega",
+    "year": "1992",
+    "accent": "9AA4D9"
+  },
+  "saturn": {
+    "title": "Saturn",
+    "manufacturer": "Sega",
+    "year": "1994",
+    "accent": "426B8E"
+  },
+  "gamegear": {
+    "title": "Game Gear",
+    "manufacturer": "Sega",
+    "year": "1990",
+    "accent": "177D8D"
+  },
+  "sega32x": {
+    "title": "Sega 32X",
+    "manufacturer": "Sega",
+    "year": "1994",
+    "accent": "993BCE"
+  },
+  "model3": {
+    "title": "Sega Model 3",
+    "manufacturer": "Sega",
+    "year": "1996",
+    "accent": "0765C2"
+  },
+  "dreamcast": {
+    "title": "Dreamcast",
+    "manufacturer": "Sega",
+    "year": "1998",
+    "accent": "E57731"
+  },
+  "naomi": {
+    "title": "Naomi",
+    "manufacturer": "Sega",
+    "year": "1998",
+    "accent": "98C8CC"
+  },
+  "neogeo": {
+    "title": "Neo Geo",
+    "manufacturer": "SNK",
+    "year": "1990",
+    "accent": "D7AD27"
+  },
+  "ngpc": {
+    "title": "Neo Geo Pocket Color",
+    "manufacturer": "SNK",
+    "year": "1999",
+    "accent": "4B55A4"
+  },
+  "vectrex": {
+    "title": "Vectrex",
+    "manufacturer": "GCE",
+    "year": "1982",
+    "accent": "427D80"
+  },
+  "ps2": {
+    "title": "PlayStation 2",
+    "manufacturer": "Sony",
+    "year": "2000",
+    "accent": "2448CC"
+  },
+  "ps3": {
+    "title": "PlayStation 3",
+    "manufacturer": "Sony",
+    "year": "2006",
+    "accent": "373B45"
+  },
+  "steam": {
+    "title": "Steam",
+    "manufacturer": "PC Gaming",
+    "year": "",
+    "accent": "287BB5"
+  },
+  "music": {
+    "title": "Music Player",
+    "manufacturer": "Your Collection",
+    "year": "",
+    "accent": "A42883"
+  },
+  "ports": {
+    "title": "Ports",
+    "manufacturer": "PC Gaming",
+    "year": "",
+    "accent": "3F7269"
+  },
+  "tools": {
+    "title": "Tools",
+    "manufacturer": "Thor Utilities",
+    "year": "",
+    "accent": "B16B49"
+  },
+  "auto-favorites": {
+    "title": "Favorites",
+    "manufacturer": "Your Collection",
+    "year": "",
+    "accent": "C73269"
+  },
+  "psx": {
+    "title": "PlayStation",
+    "manufacturer": "Sony",
+    "year": "1994",
+    "accent": "77796F"
+  },
+  "psp": {
+    "title": "PSP",
+    "manufacturer": "Sony",
+    "year": "2004",
+    "accent": "2A4D62"
+  },
+  "sfc": {
+    "title": "Super Famicom",
+    "manufacturer": "Nintendo",
+    "year": "1990",
+    "accent": "EEEDEE"
+  },
+  "famicom": {
+    "title": "Famicom",
+    "manufacturer": "Nintendo",
+    "year": "1983",
+    "accent": "8D1C32"
+  },
+  "megadrive": {
+    "title": "Mega Drive",
+    "manufacturer": "Sega",
+    "year": "1988",
+    "accent": "172D3B"
+  },
+  "mame": {
+    "title": "MAME",
+    "manufacturer": "Arcade",
+    "year": "1997",
+    "accent": "623C7E"
+  },
+  "arcade": {
+    "title": "Arcade",
+    "manufacturer": "Coin-Op Classics",
+    "year": "",
+    "accent": "D33D23"
+  },
+  "auto-allgames": {
+    "title": "All Games",
+    "manufacturer": "Your Collection",
+    "year": "",
+    "accent": "1F9C94"
+  },
+  "auto-lastplayed": {
+    "title": "Recently Played",
+    "manufacturer": "Your Collection",
+    "year": "",
+    "accent": "FAAE82"
+  },
+  "default": {
+    "title": "Game Library",
+    "manufacturer": "Multi Pop",
+    "year": "",
+    "accent": "6D4776"
+  }
+}

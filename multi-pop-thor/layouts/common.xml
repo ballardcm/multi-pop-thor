@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+
+    <!-- The unused 1240px area keeps native menus centered on the Thor's upper panel. -->
+    <!-- The upper display occupies x=1240..3160 and the lower display occupies x=3160..4400. -->
+    <view name="screen">
+        <controllerActivity name="controllerActivity"><visible>false</visible></controllerActivity>
+        <batteryIndicator name="batteryIndicator"><visible>false</visible></batteryIndicator>
+        <text name="clock"><pos>1 1</pos></text>
+    </view>
+
+    <view name="system, gamecarousel">
+        <image name="canvas" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0 0</pos><size>1 1</size><color>171821FF</color><zIndex>0</zIndex>
+        </image>
+        <image name="top-paper" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.281818182 0</pos><size>0.436363636 1</size><color>${paper}</color><zIndex>1</zIndex>
+        </image>
+        <image name="system-color-column" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.281818182 0</pos><size>0.095454545 1</size><color>${accent}</color><zIndex>2</zIndex>
+        </image>
+        <image name="bottom-paper" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.718181818 0</pos><size>0.281818182 1</size><color>${paper}</color><zIndex>1</zIndex>
+        </image>
+        <image name="bottom-header" extra="true">
+            <path>${themePath}/assets/ui/white.svg</path>
+            <pos>0.718181818 0</pos><size>0.281818182 0.122222222</size><color>${accent}</color><zIndex>2</zIndex>
+        </image>
+        <image name="system-mark-badge" extra="true">
+            <path>${themePath}/assets/ui/hardware-badge.svg</path>
+            <pos>0.329545455 0.381481481</pos><origin>0.5 0.5</origin>
+            <size>0.072727273 0.240740741</size><zIndex>2.5</zIndex>
+        </image>
+        <image name="system-mark" extra="true">
+            <path>${systemIcon}</path>
+            <pos>0.329545455 0.381481481</pos><origin>0.5 0.5</origin>
+            <maxSize>0.063636364 0.259259259</maxSize><zIndex>3</zIndex>
+        </image>
+        <text name="brand-caption" extra="true">
+            <text>MULTI POP</text>
+            <pos>0.289090909 0.905555556</pos><size>0.080909091 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.032407407</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
+
+        <!-- The fixed central frame identifies selection while neighboring covers stay fully visible. -->
+        <image name="selected-card-frame" extra="true">
+            <path>${themePath}/assets/ui/selection.svg</path><color>${accent}</color>
+            <pos>0.859090909 0.446296296</pos><origin>0.5 0.5</origin>
+            <size>0.088636364 0.566666667</size><zIndex>4</zIndex>
+        </image>
+        <!-- Native hints use the entire virtual width, so a concise footer prevents lower-screen overflow. -->
+        <helpsystem name="help"><textColor>00000000</textColor><iconColor>00000000</iconColor></helpsystem>
+        <text name="browse-hints" extra="true">
+            <text>‹ › Browse    A Select    B Back</text>
+            <pos>0.730909091 0.940740741</pos><size>0.256363636 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.037037037</fontSize>
+            <color>${ink}</color><alignment>center</alignment><zIndex>6</zIndex>
+        </text>
+    </view>
+</theme>
