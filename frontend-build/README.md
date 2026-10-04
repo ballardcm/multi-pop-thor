@@ -2,7 +2,7 @@
 
 Normal installation uses the ready-to-install ZIP from [Releases](https://github.com/ballardcm/multi-pop-thor/releases); it already contains the patched frontend. These instructions are for rebuilding or modifying that frontend.
 
-The supported target is **AYN Thor running ROCKNIX 20261001**, firmware revision `c445081a59518f37d9776e5412dd7b14910696f7`. The frontend source is [ROCKNIX/emulationstation-next](https://github.com/ROCKNIX/emulationstation-next), revision `cada856d86e3115fbbf0bce09dd761b0ee8fa9fd`, with the popup and paging patches in `multi-pop-thor/frontend/`. Source archive checksums are pinned in `frontend-build/release.json`.
+The supported target is **AYN Thor running ROCKNIX 20261001**, firmware revision `c445081a59518f37d9776e5412dd7b14910696f7`. The frontend source is [ROCKNIX/emulationstation-next](https://github.com/ROCKNIX/emulationstation-next), revision `cada856d86e3115fbbf0bce09dd761b0ee8fa9fd`, with the popup and navigation patches in `multi-pop-thor/frontend/`. Source archive checksums are pinned in `frontend-build/release.json`.
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Build inputs and compiler files stay under `frontend-build/private/build-your-ow
 
 ## Validate and distribute
 
-The scripts check native dependencies and startup support; they do not certify controller behavior or a different firmware version. Verify both display positions, B navigation, savestates, L1/R1 paging, audio/video, controller mappings, and the integrations you use on the actual Thor before distributing a new frontend.
+The scripts check native dependencies and startup support; they do not certify controller behavior or a different firmware version. Verify both display positions, B navigation, savestates, L1/R1 paging, audio/video, controller mappings, and the integrations you use on the actual Thor before distributing a new frontend. For the touch candidate, also check swipes in both directions and tap selection in both carousels, small finger jitter, vertical drags, wake from sleep, opening a menu during a gesture, and the Disable Touchscreen setting. Confirm that Sway maps the lower touchscreen to DSI-1 and reports its events as enabled after activation and after reboot before evaluating the gesture thresholds. Run `python3 tools/test-thor-touch.py` for the local gesture regression checks.
 
 Retain all frontend license notices. Ready-to-install releases must be accompanied by the matching public frontend source, patches, and build support files. Our source ZIP includes those materials together; firmware runtime libraries are collected locally and are not bundled in either download.
 

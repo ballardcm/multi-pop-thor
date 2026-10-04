@@ -52,3 +52,164 @@
  
  protected:
  	virtual std::string getQuickSystemSelectRightButton() override;
+--- a/es-core/src/components/CarouselComponent.h
++++ b/es-core/src/components/CarouselComponent.h
+@@ -5,0 +6 @@
++#include "components/ThorTouchGesture.h"
+@@ -114,0 +116,7 @@
++	ThorTouchGesture mThorTouch;
++	ThorTouchTargets mThorTargets;
++	int mThorPressedIndex = -1;
++	bool mUsingThorTouch = false;
++	void cancelThorTouch();
++	void moveThorTouch(int x, int y);
++
+--- a/es-core/src/components/CarouselComponent.cpp
++++ b/es-core/src/components/CarouselComponent.cpp
+@@ -10,0 +11 @@
++#include <SDL_timer.h>
+@@ -333,0 +335 @@
++	mThorTargets.clear();
+@@ -528,0 +531,2 @@
++		const auto cardRect = Renderer::getScreenRect(logoTrans * comp->getTransform(), comp->getSize(), true);
++		mThorTargets.add(index, cardRect.x, cardRect.y, cardRect.w, cardRect.h);
+@@ -691,0 +696 @@
++	cancelThorTouch();
+@@ -703,0 +709 @@
++	cancelThorTouch();
+@@ -714,0 +721,2 @@
++	if (!isTop)
++		cancelThorTouch();
+@@ -866,0 +875,18 @@
++void CarouselComponent::cancelThorTouch()
++{
++	if (mUsingThorTouch && mWindow->hasMouseCapture(this))
++		mWindow->releaseMouseCapture();
++	mUsingThorTouch = false;
++	mThorTouch.cancel();
++}
++
++void CarouselComponent::moveThorTouch(int x, int y)
++{
++	if (mDisable || Settings::getInstance()->getBool("DisableTouchscreen"))
++		mThorTouch.cancel();
++	const int steps = mThorTouch.move(x, y);
++	const int count = static_cast<int>(mEntries.size());
++	if (steps != 0 && count > 0)
++		setCursorIndex(((mCursor + steps) % count + count) % count);
++}
++
+@@ -870,0 +897,34 @@
++
++	const bool thorCarousel = Renderer::getScreenWidth() == 4400 &&
++		Renderer::getScreenHeight() == 1080 && isHorizontalCarousel() &&
++		Settings::getInstance()->getString("ThemeSet") == "multi-pop-thor";
++	if (pressed && thorCarousel && x >= 3160 && x < 4400 && y >= 0 && y < 1080)
++	{
++		cancelThorTouch();
++		if (mDisable || mEntries.empty() || Settings::getInstance()->getBool("DisableTouchscreen"))
++			return true;
++		const bool wokeScreen = mWindow->cancelScreenSaver();
++		stopScrolling();
++		mThorPressedIndex = mThorTargets.hit(x, y);
++		mThorTouch.begin(x, y, SDL_GetTicks());
++		// The first touch after sleep wakes the display without selecting a game.
++		if (wokeScreen)
++			mThorTouch.cancel();
++		mUsingThorTouch = true;
++		mWindow->setMouseCapture(this);
++		return true;
++	}
++	if (!pressed && mUsingThorTouch)
++	{
++		moveThorTouch(x, y);
++		const int target = mThorPressedIndex;
++		const bool select = mWindow->hasMouseCapture(this) && target >= 0 && target < static_cast<int>(mEntries.size()) && mThorTouch.tap(SDL_GetTicks());
++		cancelThorTouch();
++		// The normal confirm path preserves system entry, game launch options, and controller preferences.
++		if (select)
++		{
++			setCursorIndex(target);
++			InputManager::getInstance()->sendMouseClick(mWindow, 1);
++		}
++		return true;
++	}
+@@ -901,0 +962,5 @@
++	if (mUsingThorTouch)
++	{
++		moveThorTouch(x, y);
++		return;
++	}
+--- /dev/null
++++ b/es-core/src/components/ThorTouchGesture.h
+@@ -0,0 +1,70 @@
++#pragma once
++
++#include <cmath>
++#include <cstdint>
++#include <vector>
++
++// Pixel thresholds keep normal finger jitter from turning a tap into a swipe.
++class ThorTouchGesture
++{
++public:
++	void begin(int x, int y, uint32_t time)
++	{
++		mStartX = mAnchorX = x;
++		mStartY = y;
++		mTime = time;
++		mCancelled = false;
++		mMoved = false;
++	}
++
++	void cancel() { mCancelled = true; }
++
++	int move(int x, int y)
++	{
++		if (x < 3160 || x >= 4400 || y < 0 || y >= 1080)
++			cancel();
++		const int dx = x - mStartX;
++		const int dy = y - mStartY;
++		if (std::abs(dx) > 18 || std::abs(dy) > 18)
++			mMoved = true;
++		// Vertical movement must never launch an item or accidentally scroll sideways.
++		if (std::abs(dy) > 18 && std::abs(dy) >= std::abs(dx))
++			cancel();
++		if (mCancelled)
++			return 0;
++		const int steps = (mAnchorX - x) / 100;
++		mAnchorX -= steps * 100;
++		return steps;
++	}
++
++	bool tap(uint32_t time) const
++	{
++		return !mCancelled && !mMoved && uint32_t(time - mTime) <= 500;
++	}
++
++private:
++	int mStartX = 0, mStartY = 0, mAnchorX = 0;
++	uint32_t mTime = 0;
++	bool mCancelled = true, mMoved = false;
++};
++
++// Remember the rendered cards so taps follow their actual positions, scale, and draw order.
++class ThorTouchTargets
++{
++public:
++	void clear() { mCards.clear(); }
++	void add(int index, int x, int y, int width, int height)
++	{
++		mCards.push_back({index, x, y, width, height});
++	}
++	int hit(int x, int y) const
++	{
++		for (auto card = mCards.rbegin(); card != mCards.rend(); ++card)
++			if (x >= card->x && x < card->x + card->width && y >= card->y && y < card->y + card->height)
++				return card->index;
++		return -1;
++	}
++private:
++	struct Card { int index, x, y, width, height; };
++	std::vector<Card> mCards;
++};
