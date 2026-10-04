@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "release_tag": "frontend-rocknix-20261001-1",
+  "release_tag": "frontend-rocknix-20261001-2",
   "firmware_version": "20261001",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
   "frontend": {
     "asset": "emulationstation-aarch64",
-    "sha256": "f107b0cdc6ba959881d6281b2d9c02a6864b431b3aa8023b0bf0c97a91f694c2"
+    "sha256": "ed5aceec23e059dfd27130c0411004b1921e54cd2f4e84f03613b58b86b4c5c1"
   },
   "upstream_source": {
     "asset": "emulationstation-source-cada856d.tar.gz",
@@ -20,7 +20,7 @@
   },
   "build_inputs": {
     "multi-pop-thor/frontend/thor-popup-placement.patch": "9e1b46a5272e3898885b83bb0b63e2edc39e00d81a23e6813f85ac1c96d8ce97",
-    "multi-pop-thor/frontend/thor-game-paging.patch": "81351e3015337ba5d1592d90982bb7c02e4b1226ff65bc6f83e47b7673bfd0da",
+    "multi-pop-thor/frontend/thor-game-paging.patch": "c7519df419bda39628cf1a5bb7626a478a3f91acc3b266983ce52dc00187401a",
     "frontend-build/build-frontend.sh": "eb469a75f79215e41bfeb3918d201e3e7871c5b0f4d305ed73437fabdbc77a6b",
     "frontend-build/Dockerfile": "6db99d7d782be9bfddc202f3e7055b1ecedead23c6761d04156441bc8550eadd"
   },

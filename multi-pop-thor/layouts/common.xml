@@ -57,7 +57,7 @@
         <!-- Native hints use the entire virtual width, so a concise footer prevents lower-screen overflow. -->
         <helpsystem name="help"><textColor>00000000</textColor><iconColor>00000000</iconColor></helpsystem>
         <text name="browse-hints" extra="true">
-            <text>‹ › Browse    A Select    B Back</text>
+            <text>Swipe ‹ › · Tap/A select · B back</text>
             <pos>0.730909091 0.940740741</pos><size>0.256363636 0.044444444</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.037037037</fontSize>
             <color>${ink}</color><alignment>center</alignment><zIndex>6</zIndex>

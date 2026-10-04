@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -34,6 +35,14 @@ def check_sway_filters():
 
 def main():
     check_sway_filters()
+    back = ET.parse(ROOT / "multi-pop-thor/layouts/games.xml").find(".//text[@name='library-back']")
+    x, y = map(float, back.findtext("pos").split())
+    width, height = map(float, back.findtext("size").split())
+    assert [round(x * 4400), round(y * 1080), round(width * 4400), round(height * 1080)] == [3188, 16, 136, 100]
+    top_back = ET.parse(ROOT / "multi-pop-thor/layouts/games.xml").find(".//text[@name='top-library-back']")
+    x, y = map(float, top_back.findtext("pos").split())
+    width, height = map(float, top_back.findtext("size").split())
+    assert [round(x * 4400), round(y * 1080), round(width * 4400), round(height * 1080)] == [1268, 16, 136, 100]
     compiler = shutil.which("c++")
     if compiler is None:
         raise SystemExit("Install a C++ compiler: xcode-select --install on macOS, or sudo pacman -S base-devel on Arch")
@@ -50,6 +59,25 @@ def main():
 
 int main()
 {
+    assert(ThorTouchGesture::libraryBackHit(1336, 66));
+    assert(!ThorTouchGesture::libraryBackHit(1267, 66));
+    assert(!ThorTouchGesture::libraryBackHit(1404, 66));
+    ThorTouchGesture topBack;
+    topBack.begin(1336, 66, 100, 1240, 3160);
+    assert(topBack.move(1340, 68) == 0);
+    assert(topBack.tap(200));
+    assert(ThorTouchGesture::libraryBackHit(3256, 66));
+    assert(!ThorTouchGesture::libraryBackHit(3187, 66));
+    assert(!ThorTouchGesture::libraryBackHit(3324, 66));
+    assert(!ThorTouchGesture::libraryBackHit(3256, 116));
+    ThorTouchGesture back;
+    back.begin(3256, 66, 100);
+    back.move(3259, 68);
+    assert(back.tap(200));
+    back.begin(3256, 66, 100);
+    back.move(3310, 66);
+    assert(!back.tap(200));
+
     ThorTouchTargets cards;
     cards.add(8, 3212, 232, 310, 500);
     cards.add(0, 4038, 232, 310, 500);

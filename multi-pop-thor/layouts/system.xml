@@ -2,7 +2,7 @@
 <theme>
     <formatVersion>7</formatVersion>
     <view name="system">
-        <text name="browse-hints" extra="true"><text>‹ › Systems    A Select    B Jump    START Menu</text></text>
+        <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · B jump · START menu</text></text>
         <text name="top-system-name" extra="true">
             <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
             <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
@@ -28,7 +28,7 @@
             <maxSize>0.325 0.753703704</maxSize><zIndex>3</zIndex>
         </image>
         <text name="hero-instruction" extra="true">
-            <text>Pick a system. Find your next game.</text>
+            <text>Swipe left/right to browse · Tap to select</text>
             <pos>0.389090909 0.855555556</pos><size>0.316818182 0.070370370</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.044444444</fontSize>
             <color>${ink}</color><alignment>center</alignment><zIndex>3</zIndex>

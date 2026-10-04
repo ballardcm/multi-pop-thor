@@ -147,16 +147,17 @@
 @@ -69,0 +71,2 @@
 +	bool onMouseClick(int button, bool pressed, int x, int y) override;
 +	void onMouseMove(int x, int y) override;
-@@ -118,0 +122,4 @@
+@@ -118,0 +122,5 @@
 +	ThorTouchGesture mUpperTouch;
 +	bool mUpperTouchActive = false;
++	bool mTouchBackButton = false;
 +	void cancelUpperTouch();
 +	void sendUpperTouchInput(const std::string& name);
 --- a/es-app/src/views/ViewController.cpp
 +++ b/es-app/src/views/ViewController.cpp
 @@ -1324,0 +1325 @@
 +	cancelUpperTouch();
-@@ -1422,0 +1424,56 @@
+@@ -1422,0 +1424,63 @@
 +void ViewController::cancelUpperTouch()
 +{
 +	if (mUpperTouchActive && mWindow->hasMouseCapture(this))
@@ -181,7 +182,9 @@
 +	{
 +		cancelUpperTouch();
 +		const bool wokeScreen = mWindow->cancelScreenSaver();
-+		mUpperTouch.begin(x, y, SDL_GetTicks(), 1240, 3160);
++		mTouchBackButton = mState.viewing == GAME_LIST && ThorTouchGesture::libraryBackHit(x, y);
++		const bool lowerPanel = x >= 3160;
++		mUpperTouch.begin(x, y, SDL_GetTicks(), lowerPanel ? 3160 : 1240, lowerPanel ? 4400 : 3160);
 +		if (wokeScreen || mLockInput)
 +			mUpperTouch.cancel();
 +		mUpperTouchActive = true;
@@ -190,11 +193,13 @@
 +	else if (mUpperTouchActive)
 +	{
 +		onMouseMove(x, y);
-+		const bool select = mUpperTouchActive && mUpperTouch.tap(SDL_GetTicks());
++		const bool back = mTouchBackButton;
++		const bool select = mUpperTouchActive && mUpperTouch.tap(SDL_GetTicks()) &&
++			(!back || ThorTouchGesture::libraryBackHit(x, y));
 +		cancelUpperTouch();
 +		// Confirm only after a stationary tap ends, so a swipe never becomes a game launch.
 +		if (select)
-+			sendUpperTouchInput(BUTTON_OK);
++			sendUpperTouchInput(back ? BUTTON_BACK : BUTTON_OK);
 +	}
 +	return true;
 +}
@@ -209,16 +214,21 @@
 +		return;
 +	}
 +	const int steps = mUpperTouch.move(x, y);
++	// Sliding off the header button cancels it without moving the game carousel.
++	if (mTouchBackButton)
++		return;
 +	for (int step = 0; step < std::abs(steps); ++step)
 +		sendUpperTouchInput(steps > 0 ? "right" : "left");
 +}
 +
-@@ -1424,0 +1482,10 @@
-+	// The upper preview has no carousel hit target, so unhandled touch would otherwise confirm immediately.
+@@ -1424,0 +1489,12 @@
++	// Preview gestures and the Library back button must be handled before touch falls through to confirmation.
++	const bool upperPreview = x >= 1240 && x < 3160 && y >= 0 && y < 1080;
++	const bool libraryBack = mState.viewing == GAME_LIST && ThorTouchGesture::libraryBackHit(x, y);
 +	if (Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080 &&
 +		Settings::getInstance()->getString("ThemeSet") == "multi-pop-thor" &&
 +		(mState.viewing == GAME_LIST || mState.viewing == SYSTEM_SELECT) &&
-+		x >= 1240 && x < 3160 && y >= 0 && y < 1080 && mWindow->peekGui() == this)
++		(upperPreview || libraryBack) && mWindow->peekGui() == this)
 +	{
 +		if (pResult)
 +			pResult->push_back(this);
@@ -226,7 +236,7 @@
 +	}
 --- /dev/null
 +++ b/es-core/src/components/ThorTouchGesture.h
-@@ -0,0 +1,73 @@
+@@ -0,0 +1,78 @@
 +#pragma once
 +
 +#include <cmath>
@@ -237,6 +247,11 @@
 +class ThorTouchGesture
 +{
 +public:
++	static bool libraryBackHit(int x, int y)
++	{
++		return ((x >= 1268 && x < 1404) || (x >= 3188 && x < 3324)) && y >= 16 && y < 116;
++	}
++
 +	void begin(int x, int y, uint32_t time, int left = 3160, int right = 4400)
 +	{
 +		mStartX = mAnchorX = x;
