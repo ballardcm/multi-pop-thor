@@ -4,7 +4,7 @@
     <variables>
         <accent>F2CB57FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atarilynx.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/atarilynx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarilynx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarilynx.png</systemHero>
     </variables>

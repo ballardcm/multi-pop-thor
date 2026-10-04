@@ -4,7 +4,7 @@
     <variables>
         <accent>B49EE1FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/snes.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/snes.png</systemIcon>
         <systemCard>${themePath}/assets/cards/snes.png</systemCard>
         <systemHero>${themePath}/assets/heroes/snes.png</systemHero>
     </variables>

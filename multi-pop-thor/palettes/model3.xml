@@ -4,7 +4,7 @@
     <variables>
         <accent>0765C2FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/model3.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/model3.png</systemIcon>
         <systemCard>${themePath}/assets/cards/model3.png</systemCard>
         <systemHero>${themePath}/assets/heroes/model3.png</systemHero>
     </variables>

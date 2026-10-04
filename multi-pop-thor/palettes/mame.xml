@@ -4,7 +4,7 @@
     <variables>
         <accent>623C7EFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/mame.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/mame.png</systemIcon>
         <systemCard>${themePath}/assets/cards/mame.png</systemCard>
         <systemHero>${themePath}/assets/heroes/mame.png</systemHero>
     </variables>

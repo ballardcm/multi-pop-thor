@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>93BFC9FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/wii.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/wii.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/wii.png</systemHero>
+    </variables>
+</theme>

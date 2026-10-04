@@ -4,7 +4,7 @@
     <variables>
         <accent>177D8DFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gamegear.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/gamegear.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gamegear.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gamegear.png</systemHero>
     </variables>

@@ -1,18 +1,12 @@
-"""Build the theme's platform cards from original vector hardware artwork."""
+"""Build the theme's platform cards from original PNG hardware artwork."""
 
 from pathlib import Path
 import json
-import os
-import subprocess
 import sys
-import xml.etree.ElementTree as ET
 
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1] / "multi-pop-thor"
-# Configurable tools let the same artwork source build outside the original Codex runtime.
-NODE = os.environ.get("MULTIPOP_NODE", "node")
-SHARP = os.environ.get("MULTIPOP_SHARP", "sharp")
 FONT = ROOT / "assets/fonts/RobotoCondensed-Bold.ttf"
 REGULAR = ROOT / "assets/fonts/Roboto-Regular.ttf"
 INK = "191A2E"
@@ -75,6 +69,17 @@ SYSTEMS = {
     "arcade": ("Arcade", "Coin-Op Classics", "", "D33D23"),
     "auto-allgames": ("All Games", "Your Collection", "", "1F9C94"),
     "auto-lastplayed": ("Recently Played", "Your Collection", "", "FAAE82"),
+    "wii": ("Wii", "Nintendo", "2006", "93BFC9"),
+    "wiiu": ("Wii U", "Nintendo", "2012", "258BB1"),
+    "switch": ("Nintendo Switch", "Nintendo", "2017", "DE564D"),
+    "3do": ("3DO", "Panasonic", "1993", "485B83"),
+    "amiga": ("Amiga", "Commodore", "1985", "D99565"),
+    "atarist": ("Atari ST", "Atari", "1985", "8699AB"),
+    "zxspectrum": ("ZX Spectrum", "Sinclair", "1982", "D6A851"),
+    "msx": ("MSX", "MSX", "1983", "B9535A"),
+    "wonderswan": ("WonderSwan", "Bandai", "1999", "A7B5C0"),
+    "tg16": ("TurboGrafx-16", "NEC", "1989", "D79439"),
+    "tg-cd": ("TurboGrafx-CD", "NEC", "1989", "707A9E"),
     "default": ("Game Library", "Multi Pop", "", "6D4776"),
 }
 
@@ -182,7 +187,7 @@ def main():
             '    <variables>\n'
             f'        <accent>{accent}FF</accent>\n'
             f'        <accentInk>{foreground(accent)}FF</accentInk>\n'
-            f'        <systemIcon>${{themePath}}/assets/systems/{key}.svg</systemIcon>\n'
+            f'        <systemIcon>${{themePath}}/assets/systems/{key}.png</systemIcon>\n'
             f'        <systemCard>${{themePath}}/assets/cards/{key}.png</systemCard>\n'
             f'        <systemHero>${{themePath}}/assets/heroes/{key}.png</systemHero>\n'
             '    </variables>\n</theme>\n'
@@ -191,14 +196,10 @@ def main():
     if "--palettes-only" in sys.argv:
         print(f"Built {len(SYSTEMS)} distinct palettes.")
         return
-    render = "const sharp=require(process.argv[1]);sharp(process.argv[2],{density:144}).resize(1200,900).png().toBuffer().then(b=>process.stdout.write(b));"
-    from io import BytesIO
     for key, details in SYSTEMS.items():
-        source = ROOT / "assets/systems" / (key + ".svg")
-        if ET.parse(source).getroot().get("viewBox") != "0 0 800 600":
-            raise SystemExit(f"Artwork not ready: {key}")
-        png = subprocess.check_output([str(NODE), "-e", render, str(SHARP), str(source)])
-        make_art(key, details, Image.open(BytesIO(png)).convert("RGBA"))
+        source = ROOT / "assets/systems" / (key + ".png")
+        with Image.open(source) as hardware:
+            make_art(key, details, hardware.convert("RGBA"))
     make_grid()
     print(f"Built {len(SYSTEMS)} hero panels and {len(SYSTEMS)} platform cards.")
 

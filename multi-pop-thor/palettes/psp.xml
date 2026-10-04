@@ -4,7 +4,7 @@
     <variables>
         <accent>2A4D62FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/psp.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/psp.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psp.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psp.png</systemHero>
     </variables>

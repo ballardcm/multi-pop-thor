@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>D6A851FF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/zxspectrum.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/zxspectrum.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/zxspectrum.png</systemHero>
+    </variables>
+</theme>

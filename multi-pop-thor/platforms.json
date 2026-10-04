@@ -335,6 +335,72 @@
     "year": "",
     "accent": "FAAE82"
   },
+  "wii": {
+    "title": "Wii",
+    "manufacturer": "Nintendo",
+    "year": "2006",
+    "accent": "93BFC9"
+  },
+  "wiiu": {
+    "title": "Wii U",
+    "manufacturer": "Nintendo",
+    "year": "2012",
+    "accent": "258BB1"
+  },
+  "switch": {
+    "title": "Nintendo Switch",
+    "manufacturer": "Nintendo",
+    "year": "2017",
+    "accent": "DE564D"
+  },
+  "3do": {
+    "title": "3DO",
+    "manufacturer": "Panasonic",
+    "year": "1993",
+    "accent": "485B83"
+  },
+  "amiga": {
+    "title": "Amiga",
+    "manufacturer": "Commodore",
+    "year": "1985",
+    "accent": "D99565"
+  },
+  "atarist": {
+    "title": "Atari ST",
+    "manufacturer": "Atari",
+    "year": "1985",
+    "accent": "8699AB"
+  },
+  "zxspectrum": {
+    "title": "ZX Spectrum",
+    "manufacturer": "Sinclair",
+    "year": "1982",
+    "accent": "D6A851"
+  },
+  "msx": {
+    "title": "MSX",
+    "manufacturer": "MSX",
+    "year": "1983",
+    "accent": "B9535A"
+  },
+  "wonderswan": {
+    "title": "WonderSwan",
+    "manufacturer": "Bandai",
+    "year": "1999",
+    "accent": "A7B5C0"
+  },
+  "tg16": {
+    "title": "TurboGrafx-16",
+    "manufacturer": "NEC",
+    "year": "1989",
+    "accent": "D79439"
+  },
+  "tg-cd": {
+    "title": "TurboGrafx-CD",
+    "manufacturer": "NEC",
+    "year": "1989",
+    "accent": "707A9E"
+  },
   "default": {
     "title": "Game Library",
     "manufacturer": "Multi Pop",

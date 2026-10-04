@@ -4,7 +4,7 @@
     <variables>
         <accent>287BB5FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/steam.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/steam.png</systemIcon>
         <systemCard>${themePath}/assets/cards/steam.png</systemCard>
         <systemHero>${themePath}/assets/heroes/steam.png</systemHero>
     </variables>

@@ -9,7 +9,7 @@
         <paper>F7F8FCFF</paper>
         <ink>191A2EFF</ink>
         <muted>646A80FF</muted>
-        <systemIcon>${themePath}/assets/systems/default.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
         <systemCard>${themePath}/assets/cards/default.png</systemCard>
         <systemHero>${themePath}/assets/heroes/default.png</systemHero>
     </variables>
@@ -71,6 +71,18 @@
     <include if="${system.theme} == 'auto-allgames'">./palettes/auto-allgames.xml</include>
     <include if="${system.theme} == 'auto-favorites'">./palettes/auto-favorites.xml</include>
     <include if="${system.theme} == 'auto-lastplayed'">./palettes/auto-lastplayed.xml</include>
+
+    <include if="${system.theme} == 'wii'">./palettes/wii.xml</include>
+    <include if="${system.theme} == 'wiiu'">./palettes/wiiu.xml</include>
+    <include if="${system.theme} == 'switch'">./palettes/switch.xml</include>
+    <include if="${system.theme} == '3do'">./palettes/3do.xml</include>
+    <include if="${system.theme} == 'amiga'">./palettes/amiga.xml</include>
+    <include if="${system.theme} == 'atarist'">./palettes/atarist.xml</include>
+    <include if="${system.theme} == 'zxspectrum'">./palettes/zxspectrum.xml</include>
+    <include if="${system.theme} == 'msx'">./palettes/msx.xml</include>
+    <include if="${system.theme} == 'wonderswan'">./palettes/wonderswan.xml</include>
+    <include if="${system.theme} == 'tg16'">./palettes/tg16.xml</include>
+    <include if="${system.theme} == 'tg-cd'">./palettes/tg-cd.xml</include>
 
     <include>./layouts/common.xml</include>
     <include>./layouts/system.xml</include>

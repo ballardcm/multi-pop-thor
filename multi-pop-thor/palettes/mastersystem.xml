@@ -4,7 +4,7 @@
     <variables>
         <accent>D74A49FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/mastersystem.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/mastersystem.png</systemIcon>
         <systemCard>${themePath}/assets/cards/mastersystem.png</systemCard>
         <systemHero>${themePath}/assets/heroes/mastersystem.png</systemHero>
     </variables>

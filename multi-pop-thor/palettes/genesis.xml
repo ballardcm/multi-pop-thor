@@ -4,7 +4,7 @@
     <variables>
         <accent>243858FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/genesis.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/genesis.png</systemIcon>
         <systemCard>${themePath}/assets/cards/genesis.png</systemCard>
         <systemHero>${themePath}/assets/heroes/genesis.png</systemHero>
     </variables>

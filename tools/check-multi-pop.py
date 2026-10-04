@@ -59,7 +59,7 @@ for path in sorted(ROOT.rglob("*.svg")):
 platforms = json.loads((ROOT / "platforms.json").read_text())
 routes = {node.get("if"): node.text.strip() for node in ET.parse(ROOT / "theme.xml").getroot().findall("include")}
 for key in platforms:
-    for folder, extension in (("palettes", "xml"), ("assets/systems", "svg"),
+    for folder, extension in (("palettes", "xml"), ("assets/systems", "png"),
                               ("assets/cards", "png"), ("assets/heroes", "png")):
         target = ROOT / folder / f"{key}.{extension}"
         if not target.is_file():

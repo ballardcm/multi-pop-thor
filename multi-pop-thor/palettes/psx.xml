@@ -4,7 +4,7 @@
     <variables>
         <accent>77796FFF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/psx.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/psx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psx.png</systemHero>
     </variables>

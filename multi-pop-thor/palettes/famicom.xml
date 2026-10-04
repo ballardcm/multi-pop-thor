@@ -4,7 +4,7 @@
     <variables>
         <accent>8D1C32FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/famicom.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/famicom.png</systemIcon>
         <systemCard>${themePath}/assets/cards/famicom.png</systemCard>
         <systemHero>${themePath}/assets/heroes/famicom.png</systemHero>
     </variables>

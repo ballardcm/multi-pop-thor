@@ -4,7 +4,7 @@
     <variables>
         <accent>947146FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/intellivision.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/intellivision.png</systemIcon>
         <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
         <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>
     </variables>

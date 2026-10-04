@@ -4,7 +4,7 @@
     <variables>
         <accent>A9B0B7FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atari7800.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/atari7800.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari7800.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari7800.png</systemHero>
     </variables>

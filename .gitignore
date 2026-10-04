@@ -47,3 +47,6 @@ node_modules/
 *.nds
 *.3ds
 *.vb
+
+# Review galleries and superseded artwork drafts are not release sources.
+/output/

@@ -4,7 +4,7 @@
     <variables>
         <accent>156B59FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/n64.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/n64.png</systemIcon>
         <systemCard>${themePath}/assets/cards/n64.png</systemCard>
         <systemHero>${themePath}/assets/heroes/n64.png</systemHero>
     </variables>

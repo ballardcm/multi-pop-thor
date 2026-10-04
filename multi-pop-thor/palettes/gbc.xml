@@ -4,7 +4,7 @@
     <variables>
         <accent>78BE48FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gbc.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/gbc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gbc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gbc.png</systemHero>
     </variables>

@@ -4,7 +4,7 @@
     <variables>
         <accent>E9B33FFF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/fbneo.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/fbneo.png</systemIcon>
         <systemCard>${themePath}/assets/cards/fbneo.png</systemCard>
         <systemHero>${themePath}/assets/heroes/fbneo.png</systemHero>
     </variables>

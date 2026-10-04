@@ -4,7 +4,7 @@
     <variables>
         <accent>427D80FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/vectrex.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/vectrex.png</systemIcon>
         <systemCard>${themePath}/assets/cards/vectrex.png</systemCard>
         <systemHero>${themePath}/assets/heroes/vectrex.png</systemHero>
     </variables>

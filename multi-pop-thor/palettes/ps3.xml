@@ -4,7 +4,7 @@
     <variables>
         <accent>373B45FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/ps3.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/ps3.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ps3.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ps3.png</systemHero>
     </variables>

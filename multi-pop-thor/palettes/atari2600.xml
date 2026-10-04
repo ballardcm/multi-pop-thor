@@ -4,7 +4,7 @@
     <variables>
         <accent>9B522BFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atari2600.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/atari2600.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>
     </variables>
