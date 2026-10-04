@@ -21,11 +21,11 @@ node_modules/
 /native-build/
 
 # Compiled frontends remain local build artifacts rather than versioned theme source.
-/color-pop-thor/frontend/emulationstation
+/multi-pop-thor/frontend/emulationstation
 /frontend-build/emulationstation-next-*/
 
 # Library inventories, downloaded media and device backups belong outside the theme sources.
-/color-pop-media-*
+/multi-pop-media-*
 /media/
 /roms/
 **/gamelist.xml
