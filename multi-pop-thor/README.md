@@ -4,6 +4,8 @@ Multi Pop is a ROCKNIX EmulationStation theme with a gameplay preview and game d
 
 The upper display is 1920×1080 and the lower display is 1240×1080. The theme uses a 4400×1080 virtual canvas with a hidden 1240px margin so native menus stay centered on the upper display. It is intended for the Thor's ROCKNIX frontend, rather than ES-DE on Android.
 
+Battery status and connected Wi-Fi appear at the upper display's top right. They respect the frontend's battery and network indicator settings; the default battery setting includes its percentage.
+
 ## Install
 
 Use `multi-pop-thor-rocknix-20261001.zip` from [Releases](https://github.com/ballardcm/multi-pop-thor/releases) for AYN Thor on **ROCKNIX 20261001**. It includes the verified patched frontend, so compilation is not required. Check the download against `SHA256SUMS`, extract it, and install the `multi-pop-thor` folder. The source ZIP is a separate download for development; it includes the public frontend sources and build instructions. Other firmware versions require a separately validated frontend.
