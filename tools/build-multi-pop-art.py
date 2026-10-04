@@ -138,22 +138,18 @@ def make_art(key, details, hardware):
     draw.text((28, 598), "MULTI POP  /  THOR", fill="#646A80", font=ImageFont.truetype(str(REGULAR), 17))
     card.save(ROOT / "assets/cards" / (key + ".png"))
 
-    hero = Image.new("RGBA", (1600, 900), (0, 0, 0, 0))
+    # An opaque rectangular stage fills the upper panel without a card floating over a second background.
+    hero = Image.new("RGBA", (1600, 900), "#FAFBFE")
     draw = ImageDraw.Draw(hero)
-    draw.rounded_rectangle((0, 0, 1599, 899), radius=40, fill="#FAFBFE")
-    draw.ellipse((590, -260, 1800, 950), fill=tint(accent, .20))
+    draw.rectangle((630, 0, 1599, 899), fill=tint(accent, .20))
     draw.rounded_rectangle((84, 78, 560, 146), radius=20, fill=color)
     draw.text((108, 94), maker.upper(), fill=text_color, font=ImageFont.truetype(str(REGULAR), 32))
     draw_lines(draw, title, 84, 255, 530, 104, rgb(INK), max_lines=3)
     draw.text((86, 739), year or "YOUR COLLECTION", fill=rgb(INK), font=ImageFont.truetype(str(FONT), 56))
     draw.ellipse((695, 735, 1490, 802), fill=tint(accent, .32))
     large = hardware.copy()
-    large.thumbnail((990, 743), Image.Resampling.LANCZOS)
-    hero.alpha_composite(large, (600 + (990 - large.width) // 2, 93 + (743 - large.height) // 2))
-    # The artwork stays inside a rounded card so diagonal background shapes never leak into the sidebar.
-    mask = Image.new("L", hero.size)
-    ImageDraw.Draw(mask).rounded_rectangle((0, 0, 1599, 899), radius=40, fill=255)
-    hero.putalpha(mask)
+    large.thumbnail((1040, 780), Image.Resampling.LANCZOS)
+    hero.alpha_composite(large, (580 + (1040 - large.width) // 2, 74 + (780 - large.height) // 2))
     hero.save(ROOT / "assets/heroes" / (key + ".png"))
 
 
