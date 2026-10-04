@@ -4,7 +4,7 @@
     <variables>
         <accent>A42883FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/music.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/music.png</systemIcon>
         <systemCard>${themePath}/assets/cards/music.png</systemCard>
         <systemHero>${themePath}/assets/heroes/music.png</systemHero>
     </variables>

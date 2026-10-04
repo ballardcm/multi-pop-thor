@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>707A9EFF</accent>
+        <accentInk>000000FF</accentInk>
+        <systemIcon>${themePath}/assets/systems/tg-cd.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/tg-cd.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/tg-cd.png</systemHero>
+    </variables>
+</theme>

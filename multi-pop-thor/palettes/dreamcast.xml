@@ -4,7 +4,7 @@
     <variables>
         <accent>E57731FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/dreamcast.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/dreamcast.png</systemIcon>
         <systemCard>${themePath}/assets/cards/dreamcast.png</systemCard>
         <systemHero>${themePath}/assets/heroes/dreamcast.png</systemHero>
     </variables>

@@ -4,7 +4,7 @@
     <variables>
         <accent>98C8CCFF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/naomi.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/naomi.png</systemIcon>
         <systemCard>${themePath}/assets/cards/naomi.png</systemCard>
         <systemHero>${themePath}/assets/heroes/naomi.png</systemHero>
     </variables>

@@ -4,7 +4,7 @@
     <variables>
         <accent>EEEDEEFF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/sfc.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/sfc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/sfc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/sfc.png</systemHero>
     </variables>

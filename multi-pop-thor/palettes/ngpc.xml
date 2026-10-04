@@ -4,7 +4,7 @@
     <variables>
         <accent>4B55A4FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/ngpc.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/ngpc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ngpc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ngpc.png</systemHero>
     </variables>

@@ -4,7 +4,7 @@
     <variables>
         <accent>A88872FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/pce-cd.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/pce-cd.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pce-cd.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pce-cd.png</systemHero>
     </variables>

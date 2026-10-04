@@ -4,7 +4,7 @@
     <variables>
         <accent>426B8EFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/saturn.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/saturn.png</systemIcon>
         <systemCard>${themePath}/assets/cards/saturn.png</systemCard>
         <systemHero>${themePath}/assets/heroes/saturn.png</systemHero>
     </variables>

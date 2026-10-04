@@ -4,7 +4,7 @@
     <variables>
         <accent>B6283DFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/atarijaguar.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/atarijaguar.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>
     </variables>

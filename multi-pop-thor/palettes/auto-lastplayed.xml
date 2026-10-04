@@ -4,7 +4,7 @@
     <variables>
         <accent>FAAE82FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/auto-lastplayed.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/auto-lastplayed.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-lastplayed.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-lastplayed.png</systemHero>
     </variables>

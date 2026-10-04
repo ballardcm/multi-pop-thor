@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <accent>B9535AFF</accent>
+        <accentInk>FFFFFFFF</accentInk>
+        <systemIcon>${themePath}/assets/systems/msx.png</systemIcon>
+        <systemCard>${themePath}/assets/cards/msx.png</systemCard>
+        <systemHero>${themePath}/assets/heroes/msx.png</systemHero>
+    </variables>
+</theme>

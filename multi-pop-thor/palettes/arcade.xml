@@ -4,7 +4,7 @@
     <variables>
         <accent>D33D23FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/arcade.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/arcade.png</systemIcon>
         <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
         <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>
     </variables>

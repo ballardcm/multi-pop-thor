@@ -4,7 +4,7 @@
     <variables>
         <accent>C73269FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/auto-favorites.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/auto-favorites.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-favorites.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-favorites.png</systemHero>
     </variables>

@@ -4,7 +4,7 @@
     <variables>
         <accent>1686C7FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/psvita.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/psvita.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psvita.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psvita.png</systemHero>
     </variables>

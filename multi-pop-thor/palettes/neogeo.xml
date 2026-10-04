@@ -4,7 +4,7 @@
     <variables>
         <accent>D7AD27FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/neogeo.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/neogeo.png</systemIcon>
         <systemCard>${themePath}/assets/cards/neogeo.png</systemCard>
         <systemHero>${themePath}/assets/heroes/neogeo.png</systemHero>
     </variables>

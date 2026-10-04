@@ -4,7 +4,7 @@
     <variables>
         <accent>C8D5DFFF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/nds.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/nds.png</systemIcon>
         <systemCard>${themePath}/assets/cards/nds.png</systemCard>
         <systemHero>${themePath}/assets/heroes/nds.png</systemHero>
     </variables>

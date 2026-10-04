@@ -4,7 +4,7 @@
     <variables>
         <accent>1F9C94FF</accent>
         <accentInk>000000FF</accentInk>
-        <systemIcon>${themePath}/assets/systems/auto-allgames.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/auto-allgames.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-allgames.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-allgames.png</systemHero>
     </variables>

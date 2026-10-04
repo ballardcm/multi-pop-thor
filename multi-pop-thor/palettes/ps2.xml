@@ -4,7 +4,7 @@
     <variables>
         <accent>2448CCFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/ps2.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/ps2.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ps2.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ps2.png</systemHero>
     </variables>

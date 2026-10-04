@@ -4,7 +4,7 @@
     <variables>
         <accent>393977FF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/gba.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/gba.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gba.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gba.png</systemHero>
     </variables>

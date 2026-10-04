@@ -4,7 +4,7 @@
     <variables>
         <accent>993BCEFF</accent>
         <accentInk>FFFFFFFF</accentInk>
-        <systemIcon>${themePath}/assets/systems/sega32x.svg</systemIcon>
+        <systemIcon>${themePath}/assets/systems/sega32x.png</systemIcon>
         <systemCard>${themePath}/assets/cards/sega32x.png</systemCard>
         <systemHero>${themePath}/assets/heroes/sega32x.png</systemHero>
     </variables>
