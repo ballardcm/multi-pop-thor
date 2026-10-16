@@ -31,8 +31,10 @@ class StartupTests(unittest.TestCase):
                            'exec_always swaymsg input "0:0:bottom_touchscreen" events disabled\n')
         self.write(self.sway, self.stock_sway)
         self.write(self.mountinfo, '')
-        self.write(self.root / 'usr/bin/es_settings', ':\n')
-        self.write(self.root / 'usr/bin/start_es.sh', '#!/bin/bash\n')
+        # ROCKNIX's profile scripts read unset positional parameters, so the stub must fail under strict mode as they do.
+        self.write(self.root / 'usr/bin/es_settings', ': "$3"\n')
+        self.write(self.root / 'usr/bin/start_es.sh',
+                   '#!/bin/bash\n. "$(dirname "$0")/es_settings"\nexec "$(dirname "$0")/emulationstation"\n', 0o755)
         self.write(self.root / 'usr/bin/emulationstation', '#!/bin/bash\nprintf stock > "$TEST_ROOT/started"\n', 0o755)
         self.bin = self.root / 'bin'
         self.bin.mkdir()
