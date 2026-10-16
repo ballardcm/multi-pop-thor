@@ -7,9 +7,9 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
 
 # A fresh --prepare activation owns a live mount and needs the full canvas for theme selection.
 # After reboot that mount is gone, so other themes return to the normal frontend.
+# The stock launcher runs in its own shell because ROCKNIX's profile scripts fail under this script's strict mode.
 if ! grep -q 'name="ThemeSet" value="multi-pop-thor"' /storage/.config/emulationstation/es_settings.cfg && ! owns_launcher_mount; then
-    . /usr/bin/es_settings
-    exec /usr/bin/emulationstation --log-path /var/log --no-splash
+    exec /usr/bin/start_es.sh
 fi
 
 # ROCKNIX regenerates this configuration at boot, so restore the Thor display and touch layout.
