@@ -74,7 +74,7 @@ def build(args):
     expected_source = work / ("emulationstation-next-" + config["frontend_revision"])
     if source != expected_source:
         source.rename(expected_source)
-    for name in ("thor-popup-placement.patch", "thor-game-paging.patch", "thor-runtime-integration.patch"):
+    for name in ("thor-popup-placement.patch", "thor-game-paging.patch", "thor-runtime-integration.patch", "thor-menu-options.patch"):
         run(["patch", "-p1", "--batch", "--forward", "-i", str(ROOT / "multi-pop-thor/frontend" / name)], cwd=expected_source)
     # SDL's unrelated platform projects contain symlinks; the compiler needs only the public headers.
     sdl_root = extract_sources(sdl, private, only_directory="include")

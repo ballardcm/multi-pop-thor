@@ -1,0 +1,29 @@
+--- a/es-app/src/guis/GuiMenu.cpp
++++ b/es-app/src/guis/GuiMenu.cpp
+@@ -5146,14 +5146,18 @@ void GuiMenu::openUISettings()
+ 			for (auto it = styles.cbegin(); it != styles.cend(); it++)
+ 				gamelist_style->add(it->second, it->first, viewPreference == it->first);
+ 
+-			s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
+-			s->addSaveFunc([s, gamelist_style, window] {
+-				if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
+-				{
+-					s->setVariable("reloadAll", true);
+-					s->setVariable("reloadGuiMenu", true);
+-				}
+-			});
++			// A theme with a single game view offers no real choice, so only Automatic would remain; the system menus hide it the same way.
++			if (styles.size() > 2)
++			{
++				s->addWithLabel(_("GAMELIST VIEW STYLE"), gamelist_style);
++				s->addSaveFunc([s, gamelist_style, window] {
++					if (Settings::getInstance()->setString("GamelistViewStyle", gamelist_style->getSelected()))
++					{
++						s->setVariable("reloadAll", true);
++						s->setVariable("reloadGuiMenu", true);
++					}
++				});
++			}
+ 		}		
+ 	}
+ 

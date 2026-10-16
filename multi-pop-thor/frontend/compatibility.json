@@ -1,6 +1,6 @@
 {
-  "artifact_sha256": "474ef42eeb5966f2131f36df6fd191997047424ffa88fbbf47fcd71c125118d8",
-  "artifact_bytes": 10382208,
+  "artifact_sha256": "1e3def53426a7eca9b4b035861a193da8c605cf379ea52604516c0db4a74d6de",
+  "artifact_bytes": 10390400,
   "architecture": "aarch64",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
@@ -43,6 +43,7 @@
     "es-app/src/guis/GuiGameScraper.cpp",
     "es-app/src/guis/GuiKeyMappingEditor.cpp",
     "es-app/src/guis/GuiKeyboardLayout.cpp",
+    "es-app/src/guis/GuiMenu.cpp",
     "es-app/src/guis/GuiSaveState.cpp",
     "es-app/src/scrapers/GamesDBJSONScraper.h",
     "es-app/src/scrapers/GamesDBJSONScraperResources.h",
@@ -102,5 +103,9 @@
     "scraper_user_test_passed": "2026-10-16",
     "message_box_user_test_passed": "2026-10-16",
     "game_options_slides_from_left": true
+  },
+  "menus": {
+    "single_view_style_hidden": true,
+    "single_view_style_user_test_passed": "2026-10-16"
   }
 }
