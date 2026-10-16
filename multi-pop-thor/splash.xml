@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Without this file the frontend's reload splash falls back to its Batocera graphic, which flashes between menus. -->
+<!-- Positions are fractions of the 4400x1080 canvas; the top display spans x 0.281818 to 0.718182, so everything is centred there. -->
+<theme>
+    <formatVersion>7</formatVersion>
+    <view name="splash">
+        <splash name="splash">
+            <backgroundColor>F7F8FCFF</backgroundColor>
+        </splash>
+        <!-- A paper-coloured background image replaces the stock graphic rather than leaving it in place. -->
+        <image name="background">
+            <path>./assets/ui/white.svg</path>
+            <color>F7F8FCFF</color>
+        </image>
+        <text name="wordmark" extra="true">
+            <pos>0.281818 0.34</pos>
+            <size>0.436364 0.12</size>
+            <text>MULTI POP</text>
+            <fontPath>./assets/fonts/RobotoCondensed-Bold.ttf</fontPath>
+            <fontSize>0.092592593</fontSize>
+            <color>191A2EFF</color>
+            <alignment>center</alignment>
+        </text>
+        <text name="label">
+            <pos>0.281818 0.49</pos>
+            <size>0.436364 0.05</size>
+            <fontPath>./assets/fonts/Roboto-Regular.ttf</fontPath>
+            <fontSize>0.035185185</fontSize>
+            <color>646A80FF</color>
+            <alignment>center</alignment>
+        </text>
+        <image name="progressbar">
+            <pos>0.390909 0.58</pos>
+            <size>0.218182 0.012963</size>
+            <path>./assets/ui/white.svg</path>
+            <color>E3E5EEFF</color>
+        </image>
+        <image name="progressbar:active">
+            <path>./assets/ui/white.svg</path>
+            <color>6D4776FF</color>
+        </image>
+    </view>
+</theme>
