@@ -16,6 +16,11 @@ fi
 config=/storage/.config/sway/config
 fragment=/storage/.config/sway/multi-pop-thor.conf
 find_theme
+# A downloaded update is swapped in before the frontend starts, so an update never restarts the frontend under the player.
+auto_update="$THEME/scripts/auto_update.py"
+if [[ "$THEME" == /roms/themes/multi-pop-thor && -f "$auto_update" ]]; then
+    python3 "$auto_update" apply || true
+fi
 launcher="$THEME/scripts/start_es_thor.sh"
 [[ -f "$fragment" && -x "$launcher" ]]
 export SWAYSOCK=/run/0-runtime-dir/sway-ipc.0.sock
@@ -43,6 +48,10 @@ if ! cmp -s "$config" "$staged"; then
     chmod 644 "$staged"
     mv "$staged" "$config"
 fi
+# A restart without a reboot keeps the old launcher mount, so an updated launcher must replace it.
+if owns_launcher_mount && ! cmp -s "$LAUNCHER_TARGET" "$launcher"; then
+    umount "$LAUNCHER_TARGET"
+fi
 # A file bind mount disappears at reboot; recording its new identity also keeps updates and restoration usable.
 guard_launcher_mount
 if ! owns_launcher_mount; then
@@ -56,4 +65,8 @@ swaymsg 'output * power on' >/dev/null
 for panel in /sys/class/backlight/*; do
     [[ -f "$panel/bl_power" ]] && printf '0\n' > "$panel/bl_power"
 done
+# The background check confirms a just-applied update and stages any newer release for the next start.
+if [[ "$THEME" == /roms/themes/multi-pop-thor && -f "$auto_update" ]]; then
+    setsid python3 "$auto_update" background </dev/null >/dev/null 2>&1 &
+fi
 exec "$launcher"

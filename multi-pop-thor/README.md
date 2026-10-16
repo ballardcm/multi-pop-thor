@@ -40,6 +40,12 @@ The system artwork depicts recognizable original consoles, handhelds, controller
 
 Game media is installed separately from the theme. Existing covers remain available as thumbnails when gameplay screenshots are added. Source and creator credits accompany fetched screenshots, descriptions, and video excerpts in the media installation report.
 
+## Automatic updates
+
+An activated Thor updates itself from this repository's latest release. After each Multi Pop start, a background check runs at most every six hours. It downloads a newer release, verifies it against the release's `SHA256SUMS` and the archive manifest, and accepts it only when its frontend targets the same firmware as the installed one. The frontend then shows "Multi Pop update ready". The update is applied the next time EmulationStation starts, after a reboot or Quit → Restart EmulationStation, so it never restarts the frontend while you are using it. If the new version does not reach a running frontend within two further starts, the previous theme is put back and that release is skipped. One previous theme stays in `/roms/themes/.multi-pop-backup-*` for manual recovery.
+
+To turn automatic updates off, create `/storage/.config/multi-pop-thor/auto-update-disabled`; delete it to turn them back on. The log is `/storage/.config/multi-pop-thor/update/auto-update.log`.
+
 ## Update an activated installation
 
 Upload the new ready-to-install ZIP to the Thor and use the bundled `scripts/update_theme.py` with the archive path and its SHA-256 from `SHA256SUMS`. Run it as root while EmulationStation is idle. It verifies the archive, backs up the current theme, restarts the frontend, and rolls back if verification fails. It preserves settings and Sway configuration and refuses archives that change the active launcher. For a launcher change, use the restore and fresh installation procedure instead.
