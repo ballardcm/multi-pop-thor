@@ -8,6 +8,14 @@ A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is 
 
 The upper display shows a system's original hardware illustration while browsing systems. Select a system and it becomes a gameplay preview with the game's title, genre, publisher, year, and description. A screenshot appears first, then an available video begins after three seconds with audio off. The lower display keeps a three-cover carousel for browsing. Missing details stay blank and missing artwork uses a labeled system card.
 
+## Demo
+
+A one-minute recording of browsing systems and games on an AYN Thor:
+
+https://github.com/user-attachments/assets/88bd19d1-5c25-4b5b-9317-162c409c742d
+
+The covers, screenshots, and game details in it are the device's fetched third-party media, not part of this repository.
+
 ## Artwork
 
 The 68 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, WonderSwan, TurboGrafx-16, and TurboGrafx-CD.
