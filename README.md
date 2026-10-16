@@ -24,7 +24,7 @@ The 68 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlaySt
 
 ## Controls and compatibility
 
-A selects or plays, B goes back, and L1/R1 page three games left/right in the game browser. Paging stops at the ends and keeps the current system selected. The patched frontend also sizes the B navigation popup and savestate manager for the upper display.
+A selects or plays, B goes back, X opens a game's options, and L1/R1 page three games left/right in the game browser. Paging stops at the ends and keeps the current system selected. The patched frontend also keeps menus and popups on the upper display, including the B navigation popup, savestate manager, game options, message boxes, and the on-screen keyboard used for Wi-Fi passwords and searches.
 
 Touchscreen controls work on both displays: swipe left or right to browse games and systems, then tap any visible cover to open that item, including the left and right covers on the lower display. On the upper preview, swipes browse and a short tap selects the highlighted item. These controls have been tested on the Thor with the touch-enabled frontend; older releases need the updated frontend and activation helpers.
 
@@ -66,4 +66,4 @@ Roboto and Roboto Condensed are unmodified third-party fonts, with their Apache 
 
 Game covers, screenshots, descriptions, and videos are separate third-party media. The device's fetched media used Libretro thumbnails, LaunchBox metadata, and credited World of Longplays excerpts; it is not part of the original system illustrations or this source repository.
 
-This repository captures the working theme for further development. Compatibility beyond the supported firmware remains unverified. Compiled frontends are release assets rather than Git source files; local integration settings, ROMs, device configuration, and game libraries are excluded from the repository and source downloads.
+This repository captures the working theme for further development. Compatibility beyond the supported firmware remains unverified. Compiled frontends are release assets rather than Git source files; the generated `integration.env` service-key file, ROMs, device configuration, and game libraries are excluded from the repository and source downloads.

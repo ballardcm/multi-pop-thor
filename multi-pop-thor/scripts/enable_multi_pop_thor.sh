@@ -141,6 +141,7 @@ stat -c '%d:%i' "$LAUNCHER_TARGET" > "$STATE/launcher.identity"
 printf '%s\n' "$THEME" > "$STATE/theme.path"
 printf 'active\n' > "$STATE/active"
 install_startup_override
+write_integration_keys
 start_frontend
 
 if [[ "$PREPARE_ONLY" == true ]]; then

@@ -12,14 +12,14 @@ After a merge to `main`, the same workflow publishes these files as a GitHub Rel
 
 `frontend-build/release.json` selects a separate frontend release and pins the binary hash, firmware and frontend revisions, public source archives, and hashes of the frontend patches and compiler inputs. The separate frontend release is a maintainer input to packaging; users normally download the combined installable ZIP.
 
-The initial frontend release is `frontend-rocknix-20261001-1`. Its assets are:
+The current frontend release is `frontend-rocknix-20261001-3`. The binaries from `-1` and `-2` were withdrawn because they had service keys compiled in; their source archives remain. Each release's assets are:
 
 - `emulationstation-aarch64`
 - `emulationstation-source-cada856d.tar.gz`
 - `SDL2-2.32.10.tar.gz`
 - `pugixml-source.tar.gz`
 
-Packaging downloads those assets from this repository, checks their hashes, verifies ARM64 ELF identity, and checks the current compatibility report. The public upstream snapshot plus the current patches was checked against all 981 source files used for the tested frontend. Binary and source provenance remain separate from private integration configuration, runtime-library collections, and compiler caches.
+Packaging downloads those assets from this repository, checks their hashes, verifies ARM64 ELF identity, and checks the current compatibility report. The public upstream snapshot plus the current patches was checked against all 981 source files used for the tested frontend. Binary and source provenance remain separate from runtime-library collections and compiler caches. Frontend binaries contain no online-service keys; each Thor generates its own `integration.env` at activation.
 
 Theme-only PRs reuse the verified frontend. A changed frontend patch or compiler input blocks packaging until a matching frontend is built, validated, and registered. This prevents a release from describing behavior its bundled binary does not implement.
 

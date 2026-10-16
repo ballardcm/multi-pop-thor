@@ -1,6 +1,217 @@
+--- a/es-app/src/guis/GuiBios.cpp
++++ b/es-app/src/guis/GuiBios.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiBios.h"
++#include "ThorCanvas.h"
+ 
+ #include "ApiSystem.h"
+ #include "components/OptionListComponent.h"
+@@ -16,7 +17,7 @@
+ 
+ #include <cstring>
+ 
+-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
++#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(ThorCanvas::width() * 0.65f))
+ 
+ void GuiBios::show(Window* window)
+ {
+@@ -201,11 +202,11 @@ void GuiBios::loadList()
+ void GuiBios::centerWindow()
+ {
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+ 		setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);
+ 
+-	setPosition((Renderer::getScreenWidth() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2);
+ }
+ 
+ bool GuiBios::input(InputConfig* config, Input input)
+--- a/es-app/src/guis/GuiFileBrowser.cpp
++++ b/es-app/src/guis/GuiFileBrowser.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiFileBrowser.h"
++#include "ThorCanvas.h"
+ 
+ #include "ApiSystem.h"
+ #include "components/OptionListComponent.h"
+@@ -14,7 +15,7 @@
+ #include "SystemConf.h"
+ #include "Paths.h"
+ 
+-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
++#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(ThorCanvas::width() * 0.65f))
+ 
+ #define DRIVE_ICON		_U("\uF0A0 ")
+ #define FOLDER_ICON		_U("\uF07C ")
+@@ -141,11 +142,11 @@ void GuiFileBrowser::navigateTo(const std::string path)
+ void GuiFileBrowser::centerWindow()
+ {
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		mMenu.setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+ 	{
+ 		mMenu.setSize(mMenu.getSize().x(), Renderer::getScreenHeight() * 0.875f);
+-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
++		mMenu.setPosition(ThorCanvas::left() + (ThorCanvas::width() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+ 	}
+ }
+ 
+--- a/es-app/src/guis/GuiGameOptions.cpp
++++ b/es-app/src/guis/GuiGameOptions.cpp
+@@ -1,4 +1,5 @@
+ #include "GuiGameOptions.h"
++#include "ThorCanvas.h"
+ #include "guis/GuiGamelistFilter.h"
+ #include "scrapers/Scraper.h"
+ #include "views/gamelist/IGameListView.h"
+@@ -473,21 +474,27 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
+ 
+ 		mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
+ 		setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+-		mMenu.animateTo(Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2));
++		mMenu.animateTo(Vector2f(ThorCanvas::left() + (ThorCanvas::width() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2));
+ 	}
+ 	else
+ 	{
+-		float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 33.0f);
+-		w = Math::max(w, Renderer::getScreenWidth() / 3.0f);
++		float w = Math::min(ThorCanvas::width() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 33.0f);
++		w = Math::max(w, ThorCanvas::width() / 3.0f);
+ 
+ 		mMenu.setSize(w, Renderer::getScreenHeight() + 2);
+ 		/*mMenu.animateTo(
+ 			Vector2f(-w, -1),
+ 			Vector2f(-1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+ 			*/
+-		mMenu.animateTo(
+-			Vector2f(Renderer::getScreenWidth(), -1),
+-			Vector2f(Renderer::getScreenWidth() - w -1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
++		// On the Thor canvas the right edge holds the theme's status icons, so the menu slides in from the top display's left edge instead.
++		if (ThorCanvas::active())
++			mMenu.animateTo(
++				Vector2f(ThorCanvas::left() - w, -1),
++				Vector2f(ThorCanvas::left() - 1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
++		else
++			mMenu.animateTo(
++				Vector2f(Renderer::getScreenWidth(), -1),
++				Vector2f(Renderer::getScreenWidth() - w -1, -1), AnimateFlags::OPACITY | AnimateFlags::POSITION);
+ 	}
+ }
+ 
+--- a/es-app/src/guis/GuiGameScraper.cpp
++++ b/es-app/src/guis/GuiGameScraper.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiGameScraper.h"
++#include "ThorCanvas.h"
+ 
+ #include "components/ButtonComponent.h"
+ #include "components/MenuComponent.h"
+@@ -50,11 +51,11 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
+ 	mSearch->setSearchDoneCallback([&] { BuildButtonGrid(true); });
+ 
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+-		setSize(Renderer::getScreenWidth() * 0.90f, Renderer::getScreenHeight() * 0.85f);
++		setSize(ThorCanvas::width() * 0.90f, Renderer::getScreenHeight() * 0.85f);
+ 		
+-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);	
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);	
+ 
+ 	mGrid.resetCursor();
+ 	mSearch->search(params); // start the search
+--- a/es-app/src/guis/GuiKeyMappingEditor.cpp
++++ b/es-app/src/guis/GuiKeyMappingEditor.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiKeyMappingEditor.h"
++#include "ThorCanvas.h"
+ 
+ #include "ApiSystem.h"
+ #include "components/OptionListComponent.h"
+@@ -21,7 +22,7 @@
+ #include <unordered_set>
+ #include <algorithm>
+ 
+-#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.73f))
++#define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(ThorCanvas::width() * 0.73f))
+ 
+ void GuiKeyMappingEditor::initMappingNames()
+ {
+@@ -195,11 +196,11 @@ void GuiKeyMappingEditor::onSizeChanged()
+ void GuiKeyMappingEditor::centerWindow()
+ {
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+ 		setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);
+ 
+-	setPosition((Renderer::getScreenWidth() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2);
+ }
+ 
+ static bool sortPackagesByGroup(PacmanPackage& sys1, PacmanPackage& sys2)
+@@ -392,7 +393,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
+ 		else
+ 		{
+ 			auto info = std::make_shared<TextComponent>(mWindow, mouseMapping == "joystick1" ? _("LEFT ANALOG STICK") : _("RIGHT ANALOG STICK"), theme->Text.font, theme->Text.color);
+-			info->setPadding(Vector4f(0, 0, Renderer::getScreenWidth() * 0.01f, 0));
++			info->setPadding(Vector4f(0, 0, ThorCanvas::width() * 0.01f, 0));
+ 			mouseRow.addElement(info, false);
+ 			mList->addRow(mouseRow, idx > 0 && last);
+ 		}
+--- a/es-app/src/guis/GuiKeyboardLayout.cpp
++++ b/es-app/src/guis/GuiKeyboardLayout.cpp
+@@ -1,4 +1,5 @@
+ #include "GuiKeyboardLayout.h"
++#include "ThorCanvas.h"
+ #include "utils/FileSystemUtil.h"
+ #include "utils/StringUtil.h"
+ #include "LocaleES.h"
+@@ -49,8 +50,8 @@ GuiKeyboardLayout::GuiKeyboardLayout(Window* window, const std::function<void(co
+ 	setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+ 
+ 	mKeyboard.setOrigin(0.5f, 0.5f);
+-	mKeyboard.setPosition(Renderer::getScreenWidth() / 2.0f, Renderer::getScreenHeight() / 2.0f);
+-	mKeyboard.setMaxSize(Renderer::getScreenWidth() * KB_WIDTH, Renderer::getScreenHeight() * KB_WIDTH);
++	mKeyboard.setPosition(ThorCanvas::left() + ThorCanvas::width() / 2.0f, Renderer::getScreenHeight() / 2.0f);
++	mKeyboard.setMaxSize(ThorCanvas::width() * KB_WIDTH, Renderer::getScreenHeight() * KB_WIDTH);
+ 	addChild(&mKeyboard);
+ 
+ 	auto path = ResourceManager::getInstance()->getResourcePath(":/kblayout.svg");
+--- a/es-app/src/guis/GuiSaveState.cpp
++++ b/es-app/src/guis/GuiSaveState.cpp
+@@ -38,7 +38,10 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
+ 	addChild(&mLayout);
+ 	
+ 	float cellProportion = 1.77;
+-	float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
++	// Save choices must use the same top-display width as their menu rather than including the Thor canvas's side regions.
++	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
++	const float menuWidth = thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth();
++	float screenProportion = menuWidth / (float)Renderer::getScreenHeight();
+ 
+ 	float sh = (float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth());
+ 	sh = (float) theme->TextSmall.font->getSize() / sh;
+@@ -193,7 +196,9 @@ void GuiSaveState::onSizeChanged()
+ 
+ void GuiSaveState::centerWindow()
+ {
+-	setSize(Renderer::getScreenWidth(), WINDOW_HEIGHT);
++	// Restrict this Thor canvas to its 1920-pixel top display so the existing centering calculation places every save choice at x=1240.
++	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
++	setSize(thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth(), WINDOW_HEIGHT);
+ 	animateTo(
+ 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight()),
+ 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight() - WINDOW_HEIGHT),
 --- a/es-app/src/views/SystemView.cpp
 +++ b/es-app/src/views/SystemView.cpp
-@@ -592,11 +592,18 @@
+@@ -592,11 +592,18 @@ void SystemView::showNavigationBar(const std::string& title, const std::function
  	float w = Math::min(Renderer::getScreenWidth() * 0.5, ThemeData::getMenuTheme()->Text.font->sizeText("S").x() * 31.0f);
  	w = Math::max(w, Renderer::getScreenWidth() / 3.0f);
  
@@ -21,28 +232,315 @@
  
  	mWindow->pushGui(gs);
  }
---- a/es-app/src/guis/GuiSaveState.cpp
-+++ b/es-app/src/guis/GuiSaveState.cpp
-@@ -38,7 +38,10 @@
- 	addChild(&mLayout);
- 	
- 	float cellProportion = 1.77;
--	float screenProportion = (float)Renderer::getScreenWidth() / (float)Renderer::getScreenHeight();
-+	// Save choices must use the same top-display width as their menu rather than including the Thor canvas's side regions.
-+	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
-+	const float menuWidth = thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth();
-+	float screenProportion = menuWidth / (float)Renderer::getScreenHeight();
+new file mode 100644
+--- /dev/null
++++ b/es-core/src/ThorCanvas.h
+@@ -0,0 +1,16 @@
++#pragma once
++
++#include "renderers/Renderer.h"
++
++// The Thor canvas spans a hidden 1240-pixel margin, the 1920-pixel top display and the 1240-pixel lower display.
++// Popups sized from the whole canvas spill onto the lower display, so they measure themselves against the top display instead.
++namespace ThorCanvas
++{
++	inline bool active() { return Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080; }
++
++	// The width a popup treats as the screen; every other device keeps its real screen width.
++	inline float width() { return active() ? 1920.0f : (float)Renderer::getScreenWidth(); }
++
++	// The x position where that width begins, so edge-anchored popups stay on the top display.
++	inline float left() { return active() ? 1240.0f : 0.0f; }
++}
+--- a/es-core/src/Window.cpp
++++ b/es-core/src/Window.cpp
+@@ -1,4 +1,5 @@
+ #include "Window.h"
++#include "ThorCanvas.h"
  
- 	float sh = (float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth());
- 	sh = (float) theme->TextSmall.font->getSize() / sh;
-@@ -193,7 +196,9 @@
+ #include "components/HelpComponent.h"
+ #include "components/ImageComponent.h"
+@@ -150,8 +151,8 @@ bool Window::init(bool initRenderer, bool initInputManager)
+ 		mClock->setFont(Font::get(FONT_SIZE_SMALL));
+ 		mClock->setHorizontalAlignment(ALIGN_RIGHT);
+ 		mClock->setVerticalAlignment(ALIGN_TOP);
+-		mClock->setPosition(Renderer::getScreenWidth()*0.94, Renderer::getScreenHeight()*0.9965 - Font::get(FONT_SIZE_SMALL)->getHeight());
+-		mClock->setSize(Renderer::getScreenWidth()*0.05, 0);
++		mClock->setPosition(ThorCanvas::left() + ThorCanvas::width()*0.94, Renderer::getScreenHeight()*0.9965 - Font::get(FONT_SIZE_SMALL)->getHeight());
++		mClock->setSize(ThorCanvas::width()*0.05, 0);
+ 		mClock->setColor(0x777777FF);
+ 	}
  
- void GuiSaveState::centerWindow()
+@@ -1143,14 +1144,14 @@ void Window::renderAsyncNotifications(const Transform4x4f& trans)
  {
--	setSize(Renderer::getScreenWidth(), WINDOW_HEIGHT);
-+	// Restrict this Thor canvas to its 1920-pixel top display so the existing centering calculation places every save choice at x=1240.
-+	const bool thorCanvas = Renderer::getScreenWidth() == 4400 && Renderer::getScreenHeight() == 1080;
-+	setSize(thorCanvas ? 1920.0f : (float)Renderer::getScreenWidth(), WINDOW_HEIGHT);
- 	animateTo(
- 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight()),
- 		Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, Renderer::getScreenHeight() - WINDOW_HEIGHT),
+ 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+ 
+-#define PADDING_H  (Renderer::getScreenWidth()*0.01)
++#define PADDING_H  (ThorCanvas::width()*0.01)
+ 
+ 	float posY = Renderer::getScreenHeight() * 0.02f;
+ 
+ 	bool first = true;
+ 	for (auto child : mAsyncNotificationComponent)
+ 	{		
+-		float posX = Renderer::getScreenWidth()*0.99f - child->getSize().x();
++		float posX = ThorCanvas::left() + ThorCanvas::width()*0.99f - child->getSize().x();
+ 
+ 		float offset = child->getSize().y() + PADDING_H;
+ 
+@@ -1299,8 +1300,8 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
+ 				mClock->setFont(Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_MEDIUM)));
+ 		}
+ 		
+-		mClock->setPosition(Renderer::getScreenWidth()*0.94, Renderer::getScreenHeight()*0.9965 - mClock->getFont()->getHeight());
+-		mClock->setSize(Renderer::getScreenWidth()*0.05, 0);
++		mClock->setPosition(ThorCanvas::left() + ThorCanvas::width()*0.94, Renderer::getScreenHeight()*0.9965 - mClock->getFont()->getHeight());
++		mClock->setSize(ThorCanvas::width()*0.05, 0);
+ 
+ 		mClock->applyTheme(theme, "screen", "clock", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
+ 	}
+--- a/es-core/src/components/AsyncNotificationComponent.cpp
++++ b/es-core/src/components/AsyncNotificationComponent.cpp
+@@ -1,4 +1,5 @@
+ #include "AsyncNotificationComponent.h"
++#include "ThorCanvas.h"
+ #include "ThemeData.h"
+ #include "components/ComponentGrid.h"
+ #include "components/NinePatchComponent.h"
+@@ -7,7 +8,7 @@
+ #include "Window.h"
+ #include <SDL_timer.h>
+ 
+-#define PADDING_PX  (Renderer::getScreenWidth()*0.01)
++#define PADDING_PX  (ThorCanvas::width()*0.01)
+ 
+ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool actionLine)
+ 	: GuiComponent(window)
+@@ -21,7 +22,7 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
+ 	auto theme = ThemeData::getMenuTheme();
+ 
+ 	// Note : Don't localize this text -> It is only used to guess width calculation for the component.
+-	float width = theme->TextSmall.font->sizeText("TEXT FOR SIZE CALCULATION TEST").x(); // Renderer::getScreenWidth() * 0.14f;											
++	float width = theme->TextSmall.font->sizeText("TEXT FOR SIZE CALCULATION TEST").x(); // ThorCanvas::width() * 0.14f;											
+ 
+ 	mTitle = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->TextSmall.color, ALIGN_LEFT);
+ 	mGameName = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_LEFT);
+@@ -55,11 +56,11 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
+ 
+ 	addChild(mGrid);
+ 
+-	float posX = Renderer::getScreenWidth()*0.5f - mSize.x()*0.5f;
++	float posX = ThorCanvas::left() + ThorCanvas::width()*0.5f - mSize.x()*0.5f;
+ 	float posY = Renderer::getScreenHeight() * 0.02f;
+ 
+ 	// FCA TopRight
+-	posX = Renderer::getScreenWidth()*0.99f - mSize.x();
++	posX = ThorCanvas::left() + ThorCanvas::width()*0.99f - mSize.x();
+ 	posY = Renderer::getScreenHeight() * 0.02f;
+ 
+ 	setPosition(posX, posY, 0);
+--- a/es-core/src/guis/GuiDetectDevice.cpp
++++ b/es-core/src/guis/GuiDetectDevice.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiDetectDevice.h"
++#include "ThorCanvas.h"
+ 
+ #include "components/TextComponent.h"
+ #include "guis/GuiInputConfig.h"
+@@ -64,11 +65,11 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
+ 	mGrid.setEntry(mDeviceHeld, Vector2i(0, 4), false, true);
+ 
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+-		setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.5f);
++		setSize(ThorCanvas::width() * 0.6f, Renderer::getScreenHeight() * 0.5f);
+ 
+-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+ }
+ 
+ void GuiDetectDevice::onSizeChanged()
+--- a/es-core/src/guis/GuiInfoPopup.cpp
++++ b/es-core/src/guis/GuiInfoPopup.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiInfoPopup.h"
++#include "ThorCanvas.h"
+ 
+ #include "components/ComponentGrid.h"
+ #include "components/NinePatchComponent.h"
+@@ -14,7 +15,7 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
+ 	TextToSpeech::getInstance()->say(message, true);
+ 
+ 	mFrame = new NinePatchComponent(window);
+-	float maxWidth = Renderer::getScreenWidth() * 0.9f;
++	float maxWidth = ThorCanvas::width() * 0.9f;
+ 	float maxHeight = Renderer::getScreenHeight() * 0.2f;
+ 
+ 	std::shared_ptr<TextComponent> s = std::make_shared<TextComponent>(mWindow,
+@@ -39,12 +40,12 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
+ 	}
+ 
+ 	// add a padding to the box
+-	int paddingX = (int) (Renderer::getScreenWidth() * 0.03f);
++	int paddingX = (int) (ThorCanvas::width() * 0.03f);
+ 	int paddingY = (int) (Renderer::getScreenHeight() * 0.02f);
+ 	mSize[0] = mSize.x() + paddingX;
+ 	mSize[1] = mSize.y() + paddingY;
+ 
+-	float posX = Renderer::getScreenWidth()*0.5f - mSize.x()*0.5f;
++	float posX = ThorCanvas::left() + ThorCanvas::width()*0.5f - mSize.x()*0.5f;
+ 	float posY = Renderer::getScreenHeight() * 0.02f;
+ 
+ 	setPosition(posX, posY, 0);
+--- a/es-core/src/guis/GuiInputConfig.cpp
++++ b/es-core/src/guis/GuiInputConfig.cpp
+@@ -1,4 +1,5 @@
+ #include "LocaleES.h"
++#include "ThorCanvas.h"
+ #include "guis/GuiInputConfig.h"
+ 
+ #include "components/ButtonComponent.h"
+@@ -291,11 +292,11 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
+ 	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
+ 
+ 	if (Renderer::ScreenSettings::fullScreenMenus())
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 	else
+-		setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.75f);
++		setSize(ThorCanvas::width() * 0.6f, Renderer::getScreenHeight() * 0.75f);
+ 
+-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+ }
+ 
+ void GuiInputConfig::onSizeChanged()
+--- a/es-core/src/guis/GuiMsgBox.cpp
++++ b/es-core/src/guis/GuiMsgBox.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiMsgBox.h"
++#include "ThorCanvas.h"
+ 
+ #include "components/ButtonComponent.h"
+ #include "components/MenuComponent.h"
+@@ -7,7 +8,7 @@
+ #include "LocaleES.h"
+ #include "TextToSpeech.h"
+ 
+-#define HORIZONTAL_PADDING_PX  (Renderer::getScreenWidth()*0.01)
++#define HORIZONTAL_PADDING_PX  (ThorCanvas::width()*0.01)
+ 
+ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text, const std::string& name1, const std::function<void()>& func1, GuiMsgBoxIcon icon) 
+ 	: GuiMsgBox(window, text, name1, func1, "", nullptr, "", nullptr, icon) { }
+@@ -36,8 +37,8 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
+ 	mBackground.setCornerSize(theme->Background.cornerSize);
+ 	mBackground.setPostProcessShader(theme->Background.menuShader);
+ 
+-	float width = Renderer::getScreenWidth() * 0.6f; // max width
+-	float minWidth = Renderer::getScreenWidth() * 0.3f; // minimum width
++	float width = ThorCanvas::width() * 0.6f; // max width
++	float minWidth = ThorCanvas::width() * 0.3f; // minimum width
+ 	
+ 	mImage = nullptr;
+ 
+@@ -75,7 +76,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
+   // ensure the tailscale message doesn't wrap, and no icon (for more room)
+ 	if (text.find("tailscale.com") != std::string::npos)
+ 	{
+-			width = Renderer::getScreenWidth() * 0.9f; // max width
++			width = ThorCanvas::width() * 0.9f; // max width
+ 	} else if (!imageFile.empty() && ResourceManager::getInstance()->fileExists(imageFile) && !Renderer::isSmallScreen())
+ 	{
+ 		mImage = std::make_shared<ImageComponent>(window);
+@@ -89,7 +90,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
+ 	}
+ 
+ 	mMsg = std::make_shared<TextComponent>(mWindow, text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color, mImage == nullptr || Renderer::isSmallScreen() ? ALIGN_CENTER : ALIGN_LEFT); // CENTER
+-	mMsg->setPadding(Vector4f(Renderer::getScreenWidth()*0.015f, 0, Renderer::getScreenWidth()*0.015f, 0));
++	mMsg->setPadding(Vector4f(ThorCanvas::width()*0.015f, 0, ThorCanvas::width()*0.015f, 0));
+ 	
+ 	mGrid.setEntry(mMsg, Vector2i(mImage == nullptr ? 0 : 1, 0), false, false, Vector2i(mImage == nullptr ? 2 : 1, 1));
+ 
+@@ -143,15 +144,15 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
+ 	
+ 	if (msgHeight + mButtonGrid->getSize().y() > Renderer::getScreenHeight())
+ 	{
+-		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
++		setSize(ThorCanvas::width(), Renderer::getScreenHeight());
+ 		if (mImage != nullptr)
+-			mMsg->setSize(Renderer::getScreenWidth() - mImage->getSize().x() - 4* HORIZONTAL_PADDING_PX, 0);
++			mMsg->setSize(ThorCanvas::width() - mImage->getSize().x() - 4* HORIZONTAL_PADDING_PX, 0);
+ 	}
+ 	else
+ 		setSize(width + HORIZONTAL_PADDING_PX*2, msgHeight + mButtonGrid->getSize().y());
+ 
+ 	// center for good measure
+-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2.0f, (Renderer::getScreenHeight() - mSize.y()) / 2.0f);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2.0f, (Renderer::getScreenHeight() - mSize.y()) / 2.0f);
+ 
+ 	addChild(&mBackground);
+ 	addChild(&mGrid);
+--- a/es-core/src/guis/GuiTextEditPopup.cpp
++++ b/es-core/src/guis/GuiTextEditPopup.cpp
+@@ -1,4 +1,5 @@
+ #include "guis/GuiTextEditPopup.h"
++#include "ThorCanvas.h"
+ 
+ #include "components/ButtonComponent.h"
+ #include "components/MenuComponent.h"
+@@ -45,8 +46,8 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
+ 		textHeight *= 6;
+ 	mText->setSize(0, textHeight);
+ 
+-	setSize(Renderer::getScreenWidth() * 0.5f, mTitle->getFont()->getHeight() + textHeight + mButtonGrid->getSize().y() + 40);
+-	setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
++	setSize(ThorCanvas::width() * 0.5f, mTitle->getFont()->getHeight() + textHeight + mButtonGrid->getSize().y() + 40);
++	setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+ }
+ 
+ void GuiTextEditPopup::onSizeChanged()
+--- a/es-core/src/guis/GuiTextEditPopupKeyboard.cpp
++++ b/es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+@@ -1,17 +1,18 @@
+ #include "guis/GuiTextEditPopupKeyboard.h"
++#include "ThorCanvas.h"
+ #include "components/MenuComponent.h"
+ #include "utils/StringUtil.h"
+ #include "Log.h"
+ #include "LocaleES.h"
+ #include "SystemConf.h"
+ 
+-#define OSK_WIDTH (Renderer::ScreenSettings::fullScreenMenus() ? Renderer::getScreenWidth() : Renderer::getScreenWidth() * 0.78f)
++#define OSK_WIDTH (Renderer::ScreenSettings::fullScreenMenus() ? ThorCanvas::width() : ThorCanvas::width() * 0.78f)
+ #define OSK_HEIGHT (Renderer::ScreenSettings::fullScreenMenus() ? Renderer::getScreenHeight() : Renderer::getScreenHeight() * 0.60f)
+ 
+-#define OSK_PADDINGX (Renderer::getScreenWidth() * 0.02f)
+-#define OSK_PADDINGY (Renderer::getScreenWidth() * 0.01f)
++#define OSK_PADDINGX (ThorCanvas::width() * 0.02f)
++#define OSK_PADDINGY (ThorCanvas::width() * 0.01f)
+ 
+-#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)
++#define BUTTON_GRID_HORIZ_PADDING (ThorCanvas::width()*0.0052083333)
+ #define BUTTON_LAYER_SIZE (4)
+ 
+ std::vector<std::vector<const char*>> kbUs {
+@@ -300,14 +301,14 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
+ 		else
+ 			setSize(OSK_WIDTH, OSK_HEIGHT - mText->getFont()->getHeight() + textHeight);
+ 
+-		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
++		setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+ 	}
+ 	else
+ 	{
+ 		//setSize(OSK_WIDTH, mTitle->getFont()->getHeight() + textHeight + 40 + (Renderer::getScreenHeight() * 0.085f) * 6);
+ 		setSize(OSK_WIDTH, OSK_HEIGHT);
+-		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
+-		animateTo(Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2));
++		setPosition(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
++		animateTo(Vector2f(ThorCanvas::left() + (ThorCanvas::width() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2));
+ 	}
+ }
+ 

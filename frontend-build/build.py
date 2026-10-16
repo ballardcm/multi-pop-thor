@@ -64,8 +64,6 @@ def build(args):
     work = args.work.resolve()
     if work.exists():
         raise ValueError("Use a new work directory so stale sources cannot enter the build: " + str(work))
-    if args.integration_env and not args.integration_env.is_file():
-        raise ValueError("Integration environment file does not exist")
     private = work / "private"
     private.mkdir(parents=True)
     downloads = private / "downloads"
@@ -76,7 +74,7 @@ def build(args):
     expected_source = work / ("emulationstation-next-" + config["frontend_revision"])
     if source != expected_source:
         source.rename(expected_source)
-    for name in ("thor-popup-placement.patch", "thor-game-paging.patch"):
+    for name in ("thor-popup-placement.patch", "thor-game-paging.patch", "thor-runtime-integration.patch"):
         run(["patch", "-p1", "--batch", "--forward", "-i", str(ROOT / "multi-pop-thor/frontend" / name)], cwd=expected_source)
     # SDL's unrelated platform projects contain symlinks; the compiler needs only the public headers.
     sdl_root = extract_sources(sdl, private, only_directory="include")
@@ -104,9 +102,8 @@ def build(args):
         shutil.copy2(ROOT / "frontend-build" / name, work / name)
     image = "multi-pop-frontend-builder:" + config["firmware_version"]
     run(["docker", "build", "--platform", "linux/arm64", "--tag", image, str(ROOT / "frontend-build")])
+    # No environment is passed in, so service keys can never be compiled into a distributable binary; the Thor supplies them at runtime.
     command = ["docker", "run", "--rm", "--network", "none", "--platform", "linux/arm64"]
-    if args.integration_env:
-        command.extend(["--env-file", str(args.integration_env.resolve())])
     command.extend(["--volume", str(work) + ":/work", image, "sh", "-c", "sh /work/build-frontend.sh && sh /work/verify-artifact.sh"])
     log = args.log.expanduser().resolve()
     with log.open("wb") as output:
@@ -118,7 +115,7 @@ def build(args):
     report = {
         "artifact_sha256": digest(args.output), "artifact_bytes": args.output.stat().st_size,
         "frontend_revision": config["frontend_revision"], "firmware_revision": config["firmware_revision"],
-        "target": args.target, "integration_configuration_supplied": bool(args.integration_env),
+        "target": args.target, "service_keys_compiled_in": False,
         "target_loader_and_help_checks_passed": True, "device_validation_pending": True,
     }
     args.output.with_suffix(".build.json").write_text(json.dumps(report, indent=2) + "\n")
@@ -131,7 +128,6 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target", required=True, help="SSH destination for a Thor running the supported firmware")
     parser.add_argument("--ssh-option", action="append", default=[], help="SSH -o setting, for example ControlPath=/path/to/socket")
-    parser.add_argument("--integration-env", type=Path, help="Optional locally held, authorized upstream integration settings")
     parser.add_argument("--work", type=Path, default=ROOT / "frontend-build/private/build-your-own")
     parser.add_argument("--output", type=Path, default=ROOT / "multi-pop-thor/frontend/emulationstation")
     parser.add_argument("--log", type=Path, default=Path.home() / "multi-pop-frontend-build.log")

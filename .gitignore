@@ -6,6 +6,8 @@ __pycache__/
 node_modules/
 .env
 .env.*
+# Each Thor generates its own service-key file; it must never enter Git or a download.
+integration.env
 *.log
 *.pid
 *.zip

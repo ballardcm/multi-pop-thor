@@ -1,0 +1,203 @@
+--- a/es-app/src/ApiSystem.cpp
++++ b/es-app/src/ApiSystem.cpp
+@@ -1,4 +1,5 @@
+ #include "ApiSystem.h"
++#include "ThorIntegration.h"
+ #include "Settings.h"
+ #include "Log.h"
+ #include "HttpReq.h"
+@@ -2172,9 +2173,8 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
+ 	case ApiSystem::THEMESDOWNLOADER:
+ 		return true;
+ 	case ApiSystem::RETROACHIVEMENTS:
+-#ifdef CHEEVOS_DEV_LOGIN
+-		return true;
+-#endif
++		if (ThorIntegration::present(CHEEVOS_DEV_LOGIN))
++			return true;
+ 		break;
+ 	case ApiSystem::KODI:
+ 		executables.push_back("kodi");
+--- a/es-app/src/RetroAchievements.cpp
++++ b/es-app/src/RetroAchievements.cpp
+@@ -1,4 +1,5 @@
+ #include "RetroAchievements.h"
++#include "ThorIntegration.h"
+ #include "HttpReq.h"
+ #include "ApiSystem.h"
+ #include "SystemConf.h"
+@@ -130,23 +131,25 @@ static HttpReqOptions getHttpOptions()
+ {
+ 	HttpReqOptions options;
+ 
+-#ifdef CHEEVOS_DEV_LOGIN
+-	std::string ret = Utils::String::extractString(CHEEVOS_DEV_LOGIN, "z=", "&");
+-	ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");		 
+-	options.userAgent = ret;
+-#endif	
++	if (ThorIntegration::present(CHEEVOS_DEV_LOGIN))
++	{
++		std::string ret = Utils::String::extractString(CHEEVOS_DEV_LOGIN, "z=", "&");
++		ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");
++		options.userAgent = ret;
++	}
+ 
+ 	return options;
+ }
+ 
+ std::string RetroAchievements::getApiUrl(const std::string& method, const std::string& parameters)
+ {
+-#ifdef CHEEVOS_DEV_LOGIN
+-	auto options = std::string(CHEEVOS_DEV_LOGIN);
+-	return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
+-#else 
++	if (ThorIntegration::present(CHEEVOS_DEV_LOGIN))
++	{
++		auto options = std::string(CHEEVOS_DEV_LOGIN);
++		return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
++	}
++
+ 	return "https://retroachievements.org/API/" + method + ".php?" + parameters;
+-#endif
+ }
+ 
+ std::string GameInfoAndUserProgress::getImageUrl(const std::string& image)
+@@ -218,9 +221,8 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
+ 	GameInfoAndUserProgress ret;
+ 	ret.ID = 0;
+ 
+-#ifndef CHEEVOS_DEV_LOGIN
+-	return ret;
+-#endif
++	if (!ThorIntegration::present(CHEEVOS_DEV_LOGIN))
++		return ret;
+ 
+ 	auto options = getHttpOptions();
+ 	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)), &options);
+new file mode 100644
+--- /dev/null
++++ b/es-app/src/ThorIntegration.h
+@@ -0,0 +1,48 @@
++#pragma once
++
++#include <fstream>
++#include <map>
++#include <string>
++
++// Multi Pop distributes its frontend without compiled-in service keys. The activation helper copies the stock
++// frontend's keys into this root-only file on each Thor, and these lookups read them when a request needs them.
++namespace ThorIntegration
++{
++	inline const std::string& get(const std::string& key)
++	{
++		static const std::map<std::string, std::string> values = []
++		{
++			std::map<std::string, std::string> parsed;
++			std::ifstream file("/storage/.config/multi-pop-thor/integration.env");
++			std::string line;
++			while (std::getline(file, line))
++			{
++				// Values contain '=' and '&', so only the first '=' separates the name.
++				auto split = line.find('=');
++				if (line.empty() || line[0] == '#' || split == std::string::npos)
++					continue;
++				parsed[line.substr(0, split)] = line.substr(split + 1);
++			}
++			return parsed;
++		}();
++
++		static const std::string empty;
++		auto it = values.find(key);
++		return it == values.cend() ? empty : it->second;
++	}
++
++	// A compile-time literal from a private build and a runtime value are both accepted, so features turn on only when a key exists.
++	inline bool present(const char* value) { return value != nullptr && *value != '\0'; }
++}
++
++#ifndef SCREENSCRAPER_DEV_LOGIN
++#define SCREENSCRAPER_DEV_LOGIN ThorIntegration::get("SCREENSCRAPER_DEV_LOGIN").c_str()
++#endif
++
++#ifndef GAMESDB_APIKEY
++#define GAMESDB_APIKEY ThorIntegration::get("GAMESDB_APIKEY").c_str()
++#endif
++
++#ifndef CHEEVOS_DEV_LOGIN
++#define CHEEVOS_DEV_LOGIN ThorIntegration::get("CHEEVOS_DEV_LOGIN").c_str()
++#endif
+--- a/es-app/src/scrapers/GamesDBJSONScraper.h
++++ b/es-app/src/scrapers/GamesDBJSONScraper.h
+@@ -3,6 +3,7 @@
+ #define ES_APP_SCRAPERS_GAMES_DB_JSON_SCRAPER_H
+ 
+ #include "EmulationStation.h"
++#include "ThorIntegration.h"
+ 
+ #ifdef GAMESDB_APIKEY
+ 
+--- a/es-app/src/scrapers/GamesDBJSONScraperResources.h
++++ b/es-app/src/scrapers/GamesDBJSONScraperResources.h
+@@ -3,6 +3,7 @@
+ #define ES_APP_SCRAPERS_GAMES_DB_JSON_SCRAPER_RESOURCES_H
+ 
+ #include "EmulationStation.h"
++#include "ThorIntegration.h"
+ 
+ #ifdef GAMESDB_APIKEY
+ 
+--- a/es-app/src/scrapers/Scraper.cpp
++++ b/es-app/src/scrapers/Scraper.cpp
+@@ -1,4 +1,5 @@
+ #include "scrapers/Scraper.h"
++#include "ThorIntegration.h"
+ 
+ #include "FileData.h"
+ #include "ArcadeDBJSONScraper.h"
+@@ -20,23 +21,25 @@
+ #define OVERQUOTA_RETRY_DELAY 15000
+ #define OVERQUOTA_RETRY_COUNT 5
+ 
+-std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
++// Keyed scrapers are listed only when their key is present, so a frontend without keys hides them instead of failing requests.
++std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers = []
+ {
+-#ifdef SCREENSCRAPER_DEV_LOGIN
+-	{ "ScreenScraper", new ScreenScraperScraper() },
+-#endif
++	std::vector<std::pair<std::string, Scraper*>> list;
+ 
+-#ifdef GAMESDB_APIKEY
+-	{ "TheGamesDB", new TheGamesDBScraper() },
+-#endif
++	if (ThorIntegration::present(SCREENSCRAPER_DEV_LOGIN))
++		list.push_back({ "ScreenScraper", new ScreenScraperScraper() });
++
++	if (ThorIntegration::present(GAMESDB_APIKEY))
++		list.push_back({ "TheGamesDB", new TheGamesDBScraper() });
+ 
+ #ifdef HFS_DEV_LOGIN
+-	{ "HfsDB", new HfsDBScraper() },
++	list.push_back({ "HfsDB", new HfsDBScraper() });
+ #endif
+ 
+-	{ "IGDB", new IGDBScraper() },
+-	{ "ArcadeDB", new ArcadeDBScraper() }
+-};
++	list.push_back({ "IGDB", new IGDBScraper() });
++	list.push_back({ "ArcadeDB", new ArcadeDBScraper() });
++	return list;
++}();
+ 
+ std::string Scraper::getScraperName(Scraper* scraper)
+ {
+--- a/es-app/src/scrapers/ScreenScraper.h
++++ b/es-app/src/scrapers/ScreenScraper.h
+@@ -5,6 +5,7 @@
+ 
+ #include "scrapers/Scraper.h"
+ #include "EmulationStation.h"
++#include "ThorIntegration.h"
+ 
+ #if defined(SCREENSCRAPER_DEV_LOGIN)
+ 

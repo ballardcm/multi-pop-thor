@@ -35,7 +35,11 @@ class StartupTests(unittest.TestCase):
         self.write(self.root / 'usr/bin/es_settings', ': "$3"\n')
         self.write(self.root / 'usr/bin/start_es.sh',
                    '#!/bin/bash\n. "$(dirname "$0")/es_settings"\nexec "$(dirname "$0")/emulationstation"\n', 0o755)
-        self.write(self.root / 'usr/bin/emulationstation', '#!/bin/bash\nprintf stock > "$TEST_ROOT/started"\n', 0o755)
+        # The stub stock frontend carries fake service keys after its exit, where activation reads them as the real binary's strings.
+        self.stock_keys = ('devid=test-id&devpassword=test-pass\n'
+                           'z=test-user&y=test-key\n' + '0123456789abcdef' * 4 + '\n')
+        self.write(self.root / 'usr/bin/emulationstation',
+                   '#!/bin/bash\nprintf stock > "$TEST_ROOT/started"\nexit 0\n' + self.stock_keys, 0o755)
         self.bin = self.root / 'bin'
         self.bin.mkdir()
         # Only privileged platform commands are replaced; the actual helper scripts do the file mutations.
@@ -148,6 +152,21 @@ elif command == 'stat':
                 self.assertEqual(self.sway.read_text(), self.stock_sway)
                 self.assertIn('/custom/frontend', override.read_text())
                 override.unlink()
+
+    def test_activation_writes_stock_integration_keys_privately(self):
+        self.helper('enable_multi_pop_thor.sh')
+        keys = self.state / 'integration.env'
+        self.assertEqual(keys.read_text(),
+                         'SCREENSCRAPER_DEV_LOGIN=devid=test-id&devpassword=test-pass\n'
+                         'CHEEVOS_DEV_LOGIN=z=test-user&y=test-key\n'
+                         'GAMESDB_APIKEY=' + '0123456789abcdef' * 4 + '\n')
+        self.assertEqual(keys.stat().st_mode & 0o777, 0o600)
+        # A second candidate makes the key ambiguous, so the next boot drops it rather than guess.
+        stock = self.root / 'usr/bin/emulationstation'
+        stock.write_text(stock.read_text() + 'devid=other-id&devpassword=other-pass\n')
+        self.reboot()
+        self.assertNotIn('SCREENSCRAPER_DEV_LOGIN', keys.read_text())
+        self.assertIn('CHEEVOS_DEV_LOGIN', keys.read_text())
 
     def test_edited_service_override_blocks_restore(self):
         self.helper('enable_multi_pop_thor.sh')
