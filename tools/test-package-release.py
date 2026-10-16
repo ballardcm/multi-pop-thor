@@ -83,6 +83,18 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Frontend checksum'):
             self.package()
 
+    def test_compiled_in_service_keys_are_rejected(self):
+        # Even a binary the release descriptor vouches for is refused when it carries a key literal.
+        self.binary.write_bytes(self.binary.read_bytes() + b'\x00devid=fixture&devpassword=fixture\x00')
+        digest = release.sha256(self.binary)
+        self.config['frontend']['sha256'] = digest
+        (self.root / 'frontend-build/release.json').write_text(json.dumps(self.config))
+        report = json.loads((self.root / 'multi-pop-thor/frontend/compatibility.json').read_text())
+        report['artifact_sha256'] = digest
+        (self.root / 'multi-pop-thor/frontend/compatibility.json').write_text(json.dumps(report))
+        with self.assertRaisesRegex(ValueError, 'service keys'):
+            self.package()
+
     def test_stale_frontend_after_patch_change_is_rejected(self):
         (self.root / 'multi-pop-thor/frontend/test.patch').write_text('New behavior without a new binary')
         with self.assertRaisesRegex(ValueError, 'build input changed'):

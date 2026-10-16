@@ -33,7 +33,7 @@ python3 \
 
 The script checks source hashes, applies both patches, collects the matching runtime libraries from the Thor, builds the ARM64 Docker image, and compiles with network access disabled. It then checks the ELF metadata, target loader, and help command. The result is copied to `multi-pop-thor/frontend/emulationstation`; an adjacent `.build.json` records its hash and the checks performed. The build log defaults to `~/multi-pop-frontend-build.log`.
 
-Public-source builds do not automatically reproduce ROCKNIX's compile-time online-service configuration. If you have upstream-authorized settings, an optional `--integration-env /path/to/local.env` supplies them through Docker's environment-file mechanism. The supported ready-to-install frontend preserves the tested firmware's existing integrations. Do not put local integration settings in Git or the source download.
+The build never compiles in online-service keys, and it accepts no option to do so, so no distributed binary carries them. ScreenScraper, TheGamesDB and RetroAchievements instead read their keys at runtime from `/storage/.config/multi-pop-thor/integration.env` (the `thor-runtime-integration.patch`). Activation and every Multi Pop boot write that root-only file from the stock frontend already on the Thor; a key is written only when exactly one candidate is found. Without the file, those scrapers and achievements are hidden rather than failing. Never commit or package `integration.env`.
 
 Build inputs and compiler files stay under `frontend-build/private/build-your-own`. A second build must use a new `--work` directory so stale source or library inputs cannot be reused accidentally. Docker's build context excludes that private storage.
 

@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import stat
 import struct
 import subprocess
@@ -34,6 +35,14 @@ def repository_files(root):
     return files
 
 
+# These match the shapes of ScreenScraper, RetroAchievements and TheGamesDB keys as string literals in a binary.
+SERVICE_KEY_PATTERNS = (
+    rb"devid=[^&\x00]+&devpassword=[^&\x00]+",
+    rb"\x00z=[^&\x00]+&y=[^&\x00]+\x00",
+    rb"\x00[0-9a-f]{64}\x00",
+)
+
+
 def verify_inputs(root, config, frontend, upstream_source, sdl_source):
     report = json.loads((root / THEME / "frontend/compatibility.json").read_text())
     expected = config["frontend"]["sha256"]
@@ -45,6 +54,9 @@ def verify_inputs(root, config, frontend, upstream_source, sdl_source):
         header = source.read(20)
     if len(header) != 20 or header[:6] != b"\x7fELF\x02\x01" or struct.unpack("<H", header[18:20])[0] != 183:
         raise ValueError("Frontend must be a little-endian ARM64 ELF binary")
+    # Service keys come from each Thor at runtime; a binary with compiled-in keys must never be packaged for download.
+    if any(re.search(pattern, frontend.read_bytes()) for pattern in SERVICE_KEY_PATTERNS):
+        raise ValueError("Frontend contains compiled-in service keys; build it without them before packaging")
     for name, digest in config["build_inputs"].items():
         if sha256(root / name) != digest:
             raise ValueError("Frontend build input changed; verify a new frontend before packaging: " + name)

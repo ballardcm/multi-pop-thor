@@ -49,6 +49,8 @@ if ! owns_launcher_mount; then
     mount --bind "$launcher" "$LAUNCHER_TARGET"
     stat -c '%d:%i' "$LAUNCHER_TARGET" > "$STATE/launcher.identity"
 fi
+# Refreshing the keys at each boot follows firmware updates; a failure only disables scraping and achievements.
+write_integration_keys || true
 swaymsg reload >/dev/null
 swaymsg 'output * power on' >/dev/null
 for panel in /sys/class/backlight/*; do

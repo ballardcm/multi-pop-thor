@@ -1,6 +1,6 @@
 {
-  "artifact_sha256": "ed5aceec23e059dfd27130c0411004b1921e54cd2f4e84f03613b58b86b4c5c1",
-  "artifact_bytes": 10337152,
+  "artifact_sha256": "474ef42eeb5966f2131f36df6fd191997047424ffa88fbbf47fcd71c125118d8",
+  "artifact_bytes": 10382208,
   "architecture": "aarch64",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
@@ -21,7 +21,7 @@
     "libc.so.6"
   ],
   "missing_libraries": [],
-  "strong_import_count": 687,
+  "strong_import_count": 688,
   "missing_strong_symbols": [],
   "unresolved_weak_symbols": [
     "_ITM_deregisterTMCloneTable",
@@ -29,26 +29,42 @@
     "_ITM_registerTMCloneTable"
   ],
   "rpath_present": false,
-  "online_features_preserved": true,
-  "online_constant_matches": {
-    "SCREENSCRAPER_DEV_LOGIN": true,
-    "CHEEVOS_DEV_LOGIN": true,
-    "GAMESDB_APIKEY": true
-  },
   "target_loader_resolved_all_dependencies": true,
   "isolated_help_command_passed": true,
   "sdl_headers": "2.32.10",
   "source_archive_sha256": "c92eb0fd6e1e2b5fa603391f6c0b540d4fad858664c23321237df32efecf68ad",
   "changed_source_files": [
+    "es-app/src/ApiSystem.cpp",
+    "es-app/src/RetroAchievements.cpp",
+    "es-app/src/ThorIntegration.h",
+    "es-app/src/guis/GuiBios.cpp",
+    "es-app/src/guis/GuiFileBrowser.cpp",
+    "es-app/src/guis/GuiGameOptions.cpp",
+    "es-app/src/guis/GuiGameScraper.cpp",
+    "es-app/src/guis/GuiKeyMappingEditor.cpp",
+    "es-app/src/guis/GuiKeyboardLayout.cpp",
     "es-app/src/guis/GuiSaveState.cpp",
+    "es-app/src/scrapers/GamesDBJSONScraper.h",
+    "es-app/src/scrapers/GamesDBJSONScraperResources.h",
+    "es-app/src/scrapers/Scraper.cpp",
+    "es-app/src/scrapers/ScreenScraper.h",
     "es-app/src/views/SystemView.cpp",
+    "es-app/src/views/ViewController.cpp",
+    "es-app/src/views/ViewController.h",
     "es-app/src/views/gamelist/CarouselGameListView.cpp",
     "es-app/src/views/gamelist/CarouselGameListView.h",
+    "es-core/src/ThorCanvas.h",
+    "es-core/src/Window.cpp",
+    "es-core/src/components/AsyncNotificationComponent.cpp",
     "es-core/src/components/CarouselComponent.cpp",
     "es-core/src/components/CarouselComponent.h",
     "es-core/src/components/ThorTouchGesture.h",
-    "es-app/src/views/ViewController.cpp",
-    "es-app/src/views/ViewController.h"
+    "es-core/src/guis/GuiDetectDevice.cpp",
+    "es-core/src/guis/GuiInfoPopup.cpp",
+    "es-core/src/guis/GuiInputConfig.cpp",
+    "es-core/src/guis/GuiMsgBox.cpp",
+    "es-core/src/guis/GuiTextEditPopup.cpp",
+    "es-core/src/guis/GuiTextEditPopupKeyboard.cpp"
   ],
   "paging": {
     "canvas_width": 4400,
@@ -73,5 +89,18 @@
     "upper_back_action": true,
     "both_back_arrows_and_hints_user_test_passed": "2026-10-04"
   },
-  "device_feedback_pending": false
+  "device_feedback_pending": false,
+  "service_keys": {
+    "compiled_in": false,
+    "runtime_file": "/storage/.config/multi-pop-thor/integration.env",
+    "source": "stock /usr/bin/emulationstation on the device, copied at activation and each Multi Pop boot",
+    "scraping_user_test_passed": "2026-10-16"
+  },
+  "popups": {
+    "upper_display_only": true,
+    "on_screen_keyboard_user_test_passed": "2026-10-16",
+    "scraper_user_test_passed": "2026-10-16",
+    "message_box_user_test_passed": "2026-10-16",
+    "game_options_slides_from_left": true
+  }
 }

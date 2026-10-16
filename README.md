@@ -66,4 +66,4 @@ Roboto and Roboto Condensed are unmodified third-party fonts, with their Apache 
 
 Game covers, screenshots, descriptions, and videos are separate third-party media. The device's fetched media used Libretro thumbnails, LaunchBox metadata, and credited World of Longplays excerpts; it is not part of the original system illustrations or this source repository.
 
-This repository captures the working theme for further development. Compatibility beyond the supported firmware remains unverified. Compiled frontends are release assets rather than Git source files; local integration settings, ROMs, device configuration, and game libraries are excluded from the repository and source downloads.
+This repository captures the working theme for further development. Compatibility beyond the supported firmware remains unverified. Compiled frontends are release assets rather than Git source files; the generated `integration.env` service-key file, ROMs, device configuration, and game libraries are excluded from the repository and source downloads.

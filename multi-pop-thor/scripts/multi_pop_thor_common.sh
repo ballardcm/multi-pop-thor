@@ -125,6 +125,30 @@ remove_startup_override() {
     fi
 }
 
+write_integration_keys() {
+    # Each Thor already carries ROCKNIX's service keys in its stock frontend. Copying them into a root-only file lets the
+    # Multi Pop frontend scrape and show achievements while no key is ever compiled into, or shipped with, the theme.
+    local stock=/usr/bin/emulationstation target="$STATE/integration.env" staged entry name pattern value
+    command -v strings >/dev/null 2>&1 && [[ -f "$stock" ]] || return 0
+    mkdir -p "$STATE"
+    staged=$(mktemp "$target.XXXXXX")
+    chmod 600 "$staged"
+    for entry in 'SCREENSCRAPER_DEV_LOGIN=^devid=[^&]+&devpassword=[^&]+$' 'CHEEVOS_DEV_LOGIN=^z=[^&]+&y=[^&]+$' 'GAMESDB_APIKEY=^[0-9a-f]{64}$'; do
+        name=${entry%%=*}
+        pattern=${entry#*=}
+        value=$(strings -n 6 "$stock" | grep -E "$pattern" || true)
+        # A key is written only when exactly one candidate exists, so a different firmware never yields a wrong key.
+        if [[ -n "$value" && "$value" != *$'\n'* ]]; then
+            printf '%s=%s\n' "$name" "$value" >> "$staged"
+        fi
+    done
+    if [[ -s "$staged" ]] && ! cmp -s "$staged" "$target"; then
+        mv "$staged" "$target"
+    else
+        rm -f "$staged"
+    fi
+}
+
 lock_state() {
     mkdir -p "$STATE"
     mkdir "$STATE/lock" 2>/dev/null || fail 'Another activation or restore is running, or its lock needs inspection.'
