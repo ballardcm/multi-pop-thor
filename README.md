@@ -167,7 +167,7 @@ With updates on, an activated Thor checks this repository's latest release at mo
 
 ## Artwork
 
-The 68 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, WonderSwan, TurboGrafx-16, and TurboGrafx-CD.
+The 68 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, the original monochrome WonderSwan with its own pearl-white hardware illustration, TurboGrafx-16, and TurboGrafx-CD.
 
 ![All 68 Multi Pop artwork entries](docs/artwork-grid.png)
 
