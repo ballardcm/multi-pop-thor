@@ -1,0 +1,11 @@
+{
+  "generator": "Built-in image_gen",
+  "system": "wonderswan",
+  "model": "Original 1999 monochrome Bandai WonderSwan, pearl white",
+  "file": "multi-pop-thor/assets/systems/wonderswan.png",
+  "style_reference": "docs/artwork-style-reference.png",
+  "hardware_reference": "https://www.ebay.de/itm/374236267181",
+  "hardware_reference_image": "https://i.ebayimg.com/images/g/lPUAAOSw7LpjEFSs/s-l400.jpg",
+  "reference_usage": "Hardware identity reference only; photograph is not distributed in the repository.",
+  "prompt": "Use case: stylized-concept. Create ONE original illustration for the Multi Pop theme of the ORIGINAL 1999 monochrome Bandai WonderSwan in pearl white. Input image 1 is the existing illustration to replace, image 2 is STYLE reference only, image 3 is a HARDWARE IDENTITY reference photograph only. Correct the existing illustration to match the original hardware photo: pearl white thin landscape shell, slate blue directional buttons in two independent diamond-shaped four-button clusters at left, two slate-blue action buttons at lower right (B lower-left, A upper-right), two small gray SOUND and START buttons in the notch below the left portion of screen, short white horizontal speaker slots at upper right, large dark charcoal screen surround, muted olive monochrome blank LCD, small gold 'WonderSwan' wordmark centered on the upper bezel. No COLOR text, no third front power button, no color display. Match the approved angular cartoon style: bold near-black outlines, broad polygonal bevels and hard-edged flat cel shading, restrained color planes, no photorealistic textures or smooth lighting. Mild THREE-QUARTER front view with top and right side depth, entire device visible centered large on landscape 4:3 canvas with 8 percent clear margin. Genuine transparent alpha background, no floor, no cast shadow, no scenery, no captions or accessories. Screen has a single flat angular reflection and no game content."
+}
