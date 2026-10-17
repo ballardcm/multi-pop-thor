@@ -4,7 +4,7 @@ Multi Pop is a ROCKNIX EmulationStation theme with a gameplay preview and game d
 
 The upper display is 1920×1080 and the lower display is 1240×1080. The theme uses a 4400×1080 virtual canvas with a hidden 1240px margin so native menus stay centered on the upper display. It is intended for the Thor's ROCKNIX frontend, rather than ES-DE on Android.
 
-Once activated, Multi Pop can keep itself up to date; see [Automatic updates](#automatic-updates). It is off until you turn it on in UI Settings → Theme Configuration.
+Once activated, Multi Pop can keep itself up to date; see [Automatic updates](#automatic-updates). It is off until you turn it on in UI Settings → Theme Configuration, which also shows the installed version.
 
 Battery status and connected Wi-Fi appear at the upper display's top right. They respect the frontend's battery and network indicator settings; the default battery setting includes its percentage.
 
@@ -44,9 +44,29 @@ Game media is installed separately from the theme. Existing covers remain availa
 
 ## Automatic updates
 
-With Automatic updates turned on in UI Settings → Theme Configuration, an activated Thor updates itself from this repository's latest release. After each Multi Pop start, a background check runs at most every six hours. Each release carries a version number in `version.json`, and only a release with a higher number than the installed one is downloaded, so an update never moves you to an older version. Installing an older release is a manual step with the updater below. The check downloads a newer release, verifies it against the release's `SHA256SUMS` and the archive manifest, and accepts it only when its frontend targets the same firmware as the installed one. Once nothing is running, the frontend shows a "Multi Pop update ready" message to close with OK. The update is applied the next time EmulationStation starts, after a reboot or Quit → Restart EmulationStation, so it never restarts the frontend while you are using it. The installed version appears as "VERSION N" under MULTI POP at the lower left of the upper display; a source checkout shows "VERSION DEVELOPMENT". If the new version does not reach a running frontend within two further starts, the previous theme is put back and that release is skipped. One previous theme stays in `/roms/themes/.multi-pop-backup-*` for manual recovery.
+Automatic updates are optional and **off by default**. Nothing is downloaded until you turn them on.
 
-Automatic updates are optional and off by default; the setting is saved as `subset.autoupdate` in `es_settings.cfg`. Turning them off also drops an update that was downloaded but not yet installed. After an update installs, a "Multi Pop updated to version N" message confirms it. The log is `/storage/.config/multi-pop-thor/update/auto-update.log`.
+### Turn them on or off
+
+Open the main menu, then UI Settings → Theme Configuration. Under Theme Options:
+
+- **Installed version** shows the release you are running, such as `18`. A copy installed from a source checkout shows `DEVELOPMENT`.
+- **Automatic updates** is Off or On. Off is the default and is used whenever nothing has been chosen. The choice is saved as `subset.autoupdate` in `/storage/.config/emulationstation/es_settings.cfg`.
+
+Turning updates off also discards an update that was downloaded but not yet installed.
+
+### Which version you are running
+
+Every release has a version number that goes up with each release. Besides Theme Configuration, it appears as "VERSION N" under MULTI POP at the lower left of the upper display. The release's GitHub title carries the same number, and the installed theme records it in `version.json`.
+
+### How an update happens
+
+1. After each Multi Pop start, a background check looks at this repository's latest release. It checks at most every six hours, so restarting sooner does not check again.
+2. A release is downloaded only when its version number is higher than the installed one, so an automatic update never moves you to an older version. The download must match the release's `SHA256SUMS` and the archive manifest, and its frontend must target the installed firmware.
+3. Once nothing is running (no game, scrape or install), a "Multi Pop update ready" message appears; close it with OK.
+4. The update installs the next time EmulationStation starts, after a reboot or Quit → Restart EmulationStation, so it never restarts the frontend while you are using it. A "Multi Pop updated to version N" message confirms it.
+
+If the new version does not reach a running frontend within two further starts, the previous theme is put back and that release is skipped. One previous theme stays in `/roms/themes/.multi-pop-backup-*` for manual recovery. Installing an older release is a manual step with the updater below. The log is `/storage/.config/multi-pop-thor/update/auto-update.log`.
 
 ## Update an activated installation
 

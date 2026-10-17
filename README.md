@@ -4,7 +4,7 @@
 
 A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is called **Multi Pop**; its folder, runtime identifier, and source repository name are `multi-pop-thor`.
 
-**Keeps itself up to date (optional).** Turn on Automatic updates under UI Settings → Theme Configuration, and the Thor fetches each new release in the background, installs it the next time EmulationStation starts, and rolls back if the new version fails to start. It only moves forward to a newer version number. It is off until you turn it on. See [Automatic updates](#automatic-updates).
+**Keeps itself up to date (optional).** Turn on Automatic updates under UI Settings → Theme Configuration, and the Thor fetches each new release in the background, installs it the next time EmulationStation starts, and rolls back if the new version fails to start. It only moves forward to a newer version number, and the same screen shows the version you are running. It is off until you turn it on. See [Automatic updates](#automatic-updates).
 
 **Pull requests welcome!** Have a fix, new artwork, or an idea to improve the theme? Please send me a [pull request](https://github.com/ballardcm/multi-pop-thor/pulls). I'd love to see what you make. See [CONTRIBUTING.md](CONTRIBUTING.md) for getting started.
 
@@ -42,9 +42,9 @@ Every PR produces preview downloads under its GitHub Actions run. Each merge to 
 
 ## Automatic updates
 
-With Automatic updates turned on, an activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, the frontend shows a "Multi Pop update ready" message to close with OK, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. The installed version appears as "VERSION N" under MULTI POP at the lower left of the upper display; a source checkout shows "VERSION DEVELOPMENT". A version that fails to start twice is replaced by the previous one and skipped.
+Automatic updates are **off by default**. To turn them on, open UI Settings → Theme Configuration and set **Automatic updates** to On; set it back to Off to stop them, which also discards an update that was downloaded but not yet installed. The same screen shows the **Installed version**, which also appears as "VERSION N" under MULTI POP on the upper display.
 
-Automatic updates are off by default. Turn them on or off in UI Settings → Theme Configuration → Automatic updates; turning them off also drops an update that was downloaded but not yet installed. Installing an older version is always a manual step. The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
+With updates on, an activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a manual step. The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 
 ## Working on the theme
 
