@@ -24,12 +24,15 @@ stop_frontend
 
 if [[ -f "$STATE/active" ]]; then
     guard_active_files
-elif [[ -f "$STATE/restored" ]]; then
-    # Reusing the original backups is safe only while the restored originals remain unchanged.
-    cmp -s "$SETTINGS" "$STATE/settings.backup" || fail 'Settings changed after restoration; the original backup was preserved.'
-    cmp -s "$SWAY_CONFIG" "$STATE/sway.backup" || fail 'Sway configuration changed after restoration; the original backup was preserved.'
-    [[ ! -e "$SWAY_FRAGMENT" ]] || fail 'A supplemental configuration already exists and was preserved.'
 else
+    if [[ -f "$STATE/restored" ]]; then
+        # Restore keeps later setting changes, so the current files are the new originals. The earlier record moves aside for inspection.
+        previous="$STATE/restored-$(date -u +%Y%m%dT%H%M%SZ)"
+        mkdir "$previous"
+        for record in restored settings.backup sway.backup installed.settings installed.sway installed.fragment restored.fragment launcher.identity theme.path; do
+            [[ ! -e "$STATE/$record" ]] || mv "$STATE/$record" "$previous/"
+        done
+    fi
     [[ ! -e "$STATE/settings.backup" && ! -e "$STATE/sway.backup" ]] || fail "Existing backups have no completed activation record. Inspect $STATE before proceeding."
     [[ ! -e "$SWAY_FRAGMENT" ]] || fail 'A supplemental configuration already exists and was preserved.'
     [[ $(awk -v fragment="$SWAY_FRAGMENT" 'index($0, fragment) { count++ } END { print count+0 }' "$SWAY_CONFIG") == 0 ]] || fail 'The Sway configuration already references the supplemental file and was preserved.'
