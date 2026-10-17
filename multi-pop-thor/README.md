@@ -88,7 +88,7 @@ bash \
   /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh
 ```
 
-Restore removes the automatic startup override and uses the original backups in `/storage/.config/multi-pop-thor/`. It accepts the theme and carousel choices saved when you manually select Multi Pop. It stops without changing anything if other settings, configuration, or the startup override have changed since activation, so newer changes are preserved. Changing any setting after activation, including Automatic updates, is enough to stop it; the project README's [Remove Multi Pop](https://github.com/ballardcm/multi-pop-thor#remove-multi-pop) gives the hand-removal steps for that case and for a Thor that already shows a black screen.
+Restore removes the automatic startup override and the launcher mount, and moves the layout fragment into `/storage/.config/multi-pop-thor/`. It reverts only the settings Multi Pop changes (`ThemeSet`, `GamelistViewStyle`, `FullScreenMenu` and `GameTransitionStyle`) to their values in the original backup, and only while each still holds Multi Pop's value; every other setting changed since activation is kept. An unedited Sway configuration returns to the original backup; an edited one keeps its edits and loses only the Multi Pop include. Restore still stops without changing anything if another launcher or service override has taken over startup; the project README's [Remove Multi Pop](https://github.com/ballardcm/multi-pop-thor#remove-multi-pop) gives hand-removal steps for that case and for a Thor that already shows a black screen. Activating again after a restore takes fresh backups and moves the earlier record into a `restored-*` folder.
 
 ## Validation and credits
 

@@ -168,6 +168,41 @@ elif command == 'stat':
         self.assertNotIn('SCREENSCRAPER_DEV_LOGIN', keys.read_text())
         self.assertIn('CHEEVOS_DEV_LOGIN', keys.read_text())
 
+    def test_restore_keeps_settings_changed_after_activation(self):
+        self.helper('enable_multi_pop_thor.sh')
+        self.reboot()
+        # Any menu change, such as turning on automatic updates, rewrites the settings file after activation.
+        text = self.settings.read_text()
+        text = text.replace('value="fade"', 'value="slide"')
+        text = text.replace('</config>', '<string name="subset.autoupdate" value="on" />\n'
+                                         '<string name="GamelistViewStyle" value="gamecarousel" />\n</config>')
+        self.settings.write_text(text)
+        result = self.helper('restore_multi_pop_thor.sh')
+        self.assertIn('Settings changed since activation were kept', result.stdout)
+        restored = self.settings.read_text()
+        self.assertIn('<string name="ThemeSet" value="system-theme" />', restored)
+        self.assertIn('subset.autoupdate', restored)
+        self.assertIn('value="slide"', restored)
+        self.assertNotIn('FullScreenMenu', restored)
+        self.assertNotIn('GamelistViewStyle', restored)
+        self.assertEqual(self.sway.read_text(), self.stock_sway)
+        self.assertFalse(self.override.exists())
+        # Activating again treats the kept settings as the new originals and moves the old record aside.
+        self.helper('enable_multi_pop_thor.sh')
+        self.assertEqual((self.state / 'settings.backup').read_text(), restored)
+        self.assertTrue(any(self.state.glob('restored-*/settings.backup')))
+        self.helper('restore_multi_pop_thor.sh')
+        self.assertEqual(self.settings.read_text(), restored)
+
+    def test_restore_keeps_edited_display_configuration(self):
+        self.helper('enable_multi_pop_thor.sh')
+        self.sway.write_text(self.sway.read_text() + 'output DSI-2 scale 1\n')
+        result = self.helper('restore_multi_pop_thor.sh')
+        self.assertIn('only the Multi Pop include was removed', result.stdout)
+        self.assertIn('output DSI-2 scale 1', self.sway.read_text())
+        self.assertNotIn('multi-pop-thor.conf', self.sway.read_text())
+        self.assertFalse((self.config / 'sway/multi-pop-thor.conf').exists())
+
     def test_edited_service_override_blocks_restore(self):
         self.helper('enable_multi_pop_thor.sh')
         self.override.write_text('[Service]\nExecStart=/custom/frontend\n')

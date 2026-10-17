@@ -106,9 +106,9 @@ Every PR produces preview downloads under its GitHub Actions run. Releases are p
      /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh
    ```
 
-   It removes the startup change, puts back the settings and display configuration saved at activation, and restarts the frontend with the theme you had before. Success ends with `Backups and the generated fragment remain in /storage/.config/multi-pop-thor.` Go on to step 3.
+   It removes the startup change, switches back to the theme you had before, undoes the few settings activation changed, puts back the original display configuration, and restarts the frontend. Settings you changed after activating, such as Automatic updates, are kept. Success ends with `Backups and the generated fragment remain in /storage/.config/multi-pop-thor.` Go on to step 3.
 
-2. If the helper instead stops with `Settings changed after activation` or another message, it has changed nothing. This is normal if you have changed any setting since activating, including Automatic updates, because restoring the saved file would throw those changes away. Remove Multi Pop by hand instead, in the SSH session:
+2. If the helper stops with a message instead, it has changed nothing. That happens when another theme or tool has also changed how the Thor starts its frontend, or when the activation record has gone missing. Remove Multi Pop by hand instead, in the SSH session:
 
    ```sh
    systemctl stop essway
