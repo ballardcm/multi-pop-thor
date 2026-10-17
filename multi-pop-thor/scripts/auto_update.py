@@ -18,6 +18,7 @@ import sys
 import tempfile
 import time
 import urllib.request
+import xml.etree.ElementTree as ET
 import zipfile
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -34,7 +35,11 @@ class Config:
     frontend_api: str = 'http://127.0.0.1:1234'
     check_interval: float = 6 * 3600
     frontend_wait: float = 180
+    # The HTTP API answers while the frontend is still loading, and a notice shown then is never seen.
+    notify_delay: float = 30
+    idle_wait: float = 6 * 3600
     installer: Path = field(default_factory=lambda: SCRIPT_DIR / 'update_theme.py')
+    es_settings: Path = Path('/storage/.config/emulationstation/es_settings.cfg')
 
     @property
     def updates(self):
@@ -79,6 +84,15 @@ def installer(config):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def enabled(config):
+    # Updates stay off until the player turns on UI Settings > Theme Configuration > Automatic updates.
+    try:
+        root = ET.parse(config.es_settings).getroot()
+    except (OSError, ET.ParseError):
+        return False
+    return any(node.get('name') == 'subset.autoupdate' and node.get('value') == 'on' for node in root.iter('string'))
 
 
 def reject(config, tag):
@@ -131,6 +145,11 @@ def apply(config):
     staged = read_json(config.updates / 'staged.json')
     if not staged:
         return
+    # A download staged before updates were turned off is dropped rather than installed.
+    if not enabled(config):
+        discard_staged(config)
+        log(config, 'Discarded staged ' + str(staged.get('tag')) + ' because automatic updates are off.')
+        return
     archive = config.updates / 'staged.zip'
     stage = None
     try:
@@ -181,11 +200,28 @@ def confirm(config):
         if old.name != keep and old.is_dir():
             shutil.rmtree(old)
     log(config, 'Confirmed ' + pending['tag'] + ' is running.')
+    version = pending.get('version')
+    notify(config, 'Multi Pop updated' + (' to version ' + str(version) if version else '') + '.')
+
+
+def idle(config):
+    try:
+        with urllib.request.urlopen(config.frontend_api + '/isIdle', timeout=5) as response:
+            return json.load(response) == [True]
+    except (OSError, ValueError):
+        return False
 
 
 def notify(config, message):
+    # A message box needs a press to close, so it waits until no game, scrape or install is running.
+    time.sleep(config.notify_delay)
+    deadline = time.monotonic() + config.idle_wait
+    while not idle(config):
+        if time.monotonic() >= deadline:
+            return
+        time.sleep(10)
     try:
-        request = urllib.request.Request(config.frontend_api + '/notify', data=message.encode(), method='POST')
+        request = urllib.request.Request(config.frontend_api + '/messagebox', data=message.encode(), method='POST')
         urllib.request.urlopen(request, timeout=5).close()
     except OSError:
         pass
@@ -277,7 +313,7 @@ def background(config):
         log(config, 'The frontend did not start; any applied update stays pending.')
         return
     confirm(config)
-    if (config.state / 'auto-update-disabled').exists():
+    if not enabled(config):
         return
     try:
         stage_latest(config)

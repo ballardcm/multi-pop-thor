@@ -52,6 +52,13 @@
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.032407407</fontSize>
             <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
         </text>
+        <!-- The installed release number tells players which version they are running and whether an update applied. -->
+        <text name="version-caption" extra="true">
+            <text>VERSION ${multiPopVersion}</text>
+            <pos>0.289090909 0.946296296</pos><size>0.080909091 0.033333333</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.018518519</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+        </text>
 
         <!-- The fixed central frame identifies selection while neighboring covers stay fully visible. -->
         <image name="selected-card-frame" extra="true">

@@ -84,14 +84,22 @@ class AutoUpdateTests(unittest.TestCase):
         self.themes = root / 'roms/themes'
         self.config = auto_update.Config(
             theme=self.themes / 'multi-pop-thor', state=root / 'storage/.config/multi-pop-thor',
-            release_api=base + '/release', frontend_api=base, frontend_wait=2,
-            installer=ROOT / 'tools/install-multi-pop-theme.py')
+            release_api=base + '/release', frontend_api=base, frontend_wait=2, notify_delay=0,
+            installer=ROOT / 'tools/install-multi-pop-theme.py', es_settings=root / 'es_settings.cfg')
+        self.set_updates('on')
         for name, data in theme_files('old').items():
             path = self.config.theme / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
         self.server.routes['/runningGame'] = b'{"msg":"NO GAME RUNNING"}'
+        self.server.routes['/isIdle'] = b'[ true ]'
         self.publish(theme_files('new'))
+
+    def set_updates(self, value):
+        settings = '<?xml version="1.0"?>\n<config>\n\t<string name="ThemeSet" value="multi-pop-thor" />\n'
+        if value is not None:
+            settings += '\t<string name="subset.autoupdate" value="' + value + '" />\n'
+        self.config.es_settings.write_text(settings + '</config>\n')
 
     def publish(self, files, tag=TAG, sums_override=None):
         archive = archive_bytes(files)
@@ -125,9 +133,17 @@ class AutoUpdateTests(unittest.TestCase):
         (self.config.updates / 'last-check').unlink()
         auto_update.background(self.config)
         self.assertEqual(self.updates('installed.json')['tag'], TAG)
+        self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 2.')
         self.assertIsNone(self.updates('pending.json'))
         self.assertTrue(backup.is_dir())
         self.assertEqual(self.server.requests.count('/zip'), 1)
+
+    def test_message_waits_for_an_idle_frontend(self):
+        self.server.routes['/isIdle'] = b'[ false ]'
+        self.config.idle_wait = 0
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+        self.assertEqual(self.server.notifications, [])
 
     def test_archive_not_matching_its_checksum_is_never_staged(self):
         self.publish(theme_files('new'), sums_override='0' * 64)
@@ -177,11 +193,20 @@ class AutoUpdateTests(unittest.TestCase):
         auto_update.background(self.config)
         self.assertEqual(self.updates('staged.json')['version'], 2)
 
-    def test_disabled_updates_do_not_check(self):
-        (self.config.state / 'auto-update-disabled').parent.mkdir(parents=True, exist_ok=True)
-        (self.config.state / 'auto-update-disabled').touch()
+    def test_updates_are_off_unless_turned_on(self):
+        for value in (None, 'off'):
+            with self.subTest(value=value):
+                self.set_updates(value)
+                auto_update.background(self.config)
+                self.assertNotIn('/release', self.server.requests)
+
+    def test_turning_updates_off_discards_a_staged_release(self):
         auto_update.background(self.config)
-        self.assertNotIn('/release', self.server.requests)
+        self.set_updates('off')
+        auto_update.apply(self.config)
+        self.assertIn('old', self.installed_theme())
+        self.assertIsNone(self.updates('staged.json'))
+        self.assertFalse((self.config.updates / 'staged.zip').exists())
 
     def test_checks_are_rate_limited(self):
         self.publish(theme_files('old'))
