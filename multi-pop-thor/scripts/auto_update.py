@@ -96,6 +96,12 @@ def firmware_revision(path):
     return (read_json(path, {}) or {}).get('firmware_revision')
 
 
+def release_version(value):
+    # Releases before numbering count as version 0, so any numbered release replaces them.
+    version = (value or {}).get('version', 0) if isinstance(value, dict) else 0
+    return version if isinstance(version, int) and not isinstance(version, bool) and version >= 0 else 0
+
+
 # Applying, before the frontend starts.
 
 def rollback(config, pending):
@@ -139,7 +145,7 @@ def apply(config):
         config.theme.rename(backup)
         stage.rename(config.theme)
         stage = None
-        write_json(config.updates / 'pending.json', {'tag': staged['tag'], 'sha256': staged['sha256'], 'backup': str(backup), 'starts': 0})
+        write_json(config.updates / 'pending.json', {'tag': staged['tag'], 'sha256': staged['sha256'], 'version': staged.get('version'), 'backup': str(backup), 'starts': 0})
         log(config, 'Applied ' + staged['tag'] + '; the previous theme is at ' + str(backup) + '.')
     except Exception as error:
         reject(config, staged.get('tag', 'unknown'))
@@ -167,7 +173,7 @@ def confirm(config):
     pending = read_json(config.updates / 'pending.json')
     if not pending:
         return
-    write_json(config.updates / 'installed.json', {'tag': pending['tag'], 'sha256': pending['sha256']})
+    write_json(config.updates / 'installed.json', {'tag': pending['tag'], 'sha256': pending['sha256'], 'version': pending.get('version')})
     (config.updates / 'pending.json').unlink()
     # One backup stays for manual recovery; older ones would otherwise accumulate with every update.
     keep = Path(pending['backup']).name
@@ -241,18 +247,28 @@ def stage_latest(config):
         with zipfile.ZipFile(archive) as opened:
             manifest = installer(config).read_manifest(opened)
             candidate = json.loads(opened.read('multi-pop-thor/frontend/compatibility.json'))
+            try:
+                version = release_version(json.loads(opened.read('multi-pop-thor/version.json')))
+            except (KeyError, ValueError):
+                version = 0
+        if installed_matches(config, manifest):
+            write_json(config.updates / 'installed.json', {'tag': tag, 'sha256': digest, 'version': version})
+            log(config, 'Recorded ' + tag + ' as already installed.')
+            return
+        # Only a strictly newer release installs automatically; going back to an older one is left to a manual update.
+        installed = release_version(read_json(config.theme / 'version.json'))
+        if version <= installed:
+            reject(config, tag)
+            log(config, 'Skipped ' + tag + ': version ' + str(version) + ' is not newer than installed version ' + str(installed) + '.')
+            return
         # An update never moves the theme to a frontend built for different firmware.
         if candidate.get('firmware_revision') != firmware_revision(config.theme / 'frontend/compatibility.json'):
             reject(config, tag)
             log(config, 'Skipped ' + tag + ': it targets different firmware.')
             return
-        if installed_matches(config, manifest):
-            write_json(config.updates / 'installed.json', {'tag': tag, 'sha256': digest})
-            log(config, 'Recorded ' + tag + ' as already installed.')
-            return
         archive.replace(config.updates / 'staged.zip')
-        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest})
-    log(config, 'Staged ' + tag + '.')
+        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest, 'version': version})
+    log(config, 'Staged ' + tag + ' (version ' + str(version) + ').')
     notify(config, 'Multi Pop update ready. It installs the next time EmulationStation starts.')
 
 

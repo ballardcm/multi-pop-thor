@@ -6,7 +6,7 @@ Every PR runs theme, media, and packaging checks and uploads a preview artifact 
 - `multi-pop-thor-source.zip`: the project sources plus the pinned public frontend source archive, SDL source, patches, and build-your-own instructions.
 - `SHA256SUMS`: hashes of both downloads.
 
-After a merge to `main`, the same workflow publishes these files as a GitHub Release tagged `build-<commit>`. Workflow runs on working branches cannot publish releases. Rerunning a published commit leaves the existing release intact. PR previews are retained for 30 days; merged releases remain available under [Releases](https://github.com/ballardcm/multi-pop-thor/releases).
+After a merge to `main`, the same workflow publishes these files as a GitHub Release tagged `build-<commit>` and titled with its version number. The number is `main`'s first-parent commit count, written to `multi-pop-thor/version.json` in the installable ZIP; it rises with every merge, and the automatic updater installs only a release whose number is higher than the installed one. A PR preview is packaged from the merge it would make, so it carries the number that merge will publish. Local packaging takes the same count, or `--version` to set it. Workflow runs on working branches cannot publish releases. Rerunning a published commit leaves the existing release intact. PR previews are retained for 30 days; merged releases remain available under [Releases](https://github.com/ballardcm/multi-pop-thor/releases).
 
 ## Verified frontend inputs
 

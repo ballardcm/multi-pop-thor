@@ -18,7 +18,10 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
+      # The release number is main's first-parent commit count, which needs the full history.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -79,6 +82,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="build-${GITHUB_SHA:0:12}"
+          version=$(unzip -p dist/multi-pop-thor-rocknix-*.zip multi-pop-thor/version.json | python3 -c 'import json, sys; print(json.load(sys.stdin)["version"])')
           if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Release already exists: $tag"
             exit 0
@@ -86,6 +90,6 @@ jobs:
           gh release create "$tag" \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
-            --title "Multi Pop ${GITHUB_SHA:0:12}" \
+            --title "Multi Pop version $version (${GITHUB_SHA:0:12})" \
             --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. See the included README for installation and build instructions. Other firmware versions require a newly validated frontend." \
             dist/*

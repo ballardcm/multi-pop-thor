@@ -21,9 +21,11 @@ FIRMWARE = 'firmware-a'
 TAG = 'build-0123456789ab'
 
 
-def theme_files(version, firmware=FIRMWARE):
+def theme_files(version, firmware=FIRMWARE, number=None):
+    number = {'old': 1, 'new': 2}.get(version, 3) if number is None else number
     return {
         'theme.xml': ('<theme version="' + version + '"/>').encode(),
+        'version.json': json.dumps({'version': number}).encode(),
         'frontend/emulationstation': b'\x7fELF frontend ' + version.encode(),
         'frontend/compatibility.json': json.dumps({'firmware_revision': firmware}).encode(),
         'scripts/start_es_thor.sh': b'#!/bin/bash\n',
@@ -158,6 +160,22 @@ class AutoUpdateTests(unittest.TestCase):
         (self.config.updates / 'last-check').unlink()
         auto_update.background(self.config)
         self.assertIsNone(self.updates('staged.json'))
+
+    def test_older_or_equal_release_is_never_staged(self):
+        for number in (1, 0):
+            with self.subTest(number=number):
+                tag = 'build-%012d' % number
+                self.publish(theme_files('older', number=number), tag=tag)
+                (self.config.updates / 'last-check').unlink(missing_ok=True)
+                auto_update.background(self.config)
+                self.assertIsNone(self.updates('staged.json'))
+                self.assertIn(tag, self.updates('rejected.json'))
+                self.assertIn('old', self.installed_theme())
+
+    def test_numbered_release_replaces_an_unnumbered_installation(self):
+        (self.config.theme / 'version.json').unlink()
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['version'], 2)
 
     def test_disabled_updates_do_not_check(self):
         (self.config.state / 'auto-update-disabled').parent.mkdir(parents=True, exist_ok=True)
