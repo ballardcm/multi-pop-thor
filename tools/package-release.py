@@ -71,8 +71,8 @@ def verify_inputs(root, config, frontend, upstream_source, sdl_source):
 
 
 def release_version(root):
-    # Main only changes through merges, so its first-parent commit count rises with every release and never repeats.
-    # A PR build checks out the merge it would make, so its preview carries the number that merge will publish.
+    # Main only changes through merges, so its first-parent commit count only rises and never repeats between releases.
+    # A PR build checks out the merge it would make, so its preview carries the number main will have after that merge.
     return int(subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"], cwd=root))
 
 
