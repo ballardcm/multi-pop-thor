@@ -93,12 +93,16 @@ def package(root, output, frontend, upstream_source, sdl_source, version):
     files = repository_files(root)
     theme_files = {name[len(THEME) + 1:]: path.read_bytes() for name, path in files.items()
                    if name.startswith(THEME + "/")}
-    if not {"theme.xml", "README.md", "LICENSE", "LICENSING.md", "scripts/start_es_thor.sh"}.issubset(theme_files):
+    if not {"theme.xml", "README.md", "LICENSE", "LICENSING.md", "scripts/start_es_thor.sh", "version.xml"}.issubset(theme_files):
         raise ValueError("Installable theme is missing required files")
     theme_files["frontend/emulationstation"] = frontend.read_bytes()
     theme_files["scripts/update_theme.py"] = (root / "tools/install-multi-pop-theme.py").read_bytes()
     # The automatic updater compares this number so it never replaces an installation with an older release.
     theme_files["version.json"] = (json.dumps({"version": version}) + "\n").encode()
+    # The theme shows the same number under its name.
+    theme_files["version.xml"] = re.sub(rb"<multiPopVersion>[^<]*</multiPopVersion>",
+                                        b"<multiPopVersion>%d</multiPopVersion>" % version,
+                                        theme_files["version.xml"])
     manifest = {name: hashlib.sha256(data).hexdigest() for name, data in sorted(theme_files.items())}
     output.mkdir(parents=True, exist_ok=True)
     ready = output / (THEME + "-rocknix-" + config["firmware_version"] + ".zip")

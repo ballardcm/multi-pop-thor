@@ -31,7 +31,8 @@ class ReleaseTests(unittest.TestCase):
         subprocess.run(['git', 'init', '-q', str(self.root)], check=True)
         files = {'.gitignore': 'private/\ndist/\n', 'multi-pop-thor/theme.xml': '<theme/>',
                  'multi-pop-thor/README.md': 'Install instructions', 'multi-pop-thor/LICENSE': 'License',
-                 'multi-pop-thor/LICENSING.md': 'Scope', 'multi-pop-thor/scripts/start_es_thor.sh': '#!/bin/sh\n',
+                 'multi-pop-thor/LICENSING.md': 'Scope',
+                 'multi-pop-thor/version.xml': '<variables><multiPopVersion>DEVELOPMENT</multiPopVersion></variables>', 'multi-pop-thor/scripts/start_es_thor.sh': '#!/bin/sh\n',
                  'multi-pop-thor/frontend/test.patch': 'The verified patch', 'private/secret.env': 'Must not ship'}
         files['tools/install-multi-pop-theme.py'] = Path(__file__).with_name('install-multi-pop-theme.py').read_text()
         for name, text in files.items():
@@ -73,6 +74,7 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual((archive.getinfo('multi-pop-thor/frontend/emulationstation').external_attr >> 16) & 0o777, 0o755)
             self.assertEqual(json.loads(archive.read('multi-pop-thor/version.json')), {'version': 7})
             self.assertIn('version.json', manifest)
+            self.assertIn(b'<multiPopVersion>7</multiPopVersion>', archive.read('multi-pop-thor/version.xml'))
         with zipfile.ZipFile(source) as archive:
             self.assertFalse(any('private/' in name for name in archive.namelist()))
             self.assertFalse(any(name.endswith('/emulationstation') for name in archive.namelist()))

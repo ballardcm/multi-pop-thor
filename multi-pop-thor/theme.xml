@@ -90,6 +90,7 @@
     <include if="${system.theme} == 'tg16'">./palettes/tg16.xml</include>
     <include if="${system.theme} == 'tg-cd'">./palettes/tg-cd.xml</include>
 
+    <include>./version.xml</include>
     <include>./layouts/common.xml</include>
     <include>./layouts/system.xml</include>
     <include>./layouts/games.xml</include>

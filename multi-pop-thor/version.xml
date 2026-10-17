@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Release packaging replaces this file with the release number; a source checkout shows that it is a development copy. -->
+<theme>
+    <formatVersion>7</formatVersion>
+    <variables>
+        <multiPopVersion>DEVELOPMENT</multiPopVersion>
+    </variables>
+</theme>
