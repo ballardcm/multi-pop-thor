@@ -37,6 +37,7 @@ class Config:
     frontend_wait: float = 180
     # The HTTP API answers while the frontend is still loading, and a notice shown then is never seen.
     notify_delay: float = 30
+    idle_wait: float = 6 * 3600
     installer: Path = field(default_factory=lambda: SCRIPT_DIR / 'update_theme.py')
     es_settings: Path = Path('/storage/.config/emulationstation/es_settings.cfg')
 
@@ -203,10 +204,24 @@ def confirm(config):
     notify(config, 'Multi Pop updated' + (' to version ' + str(version) if version else '') + '.')
 
 
-def notify(config, message):
-    time.sleep(config.notify_delay)
+def idle(config):
     try:
-        request = urllib.request.Request(config.frontend_api + '/notify', data=message.encode(), method='POST')
+        with urllib.request.urlopen(config.frontend_api + '/isIdle', timeout=5) as response:
+            return json.load(response) == [True]
+    except (OSError, ValueError):
+        return False
+
+
+def notify(config, message):
+    # A message box needs a press to close, so it waits until no game, scrape or install is running.
+    time.sleep(config.notify_delay)
+    deadline = time.monotonic() + config.idle_wait
+    while not idle(config):
+        if time.monotonic() >= deadline:
+            return
+        time.sleep(10)
+    try:
+        request = urllib.request.Request(config.frontend_api + '/messagebox', data=message.encode(), method='POST')
         urllib.request.urlopen(request, timeout=5).close()
     except OSError:
         pass

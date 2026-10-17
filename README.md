@@ -42,7 +42,7 @@ Every PR produces preview downloads under its GitHub Actions run. Each merge to 
 
 ## Automatic updates
 
-With Automatic updates turned on, an activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. The frontend then shows "Multi Pop update ready", and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped.
+With Automatic updates turned on, an activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, the frontend shows a "Multi Pop update ready" message to close with OK, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped.
 
 Automatic updates are off by default. Turn them on or off in UI Settings → Theme Configuration → Automatic updates; turning them off also drops an update that was downloaded but not yet installed. Installing an older version is always a manual step. The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 

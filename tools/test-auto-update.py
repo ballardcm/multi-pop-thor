@@ -92,6 +92,7 @@ class AutoUpdateTests(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
         self.server.routes['/runningGame'] = b'{"msg":"NO GAME RUNNING"}'
+        self.server.routes['/isIdle'] = b'[ true ]'
         self.publish(theme_files('new'))
 
     def set_updates(self, value):
@@ -136,6 +137,13 @@ class AutoUpdateTests(unittest.TestCase):
         self.assertIsNone(self.updates('pending.json'))
         self.assertTrue(backup.is_dir())
         self.assertEqual(self.server.requests.count('/zip'), 1)
+
+    def test_message_waits_for_an_idle_frontend(self):
+        self.server.routes['/isIdle'] = b'[ false ]'
+        self.config.idle_wait = 0
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+        self.assertEqual(self.server.notifications, [])
 
     def test_archive_not_matching_its_checksum_is_never_staged(self):
         self.publish(theme_files('new'), sums_override='0' * 64)
