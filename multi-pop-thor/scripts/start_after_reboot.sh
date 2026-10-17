@@ -65,6 +65,9 @@ swaymsg 'output * power on' >/dev/null
 for panel in /sys/class/backlight/*; do
     [[ -f "$panel/bl_power" ]] && printf '0\n' > "$panel/bl_power"
 done
+# Sway can leave the workspace focused when the frontend's window appears, and SDL then ignores the gamepad, so focus it once it exists.
+# A second focus follows the layout rules that move the window after it maps.
+setsid bash -c 'for attempt in {1..60}; do sleep 1; if swaymsg "[app_id=\"^emulationstation$\"] focus" >/dev/null 2>&1; then sleep 3; swaymsg "[app_id=\"^emulationstation$\"] focus" >/dev/null 2>&1; exit 0; fi; done' </dev/null >/dev/null 2>&1 &
 # The background check confirms a just-applied update and stages any newer release for the next start.
 if [[ "$THEME" == /roms/themes/multi-pop-thor && -f "$auto_update" ]]; then
     setsid python3 "$auto_update" background </dev/null >/dev/null 2>&1 &

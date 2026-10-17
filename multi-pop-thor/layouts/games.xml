@@ -2,7 +2,7 @@
 <theme>
     <formatVersion>7</formatVersion>
     <view name="gamecarousel">
-        <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · L1/R1 page · B back</text><fontSize>0.037037037</fontSize></text>
+        <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · L1/R1 page · X options · B back</text><fontSize>0.033333333</fontSize></text>
         <text name="top-touch-hints" extra="true">
             <text>Swipe left/right to browse · Tap to select</text>
             <pos>0.384090909 0.940740741</pos><size>0.325 0.044444444</size>

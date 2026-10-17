@@ -1,6 +1,6 @@
 {
-  "artifact_sha256": "1e3def53426a7eca9b4b035861a193da8c605cf379ea52604516c0db4a74d6de",
-  "artifact_bytes": 10390400,
+  "artifact_sha256": "a344e14bf605ae2d987b810a28148c33f6f12f6e330acf47abdd273929685972",
+  "artifact_bytes": 10419072,
   "architecture": "aarch64",
   "firmware_revision": "c445081a59518f37d9776e5412dd7b14910696f7",
   "frontend_revision": "cada856d86e3115fbbf0bce09dd761b0ee8fa9fd",
@@ -106,6 +106,8 @@
   },
   "menus": {
     "single_view_style_hidden": true,
-    "single_view_style_user_test_passed": "2026-10-16"
+    "single_view_style_user_test_passed": "2026-10-16",
+    "check_for_updates_in_theme_tools": true,
+    "check_for_updates_user_test_passed": "2026-10-16"
   }
 }

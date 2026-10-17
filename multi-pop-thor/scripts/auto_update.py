@@ -2,7 +2,8 @@
 """Keep an activated Multi Pop Thor on the latest release without restarting the frontend under the player.
 
 `background` runs after each Multi Pop start: it confirms a just-applied update reached a running frontend, then
-downloads and verifies any newer release and announces it. `apply` runs before the frontend starts and swaps a staged
+downloads and verifies any newer release and announces it. `check` does the same download at once when the player chooses
+Check for updates in Theme Configuration, and reports the result either way. `apply` runs before the frontend starts and swaps a staged
 release into place, rolling back when the new version fails to reach a running frontend.
 """
 
@@ -145,8 +146,8 @@ def apply(config):
     staged = read_json(config.updates / 'staged.json')
     if not staged:
         return
-    # A download staged before updates were turned off is dropped rather than installed.
-    if not enabled(config):
+    # A download staged before updates were turned off is dropped rather than installed; one the player asked for stays.
+    if not enabled(config) and not staged.get('manual'):
         discard_staged(config)
         log(config, 'Discarded staged ' + str(staged.get('tag')) + ' because automatic updates are off.')
         return
@@ -212,9 +213,9 @@ def idle(config):
         return False
 
 
-def notify(config, message):
+def notify(config, message, delay=None):
     # A message box needs a press to close, so it waits until no game, scrape or install is running.
-    time.sleep(config.notify_delay)
+    time.sleep(config.notify_delay if delay is None else delay)
     deadline = time.monotonic() + config.idle_wait
     while not idle(config):
         if time.monotonic() >= deadline:
@@ -252,9 +253,9 @@ def installed_matches(config, manifest):
     return True
 
 
-def stage_latest(config):
+def stage_latest(config, manual=False):
     marker = config.updates / 'last-check'
-    if marker.exists() and time.time() - marker.stat().st_mtime < config.check_interval:
+    if not manual and marker.exists() and time.time() - marker.stat().st_mtime < config.check_interval:
         return
     config.updates.mkdir(parents=True, exist_ok=True)
     marker.touch()
@@ -303,9 +304,10 @@ def stage_latest(config):
             log(config, 'Skipped ' + tag + ': it targets different firmware.')
             return
         archive.replace(config.updates / 'staged.zip')
-        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest, 'version': version})
+        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest, 'version': version, 'manual': manual})
     log(config, 'Staged ' + tag + ' (version ' + str(version) + ').')
-    notify(config, 'Multi Pop update ready. It installs the next time EmulationStation starts.')
+    if not manual:
+        notify(config, 'Multi Pop update ready. It installs the next time EmulationStation starts.')
 
 
 def background(config):
@@ -321,13 +323,29 @@ def background(config):
         log(config, 'Update check failed: ' + str(error))
 
 
+def check(config):
+    # The player is looking at the menu, so the answer appears at once whatever the setting or the last check time.
+    try:
+        stage_latest(config, manual=True)
+    except Exception as error:
+        log(config, 'Update check failed: ' + str(error))
+        notify(config, 'Could not check for Multi Pop updates. Check the Wi-Fi connection and try again.', delay=0)
+        return
+    staged = read_json(config.updates / 'staged.json')
+    if staged:
+        message = 'Multi Pop version ' + str(staged.get('version')) + ' is ready. It installs the next time EmulationStation starts.'
+    else:
+        message = 'Multi Pop is up to date (version ' + str(release_version(read_json(config.theme / 'version.json'))) + ').'
+    notify(config, message, delay=0)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('apply', 'background'))
+    parser.add_argument('command', choices=('apply', 'background', 'check'))
     args = parser.parse_args()
     config = Config()
     try:
-        apply(config) if args.command == 'apply' else background(config)
+        {'apply': apply, 'background': background, 'check': check}[args.command](config)
     except Exception as error:
         # Startup must continue whatever happens here, so a failure is only recorded.
         log(config, args.command + ' failed: ' + str(error))

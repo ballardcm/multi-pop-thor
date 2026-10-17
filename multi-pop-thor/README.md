@@ -50,10 +50,14 @@ Automatic updates are optional and **off by default**. Nothing is downloaded unt
 
 Open the main menu, then UI Settings → Theme Configuration. Under Theme Options:
 
-- **Installed version** shows the release you are running, such as `18`. A copy installed from a source checkout shows `DEVELOPMENT`.
+- **Installed version** shows the release you are running, such as `20`. A copy installed from a source checkout shows `DEVELOPMENT`.
 - **Automatic updates** is Off or On. Off is the default and is used whenever nothing has been chosen. The choice is saved as `subset.autoupdate` in `/storage/.config/emulationstation/es_settings.cfg`.
 
 Turning updates off also discards an update that was downloaded but not yet installed.
+
+### Check for updates now
+
+Under Tools on the same screen, **Check for updates** looks for a newer release straight away, whether or not Automatic updates is on and however recently the last check ran. A message then says either that a version is ready, which installs the next time EmulationStation starts, or that Multi Pop is up to date. An update you asked for this way installs even while Automatic updates is off. The button needs the Multi Pop frontend and appears only while Multi Pop is the selected theme.
 
 ### Which version you are running
 
