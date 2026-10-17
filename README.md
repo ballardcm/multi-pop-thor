@@ -4,6 +4,8 @@
 
 A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is called **Multi Pop**; its folder, runtime identifier, and source repository name are `multi-pop-thor`.
 
+**Keeps itself up to date (optional).** Once activated, the Thor fetches each new release in the background, installs it the next time EmulationStation starts, and rolls back if the new version fails to start. It only moves forward to a newer version number, and you can turn it off with one file. See [Automatic updates](#automatic-updates).
+
 **Pull requests welcome!** Have a fix, new artwork, or an idea to improve the theme? Please send me a [pull request](https://github.com/ballardcm/multi-pop-thor/pulls). I'd love to see what you make. See [CONTRIBUTING.md](CONTRIBUTING.md) for getting started.
 
 The upper display shows a system's original hardware illustration while browsing systems. Select a system and it becomes a gameplay preview with the game's title, genre, publisher, year, and description. A screenshot appears first, then an available video begins after three seconds with audio off. The lower display keeps a three-cover carousel for browsing. Missing details stay blank and missing artwork uses a labeled system card.
@@ -36,7 +38,13 @@ Download `multi-pop-thor-rocknix-20261001.zip` from [Releases](https://github.co
 
 The companion `multi-pop-thor-source.zip` contains the theme sources, public frontend source snapshot, SDL headers source, patches, and [build-your-own instructions](frontend-build/README.md). Compiled frontends remain outside Git and are included in ready-to-install downloads. The launcher falls back to the system frontend when the patched binary is absent, with reduced paging and popup behavior.
 
-Every PR produces preview downloads under its GitHub Actions run. Each merge to `main` publishes a release containing the installable ZIP, matching source ZIP, and `SHA256SUMS`. [Release maintenance](docs/releases.md) explains how the verified frontend is refreshed when its source changes.
+Every PR produces preview downloads under its GitHub Actions run. Each merge to `main` publishes a numbered release containing the installable ZIP, matching source ZIP, and `SHA256SUMS`. [Release maintenance](docs/releases.md) explains how the verified frontend is refreshed when its source changes.
+
+## Automatic updates
+
+An activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. The frontend then shows "Multi Pop update ready", and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped.
+
+Automatic updates are on by default. To turn them off, create the file `/storage/.config/multi-pop-thor/auto-update-disabled`; delete it to turn them back on. Installing an older version is always a manual step. The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 
 ## Working on the theme
 

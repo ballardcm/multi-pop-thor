@@ -70,6 +70,12 @@ def verify_inputs(root, config, frontend, upstream_source, sdl_source):
     return report
 
 
+def release_version(root):
+    # Main only changes through merges, so its first-parent commit count rises with every release and never repeats.
+    # A PR build checks out the merge it would make, so its preview carries the number that merge will publish.
+    return int(subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"], cwd=root))
+
+
 def add_file(archive, name, data, executable=False):
     # Fixed metadata makes the same files produce the same download regardless of checkout times.
     entry = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
@@ -79,7 +85,9 @@ def add_file(archive, name, data, executable=False):
     archive.writestr(entry, data)
 
 
-def package(root, output, frontend, upstream_source, sdl_source):
+def package(root, output, frontend, upstream_source, sdl_source, version):
+    if not isinstance(version, int) or version < 1:
+        raise ValueError("Release version must be a positive integer")
     config = json.loads((root / "frontend-build/release.json").read_text())
     verify_inputs(root, config, frontend, upstream_source, sdl_source)
     files = repository_files(root)
@@ -89,6 +97,8 @@ def package(root, output, frontend, upstream_source, sdl_source):
         raise ValueError("Installable theme is missing required files")
     theme_files["frontend/emulationstation"] = frontend.read_bytes()
     theme_files["scripts/update_theme.py"] = (root / "tools/install-multi-pop-theme.py").read_bytes()
+    # The automatic updater compares this number so it never replaces an installation with an older release.
+    theme_files["version.json"] = (json.dumps({"version": version}) + "\n").encode()
     manifest = {name: hashlib.sha256(data).hexdigest() for name, data in sorted(theme_files.items())}
     output.mkdir(parents=True, exist_ok=True)
     ready = output / (THEME + "-rocknix-" + config["firmware_version"] + ".zip")
@@ -116,8 +126,10 @@ def main():
     parser.add_argument("--upstream-source", required=True, type=Path)
     parser.add_argument("--sdl-source", required=True, type=Path)
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
+    parser.add_argument("--version", type=int, help="release number; defaults to the first-parent commit count")
     args = parser.parse_args()
-    for path in package(ROOT, args.output, args.frontend, args.upstream_source, args.sdl_source):
+    version = args.version if args.version is not None else release_version(ROOT)
+    for path in package(ROOT, args.output, args.frontend, args.upstream_source, args.sdl_source, version):
         print(path)
 
 

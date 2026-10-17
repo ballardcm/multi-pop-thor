@@ -62,7 +62,7 @@ class ReleaseTests(unittest.TestCase):
         (self.root / 'multi-pop-thor/frontend/compatibility.json').write_text(json.dumps(report))
 
     def package(self):
-        return release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl)
+        return release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl, 7)
 
     def test_install_contract_and_private_exclusion(self):
         ready, source, sums = self.package()
@@ -71,6 +71,8 @@ class ReleaseTests(unittest.TestCase):
             for name, digest in manifest.items():
                 self.assertEqual(hashlib.sha256(archive.read('multi-pop-thor/' + name)).hexdigest(), digest)
             self.assertEqual((archive.getinfo('multi-pop-thor/frontend/emulationstation').external_attr >> 16) & 0o777, 0o755)
+            self.assertEqual(json.loads(archive.read('multi-pop-thor/version.json')), {'version': 7})
+            self.assertIn('version.json', manifest)
         with zipfile.ZipFile(source) as archive:
             self.assertFalse(any('private/' in name for name in archive.namelist()))
             self.assertFalse(any(name.endswith('/emulationstation') for name in archive.namelist()))
