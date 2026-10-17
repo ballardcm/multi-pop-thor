@@ -107,6 +107,7 @@
   "menus": {
     "single_view_style_hidden": true,
     "single_view_style_user_test_passed": "2026-10-16",
-    "check_for_updates_in_theme_tools": true
+    "check_for_updates_in_theme_tools": true,
+    "check_for_updates_user_test_passed": "2026-10-16"
   }
 }

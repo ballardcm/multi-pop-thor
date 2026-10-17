@@ -12,7 +12,7 @@ After a merge to `main`, the same workflow publishes these files as a GitHub Rel
 
 `frontend-build/release.json` selects a separate frontend release and pins the binary hash, firmware and frontend revisions, public source archives, and hashes of the frontend patches and compiler inputs. The separate frontend release is a maintainer input to packaging; users normally download the combined installable ZIP.
 
-The current frontend release is `frontend-rocknix-20261001-4`. The binaries from `-1` and `-2` were withdrawn because they had service keys compiled in; their source archives remain. Each release's assets are:
+The current frontend release is `frontend-rocknix-20261001-5`. The binaries from `-1` and `-2` were withdrawn because they had service keys compiled in; their source archives remain. Each release's assets are:
 
 - `emulationstation-aarch64`
 - `emulationstation-source-cada856d.tar.gz`
