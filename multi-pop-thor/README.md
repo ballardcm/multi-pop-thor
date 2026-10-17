@@ -10,23 +10,17 @@ Battery status and connected Wi-Fi appear at the upper display's top right. They
 
 ## Install
 
-Use `multi-pop-thor-rocknix-20261001.zip` from [Releases](https://github.com/ballardcm/multi-pop-thor/releases) for AYN Thor on **ROCKNIX 20261001**. It includes the verified patched frontend, so compilation is not required. Check the download against `SHA256SUMS`, extract it, and install the `multi-pop-thor` folder. The source ZIP is a separate download for development; it includes the public frontend sources and build instructions. Other firmware versions require a separately validated frontend.
+Step-by-step installation, removal and rollback instructions are in the project README: [Install](https://github.com/ballardcm/multi-pop-thor#install) and [Remove or roll back](https://github.com/ballardcm/multi-pop-thor#remove-or-roll-back). In short, copy this `multi-pop-thor` folder to `/roms/themes/` on an AYN Thor running **ROCKNIX 20261001**, then run this from an SSH session and select `multi-pop-thor` under UI Settings → Theme Set:
 
-If an earlier version is already activated, run its original restore helper before installing this renamed theme. The new helpers use separate backup and configuration paths, so they cannot restore an earlier installation's activation state.
-
-1. Copy the complete `multi-pop-thor` folder into `/roms/themes/` or `/storage/.config/emulationstation/themes/`.
-2. If the previous Thor theme runs automatically at startup, turn off that startup entry first. Its helper selects its own theme again whenever it runs.
-3. From a terminal on the Thor, run:
-
-   ```sh
-   bash \
-     /roms/themes/multi-pop-thor/scripts/enable_multi_pop_thor.sh \
-     --prepare
-   ```
+```sh
+bash \
+  /roms/themes/multi-pop-thor/scripts/enable_multi_pop_thor.sh \
+  --prepare
+```
 
 The helper verifies both displays, saves the original settings and Sway configuration, and adds a separate layout fragment. With `--prepare`, it restarts the frontend while preserving the current theme selection. Select `multi-pop-thor` in EmulationStation's Theme Set menu afterward. Running the helper without that flag also selects Multi Pop. If another theme's launcher is already mounted, the helper preserves it and stops; disable that theme's startup entry and reboot before activating Multi Pop.
 
-Activation installs an `essway` service override automatically. After reboot, it restores the two-screen layout and touchscreen controls whenever Multi Pop is selected; other themes use the system frontend. Both supported theme directories work. Existing installations can enable automatic startup by rerunning the activation helper with `--prepare`. An unrelated or manually installed service override must be removed before activation; the helper preserves it and explains the conflict.
+Activation installs an `essway` service override automatically. After reboot, it restores the two-screen layout and touchscreen controls whenever Multi Pop is selected; other themes use the system frontend. Both supported theme directories work, though automatic updates and the updater need `/roms/themes/`. Existing installations can enable automatic startup by rerunning the activation helper with `--prepare`. An unrelated or manually installed service override must be removed before activation; the helper preserves it and explains the conflict.
 
 ## Artwork and controls
 
@@ -87,12 +81,14 @@ The updater expects the active theme at `/roms/themes/multi-pop-thor`. Installat
 
 ## Restore
 
+Never delete this folder while Multi Pop is activated: the Thor's frontend starts through `scripts/start_after_reboot.sh`, and without it the Thor boots to a black screen. Run the restore helper first:
+
 ```sh
 bash \
   /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh
 ```
 
-Restore removes the automatic startup override and uses the original backups in `/storage/.config/multi-pop-thor/`. It accepts the theme and carousel choices saved when you manually select Multi Pop. It stops if other settings, configuration, or the startup override have changed since activation, so newer changes are preserved. Backups remain available for manual recovery.
+Restore removes the automatic startup override and uses the original backups in `/storage/.config/multi-pop-thor/`. It accepts the theme and carousel choices saved when you manually select Multi Pop. It stops without changing anything if other settings, configuration, or the startup override have changed since activation, so newer changes are preserved. Changing any setting after activation, including Automatic updates, is enough to stop it; the project README's [Remove Multi Pop](https://github.com/ballardcm/multi-pop-thor#remove-multi-pop) gives the hand-removal steps for that case and for a Thor that already shows a black screen.
 
 ## Validation and credits
 

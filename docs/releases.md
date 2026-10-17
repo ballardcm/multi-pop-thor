@@ -6,7 +6,19 @@ Every PR runs theme, media, and packaging checks and uploads a preview artifact 
 - `multi-pop-thor-source.zip`: the project sources plus the pinned public frontend source archive, SDL source, patches, and build-your-own instructions.
 - `SHA256SUMS`: hashes of both downloads.
 
-After a merge to `main`, the same workflow publishes these files as a GitHub Release tagged `build-<commit>` and titled with its version number. The number is `main`'s first-parent commit count, written to `multi-pop-thor/version.json` in the installable ZIP; it rises with every merge, and the automatic updater installs only a release whose number is higher than the installed one. A PR preview is packaged from the merge it would make, so it carries the number that merge will publish. Local packaging takes the same count, or `--version` to set it. Workflow runs on working branches cannot publish releases. Rerunning a published commit leaves the existing release intact. PR previews are retained for 30 days; merged releases remain available under [Releases](https://github.com/ballardcm/multi-pop-thor/releases).
+Merging a PR does not publish anything. A release goes out only when the maintainer decides `main` is ready and runs the workflow on it by hand; until then, merged work waits on `main` and can be tested from PR previews. The run packages `main`'s current commit and publishes it as a GitHub Release tagged `build-<commit>` and titled with its version number. The number is `main`'s first-parent commit count, written to `multi-pop-thor/version.json` in the installable ZIP. It only rises, though it skips the merges between releases, and the automatic updater installs only a release whose number is higher than the installed one. A PR preview is packaged from the merge it would make, so it carries the number `main` will have right after that merge. Local packaging takes the same count, or `--version` to set it. Runs on working branches cannot publish releases, and rerunning on a commit that already has a release leaves it intact. PR previews are retained for 30 days; published releases remain available under [Releases](https://github.com/ballardcm/multi-pop-thor/releases).
+
+## Publish a release
+
+Once everything meant for the release is merged, start the workflow on `main`:
+
+```sh
+gh workflow run release.yml \
+  --repo ballardcm/multi-pop-thor \
+  --ref main
+```
+
+Publishing reaches every Thor with Automatic updates turned on within about six hours, so test the last PR preview on a device before running it.
 
 ## Verified frontend inputs
 
@@ -29,7 +41,7 @@ Build from the [build-your-own instructions](../frontend-build/README.md), valid
 
 The corresponding frontend source and build support files must match the new binary. A different firmware needs a separately validated library set, descriptor, and installable asset name. Never mark the build as verified merely because compilation succeeded.
 
-Register the candidate binary and matching source archives as a maintainer prerelease, and update the descriptor through a PR. Include the source commit in its notes. These inputs support PR previews; the combined user release is published only after the PR merges to main. The release workflow will then package that verified frontend. This maintainer action is required only when the frontend changes; ordinary theme, artwork, documentation, and tool PRs package automatically.
+Register the candidate binary and matching source archives as a maintainer prerelease, and update the descriptor through a PR. Include the source commit in its notes. These inputs support PR previews; the combined user release is published only by a [manual run on main](#publish-a-release) after the PR merges. That run packages the verified frontend. This maintainer action is required only when the frontend changes; ordinary theme, artwork, documentation, and tool PRs package automatically.
 
 ## Package locally
 

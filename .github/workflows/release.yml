@@ -1,12 +1,12 @@
 name: Release packages
 
+# Merging no longer publishes anything: a release goes out only when a maintainer runs this workflow on main,
+# so several merged PRs can be tested together and shipped as one version.
 on:
   pull_request:
-  push:
-    branches: [main]
   workflow_dispatch:
 
-# Pull request builds need only read access; publishing is isolated to the merged main branch.
+# Pull request builds need only read access; publishing is isolated to a manual run on main.
 permissions:
   contents: read
 
@@ -77,7 +77,7 @@ jobs:
         with:
           name: multi-pop-downloads-${{ github.sha }}
           path: dist
-      - name: Publish a release from the merged commit
+      - name: Publish a release from main's current commit
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -91,5 +91,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
             --title "Multi Pop version $version (${GITHUB_SHA:0:12})" \
-            --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. See the included README for installation and build instructions. Other firmware versions require a newly validated frontend." \
+            --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. Installation, removal and rollback steps: https://github.com/ballardcm/multi-pop-thor#install Other firmware versions require a newly validated frontend." \
             dist/*

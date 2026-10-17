@@ -2,7 +2,7 @@
 
 Pull requests are welcome for layouts, artwork, compatibility fixes, tools, and documentation. For a larger change, open an issue first so we can agree on its scope.
 
-Create a branch and send a PR rather than pushing to `main`. GitHub protects `main`, including maintainer changes, and requires the packaging check to pass. PR previews let us test on a Thor before merging; merged changes receive an installable download and matching source download automatically.
+Create a branch and send a PR rather than pushing to `main`. GitHub protects `main`, including maintainer changes, and requires the packaging check to pass. PR previews let us test on a Thor before merging. Merged changes ship in the next release, which the maintainer publishes when `main` is ready; see [release downloads](docs/releases.md).
 
 Explain what changed and why, and describe your checks. Run `python3 tools/check-multi-pop.py`, `python3 tools/test-install-multi-pop-media.py`, and `python3 tools/test-package-release.py`. For device tests, include the hardware and firmware version and the behavior you checked. Frontend changes need a matching verified binary; see [release maintenance](docs/releases.md).
 
