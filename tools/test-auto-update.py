@@ -193,6 +193,26 @@ class AutoUpdateTests(unittest.TestCase):
         auto_update.background(self.config)
         self.assertEqual(self.updates('staged.json')['version'], 2)
 
+    def test_manual_check_stages_while_updates_are_off(self):
+        self.set_updates(None)
+        auto_update.background(self.config)
+        auto_update.check(self.config)
+        self.assertIn('version 2 is ready', self.server.notifications[-1])
+        auto_update.apply(self.config)
+        self.assertIn('new', self.installed_theme())
+
+    def test_manual_check_reports_up_to_date(self):
+        self.publish(theme_files('old'))
+        auto_update.check(self.config)
+        auto_update.check(self.config)
+        self.assertEqual(self.server.requests.count('/release'), 2)
+        self.assertEqual(self.server.notifications, ['Multi Pop is up to date (version 1).'] * 2)
+
+    def test_manual_check_reports_a_failure(self):
+        del self.server.routes['/release']
+        auto_update.check(self.config)
+        self.assertIn('Could not check', self.server.notifications[-1])
+
     def test_updates_are_off_unless_turned_on(self):
         for value in (None, 'off'):
             with self.subTest(value=value):

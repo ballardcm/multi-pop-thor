@@ -1,6 +1,32 @@
 --- a/es-app/src/guis/GuiMenu.cpp
 +++ b/es-app/src/guis/GuiMenu.cpp
-@@ -5146,14 +5146,18 @@ void GuiMenu::openUISettings()
+@@ -31,6 +31,7 @@
+ #include "VolumeControl.h"
+ #include <SDL_events.h>
+ #include <algorithm>
++#include <cstdlib>
+ #include "utils/Platform.h"
+ #include "utils/FileSystemUtil.h"
+ 
+@@ -4917,6 +4918,17 @@
+ 			themeconfig->setVariable("reloadAll", true);
+ 			themeconfig->close();
+ 		});
++
++		// Multi Pop's updater runs on its own and answers through the HTTP API's message box, so a slow download never blocks the menu.
++		static const std::string thorUpdater = "/roms/themes/multi-pop-thor/scripts/auto_update.py";
++		if (Settings::getInstance()->getString("ThemeSet") == "multi-pop-thor" && Utils::FileSystem::exists(thorUpdater))
++		{
++			themeconfig->addEntry(_("CHECK FOR UPDATES"), false, [window]
++			{
++				std::system(("setsid python3 " + thorUpdater + " check </dev/null >/dev/null 2>&1 &").c_str());
++				window->displayNotificationMessage(_("Checking for Multi Pop updates..."));
++			});
++		}
+ 	}
+ 
+ 	//  theme_colorset, theme_iconset, theme_menu, theme_systemview, theme_gamelistview, theme_region,
+@@ -5146,14 +5158,18 @@
  			for (auto it = styles.cbegin(); it != styles.cend(); it++)
  				gamelist_style->add(it->second, it->first, viewPreference == it->first);
  
