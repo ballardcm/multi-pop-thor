@@ -14,6 +14,12 @@
         <systemHero>${themePath}/assets/heroes/default.png</systemHero>
     </variables>
 
+    <!-- The frontend saves this choice as subset.autoupdate, which the updater reads; the first option is the default. -->
+    <subset name="autoupdate" displayName="Automatic updates">
+        <include name="off" displayName="Off">./settings/no-change.xml</include>
+        <include name="on" displayName="On">./settings/no-change.xml</include>
+    </subset>
+
     <!-- Every installed system receives a distinct palette and matching hardware cards. -->
     <include if="${system.theme} == 'fbneo'">./palettes/fbneo.xml</include>
     <include if="${system.theme} == 'atari2600'">./palettes/atari2600.xml</include>
