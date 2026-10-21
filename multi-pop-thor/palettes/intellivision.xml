@@ -7,6 +7,12 @@
         <accentWash>E6E0D8FF</accentWash>
         <manufacturer>Mattel</manufacturer>
         <hardwareYear>1979</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/mattel.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/intellivision.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/intellivision.png</systemIcon>
         <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
         <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>

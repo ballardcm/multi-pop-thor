@@ -7,6 +7,12 @@
         <accentWash>DDD6E2FF</accentWash>
         <manufacturer>Arcade</manufacturer>
         <hardwareYear>1997</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/mame.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/mame.png</systemIcon>
         <systemCard>${themePath}/assets/cards/mame.png</systemCard>
         <systemHero>${themePath}/assets/heroes/mame.png</systemHero>

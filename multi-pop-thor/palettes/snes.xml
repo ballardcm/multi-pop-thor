@@ -7,6 +7,12 @@
         <accentWash>ECE8F4FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>1991</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/snes.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/snes.png</systemIcon>
         <systemCard>${themePath}/assets/cards/snes.png</systemCard>
         <systemHero>${themePath}/assets/heroes/snes.png</systemHero>

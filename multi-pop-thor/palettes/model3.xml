@@ -7,6 +7,12 @@
         <accentWash>CDDEEEFF</accentWash>
         <manufacturer>Sega</manufacturer>
         <hardwareYear>1996</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/model3.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/model3.png</systemIcon>
         <systemCard>${themePath}/assets/cards/model3.png</systemCard>
         <systemHero>${themePath}/assets/heroes/model3.png</systemHero>

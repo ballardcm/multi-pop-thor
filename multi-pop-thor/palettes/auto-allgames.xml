@@ -7,6 +7,12 @@
         <accentWash>D1E7E6FF</accentWash>
         <manufacturer>Your Collection</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/auto-allgames.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-allgames.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-allgames.png</systemHero>

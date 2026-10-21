@@ -7,6 +7,12 @@
         <accentWash>E7DAD3FF</accentWash>
         <manufacturer>Atari</manufacturer>
         <hardwareYear>1977</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atari2600.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atari2600.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>

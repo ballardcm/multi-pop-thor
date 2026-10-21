@@ -7,6 +7,12 @@
         <accentWash>E1EED8FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>1998</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/gbc.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/gbc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gbc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gbc.png</systemHero>

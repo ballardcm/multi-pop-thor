@@ -7,6 +7,12 @@
         <accentWash>ECD3D6FF</accentWash>
         <manufacturer>Atari</manufacturer>
         <hardwareYear>1993</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atarijaguar.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atarijaguar.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>

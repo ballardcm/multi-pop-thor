@@ -7,6 +7,12 @@
         <accentWash>E9ECEEFF</accentWash>
         <manufacturer>Bandai</manufacturer>
         <hardwareYear>1999</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/bandai.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/wonderswan.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/wonderswan.png</systemIcon>
         <systemCard>${themePath}/assets/cards/wonderswan.png</systemCard>
         <systemHero>${themePath}/assets/heroes/wonderswan.png</systemHero>

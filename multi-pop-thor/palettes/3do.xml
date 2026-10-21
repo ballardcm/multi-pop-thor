@@ -7,6 +7,12 @@
         <accentWash>D8DCE3FF</accentWash>
         <manufacturer>Panasonic</manufacturer>
         <hardwareYear>1993</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/3do.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/3do.png</systemIcon>
         <systemCard>${themePath}/assets/cards/3do.png</systemCard>
         <systemHero>${themePath}/assets/heroes/3do.png</systemHero>

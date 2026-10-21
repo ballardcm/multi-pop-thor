@@ -7,6 +7,12 @@
         <accentWash>E3E7EAFF</accentWash>
         <manufacturer>Atari</manufacturer>
         <hardwareYear>1985</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atarist.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atarist.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarist.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarist.png</systemHero>

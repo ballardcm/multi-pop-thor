@@ -7,6 +7,12 @@
         <accentWash>D6D6E1FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>2001</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/gba.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/gba.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gba.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gba.png</systemHero>

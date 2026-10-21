@@ -179,10 +179,18 @@ def make_grid():
 
 
 def main():
+    logos = json.loads((ROOT / "assets/logos/catalog.json").read_text())
     for name in ["palettes", "assets/cards", "assets/heroes"]:
         (ROOT / name).mkdir(parents=True, exist_ok=True)
     for key, details in SYSTEMS.items():
         accent = details[3]
+        manufacturer_logo = logos["manufacturers"].get(details[1])
+        platform_logo = logos["platforms"].get(key)
+        def logo_variables(prefix, entry):
+            path = '${themePath}/assets/logos/' + entry['file'] if entry else '${themePath}/assets/ui/white.svg'
+            return (f'        <{prefix}Logo>{path}</{prefix}Logo>\n'
+                    f'        <{prefix}LogoVisible>{str(bool(entry)).lower()}</{prefix}LogoVisible>\n'
+                    f'        <{prefix}TextVisible>{str(not entry).lower()}</{prefix}TextVisible>\n')
         (ROOT / "palettes" / (key + ".xml")).write_text(
             '<?xml version="1.0" encoding="UTF-8"?>\n<theme>\n    <formatVersion>7</formatVersion>\n'
             '    <variables>\n'
@@ -191,6 +199,9 @@ def main():
             f'        <accentWash>{"".join(f"{c:02X}" for c in tint(accent, .18))}FF</accentWash>\n'
             f'        <manufacturer>{escape(details[1])}</manufacturer>\n'
             f'        <hardwareYear>{escape(details[2])}</hardwareYear>\n'
+            + logo_variables('manufacturer', manufacturer_logo)
+            + logo_variables('platform', platform_logo)
+            +
             f'        <systemIcon>${{themePath}}/assets/systems/{key}.png</systemIcon>\n'
             f'        <systemCard>${{themePath}}/assets/cards/{key}.png</systemCard>\n'
             f'        <systemHero>${{themePath}}/assets/heroes/{key}.png</systemHero>\n'

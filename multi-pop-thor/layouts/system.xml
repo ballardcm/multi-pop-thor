@@ -6,7 +6,11 @@
         <text name="hardware-manufacturer" extra="true">
             <pos>0.289090909 0.029629630</pos>
         </text>
+        <image name="manufacturer-logo" extra="true">
+            <pos>0.329545455 0.075925926</pos>
+        </image>
         <text name="top-system-name" extra="true">
+            <visible>${platformTextVisible}</visible>
             <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
             <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
             <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.04</fontSize><lineSpacing>1</lineSpacing>

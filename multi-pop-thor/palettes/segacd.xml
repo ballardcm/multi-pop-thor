@@ -7,6 +7,12 @@
         <accentWash>E7E9F2FF</accentWash>
         <manufacturer>Sega</manufacturer>
         <hardwareYear>1992</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/segacd.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/segacd.png</systemIcon>
         <systemCard>${themePath}/assets/cards/segacd.png</systemCard>
         <systemHero>${themePath}/assets/heroes/segacd.png</systemHero>

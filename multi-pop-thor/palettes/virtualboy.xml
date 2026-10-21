@@ -7,6 +7,12 @@
         <accentWash>F2D1D5FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>1995</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/virtualboy.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/virtualboy.png</systemIcon>
         <systemCard>${themePath}/assets/cards/virtualboy.png</systemCard>
         <systemHero>${themePath}/assets/heroes/virtualboy.png</systemHero>

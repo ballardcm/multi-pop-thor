@@ -7,6 +7,12 @@
         <accentWash>F5F2EAFF</accentWash>
         <manufacturer>NEC</manufacturer>
         <hardwareYear>1987</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nec.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/pcengine.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/pcengine.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pcengine.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pcengine.png</systemHero>

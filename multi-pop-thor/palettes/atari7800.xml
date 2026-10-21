@@ -7,6 +7,12 @@
         <accentWash>EAEBECFF</accentWash>
         <manufacturer>Atari</manufacturer>
         <hardwareYear>1986</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atari7800.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atari7800.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari7800.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari7800.png</systemHero>

@@ -7,6 +7,12 @@
         <accentWash>F2E6D6FF</accentWash>
         <manufacturer>NEC</manufacturer>
         <hardwareYear>1989</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nec.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/tg16.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/tg16.png</systemIcon>
         <systemCard>${themePath}/assets/cards/tg16.png</systemCard>
         <systemHero>${themePath}/assets/heroes/tg16.png</systemHero>

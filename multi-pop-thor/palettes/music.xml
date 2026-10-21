@@ -7,6 +7,12 @@
         <accentWash>E9D3E3FF</accentWash>
         <manufacturer>Your Collection</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/music.png</systemIcon>
         <systemCard>${themePath}/assets/cards/music.png</systemCard>
         <systemHero>${themePath}/assets/heroes/music.png</systemHero>

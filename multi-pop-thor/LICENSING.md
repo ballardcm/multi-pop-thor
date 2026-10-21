@@ -20,6 +20,7 @@ The following paths are relative to this installable theme folder:
 | --- | --- |
 | `scripts/start_es_thor.sh`, `scripts/multi_pop_thor_common.sh`, `scripts/enable_multi_pop_thor.sh`, and `scripts/restore_multi_pop_thor.sh` | GPL-2.0-or-later, as marked in their SPDX headers. The CC license adds no NonCommercial or ShareAlike restrictions to these files. |
 | `assets/fonts/` | Roboto and Roboto Condensed retain their Apache 2.0 license and notice. |
+| `assets/logos/` | Third-party manufacturer and platform marks, credited individually in `assets/logos/catalog.json`. HVR88's usage permission and Carbon's original credits, logo notice, and licensing text are retained in `assets/logos/notices/`. These marks are not original Multi Pop illustrations; original rights and trademarks remain with their owners. See `assets/logos/README.md` for adaptations and source-specific terms. |
 | `frontend/` | Frontend patches and components retain the applicable upstream licenses and notices in `frontend/licenses/`. A separately built frontend retains those licenses, including the licenses of embedded components; it is not relicensed under CC BY-NC-SA. Compatibility reports are factual records of particular builds. |
 
 Downloaded dependencies, firmware libraries, ROMs, game covers, screenshots, descriptions, and videos are not covered by this project license. Retain their applicable terms and credits when obtaining or distributing them separately. Third-party names and trademarks are not licensed by this notice.

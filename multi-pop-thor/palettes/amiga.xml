@@ -7,6 +7,12 @@
         <accentWash>F2E6DEFF</accentWash>
         <manufacturer>Commodore</manufacturer>
         <hardwareYear>1985</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/commodore.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/amiga.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/amiga.png</systemIcon>
         <systemCard>${themePath}/assets/cards/amiga.png</systemCard>
         <systemHero>${themePath}/assets/heroes/amiga.png</systemHero>

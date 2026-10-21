@@ -7,6 +7,12 @@
         <accentWash>F2EAD2FF</accentWash>
         <manufacturer>SNK</manufacturer>
         <hardwareYear>1990</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/snk.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/neogeo.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/neogeo.png</systemIcon>
         <systemCard>${themePath}/assets/cards/neogeo.png</systemCard>
         <systemHero>${themePath}/assets/heroes/neogeo.png</systemHero>

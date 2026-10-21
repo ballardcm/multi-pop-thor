@@ -7,6 +7,12 @@
         <accentWash>F5ECD7FF</accentWash>
         <manufacturer>Arcade</manufacturer>
         <hardwareYear>2002</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/fbneo.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/fbneo.png</systemIcon>
         <systemCard>${themePath}/assets/cards/fbneo.png</systemCard>
         <systemHero>${themePath}/assets/heroes/fbneo.png</systemHero>

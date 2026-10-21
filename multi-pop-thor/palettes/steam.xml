@@ -7,6 +7,12 @@
         <accentWash>D3E2ECFF</accentWash>
         <manufacturer>PC Gaming</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/steam.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/steam.png</systemIcon>
         <systemCard>${themePath}/assets/cards/steam.png</systemCard>
         <systemHero>${themePath}/assets/heroes/steam.png</systemHero>

@@ -7,6 +7,12 @@
         <accentWash>D3D9DDFF</accentWash>
         <manufacturer>Sony</manufacturer>
         <hardwareYear>2004</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/psp.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/psp.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psp.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psp.png</systemHero>

@@ -7,6 +7,12 @@
         <accentWash>F6F6F6FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>1990</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/sfc.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/sfc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/sfc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/sfc.png</systemHero>

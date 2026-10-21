@@ -7,6 +7,12 @@
         <accentWash>EDDADCFF</accentWash>
         <manufacturer>MSX</manufacturer>
         <hardwareYear>1983</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/msx.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/msx.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/msx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/msx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/msx.png</systemHero>

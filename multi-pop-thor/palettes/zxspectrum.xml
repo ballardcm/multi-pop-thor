@@ -7,6 +7,12 @@
         <accentWash>F2EADAFF</accentWash>
         <manufacturer>Sinclair</manufacturer>
         <hardwareYear>1982</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sinclair.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/zxspectrum.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/zxspectrum.png</systemIcon>
         <systemCard>${themePath}/assets/cards/zxspectrum.png</systemCard>
         <systemHero>${themePath}/assets/heroes/zxspectrum.png</systemHero>

@@ -7,6 +7,12 @@
         <accentWash>ECD6D4FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>1985</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/nes.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/nes.png</systemIcon>
         <systemCard>${themePath}/assets/cards/nes.png</systemCard>
         <systemHero>${themePath}/assets/heroes/nes.png</systemHero>
