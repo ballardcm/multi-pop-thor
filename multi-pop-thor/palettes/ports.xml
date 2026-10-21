@@ -4,6 +4,9 @@
     <variables>
         <accent>3F7269FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>D7E0DEFF</accentWash>
+        <manufacturer>PC Gaming</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/ports.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ports.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ports.png</systemHero>

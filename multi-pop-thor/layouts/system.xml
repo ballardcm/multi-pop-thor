@@ -3,6 +3,9 @@
     <formatVersion>7</formatVersion>
     <view name="system">
         <text name="browse-hints" extra="true"><text>Swipe ‹ › · Tap/A select · B jump · START menu</text></text>
+        <text name="hardware-manufacturer" extra="true">
+            <pos>0.289090909 0.029629630</pos>
+        </text>
         <text name="top-system-name" extra="true">
             <text>{system:collection} ? proper({system:fullName}) : {system:fullName}</text>
             <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
@@ -11,23 +14,27 @@
         </text>
         <text name="system-header" extra="true">
             <text>Systems</text>
-            <pos>0.734545455 0.029629630</pos><size>0.249090909 0.075925926</size>
+            <pos>0.730909091 0.029629630</pos><size>0.18 0.075925926</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.062962963</fontSize>
-            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+            <color>${accentInk}</color><alignment>left</alignment><zIndex>3</zIndex>
         </text>
 
-        <!-- Full-color hardware and its matching card identify the system before a game is selected. -->
+        <!-- Keep identity in the rail/header and show the original hardware without baked-in labels. -->
+        <image name="hardware-stage" extra="true">
+            <path>${themePath}/assets/ui/hardware-stage.svg</path>
+            <pos>0.384090909 0.014814815</pos><size>0.325 0.890740741</size>
+            <color>${accentWash}</color><linearSmooth>true</linearSmooth><zIndex>2</zIndex>
+        </image>
         <image name="system-hero" extra="true">
-            <path>${systemHero}</path>
-            <!-- The upper inset leaves room for the live status indicators above the artwork. -->
-            <pos>0.548863636 0.430092593</pos><origin>0.5 0.5</origin>
-            <size>0.325 0.712037037</size><zIndex>3</zIndex>
+            <path>${systemIcon}</path>
+            <pos>0.547727273 0.511111111</pos><origin>0.5 0.5</origin>
+            <maxSize>0.313636364 0.755555556</maxSize><linearSmooth>true</linearSmooth><zIndex>3</zIndex>
         </image>
         <text name="hero-instruction" extra="true">
             <text>Swipe left/right to browse · Tap to select</text>
-            <pos>0.389090909 0.855555556</pos><size>0.316818182 0.070370370</size>
-            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.044444444</fontSize>
-            <color>${ink}</color><alignment>center</alignment><zIndex>3</zIndex>
+            <pos>0.389090909 0.940740741</pos><size>0.316818182 0.044444444</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.031481481</fontSize>
+            <color>${muted}</color><alignment>center</alignment><zIndex>3</zIndex>
         </text>
 
         <!-- System logos use screen coordinates, unlike the game carousel's local logo coordinates. -->

@@ -4,6 +4,9 @@
     <variables>
         <accent>1F9C94FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>D1E7E6FF</accentWash>
+        <manufacturer>Your Collection</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/auto-allgames.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-allgames.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-allgames.png</systemHero>

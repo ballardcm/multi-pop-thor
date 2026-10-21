@@ -4,6 +4,9 @@
     <variables>
         <accent>C8D5DFFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>EFF2F4FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2004</hardwareYear>
         <systemIcon>${themePath}/assets/systems/nds.png</systemIcon>
         <systemCard>${themePath}/assets/cards/nds.png</systemCard>
         <systemHero>${themePath}/assets/heroes/nds.png</systemHero>

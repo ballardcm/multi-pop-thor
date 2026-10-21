@@ -4,6 +4,9 @@
     <variables>
         <accent>A7B5C0FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E9ECEEFF</accentWash>
+        <manufacturer>Bandai</manufacturer>
+        <hardwareYear>1999</hardwareYear>
         <systemIcon>${themePath}/assets/systems/wonderswan.png</systemIcon>
         <systemCard>${themePath}/assets/cards/wonderswan.png</systemCard>
         <systemHero>${themePath}/assets/heroes/wonderswan.png</systemHero>

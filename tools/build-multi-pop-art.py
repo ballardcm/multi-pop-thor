@@ -3,6 +3,7 @@
 from pathlib import Path
 import json
 import sys
+from xml.sax.saxutils import escape
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -187,6 +188,9 @@ def main():
             '    <variables>\n'
             f'        <accent>{accent}FF</accent>\n'
             f'        <accentInk>{foreground(accent)}FF</accentInk>\n'
+            f'        <accentWash>{"".join(f"{c:02X}" for c in tint(accent, .18))}FF</accentWash>\n'
+            f'        <manufacturer>{escape(details[1])}</manufacturer>\n'
+            f'        <hardwareYear>{escape(details[2])}</hardwareYear>\n'
             f'        <systemIcon>${{themePath}}/assets/systems/{key}.png</systemIcon>\n'
             f'        <systemCard>${{themePath}}/assets/cards/{key}.png</systemCard>\n'
             f'        <systemHero>${{themePath}}/assets/heroes/{key}.png</systemHero>\n'

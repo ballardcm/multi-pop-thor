@@ -4,6 +4,9 @@
     <variables>
         <accent>77796FFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E1E1DFFF</accentWash>
+        <manufacturer>Sony</manufacturer>
+        <hardwareYear>1994</hardwareYear>
         <systemIcon>${themePath}/assets/systems/psx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psx.png</systemHero>

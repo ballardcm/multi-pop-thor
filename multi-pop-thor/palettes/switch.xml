@@ -4,6 +4,9 @@
     <variables>
         <accent>DE564DFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F3DBD9FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2017</hardwareYear>
         <systemIcon>${themePath}/assets/systems/switch.png</systemIcon>
         <systemCard>${themePath}/assets/cards/switch.png</systemCard>
         <systemHero>${themePath}/assets/heroes/switch.png</systemHero>

@@ -6,9 +6,12 @@
     <variables>
         <accent>6D4776FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>DFD8E1FF</accentWash>
         <paper>F7F8FCFF</paper>
         <ink>191A2EFF</ink>
         <muted>646A80FF</muted>
+        <manufacturer>Multi Pop</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
         <systemCard>${themePath}/assets/cards/default.png</systemCard>
         <systemHero>${themePath}/assets/heroes/default.png</systemHero>

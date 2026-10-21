@@ -4,6 +4,9 @@
     <variables>
         <accent>357D28FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>D5E2D3FF</accentWash>
+        <manufacturer>Microsoft</manufacturer>
+        <hardwareYear>2001</hardwareYear>
         <systemIcon>${themePath}/assets/systems/xbox.png</systemIcon>
         <systemCard>${themePath}/assets/cards/xbox.png</systemCard>
         <systemHero>${themePath}/assets/heroes/xbox.png</systemHero>

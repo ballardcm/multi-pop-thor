@@ -4,6 +4,9 @@
     <variables>
         <accent>D7AD27FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F2EAD2FF</accentWash>
+        <manufacturer>SNK</manufacturer>
+        <hardwareYear>1990</hardwareYear>
         <systemIcon>${themePath}/assets/systems/neogeo.png</systemIcon>
         <systemCard>${themePath}/assets/cards/neogeo.png</systemCard>
         <systemHero>${themePath}/assets/heroes/neogeo.png</systemHero>

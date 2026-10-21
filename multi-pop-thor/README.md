@@ -55,7 +55,7 @@ Under Tools on the same screen, **Check for updates** looks for a newer release 
 
 ### Which version you are running
 
-Every release has a version number that goes up with each release. Besides Theme Configuration, it appears as "VERSION N" under MULTI POP at the lower left of the upper display. The release's GitHub title carries the same number, and the installed theme records it in `version.json`.
+Every release has a version number that goes up with each release. Besides Theme Configuration, it appears as "VERSION N" under MULTI POP in the top bar of the lower display. The release's GitHub title carries the same number, and the installed theme records it in `version.json`.
 
 ### How an update happens
 

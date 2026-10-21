@@ -4,6 +4,9 @@
     <variables>
         <accent>78BE48FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E1EED8FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1998</hardwareYear>
         <systemIcon>${themePath}/assets/systems/gbc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gbc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gbc.png</systemHero>

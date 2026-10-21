@@ -4,6 +4,9 @@
     <variables>
         <accent>0765C2FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>CDDEEEFF</accentWash>
+        <manufacturer>Sega</manufacturer>
+        <hardwareYear>1996</hardwareYear>
         <systemIcon>${themePath}/assets/systems/model3.png</systemIcon>
         <systemCard>${themePath}/assets/cards/model3.png</systemCard>
         <systemHero>${themePath}/assets/heroes/model3.png</systemHero>

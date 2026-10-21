@@ -4,6 +4,9 @@
     <variables>
         <accent>A88872FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>EAE4E0FF</accentWash>
+        <manufacturer>NEC</manufacturer>
+        <hardwareYear>1988</hardwareYear>
         <systemIcon>${themePath}/assets/systems/pce-cd.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pce-cd.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pce-cd.png</systemHero>

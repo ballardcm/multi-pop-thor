@@ -4,6 +4,9 @@
     <variables>
         <accent>A42883FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>E9D3E3FF</accentWash>
+        <manufacturer>Your Collection</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/music.png</systemIcon>
         <systemCard>${themePath}/assets/cards/music.png</systemCard>
         <systemHero>${themePath}/assets/heroes/music.png</systemHero>

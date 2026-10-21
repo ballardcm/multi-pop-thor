@@ -4,6 +4,9 @@
     <variables>
         <accent>98C8CCFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E7EFF0FF</accentWash>
+        <manufacturer>Sega</manufacturer>
+        <hardwareYear>1998</hardwareYear>
         <systemIcon>${themePath}/assets/systems/naomi.png</systemIcon>
         <systemCard>${themePath}/assets/cards/naomi.png</systemCard>
         <systemHero>${themePath}/assets/heroes/naomi.png</systemHero>

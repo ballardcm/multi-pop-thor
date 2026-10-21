@@ -4,6 +4,9 @@
     <variables>
         <accent>EF70A5FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F6E0E9FF</accentWash>
+        <manufacturer>Lexaloffle</manufacturer>
+        <hardwareYear>2015</hardwareYear>
         <systemIcon>${themePath}/assets/systems/pico8.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pico8.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pico8.png</systemHero>

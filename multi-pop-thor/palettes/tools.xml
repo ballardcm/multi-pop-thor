@@ -4,6 +4,9 @@
     <variables>
         <accent>B16B49FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>EBDFD8FF</accentWash>
+        <manufacturer>Thor Utilities</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/tools.png</systemIcon>
         <systemCard>${themePath}/assets/cards/tools.png</systemCard>
         <systemHero>${themePath}/assets/heroes/tools.png</systemHero>

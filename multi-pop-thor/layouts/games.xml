@@ -30,9 +30,9 @@
         </text>
         <text name="library-header" extra="true">
             <text>Library</text>
-            <pos>0.734545455 0.029629630</pos><size>0.249090909 0.075925926</size>
+            <pos>0.761363636 0.029629630</pos><size>0.15 0.075925926</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.062962963</fontSize>
-            <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
+            <color>${accentInk}</color><alignment>left</alignment><zIndex>3</zIndex>
         </text>
 
         <!-- One media component owns the snapshot and video so a cover can never overlap the system's artwork. -->

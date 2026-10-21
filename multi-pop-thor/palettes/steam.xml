@@ -4,6 +4,9 @@
     <variables>
         <accent>287BB5FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>D3E2ECFF</accentWash>
+        <manufacturer>PC Gaming</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/steam.png</systemIcon>
         <systemCard>${themePath}/assets/cards/steam.png</systemCard>
         <systemHero>${themePath}/assets/heroes/steam.png</systemHero>

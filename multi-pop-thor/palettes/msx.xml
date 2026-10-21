@@ -4,6 +4,9 @@
     <variables>
         <accent>B9535AFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>EDDADCFF</accentWash>
+        <manufacturer>MSX</manufacturer>
+        <hardwareYear>1983</hardwareYear>
         <systemIcon>${themePath}/assets/systems/msx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/msx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/msx.png</systemHero>

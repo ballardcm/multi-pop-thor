@@ -4,6 +4,9 @@
     <variables>
         <accent>947146FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E6E0D8FF</accentWash>
+        <manufacturer>Mattel</manufacturer>
+        <hardwareYear>1979</hardwareYear>
         <systemIcon>${themePath}/assets/systems/intellivision.png</systemIcon>
         <systemCard>${themePath}/assets/cards/intellivision.png</systemCard>
         <systemHero>${themePath}/assets/heroes/intellivision.png</systemHero>

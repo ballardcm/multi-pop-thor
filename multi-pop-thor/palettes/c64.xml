@@ -4,6 +4,9 @@
     <variables>
         <accent>3567A8FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>D5DEEAFF</accentWash>
+        <manufacturer>Commodore</manufacturer>
+        <hardwareYear>1982</hardwareYear>
         <systemIcon>${themePath}/assets/systems/c64.png</systemIcon>
         <systemCard>${themePath}/assets/cards/c64.png</systemCard>
         <systemHero>${themePath}/assets/heroes/c64.png</systemHero>
