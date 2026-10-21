@@ -8,7 +8,7 @@
         <controllerActivity name="controllerActivity"><visible>false</visible></controllerActivity>
         <!-- Keep larger native Wi-Fi and battery indicators in the upper status strip. -->
         <batteryIndicator name="batteryIndicator">
-            <pos>0.636363636 0.024074074</pos><size>0.072727273 0.051851852</size>
+            <pos>0.631818182 0.024074074</pos><size>0.072727273 0.051851852</size>
             <horizontalAlignment>right</horizontalAlignment><itemSpacing>0.003636364</itemSpacing>
             <color>${ink}</color><visible>true</visible>
         </batteryIndicator>
@@ -37,7 +37,7 @@
         </text>
         <text name="hardware-year" extra="true">
             <text>${hardwareYear}</text><emptyTextDefaults>false</emptyTextDefaults>
-            <pos>0.287272727 0.785185185</pos><size>0.085454545 0.05</size>
+            <pos>0.287272727 0.748148148</pos><size>0.085454545 0.05</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.035185185</fontSize>
             <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>3</zIndex>
         </text>
