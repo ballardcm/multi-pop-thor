@@ -31,10 +31,22 @@
         <!-- The library view leaves space above this label for its back arrow. -->
         <text name="hardware-manufacturer" extra="true">
             <text>${manufacturer}</text>
+            <visible>${manufacturerTextVisible}</visible>
             <pos>0.289090909 0.133333333</pos><size>0.080909091 0.092592593</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.035185185</fontSize>
             <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><lineSpacing>1</lineSpacing><zIndex>3</zIndex>
         </text>
+        <!-- Monochrome marks follow the same palette ink as the text they replace. -->
+        <image name="manufacturer-logo" extra="true">
+            <path>${manufacturerLogo}</path><visible>${manufacturerLogoVisible}</visible>
+            <pos>0.329545455 0.179629630</pos><origin>0.5 0.5</origin><maxSize>0.059090909 0.088888889</maxSize>
+            <color>${accentInk}</color><linearSmooth>true</linearSmooth><zIndex>4</zIndex>
+        </image>
+        <image name="platform-logo" extra="true">
+            <path>${platformLogo}</path><visible>${platformLogoVisible}</visible>
+            <pos>0.329545455 0.675925926</pos><origin>0.5 0.5</origin><maxSize>0.080909091 0.125925926</maxSize>
+            <color>${accentInk}</color><linearSmooth>true</linearSmooth><zIndex>4</zIndex>
+        </image>
         <text name="hardware-year" extra="true">
             <text>${hardwareYear}</text><emptyTextDefaults>false</emptyTextDefaults>
             <pos>0.287272727 0.748148148</pos><size>0.085454545 0.05</size>

@@ -97,3 +97,4 @@ for path in sorted((ROOT / "palettes").glob("*.xml")):
 if errors:
     raise SystemExit("\n".join(errors))
 print(f"PASS: XML and SVG parse; local references resolve; {checked} placements fit visible panels; palette contrast and shell syntax pass.")
+subprocess.run([__import__('sys').executable, str(ROOT.parent / 'tools/check-logo-assets.py'), str(ROOT)], check=True)

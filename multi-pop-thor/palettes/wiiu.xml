@@ -7,6 +7,12 @@
         <accentWash>D2E4EBFF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>2012</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/wiiu.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/wiiu.png</systemIcon>
         <systemCard>${themePath}/assets/cards/wiiu.png</systemCard>
         <systemHero>${themePath}/assets/heroes/wiiu.png</systemHero>

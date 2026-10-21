@@ -7,6 +7,12 @@
         <accentWash>F6E0E9FF</accentWash>
         <manufacturer>Lexaloffle</manufacturer>
         <hardwareYear>2015</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/pico8.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/pico8.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pico8.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pico8.png</systemHero>

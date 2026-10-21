@@ -7,6 +7,12 @@
         <accentWash>D5D6D8FF</accentWash>
         <manufacturer>Sony</manufacturer>
         <hardwareYear>2006</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/ps3.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/ps3.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ps3.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ps3.png</systemHero>

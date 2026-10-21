@@ -2,6 +2,8 @@
 
 Multi Pop is a ROCKNIX EmulationStation theme with a gameplay preview and game details on the upper display and a three-cover browser on the lower display. Every system in the latest live Thor audit has its own color, original hardware illustration, and matching lower card. Virtual Boy, Neo Geo Pocket, Neo Geo Pocket Color, and PlayStation Vita are also included. Missing cover art falls back to the game's image, then to a labeled card for that system.
 
+**Logo artwork credits:** Our sidebar marks come from [HVR88's Monochrome Gaming Logos](https://github.com/HVR88/Monochrome-Gaming-Logos) and [Rookervik and the RetroPie Carbon contributors](https://github.com/RetroPie/es-theme-carbon), building on Nils Bonenberger's Simple theme. The FinalBurn Neo phoenix comes from [Fabrice Caruso’s expanded Carbon collection](https://github.com/fabricecaruso/es-theme-carbon). Please explore their work and the [Pegasus](https://pegasus-frontend.org/) and [GameOS](https://github.com/PlayingKarrde/gameOS) projects that inspired HVR88's collection. The logos are third-party artwork, not AI-generated Multi Pop illustrations. Full acknowledgments, modifications, source records, and original notices ship in [assets/logos/README.md](assets/logos/README.md).
+
 The upper display is 1920×1080 and the lower display is 1240×1080. The theme uses a 4400×1080 virtual canvas with a hidden 1240px margin so native menus stay centered on the upper display. It is intended for the Thor's ROCKNIX frontend, rather than ES-DE on Android.
 
 Once activated, Multi Pop can keep itself up to date; see [Automatic updates](#automatic-updates). It is off until you turn it on in UI Settings → Theme Configuration, which also shows the installed version.

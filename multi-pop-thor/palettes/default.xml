@@ -7,6 +7,12 @@
         <accentWash>DFD8E1FF</accentWash>
         <manufacturer>Multi Pop</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/default.png</systemIcon>
         <systemCard>${themePath}/assets/cards/default.png</systemCard>
         <systemHero>${themePath}/assets/heroes/default.png</systemHero>

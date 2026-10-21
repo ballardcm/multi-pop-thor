@@ -7,6 +7,12 @@
         <accentWash>D7E2E2FF</accentWash>
         <manufacturer>GCE</manufacturer>
         <hardwareYear>1982</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/vectrex.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/vectrex.png</systemIcon>
         <systemCard>${themePath}/assets/cards/vectrex.png</systemCard>
         <systemHero>${themePath}/assets/heroes/vectrex.png</systemHero>

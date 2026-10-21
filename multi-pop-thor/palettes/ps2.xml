@@ -7,6 +7,12 @@
         <accentWash>D2D8F0FF</accentWash>
         <manufacturer>Sony</manufacturer>
         <hardwareYear>2000</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sony.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/ps2.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/ps2.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ps2.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ps2.png</systemHero>

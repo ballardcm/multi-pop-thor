@@ -7,6 +7,12 @@
         <accentWash>D9DBE9FF</accentWash>
         <manufacturer>SNK</manufacturer>
         <hardwareYear>1999</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/snk.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/ngpc.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/ngpc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ngpc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ngpc.png</systemHero>

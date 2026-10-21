@@ -7,6 +7,12 @@
         <accentWash>D7E0DEFF</accentWash>
         <manufacturer>PC Gaming</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/ports.png</systemIcon>
         <systemCard>${themePath}/assets/cards/ports.png</systemCard>
         <systemHero>${themePath}/assets/heroes/ports.png</systemHero>

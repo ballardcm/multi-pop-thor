@@ -7,6 +7,12 @@
         <accentWash>F7E9D6FF</accentWash>
         <manufacturer>Sammy</manufacturer>
         <hardwareYear>2003</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sammy.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atomiswave.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atomiswave.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atomiswave.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atomiswave.png</systemHero>

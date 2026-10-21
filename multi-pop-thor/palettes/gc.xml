@@ -7,6 +7,12 @@
         <accentWash>DCD4F4FF</accentWash>
         <manufacturer>Nintendo</manufacturer>
         <hardwareYear>2001</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/nintendo.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/gc.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/gc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gc.png</systemHero>

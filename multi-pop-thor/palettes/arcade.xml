@@ -7,6 +7,12 @@
         <accentWash>F1D6D2FF</accentWash>
         <manufacturer>Coin-Op Classics</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/arcade.png</systemIcon>
         <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
         <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>

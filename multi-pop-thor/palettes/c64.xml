@@ -7,6 +7,12 @@
         <accentWash>D5DEEAFF</accentWash>
         <manufacturer>Commodore</manufacturer>
         <hardwareYear>1982</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/commodore.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/c64.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/c64.png</systemIcon>
         <systemCard>${themePath}/assets/cards/c64.png</systemCard>
         <systemHero>${themePath}/assets/heroes/c64.png</systemHero>

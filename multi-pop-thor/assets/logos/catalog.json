@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "monochrome": {
+      "repository": "https://github.com/HVR88/Monochrome-Gaming-Logos",
+      "revision": "7eb7ddb7246fa5c39b71d5136e7a527bac03fb7f",
+      "author": "HVR88",
+      "notice": "notices/monochrome-README.md",
+      "notice_sha256": "dcf915b23d2d76f13d7674264aca50cdb8a66bf5bd68f27d1d52d5b49c563e0e"
+    },
+    "carbon": {
+      "repository": "https://github.com/RetroPie/es-theme-carbon",
+      "revision": "b09973e0b0c589cb11fe772c169a6ff5d588b390",
+      "author": "Rookervik, based on simple by Nils Bonenberger; Carbon contributors",
+      "notice": "notices/carbon-readme.txt",
+      "notice_sha256": "d0730d88c5ba509f34a8d8d14aa1cc8f889129431fdb615a6c3ce478d6bc133b"
+    },
+    "carbon-fbneo": {
+      "repository": "https://github.com/fabricecaruso/es-theme-carbon",
+      "revision": "434649937c778d6d7689e956aa5eebf563683ff7",
+      "author": "Fabrice Caruso and Carbon contributors; original FinalBurn Neo identity by its respective owners",
+      "notice": "notices/carbon-fbneo-readme.txt",
+      "notice_sha256": "d0730d88c5ba509f34a8d8d14aa1cc8f889129431fdb615a6c3ce478d6bc133b"
+    }
+  },
+  "platforms": {
+    "atari2600": {
+      "file": "platforms/atari2600.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_2600.svg",
+      "transform": "monochrome",
+      "source_sha256": "bf918bec07b06a44e10829b486fea748eddc2be910bef8e4ea1b2a8b8491acc3",
+      "sha256": "58a2d5d261ce1d6befc83e6ea36aee8b9920c0c5a2e123a85d4d179e74053a2d"
+    },
+    "atari5200": {
+      "file": "platforms/atari5200.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_5200.svg",
+      "transform": "monochrome",
+      "source_sha256": "85e2bbfc606fcd7f9345f8e5ce98be6384f214a71de1b97b354399b7e493110b",
+      "sha256": "0206c880814d5965733382b766f43de87f0fcf405408955149a47a59288fc176"
+    },
+    "atari7800": {
+      "file": "platforms/atari7800.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_7800.svg",
+      "transform": "monochrome",
+      "source_sha256": "4a5cb2d14a055372589cd619384134d6768dfe83f2a480afed9b371da9992379",
+      "sha256": "9d797c1dfcfd432880a6fdf5e3c5f4ec81f7f4d078440d0416c88fd816b81132"
+    },
+    "atarilynx": {
+      "file": "platforms/atarilynx.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_lynx_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "acd4a6e2775bd068cfa47fce46a3995c030d0d39ff2d2b5b921abd786c8cd543",
+      "sha256": "f8515a3fb9d239ed16467e0b3dd130c1ef8bab61c42c896e40c86eb1c0007969"
+    },
+    "atarijaguar": {
+      "file": "platforms/atarijaguar.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_jaguar_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "e185addfe3e5e0a22d401b738b4d7ac06a47e8bb94e1a2e2ed54766acd1ddcda",
+      "sha256": "e092d10a9f9cf9c8913d24f89247fa65ba92e9012877857a1884c105892e37c4"
+    },
+    "wonderswancolor": {
+      "file": "platforms/wonderswancolor.svg",
+      "source": "monochrome",
+      "source_path": "svg/bandai_wonderswan_color.svg",
+      "transform": "monochrome",
+      "source_sha256": "4eafaac5a8e0561aa2c7ed3a5d4b2b99f052096936d3654cc8a44fdc4ddc6079",
+      "sha256": "bd36c5c96b1d8062613c9ae27205940cc223a1187324220903ea56414ed35944"
+    },
+    "colecovision": {
+      "file": "platforms/colecovision.svg",
+      "source": "monochrome",
+      "source_path": "svg/coleco_vision_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "b5efa4f3c44188fca89450c3f01645afccc1d7291d3aa0d9012427e3bc3533bd",
+      "sha256": "183c92bc29a0733174971bed39f1db1786119402cc1aca76dbd50eb454108c5a"
+    },
+    "intellivision": {
+      "file": "platforms/intellivision.svg",
+      "source": "monochrome",
+      "source_path": "svg/mattel_intellivision.svg",
+      "transform": "monochrome",
+      "source_sha256": "6b4da80bbb651ec70439a52f8c8c79921e6c11cc54b626dc8110290f3231a842",
+      "sha256": "590efe75a65dcb523cf7526747342663d96a6bce20c137030835ae55a354db77"
+    },
+    "c64": {
+      "file": "platforms/c64.svg",
+      "source": "monochrome",
+      "source_path": "svg/commodore_64_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "2dd3f82f0e08fef40903f764506ce8fc9c33c73d7d6c9751961de860a10649a5",
+      "sha256": "634be0a1585e8c025c4d84a6debd9d398f425f593d0d45c3097c01cd4227519e"
+    },
+    "pico8": {
+      "file": "platforms/pico8.svg",
+      "source": "monochrome",
+      "source_path": "svg/pico-8.svg",
+      "transform": "monochrome",
+      "source_sha256": "57c5c2d2b89fa45f539a3c827684a52b293dc108fcde49f6e74a7b38c1a5c4e5",
+      "sha256": "a849b5cd838b7a3bad9f11dee8ce5fd1e7463015f29b27179aff8ac6b3a3c6c2"
+    },
+    "xbox": {
+      "file": "platforms/xbox.svg",
+      "source": "monochrome",
+      "source_path": "svg/xbox_original.svg",
+      "transform": "monochrome",
+      "source_sha256": "732a6ac42c55a0dba2579d97667b100c5ed214386d6d07bed77f918ccb27cf2e",
+      "sha256": "2beacd557dc2727c2357e54a9525f45a36c026909dd3823b56fc26be983f2af4"
+    },
+    "pcengine": {
+      "file": "platforms/pcengine.svg",
+      "source": "monochrome",
+      "source_path": "svg/nec_pcengine.svg",
+      "transform": "monochrome",
+      "source_sha256": "0ec412252d9869da794b9b37fac4c0c2089c455ff0011532b2da28abfdf9158f",
+      "sha256": "4a0eaabb02ddb6a320c760baebbfe46e443867a444ea4b368dc4de6b4bb8b3ee"
+    },
+    "pce-cd": {
+      "file": "platforms/pce-cd.svg",
+      "source": "monochrome",
+      "source_path": "svg/nec_pcengine_cdrom_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "56f78b14518e8340f84857da0a3067250b5893e190d42fd03551241db30a428a",
+      "sha256": "b65fa248d23ce4f052826f8f71d91b53d39a961e36f3effc8346862c36ac1e4b"
+    },
+    "gb": {
+      "file": "platforms/gb.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_gameboy.svg",
+      "transform": "monochrome",
+      "source_sha256": "05bf7ef1538793d744a2b23fa0f87dffac0aeaa6e4e07a88711d3f405a9e2317",
+      "sha256": "ca7050d1cbb4cb188850f1667fa480d088aabb07adeef2c4ea1749e47e68746f"
+    },
+    "snes": {
+      "file": "platforms/snes.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_snes.svg",
+      "transform": "monochrome",
+      "source_sha256": "7900e0f4b42075bfcc11fb2c203a9a37db664a12eca5ae79170ff9101ad431eb",
+      "sha256": "13f9dc348ba48af0e64f282cb58a05e24e0f493564297fbb59a7d484ccd5cbf8"
+    },
+    "n64": {
+      "file": "platforms/n64.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_64.svg",
+      "transform": "monochrome",
+      "source_sha256": "65397b96d7af4f7504ca29e97ca3c2ba28d0bc19b39ad07559d34eeb192cd521",
+      "sha256": "80155db15372be2c146eeca4e11f55a31eeb21ea7d60f0e92acfe1d392d8e5ea"
+    },
+    "gc": {
+      "file": "platforms/gc.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_gamecube.svg",
+      "transform": "monochrome",
+      "source_sha256": "5dcc0ac5df731144a69d7630169597d677b519bfef93fcadadbe72f3450bfeac",
+      "sha256": "4b6664d6967f48d4f47c0754981b05bd3008966816daa7a992e2469b33c9a9fa"
+    },
+    "gba": {
+      "file": "platforms/gba.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_gameboy_advance_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "3dac7674a50c0b5077c725f53b81196c52493b7ab5f93f0038303c6b3071c357",
+      "sha256": "ef47dcd740ab594618d3ed17a74899e25286f3a3d1f68630487a21775fd32484"
+    },
+    "nds": {
+      "file": "platforms/nds.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_ds.svg",
+      "transform": "monochrome",
+      "source_sha256": "ebe9724613c599d96d7ea9ca0830a1bcf0ac783a28b4933d773e38b08eed50f9",
+      "sha256": "62a742471286d213e52fda3fc61b0e026c333917470ac4a3488a2a120e6744eb"
+    },
+    "3ds": {
+      "file": "platforms/3ds.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_3ds.svg",
+      "transform": "monochrome",
+      "source_sha256": "772c0edf31e2b422a5ed45d539cda29c4e09b2649dd3f4fd08506548f989f6ce",
+      "sha256": "8354d84498b0c98dd6eac2ec44cd844f76ecd4181072f3cded9e21e2615a9ce5"
+    },
+    "virtualboy": {
+      "file": "platforms/virtualboy.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_virtualboy.svg",
+      "transform": "monochrome",
+      "source_sha256": "20a69a31049d146b6fd35db8c20ad1ab57e861882cdbdeda2758bb25aa63be89",
+      "sha256": "8a9d764fe891e28c76a7119f7553e771278ff3ec8eeaa86ad16a6364a32c8abb"
+    },
+    "atomiswave": {
+      "file": "platforms/atomiswave.svg",
+      "source": "monochrome",
+      "source_path": "svg/sammy_atomiswave.svg",
+      "transform": "monochrome",
+      "source_sha256": "8552c0f675e03f402997d2380a541e580b455bd5c6921e9dbaf9ec4a186527e4",
+      "sha256": "fa1df54e40ed7d956182e9bcd07c953fac9b91a226beb8e5601201b186838f84"
+    },
+    "sg-1000": {
+      "file": "platforms/sg-1000.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_sg1000_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "5f5a3ff173fad060081155ae183618af03c0beeab327cde45ea47145120d344b",
+      "sha256": "cfcdb7e8cf1aeaf48480a3e01112cfc974dd89460b1b045762b044192af41939"
+    },
+    "genesis": {
+      "file": "platforms/genesis.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_genesis.svg",
+      "transform": "monochrome",
+      "source_sha256": "03fd54dbf7564eb211b84263a5cc78a39ddea42c415696a726765eea052048f9",
+      "sha256": "c45de4f0c0a6a25bb96b486689edb24606d615cc196d63dc304d4e45604a0b29"
+    },
+    "segacd": {
+      "file": "platforms/segacd.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_cd.svg",
+      "transform": "monochrome",
+      "source_sha256": "1452aae2b8a019966ff464489d434067ec09b2bfb610b69c053a03f901fd3f76",
+      "sha256": "ff1fa50c7415347012bd3d3300cb9cef20b158cfcc13571401c8f2c9c977785e"
+    },
+    "saturn": {
+      "file": "platforms/saturn.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_saturn.svg",
+      "transform": "monochrome",
+      "source_sha256": "6da09fa5800b87f0db74ddd37985cf7f65ef1438ed90910f67d9d0282476e77a",
+      "sha256": "0c1b35367f6b1fd758f23a603e1f6980002144a9c019d149e05e10d46cbbf2d7"
+    },
+    "gamegear": {
+      "file": "platforms/gamegear.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_gamegear.svg",
+      "transform": "monochrome",
+      "source_sha256": "d9b8dd493a04078650e2e009a43f1f3a4e05976c992c736f163734bd0c4fa56d",
+      "sha256": "585b6363600f7916b6522b07c4eb648d528ce959a2bb6e345232659c72f19b36"
+    },
+    "sega32x": {
+      "file": "platforms/sega32x.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_32x.svg",
+      "transform": "monochrome",
+      "source_sha256": "18a1d327989878dc432a4202655a1648067652700a8ead86934b36a2dbb5ca3f",
+      "sha256": "1a5e357193b512d996cad7ad813ff199545aedef1023011d00de074e3e9d68e3"
+    },
+    "model3": {
+      "file": "platforms/model3.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_model3.svg",
+      "transform": "monochrome",
+      "source_sha256": "996b4565e1ae1b1a6a4d0fab0fcab2c4cee44ed651ba9df6468bd6d855e83077",
+      "sha256": "c301de454a1e4597f3d5777fc40fd66d0ef3a27e828866d585947468020af63e"
+    },
+    "dreamcast": {
+      "file": "platforms/dreamcast.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_dreamcast_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "d400aa314ea25429119b0d48f6a10592f60eca4ecf433f3ef55c182aff48dcd7",
+      "sha256": "143d913d323c4f5314ea241f9a77c0cac89dbe8db26307a278f4fcbb8694fcd3"
+    },
+    "naomi": {
+      "file": "platforms/naomi.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_naomi_flat.svg",
+      "transform": "monochrome",
+      "source_sha256": "028b9e7af1e12a9901068c044077917ea7393c3d52a49639afd1573a67a2cbda",
+      "sha256": "507e4d9ce406f9653a1b80c1b180405acb3f39628a12cfe9b278b296dd80611b"
+    },
+    "neogeo": {
+      "file": "platforms/neogeo.svg",
+      "source": "monochrome",
+      "source_path": "svg/snk_neogeo.svg",
+      "transform": "monochrome",
+      "source_sha256": "6ffc314f71a479e57651d4d898418a0d3237e48f8ae29c2c44a82ab5c35bfeba",
+      "sha256": "0b3ab8c505fe194afa6aafeea47565bda23ddf7905a400696a8cdca008fe62b3"
+    },
+    "ngp": {
+      "file": "platforms/ngp.svg",
+      "source": "monochrome",
+      "source_path": "svg/snk_neogeo_pocket.svg",
+      "transform": "monochrome",
+      "source_sha256": "166f38bdd96b6f3c5eba60cfaaabf07a9766088d9236b772c377baed137da46c",
+      "sha256": "b0028d440eb02c879605422f49d6b53db254a3831128a1e11ac4dfe07206c671"
+    },
+    "ngpc": {
+      "file": "platforms/ngpc.svg",
+      "source": "monochrome",
+      "source_path": "svg/snk_neogeo_pocket_color.svg",
+      "transform": "monochrome",
+      "source_sha256": "7aa583c6fde443f6673ad3f36760d255629adc350cf9baf0e281d360d224699d",
+      "sha256": "39f06342a392111588ecffbe1eb016c02b50d80d2b0ea683b132c87dc1a213a5"
+    },
+    "vectrex": {
+      "file": "platforms/vectrex.svg",
+      "source": "monochrome",
+      "source_path": "svg/vectrex.svg",
+      "transform": "monochrome",
+      "source_sha256": "305b02d1148016e612b5aa7fbed7c77802f634fbe24fc2aaebf24b7c046b29ec",
+      "sha256": "ab64f71b55c2021b36202660055ef7c2b9c3a9c0766f53b1aaeb388a072b08ae"
+    },
+    "ps2": {
+      "file": "platforms/ps2.svg",
+      "source": "monochrome",
+      "source_path": "svg/playstation_ps2.svg",
+      "transform": "monochrome",
+      "source_sha256": "b0138bb0b859dae9807d3b9825806fb9a7e11d526172e92cffba891181191b94",
+      "sha256": "48906477d1f82a9f50012e4cef580af89ae2fda23bb04e59473871b93d233fbc"
+    },
+    "ps3": {
+      "file": "platforms/ps3.svg",
+      "source": "monochrome",
+      "source_path": "svg/playstation_ps3_compact.svg",
+      "transform": "monochrome",
+      "source_sha256": "60bf47da2fcf17d352bdee20c4460e8b4e77232fef9ff9f366eff9791f05d288",
+      "sha256": "49ac2d46510b08dc0615d22d28dbd16cdfea15325f0b55c1df8db410bd3d38d0"
+    },
+    "steam": {
+      "file": "platforms/steam.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_steam.svg",
+      "transform": "monochrome",
+      "source_sha256": "55c5e842c454d8dcf49e53f1b212e6ca99767c1e9c3731090f634155a3f34a93",
+      "sha256": "ee19d3277215c84f773d4c5c4408ccb5ea0505329fa65ced97be8dd6bbf03a88"
+    },
+    "psx": {
+      "file": "platforms/psx.svg",
+      "source": "monochrome",
+      "source_path": "svg/playstation_ps_compact.svg",
+      "transform": "monochrome",
+      "source_sha256": "f621ae111333b866597d60e65c0b5d8c9ded19d9e9f2f8117ac5943d90d1c0a3",
+      "sha256": "f9328a3035fbd0ed021a6cf1b67010630f175dc8aae2b7fa78eab7ff16028735"
+    },
+    "psp": {
+      "file": "platforms/psp.svg",
+      "source": "monochrome",
+      "source_path": "svg/playstation_psp.svg",
+      "transform": "monochrome",
+      "source_sha256": "14ce347fdcff4b84c421fb95dcbfbb7b947b7981edd9de039e0df721bde62e67",
+      "sha256": "fa80c299a12cff81a3321914662d6b5296947290c3d8971b2cc56e1e8fd123aa"
+    },
+    "psvita": {
+      "file": "platforms/psvita.svg",
+      "source": "monochrome",
+      "source_path": "svg/playstation_vita.svg",
+      "transform": "monochrome",
+      "source_sha256": "6c2191d3a67ac479e8b81d3ecfe565a8bbbbce86cfcfa16196d03baa19290bf2",
+      "sha256": "48773c812958d48daff9f6daa6e9dfc94a51f51b9d6757463427b3a0258383f3"
+    },
+    "sfc": {
+      "file": "platforms/sfc.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_super_famicom.svg",
+      "transform": "monochrome",
+      "source_sha256": "804c38b8558621b8f394dc506be0b2f9019c4e78c60d75193a59217d42a29e4d",
+      "sha256": "d33e352173592b948337f127ad1c78bdacee5dc3429d89f64de25a8a64a49c50"
+    },
+    "famicom": {
+      "file": "platforms/famicom.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_famicom.svg",
+      "transform": "monochrome",
+      "source_sha256": "711c37264288ba32b7dc1c30b99d3018784d7ba69654d26d501c8502c23a2a5f",
+      "sha256": "05af8abbd19c385527fcc4925ec5dd038c04a73c48921e9c4267a3fa3b9a507b"
+    },
+    "megadrive": {
+      "file": "platforms/megadrive.svg",
+      "source": "monochrome",
+      "source_path": "svg/sega_megadrive.svg",
+      "transform": "monochrome",
+      "source_sha256": "f89d62b46b5647a31a2f6d7784b6ff7e86cfc5aaa8bcfb27f95d52d87ee00430",
+      "sha256": "8083d84069d4b6f78a6211a9537cbdf5cd2645503934ad7fbee8b17b6634a290"
+    },
+    "mame": {
+      "file": "platforms/mame.svg",
+      "source": "monochrome",
+      "source_path": "svg/mame.svg",
+      "transform": "monochrome",
+      "source_sha256": "b5ce9a637d7e810dd8ae356000b42f3e228474a76fec456d519fdf249a3d188d",
+      "sha256": "07a4c2d8987c9ef3a24121e9e5dc62eea49fc5449ba314300a61469edcd45762"
+    },
+    "wii": {
+      "file": "platforms/wii.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_wii.svg",
+      "transform": "monochrome",
+      "source_sha256": "2a05cfa21e6e4bc2c1576d9ecc6e1a748768fbbaf2d6c2c430a81aa0fddf8782",
+      "sha256": "a50fa0caa5aaa7d90f1e013d0cdc9d6616416678523c89e7eecd421e0a460cc9"
+    },
+    "wiiu": {
+      "file": "platforms/wiiu.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_wiiu.svg",
+      "transform": "monochrome",
+      "source_sha256": "59d805be244c96acc3f1e3af1a6e095ed5a66e314921bf35be1223c76dd656a8",
+      "sha256": "7ae5bf85d5dd6dbc2a280d980b6f00dbf69f94fb4f0217860d223fb1ec858789"
+    },
+    "switch": {
+      "file": "platforms/switch.svg",
+      "source": "monochrome",
+      "source_path": "svg/nintendo_switch.svg",
+      "transform": "monochrome",
+      "source_sha256": "8941cefa25298cd5edcc41d7be44802bb5c2aa20dfd6da253f2d97d97cee563c",
+      "sha256": "568a7b78ca1afe88059945fa0b29a89aadd8af57195fd8c80b9893d648f61c02"
+    },
+    "3do": {
+      "file": "platforms/3do.svg",
+      "source": "monochrome",
+      "source_path": "svg/3do.svg",
+      "transform": "monochrome",
+      "source_sha256": "7f8b10ca73d1416ea983a7d8d693b7647d876321b9ced4503d35ca0cba8c2b0c",
+      "sha256": "9a093cb15f2dbf32692fd58d368669ea76235c91aa00f400f73220360f7f2a59"
+    },
+    "amiga": {
+      "file": "platforms/amiga.svg",
+      "source": "monochrome",
+      "source_path": "svg/commodore_amiga.svg",
+      "transform": "monochrome",
+      "source_sha256": "93408e066e3f7ed729e25eada5ba5e657ba3ca728a0ab9f07a0d6970ff11f4b4",
+      "sha256": "b1d7d7adc47787e9d2194703c0b6402546d0a6450e988a422c8194dfb4905752"
+    },
+    "atarist": {
+      "file": "platforms/atarist.svg",
+      "source": "monochrome",
+      "source_path": "svg/atari_st.svg",
+      "transform": "monochrome",
+      "source_sha256": "24cbb73df755aafe2f8a8afe1b6d235fd1956ceebfe9936d4669be8f85b89d8d",
+      "sha256": "d4d236144f915dcaef1e28a5e1008940b9db29c147066ccc7d5830dfc9121c38"
+    },
+    "zxspectrum": {
+      "file": "platforms/zxspectrum.svg",
+      "source": "monochrome",
+      "source_path": "svg/sinclair_zxspectrum.svg",
+      "transform": "monochrome",
+      "source_sha256": "365237570081090a56731da1a797fdf57a417b16bbdb71f50836b8c07c2e5462",
+      "sha256": "dca118d8cc9eb3508048b9b3a4f3781a7644a2071270c50ef114a6739897b6d4"
+    },
+    "msx": {
+      "file": "platforms/msx.svg",
+      "source": "monochrome",
+      "source_path": "svg/msx.svg",
+      "transform": "monochrome",
+      "source_sha256": "24f490dfc86a128c89a9584a8adea052b50d9af37ad0db218ba86cddc727bcf2",
+      "sha256": "e0c373ab2cf87f5a236b7d87a4909d363f5d726013e42ddcd0def737d5c117f3"
+    },
+    "wonderswan": {
+      "file": "platforms/wonderswan.svg",
+      "source": "monochrome",
+      "source_path": "svg/bandai_wonderswan.svg",
+      "transform": "monochrome",
+      "source_sha256": "b4db5e176af70d2a2344b6ff9ca0d22f56460933714b5f55da5cb17d391943d4",
+      "sha256": "4804cdc4ab3225db174185dba2da56b2cb2aaac3e96284624ead255f26621652"
+    },
+    "tg16": {
+      "file": "platforms/tg16.svg",
+      "source": "monochrome",
+      "source_path": "svg/nec_turbografx16.svg",
+      "transform": "monochrome",
+      "source_sha256": "6eb40218bc5806201d44bf24665945e5015c52fcc0887edd47eba611d91c94ef",
+      "sha256": "0371c74b32c8292b6c437902c73299091681cd83d2fe645cb6ccdb75cdc37440"
+    },
+    "tg-cd": {
+      "file": "platforms/tg-cd.svg",
+      "source": "monochrome",
+      "source_path": "svg/nec_turbografxcd.svg",
+      "transform": "monochrome",
+      "source_sha256": "f2a5dc5d497bf4806a7f29b1c2f786807add37e8041107f8890f5b636c2a7cc1",
+      "sha256": "d90830cbdb487877deb01cf3c5a8f2ba4e9e9491a1a622c85f3616c7b48365f7"
+    },
+    "nes": {
+      "file": "platforms/nes.svg",
+      "source": "carbon",
+      "source_path": "nes/art/system.svg",
+      "transform": "monochrome",
+      "source_sha256": "44b910ccd985cdc386f80c683cddcdaa2ca0392a1c59fdbb3ed576064c6c88dc",
+      "sha256": "db436a3c129eaf4c2f646d3afe0f535ea8e9c9647978de49b42428731ab5a575"
+    },
+    "gbc": {
+      "file": "platforms/gbc.svg",
+      "source": "carbon",
+      "source_path": "gbc/art/system.svg",
+      "transform": "monochrome",
+      "source_sha256": "3c7e638d0acb5ce1f7adfa5b6bb62d9e90d4a343a9837d2970443561c1d3ac61",
+      "sha256": "193fbfd128172725b347f756f3ac8a55458f02d7a034a164bb88e10dafd2f891"
+    },
+    "mastersystem": {
+      "file": "platforms/mastersystem.svg",
+      "source": "carbon",
+      "source_path": "mastersystem/art/system.svg",
+      "transform": "master-system-wordmark",
+      "source_sha256": "a75c5eb020535a9a89f6217db0db26f9248ed7853a826c503e92308baf9fcfa1",
+      "sha256": "2d1702ff81168f5c26f2514d7bef3746469c46cc43e6103362b5539a75067676"
+    },
+    "fbneo": {
+      "file": "platforms/fbneo.svg",
+      "source": "carbon-fbneo",
+      "source_path": "art/logos/fbneo.svg",
+      "transform": "monochrome",
+      "source_sha256": "bf1865a79717babf017501d569c2b7aa6ae20f9e17f9825f00bdd00c034dac68",
+      "sha256": "b82448cd38a43f703daca1924a2afa69a99ae080c974f1fefc86b95e1d3782fd"
+    }
+  },
+  "manufacturers": {
+    "Nintendo": {
+      "file": "manufacturers/nintendo.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_nintendo.svg",
+      "transform": "monochrome",
+      "source_sha256": "47e6189e62cb0d9a0b724faed2cf68a9386e24bb2a09e9a4f900cf790e152497",
+      "sha256": "b41f81bb434c76bfa5c362d543f32f72ab8f5eba379e04226c6007d41458e7e3"
+    },
+    "Sega": {
+      "file": "manufacturers/sega.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_sega.svg",
+      "transform": "monochrome",
+      "source_sha256": "e0accd14343faf4b53617422b4e5e76448fe80096e2cfe10051cf44d64cc2636",
+      "sha256": "a45592192637acfd0c39a3c12928bec6cd088a07eb26125a9c940f83af1cae3c"
+    },
+    "Sony": {
+      "file": "manufacturers/sony.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_sony.svg",
+      "transform": "monochrome",
+      "source_sha256": "6fa837555f9cde3bfcdfe26f3ac3cc3776fda8f2c22d9f570825cad247b9686d",
+      "sha256": "368331961f7018e08c57d405f7e2f71e0b067bf6ec2cc8d242dbe6c3e7a483a0"
+    },
+    "Atari": {
+      "file": "manufacturers/atari.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_atari.svg",
+      "transform": "monochrome",
+      "source_sha256": "4fb95db1a6b5f3756a153777eb602e0522ff7e36082b678b755ee074fbd26926",
+      "sha256": "ddaba3b638d99859005bc8e5161f3b325369a7bb5073e21c0592d90bbc92a4ec"
+    },
+    "Commodore": {
+      "file": "manufacturers/commodore.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_commodore.svg",
+      "transform": "monochrome",
+      "source_sha256": "7302871f9eee2ba2b854c07b5e1e64c359bae74ffedc61d22624224a92c8fa86",
+      "sha256": "4af4663afcaa5673b6f684ddbccc00d5a1fd409116f01a295100de9d5d690e90"
+    },
+    "Coleco": {
+      "file": "manufacturers/coleco.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_coleco.svg",
+      "transform": "monochrome",
+      "source_sha256": "196861c19cba8c7a0378a32d356eeb8b4bc20ed9735118e7960c19d81540e76d",
+      "sha256": "2dd816984b7a667c06de70de474359842fc150e7fbbc161bfc03e361773289cd"
+    },
+    "Mattel": {
+      "file": "manufacturers/mattel.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_mattel_electronics.svg",
+      "transform": "monochrome",
+      "source_sha256": "6928575ed455c6efc381ff781880dac183bee67a148dbed088dae49178e1408f",
+      "sha256": "c98e166aa98528771b1ed537d21398adf29c3453057675ad1c280d8a226b05a7"
+    },
+    "Microsoft": {
+      "file": "manufacturers/microsoft.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_microsoft.svg",
+      "transform": "monochrome",
+      "source_sha256": "868b2d4f3f758c5edd71c458d92fc87a1aa50c1c7f5886dc2e8850c79694f481",
+      "sha256": "b352daf1e3b3d7a8e730b37cb9a40d646f45e0f024cd30846cd38787e1c7250f"
+    },
+    "NEC": {
+      "file": "manufacturers/nec.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_nec.svg",
+      "transform": "monochrome",
+      "source_sha256": "467b32829a42002e16a281e47a6ca567637c296b7c63aae56c17ce84acbd7022",
+      "sha256": "1f32508db40ac0948d3ee03931d75cf7865fec3793bc47ae6e9832a7ecd77ca1"
+    },
+    "SNK": {
+      "file": "manufacturers/snk.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_snk.svg",
+      "transform": "monochrome",
+      "source_sha256": "464ab2b0b45b4d3072ed45827a7296a8df89c1acbc67ba4762034f9e4e74bf1a",
+      "sha256": "46aaaaa44b5ad7d1772033a975a693934324ce660526fe808bfd168217814fff"
+    },
+    "Bandai": {
+      "file": "manufacturers/bandai.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_bandai_tall.svg",
+      "transform": "monochrome",
+      "source_sha256": "8ca91393366543d2531230c0d1b87cd43beb932cf0bac5655e1da2a59e4223c1",
+      "sha256": "351deb15dc73fed7049a60184ddcb650514d22826571b29de8acec75c959f713"
+    },
+    "Sammy": {
+      "file": "manufacturers/sammy.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_sammy.svg",
+      "transform": "monochrome",
+      "source_sha256": "23c695950e5e68df6f335072bdb98b0031b4f47497fdd1500248df160ac6d206",
+      "sha256": "f9529675da25bb16c405ee3e86fb07addd1653bb80f954c98257c5785e133d16"
+    },
+    "Sinclair": {
+      "file": "manufacturers/sinclair.svg",
+      "source": "monochrome",
+      "source_path": "svg/publisher_sinclair.svg",
+      "transform": "monochrome",
+      "source_sha256": "a90098ffeab30dd71d4ace2ade6fe8292c2105a6af4e034e5177dd619a2a622c",
+      "sha256": "f852cf79b49701ef0620e8daab7706b2bb11176b923fb2b79fd6efd849e873f9"
+    },
+    "MSX": {
+      "file": "manufacturers/msx.svg",
+      "source": "monochrome",
+      "source_path": "svg/msx.svg",
+      "transform": "monochrome",
+      "source_sha256": "24f490dfc86a128c89a9584a8adea052b50d9af37ad0db218ba86cddc727bcf2",
+      "sha256": "e0c373ab2cf87f5a236b7d87a4909d363f5d726013e42ddcd0def737d5c117f3"
+    }
+  },
+  "fallbacks": {
+    "platforms": {
+      "music": "Generic library/category label; keep readable text.",
+      "ports": "Generic library/category label; keep readable text.",
+      "tools": "Generic library/category label; keep readable text.",
+      "auto-favorites": "Generic library/category label; keep readable text.",
+      "arcade": "Generic library/category label; keep readable text.",
+      "auto-allgames": "Generic library/category label; keep readable text.",
+      "auto-lastplayed": "Generic library/category label; keep readable text.",
+      "default": "Generic library/category label; keep readable text."
+    },
+    "manufacturers": {
+      "Arcade": "Category label, not a manufacturer.",
+      "Coin-Op Classics": "Category label, not a manufacturer.",
+      "GCE": "No suitable standalone manufacturer mark in the selected sources.",
+      "Lexaloffle": "No suitable standalone manufacturer mark in the selected sources.",
+      "Multi Pop": "Category label, not a manufacturer.",
+      "PC Gaming": "Category label, not a manufacturer.",
+      "Panasonic": "No suitable standalone manufacturer mark in the selected sources.",
+      "Thor Utilities": "Category label, not a manufacturer.",
+      "Your Collection": "Category label, not a manufacturer."
+    }
+  }
+}

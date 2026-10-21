@@ -7,6 +7,12 @@
         <accentWash>F7F0DBFF</accentWash>
         <manufacturer>Atari</manufacturer>
         <hardwareYear>1989</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/atari.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/atarilynx.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/atarilynx.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarilynx.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarilynx.png</systemHero>

@@ -7,6 +7,12 @@
         <accentWash>EBDFD8FF</accentWash>
         <manufacturer>Thor Utilities</manufacturer>
         <hardwareYear></hardwareYear>
+        <manufacturerLogo>${themePath}/assets/ui/white.svg</manufacturerLogo>
+        <manufacturerLogoVisible>false</manufacturerLogoVisible>
+        <manufacturerTextVisible>true</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/ui/white.svg</platformLogo>
+        <platformLogoVisible>false</platformLogoVisible>
+        <platformTextVisible>true</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/tools.png</systemIcon>
         <systemCard>${themePath}/assets/cards/tools.png</systemCard>
         <systemHero>${themePath}/assets/heroes/tools.png</systemHero>

@@ -23,6 +23,7 @@
             <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>6</zIndex>
         </text>
         <text name="top-game-system" extra="true">
+            <visible>${platformTextVisible}</visible>
             <text>{game:system:collection} ? proper({game:system:fullName}) : {game:system:fullName}</text>
             <pos>0.287272727 0.574074074</pos><size>0.085454545 0.212962963</size>
             <fontPath>${themePath}/assets/fonts/RobotoCondensed-Bold.ttf</fontPath><fontSize>0.04</fontSize><lineSpacing>1</lineSpacing>

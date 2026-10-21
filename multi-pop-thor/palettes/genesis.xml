@@ -7,6 +7,12 @@
         <accentWash>D2D5DBFF</accentWash>
         <manufacturer>Sega</manufacturer>
         <hardwareYear>1989</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/genesis.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/genesis.png</systemIcon>
         <systemCard>${themePath}/assets/cards/genesis.png</systemCard>
         <systemHero>${themePath}/assets/heroes/genesis.png</systemHero>

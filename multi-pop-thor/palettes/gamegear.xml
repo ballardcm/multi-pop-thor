@@ -7,6 +7,12 @@
         <accentWash>D0E2E5FF</accentWash>
         <manufacturer>Sega</manufacturer>
         <hardwareYear>1990</hardwareYear>
+        <manufacturerLogo>${themePath}/assets/logos/manufacturers/sega.svg</manufacturerLogo>
+        <manufacturerLogoVisible>true</manufacturerLogoVisible>
+        <manufacturerTextVisible>false</manufacturerTextVisible>
+        <platformLogo>${themePath}/assets/logos/platforms/gamegear.svg</platformLogo>
+        <platformLogoVisible>true</platformLogoVisible>
+        <platformTextVisible>false</platformTextVisible>
         <systemIcon>${themePath}/assets/systems/gamegear.png</systemIcon>
         <systemCard>${themePath}/assets/cards/gamegear.png</systemCard>
         <systemHero>${themePath}/assets/heroes/gamegear.png</systemHero>
