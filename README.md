@@ -28,11 +28,13 @@ The installable theme includes a [logo attribution and coverage guide](multi-pop
 
 ## Demo
 
-A one-minute recording of browsing systems and games on an AYN Thor:
+A 39-second, silent recording of the logo-based layout on an AYN Thor:
 
-https://github.com/user-attachments/assets/88bd19d1-5c25-4b5b-9317-162c409c742d
+<a href="https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/multi-pop-thor-demo.mp4"><img src="https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/preview.jpg" alt="Watch the Multi Pop Thor demo" width="480"></a>
 
-The covers, screenshots, and game details in it are the device's fetched third-party media, not part of this repository.
+[Watch or download the demo](https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/multi-pop-thor-demo.mp4).
+
+The public copy is compressed to 720p, with audio, camera/location/date metadata, and extra data tracks removed. The covers, screenshots, and game details visible in it are third-party game media, not part of the source repository.
 
 ## Install
 
