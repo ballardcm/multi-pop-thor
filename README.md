@@ -173,6 +173,40 @@ Without SSH there is no simple way back in, which is why the install asks you to
 
 If the updater refuses because the older release changes the startup launcher, [remove Multi Pop](#remove-multi-pop) and install the older ZIP from [step 1](#1-download-and-check-the-release).
 
+## Advanced / experimental: install with a coding agent over USB
+
+This is an experimental convenience path, not a replacement for the steps above. You need a coding agent running on your own computer with terminal access. First boot ROCKNIX, enable **SSH** and **USB gadget mode → Network**, exit settings, and connect a USB data cable. Your computer must have Internet access to download the release; the Thor itself does not need Internet for installation.
+
+Copy this prompt into Codex or Claude Code:
+
+```text
+Install the latest published Multi Pop Thor release from
+https://github.com/ballardcm/multi-pop-thor onto my USB-connected AYN Thor.
+
+Read the repository's current README first. Identify the USB network interface
+and SSH destination; do not assume the first handheld or the address from a
+previous session is correct. If other handhelds are attached, use an
+interface-scoped address. Verify /proc/device-tree/model says AYN Thor
+and /etc/os-release is the supported ROCKNIX 20261001 build before making changes.
+
+Download the ready-to-install release ZIP and SHA256SUMS onto this computer,
+verify the exact archive checksum, extract it, and follow the README's copy
+and activation instructions. Do not build from source, reflash storage, or
+copy another device's firmware, emulator settings, ROMs, BIOS, or saves.
+If another theme owns frontend startup, stop and explain its removal path.
+If Multi Pop is already installed, follow its documented update or clean
+reinstall procedure rather than overwriting the active folder.
+
+Use the root password shown by ROCKNIX if authentication is needed; do not
+put credentials in the repository or publish them. Keep SSH enabled and
+keep the activation backups. Leave automatic updates off unless I ask for
+them. After installation verify the selected theme, installed version,
+running frontend, both displays and touch mapping. Give me the exact
+restore command (bash /roms/themes/multi-pop-thor/scripts/restore_multi_pop_thor.sh) and report any checks that still require my input.
+```
+
+The agent may need permission to reach the local network. An agent without access to your computer or USB network cannot perform this installation. Verify the reported device identity before approving any unexpected destructive action.
+
 ## Automatic updates
 
 Automatic updates are **off by default**. To turn them on, open UI Settings → Theme Configuration and set **Automatic updates** to On; set it back to Off to stop them, which also discards an update that was downloaded but not yet installed. To check right away, choose **Check for updates** under Tools on that screen; it works whether or not Automatic updates is on. The same screen shows the **Installed version**, which also appears as "VERSION N" under MULTI POP in the lower display’s top bar.
