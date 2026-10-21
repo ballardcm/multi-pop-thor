@@ -4,6 +4,9 @@
     <variables>
         <accent>2A4D62FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>D3D9DDFF</accentWash>
+        <manufacturer>Sony</manufacturer>
+        <hardwareYear>2004</hardwareYear>
         <systemIcon>${themePath}/assets/systems/psp.png</systemIcon>
         <systemCard>${themePath}/assets/cards/psp.png</systemCard>
         <systemHero>${themePath}/assets/heroes/psp.png</systemHero>

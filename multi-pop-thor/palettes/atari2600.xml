@@ -4,6 +4,9 @@
     <variables>
         <accent>9B522BFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>E7DAD3FF</accentWash>
+        <manufacturer>Atari</manufacturer>
+        <hardwareYear>1977</hardwareYear>
         <systemIcon>${themePath}/assets/systems/atari2600.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari2600.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari2600.png</systemHero>

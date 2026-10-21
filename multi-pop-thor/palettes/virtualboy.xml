@@ -4,6 +4,9 @@
     <variables>
         <accent>D81F36FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>F2D1D5FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1995</hardwareYear>
         <systemIcon>${themePath}/assets/systems/virtualboy.png</systemIcon>
         <systemCard>${themePath}/assets/cards/virtualboy.png</systemCard>
         <systemHero>${themePath}/assets/heroes/virtualboy.png</systemHero>

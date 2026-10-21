@@ -4,6 +4,9 @@
     <variables>
         <accent>E8D8AAFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F5F2EAFF</accentWash>
+        <manufacturer>NEC</manufacturer>
+        <hardwareYear>1987</hardwareYear>
         <systemIcon>${themePath}/assets/systems/pcengine.png</systemIcon>
         <systemCard>${themePath}/assets/cards/pcengine.png</systemCard>
         <systemHero>${themePath}/assets/heroes/pcengine.png</systemHero>

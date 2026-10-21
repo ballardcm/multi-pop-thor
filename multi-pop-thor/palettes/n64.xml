@@ -4,6 +4,9 @@
     <variables>
         <accent>156B59FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>CFDFDBFF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1996</hardwareYear>
         <systemIcon>${themePath}/assets/systems/n64.png</systemIcon>
         <systemCard>${themePath}/assets/cards/n64.png</systemCard>
         <systemHero>${themePath}/assets/heroes/n64.png</systemHero>

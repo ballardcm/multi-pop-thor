@@ -4,6 +4,9 @@
     <variables>
         <accent>623C7EFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>DDD6E2FF</accentWash>
+        <manufacturer>Arcade</manufacturer>
+        <hardwareYear>1997</hardwareYear>
         <systemIcon>${themePath}/assets/systems/mame.png</systemIcon>
         <systemCard>${themePath}/assets/cards/mame.png</systemCard>
         <systemHero>${themePath}/assets/heroes/mame.png</systemHero>

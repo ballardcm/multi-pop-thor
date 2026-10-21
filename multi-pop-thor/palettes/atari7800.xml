@@ -4,6 +4,9 @@
     <variables>
         <accent>A9B0B7FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>EAEBECFF</accentWash>
+        <manufacturer>Atari</manufacturer>
+        <hardwareYear>1986</hardwareYear>
         <systemIcon>${themePath}/assets/systems/atari7800.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atari7800.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atari7800.png</systemHero>

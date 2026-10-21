@@ -4,6 +4,9 @@
     <variables>
         <accent>BD405BFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>EDD7DCFF</accentWash>
+        <manufacturer>Coleco</manufacturer>
+        <hardwareYear>1982</hardwareYear>
         <systemIcon>${themePath}/assets/systems/colecovision.png</systemIcon>
         <systemCard>${themePath}/assets/cards/colecovision.png</systemCard>
         <systemHero>${themePath}/assets/heroes/colecovision.png</systemHero>

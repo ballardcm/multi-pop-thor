@@ -4,6 +4,9 @@
     <variables>
         <accent>8D1C32FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>E5D0D4FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1983</hardwareYear>
         <systemIcon>${themePath}/assets/systems/famicom.png</systemIcon>
         <systemCard>${themePath}/assets/cards/famicom.png</systemCard>
         <systemHero>${themePath}/assets/heroes/famicom.png</systemHero>

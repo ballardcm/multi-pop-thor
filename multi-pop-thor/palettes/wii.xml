@@ -4,6 +4,9 @@
     <variables>
         <accent>93BFC9FF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E6EEF0FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>2006</hardwareYear>
         <systemIcon>${themePath}/assets/systems/wii.png</systemIcon>
         <systemCard>${themePath}/assets/cards/wii.png</systemCard>
         <systemHero>${themePath}/assets/heroes/wii.png</systemHero>

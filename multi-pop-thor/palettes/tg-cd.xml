@@ -4,6 +4,9 @@
     <variables>
         <accent>707A9EFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>E0E1E8FF</accentWash>
+        <manufacturer>NEC</manufacturer>
+        <hardwareYear>1989</hardwareYear>
         <systemIcon>${themePath}/assets/systems/tg-cd.png</systemIcon>
         <systemCard>${themePath}/assets/cards/tg-cd.png</systemCard>
         <systemHero>${themePath}/assets/heroes/tg-cd.png</systemHero>

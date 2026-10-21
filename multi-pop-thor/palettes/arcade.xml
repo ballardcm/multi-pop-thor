@@ -4,6 +4,9 @@
     <variables>
         <accent>D33D23FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>F1D6D2FF</accentWash>
+        <manufacturer>Coin-Op Classics</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/arcade.png</systemIcon>
         <systemCard>${themePath}/assets/cards/arcade.png</systemCard>
         <systemHero>${themePath}/assets/heroes/arcade.png</systemHero>

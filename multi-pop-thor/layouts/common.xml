@@ -6,10 +6,10 @@
     <!-- The upper display occupies x=1240..3160 and the lower display occupies x=3160..4400. -->
     <view name="screen">
         <controllerActivity name="controllerActivity"><visible>false</visible></controllerActivity>
-        <!-- The native battery component also shows connected Wi-Fi, and this inset keeps both on the upper display. -->
+        <!-- Keep larger native Wi-Fi and battery indicators in the upper status strip. -->
         <batteryIndicator name="batteryIndicator">
-            <pos>0.654545455 0.022222222</pos><size>0.054545455 0.037037037</size>
-            <horizontalAlignment>right</horizontalAlignment><itemSpacing>0.002272727</itemSpacing>
+            <pos>0.631818182 0.024074074</pos><size>0.072727273 0.051851852</size>
+            <horizontalAlignment>right</horizontalAlignment><itemSpacing>0.003636364</itemSpacing>
             <color>${ink}</color><visible>true</visible>
         </batteryIndicator>
         <text name="clock"><pos>1 1</pos></text>
@@ -28,6 +28,19 @@
             <path>${themePath}/assets/ui/white.svg</path>
             <pos>0.281818182 0</pos><size>0.095454545 1</size><color>${accent}</color><zIndex>2</zIndex>
         </image>
+        <!-- The library view leaves space above this label for its back arrow. -->
+        <text name="hardware-manufacturer" extra="true">
+            <text>${manufacturer}</text>
+            <pos>0.289090909 0.133333333</pos><size>0.080909091 0.092592593</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><lineSpacing>1</lineSpacing><zIndex>3</zIndex>
+        </text>
+        <text name="hardware-year" extra="true">
+            <text>${hardwareYear}</text><emptyTextDefaults>false</emptyTextDefaults>
+            <pos>0.287272727 0.748148148</pos><size>0.085454545 0.05</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Regular.ttf</fontPath><fontSize>0.035185185</fontSize>
+            <color>${accentInk}</color><alignment>center</alignment><verticalAlignment>center</verticalAlignment><zIndex>3</zIndex>
+        </text>
         <image name="bottom-paper" extra="true">
             <path>${themePath}/assets/ui/white.svg</path>
             <pos>0.718181818 0</pos><size>0.281818182 1</size><color>${paper}</color><zIndex>1</zIndex>
@@ -48,14 +61,14 @@
         </image>
         <text name="brand-caption" extra="true">
             <text>MULTI POP</text>
-            <pos>0.289090909 0.905555556</pos><size>0.080909091 0.044444444</size>
-            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.032407407</fontSize>
+            <pos>0.922727273 0.025925926</pos><size>0.068181818 0.037037037</size>
+            <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.027777778</fontSize>
             <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
         </text>
         <!-- The installed release number tells players which version they are running and whether an update applied. -->
         <text name="version-caption" extra="true">
             <text>VERSION ${multiPopVersion}</text>
-            <pos>0.289090909 0.946296296</pos><size>0.080909091 0.033333333</size>
+            <pos>0.922727273 0.066666667</pos><size>0.068181818 0.029629630</size>
             <fontPath>${themePath}/assets/fonts/Roboto-Bold.ttf</fontPath><fontSize>0.018518519</fontSize>
             <color>${accentInk}</color><alignment>center</alignment><zIndex>3</zIndex>
         </text>

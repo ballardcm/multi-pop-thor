@@ -4,6 +4,9 @@
     <variables>
         <accent>B6283DFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>ECD3D6FF</accentWash>
+        <manufacturer>Atari</manufacturer>
+        <hardwareYear>1993</hardwareYear>
         <systemIcon>${themePath}/assets/systems/atarijaguar.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atarijaguar.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atarijaguar.png</systemHero>

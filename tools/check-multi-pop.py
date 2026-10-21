@@ -66,6 +66,10 @@ for key in platforms:
             errors.append(f"Missing platform artwork: {target.relative_to(ROOT)}")
     if key != "default" and routes.get(f"${{system.theme}} == '{key}'") != f"./palettes/{key}.xml":
         errors.append(f"Missing platform palette route: {key}")
+    palette = ET.parse(ROOT / "palettes" / f"{key}.xml")
+    for variable, field in (("manufacturer", "manufacturer"), ("hardwareYear", "year")):
+        if palette.findtext(f"variables/{variable}") != platforms[key][field]:
+            errors.append(f"Platform label differs from metadata: {key}/{variable}")
 
 for path in sorted((ROOT / "scripts").glob("*.sh")):
     result = subprocess.run(["bash", "-n", str(path)], capture_output=True, text=True)

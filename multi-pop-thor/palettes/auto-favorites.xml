@@ -4,6 +4,9 @@
     <variables>
         <accent>C73269FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>EFD4DEFF</accentWash>
+        <manufacturer>Your Collection</manufacturer>
+        <hardwareYear></hardwareYear>
         <systemIcon>${themePath}/assets/systems/auto-favorites.png</systemIcon>
         <systemCard>${themePath}/assets/cards/auto-favorites.png</systemCard>
         <systemHero>${themePath}/assets/heroes/auto-favorites.png</systemHero>

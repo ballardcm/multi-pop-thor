@@ -4,6 +4,9 @@
     <variables>
         <accent>993BCEFF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>E7D6F0FF</accentWash>
+        <manufacturer>Sega</manufacturer>
+        <hardwareYear>1994</hardwareYear>
         <systemIcon>${themePath}/assets/systems/sega32x.png</systemIcon>
         <systemCard>${themePath}/assets/cards/sega32x.png</systemCard>
         <systemHero>${themePath}/assets/heroes/sega32x.png</systemHero>

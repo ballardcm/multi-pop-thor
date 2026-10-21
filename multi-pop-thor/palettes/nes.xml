@@ -4,6 +4,9 @@
     <variables>
         <accent>B83931FF</accent>
         <accentInk>FFFFFFFF</accentInk>
+        <accentWash>ECD6D4FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1985</hardwareYear>
         <systemIcon>${themePath}/assets/systems/nes.png</systemIcon>
         <systemCard>${themePath}/assets/cards/nes.png</systemCard>
         <systemHero>${themePath}/assets/heroes/nes.png</systemHero>

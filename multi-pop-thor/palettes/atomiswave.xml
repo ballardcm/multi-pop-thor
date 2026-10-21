@@ -4,6 +4,9 @@
     <variables>
         <accent>F5A53DFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F7E9D6FF</accentWash>
+        <manufacturer>Sammy</manufacturer>
+        <hardwareYear>2003</hardwareYear>
         <systemIcon>${themePath}/assets/systems/atomiswave.png</systemIcon>
         <systemCard>${themePath}/assets/cards/atomiswave.png</systemCard>
         <systemHero>${themePath}/assets/heroes/atomiswave.png</systemHero>

@@ -4,6 +4,9 @@
     <variables>
         <accent>EEEDEEFF</accent>
         <accentInk>000000FF</accentInk>
+        <accentWash>F6F6F6FF</accentWash>
+        <manufacturer>Nintendo</manufacturer>
+        <hardwareYear>1990</hardwareYear>
         <systemIcon>${themePath}/assets/systems/sfc.png</systemIcon>
         <systemCard>${themePath}/assets/cards/sfc.png</systemCard>
         <systemHero>${themePath}/assets/heroes/sfc.png</systemHero>
