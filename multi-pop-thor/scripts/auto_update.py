@@ -165,7 +165,7 @@ def apply(config):
         config.theme.rename(backup)
         stage.rename(config.theme)
         stage = None
-        write_json(config.updates / 'pending.json', {'tag': staged['tag'], 'sha256': staged['sha256'], 'version': staged.get('version'), 'backup': str(backup), 'starts': 0})
+        write_json(config.updates / 'pending.json', {'tag': staged['tag'], 'sha256': staged['sha256'], 'version': staged.get('version'), 'display_version': staged.get('display_version'), 'backup': str(backup), 'starts': 0})
         log(config, 'Applied ' + staged['tag'] + '; the previous theme is at ' + str(backup) + '.')
     except Exception as error:
         reject(config, staged.get('tag', 'unknown'))
@@ -201,7 +201,7 @@ def confirm(config):
         if old.name != keep and old.is_dir():
             shutil.rmtree(old)
     log(config, 'Confirmed ' + pending['tag'] + ' is running.')
-    version = pending.get('version')
+    version = pending.get('display_version') or (read_json(config.theme / 'version.json', {}) or {}).get('display_version') or pending.get('version')
     notify(config, 'Multi Pop updated' + (' to version ' + str(version) if version else '') + '.')
 
 
@@ -285,8 +285,10 @@ def stage_latest(config, manual=False):
             manifest = installer(config).read_manifest(opened)
             candidate = json.loads(opened.read('multi-pop-thor/frontend/compatibility.json'))
             try:
-                version = release_version(json.loads(opened.read('multi-pop-thor/version.json')))
+                version_data = json.loads(opened.read('multi-pop-thor/version.json'))
+                version = release_version(version_data)
             except (KeyError, ValueError):
+                version_data = {}
                 version = 0
         if installed_matches(config, manifest):
             write_json(config.updates / 'installed.json', {'tag': tag, 'sha256': digest, 'version': version})
@@ -304,7 +306,7 @@ def stage_latest(config, manual=False):
             log(config, 'Skipped ' + tag + ': it targets different firmware.')
             return
         archive.replace(config.updates / 'staged.zip')
-        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest, 'version': version, 'manual': manual})
+        write_json(config.updates / 'staged.json', {'tag': tag, 'sha256': digest, 'version': version, 'display_version': version_data.get('display_version', str(version)), 'manual': manual})
     log(config, 'Staged ' + tag + ' (version ' + str(version) + ').')
     if not manual:
         notify(config, 'Multi Pop update ready. It installs the next time EmulationStation starts.')
@@ -333,9 +335,10 @@ def check(config):
         return
     staged = read_json(config.updates / 'staged.json')
     if staged:
-        message = 'Multi Pop version ' + str(staged.get('version')) + ' is ready. It installs the next time EmulationStation starts.'
+        message = 'Multi Pop version ' + str(staged.get('display_version') or staged.get('version')) + ' is ready. It installs the next time EmulationStation starts.'
     else:
-        message = 'Multi Pop is up to date (version ' + str(release_version(read_json(config.theme / 'version.json'))) + ').'
+        installed = read_json(config.theme / 'version.json', {}) or {}
+        message = 'Multi Pop is up to date (version ' + str(installed.get('display_version') or release_version(installed)) + ').'
     notify(config, message, delay=0)
 
 

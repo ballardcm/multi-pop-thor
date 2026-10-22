@@ -18,7 +18,7 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
-      # The release number is main's first-parent commit count, which needs the full history.
+      # Keep complete source history available for provenance and legacy packaging.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -30,6 +30,7 @@ jobs:
           python tools/check-multi-pop.py
           python tools/test-install-multi-pop-media.py
           python tools/test-package-release.py
+          python tools/test-release-version.py
           python tools/test-thor-touch.py
           python tools/test-thor-startup.py
           python tools/test-auto-update.py
@@ -82,11 +83,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="build-${GITHUB_SHA:0:12}"
-          version=$(unzip -p dist/multi-pop-thor-rocknix-*.zip multi-pop-thor/version.json | python3 -c 'import json, sys; print(json.load(sys.stdin)["version"])')
+          version=$(unzip -p dist/multi-pop-thor-rocknix-*.zip multi-pop-thor/version.json | python3 -c 'import json, sys; d=json.load(sys.stdin); print(d.get("display_version", d["version"]))')
           if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Release already exists: $tag"
             exit 0
           fi
+          gh release list --repo "$GITHUB_REPOSITORY" --limit 100 --json name > /tmp/published-releases.json
+          python3 -c 'import json,sys; names=json.load(open("/tmp/published-releases.json")); needle="version "+sys.argv[1]+" ("; assert not any(needle in x["name"] for x in names), "Date version already published; increment the daily revision"' "$version"
           gh release create "$tag" \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \

@@ -234,6 +234,23 @@ class AutoUpdateTests(unittest.TestCase):
         auto_update.background(self.config)
         self.assertEqual(self.server.requests.count('/release'), 1)
 
+    def test_date_release_displays_label_even_with_legacy_pending_state(self):
+        (self.config.theme / 'version.json').write_text(json.dumps({'version': 25}))
+        files = theme_files('new', number=20261021001)
+        files['version.json'] = json.dumps({'version': 20261021001, 'display_version': '10.21.26.1'}).encode()
+        self.publish(files)
+        auto_update.check(self.config)
+        self.assertIn('version 10.21.26.1 is ready', self.server.notifications[-1])
+        auto_update.apply(self.config)
+        # A pre-date updater may have written this marker without a display label.
+        pending = self.updates('pending.json')
+        pending.pop('display_version', None)
+        auto_update.write_json(self.config.updates / 'pending.json', pending)
+        auto_update.confirm(self.config)
+        self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 10.21.26.1.')
+        auto_update.check(self.config)
+        self.assertEqual(self.server.notifications[-1], 'Multi Pop is up to date (version 10.21.26.1).')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

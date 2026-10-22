@@ -105,3 +105,8 @@ The launcher uses this frontend when present and keeps the system frontend at `/
 The design is inspired by [Colorful (Simplified)](https://github.com/anthonycaccese/colorful-simplified-es-de). The screen mapping follows the staged [DII-ESS-AYE Thor layout](https://github.com/beebono/dii-ess-aye), with original Multi Pop graphics. No DII-ESS-AYE graphics, sounds, or fonts are included.
 
 Roboto fonts are unmodified and include their Apache 2.0 license and notice in `assets/fonts/`. The launcher retains ROCKNIX's GPL-2.0-or-later notice; the activation and restore helpers use the same license.
+
+
+## Date-based releases
+
+Releases use labels such as **10.21.26.1**, aligned with RG DS: month, day, year, and the release revision for that day. Existing installations update normally. The displayed date label is separate from the updater’s internal ordering value.
