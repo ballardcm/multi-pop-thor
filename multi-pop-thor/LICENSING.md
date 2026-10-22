@@ -6,7 +6,7 @@ This covers the original theme XML, palettes, platform metadata, system and UI i
 
 ## Attribution and sharing
 
-For covered material, credit **Multi Pop by Chris (ballardcm)**, link to <https://github.com/ballardcm/multi-pop-thor> and the license, retain supplied notices, and indicate changes. Commercial use of covered rights is not permitted by this license. When sharing adaptations, use CC BY-NC-SA 4.0, a later version with the same license elements, or a BY-NC-SA-compatible license as provided by the legal code. Material is provided as-is, without warranties, under the license's disclaimer and limitation of liability.
+For covered material, credit **Multi Pop by ballardcm**, link to <https://github.com/ballardcm/multi-pop-thor> and the license, retain supplied notices, and indicate changes. Commercial use of covered rights is not permitted by this license. When sharing adaptations, use CC BY-NC-SA 4.0, a later version with the same license elements, or a BY-NC-SA-compatible license as provided by the legal code. Material is provided as-is, without warranties, under the license's disclaimer and limitation of liability.
 
 ## AI-generated material
 
