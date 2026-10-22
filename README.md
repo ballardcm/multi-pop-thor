@@ -8,7 +8,7 @@ A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is 
 
 A 39-second, silent recording of the logo-based layout on an AYN Thor:
 
-<a href="https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/multi-pop-thor-demo.mp4"><img src="https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/preview.jpg" alt="Watch the Multi Pop Thor demo" width="480"></a>
+https://github.com/user-attachments/assets/8b971ca4-df50-440d-98a0-4431a02531e2
 
 [Watch or download the demo](https://github.com/ballardcm/multi-pop-thor/releases/download/build-49a05568ed99/multi-pop-thor-demo.mp4).
 
