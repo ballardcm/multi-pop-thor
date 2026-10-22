@@ -10,6 +10,7 @@ import stat
 import struct
 import subprocess
 import zipfile
+from release_version import read_release
 
 ROOT = Path(__file__).resolve().parents[1]
 THEME = "multi-pop-thor"
@@ -71,8 +72,9 @@ def verify_inputs(root, config, frontend, upstream_source, sdl_source):
 
 
 def release_version(root):
-    # Main only changes through merges, so its first-parent commit count only rises and never repeats between releases.
-    # A PR build checks out the merge it would make, so its preview carries the number main will have after that merge.
+    dated = read_release(root)
+    if dated:
+        return dated[0]
     return int(subprocess.check_output(["git", "rev-list", "--count", "--first-parent", "HEAD"], cwd=root))
 
 
@@ -98,10 +100,17 @@ def package(root, output, frontend, upstream_source, sdl_source, version):
     theme_files["frontend/emulationstation"] = frontend.read_bytes()
     theme_files["scripts/update_theme.py"] = (root / "tools/install-multi-pop-theme.py").read_bytes()
     # The automatic updater compares this number so it never replaces an installation with an older release.
-    theme_files["version.json"] = (json.dumps({"version": version}) + "\n").encode()
-    # The theme shows the same number under its name.
+    dated = read_release(root)
+    if dated and version != dated[0]:
+        raise ValueError("Package version must match the configured date release")
+    display = dated[1] if dated else str(version)
+    version_data = {"version": version}
+    if dated:
+        version_data["display_version"] = display
+    theme_files["version.json"] = (json.dumps(version_data) + "\n").encode()
+    # Show the human-readable date label, never the compatibility sequence.
     theme_files["version.xml"] = re.sub(rb"<multiPopVersion>[^<]*</multiPopVersion>",
-                                        b"<multiPopVersion>%d</multiPopVersion>" % version,
+                                        ("<multiPopVersion>" + display + "</multiPopVersion>").encode(),
                                         theme_files["version.xml"])
     manifest = {name: hashlib.sha256(data).hexdigest() for name, data in sorted(theme_files.items())}
     output.mkdir(parents=True, exist_ok=True)
@@ -130,7 +139,7 @@ def main():
     parser.add_argument("--upstream-source", required=True, type=Path)
     parser.add_argument("--sdl-source", required=True, type=Path)
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
-    parser.add_argument("--version", type=int, help="release number; defaults to the first-parent commit count")
+    parser.add_argument("--version", type=int, help="internal ordering value; defaults to the configured date release")
     args = parser.parse_args()
     version = args.version if args.version is not None else release_version(ROOT)
     for path in package(ROOT, args.output, args.frontend, args.upstream_source, args.sdl_source, version):

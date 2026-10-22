@@ -124,6 +124,16 @@ class ReleaseTests(unittest.TestCase):
         second = {path.name: path.read_bytes() for path in self.package()}
         self.assertEqual(first, second)
 
+    def test_date_label_is_packaged_separately_from_update_order(self):
+        (self.root / 'release-version.json').write_text(json.dumps({'schema_version': 1, 'date': '2026-10-21', 'revision': 1}))
+        subprocess.run(['git', 'add', '.'], cwd=self.root, check=True)
+        ready, _, _ = release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl, 20261021001)
+        with zipfile.ZipFile(ready) as archive:
+            self.assertEqual(json.loads(archive.read('multi-pop-thor/version.json')), {'version': 20261021001, 'display_version': '10.21.26.1'})
+            self.assertIn(b'<multiPopVersion>10.21.26.1</multiPopVersion>', archive.read('multi-pop-thor/version.xml'))
+        with self.assertRaisesRegex(ValueError, 'configured date release'):
+            release.package(self.root, self.root / 'dist', self.binary, self.upstream, self.sdl, 25)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
