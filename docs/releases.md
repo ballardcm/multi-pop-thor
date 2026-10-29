@@ -1,5 +1,8 @@
 # Release downloads
 
+> [!WARNING]
+> **No further releases may be published from this repository after 10.28.26.Transition.** Every Thor still on an older updater checks this repository's latest release and would install anything published here, bypassing the move to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop). Publish Thor releases from the monorepo, tagged `thor-MM.DD.YY.N`, with a `version.json` integer above 20261028001; the transition used revision 1 of 10.28.26, so the first monorepo release that day must be revision 2 or later.
+
 Every PR runs theme, media, and packaging checks and uploads a preview artifact containing three files:
 
 - `multi-pop-thor-rocknix-20261001.zip`: the installable theme, verified ARM64 frontend, licenses, bundled updater, and SHA-256 install manifest.

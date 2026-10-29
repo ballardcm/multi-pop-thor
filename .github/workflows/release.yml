@@ -94,5 +94,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
             --title "Multi Pop version $version (${GITHUB_SHA:0:12})" \
-            --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. Installation, removal and rollback steps: https://github.com/ballardcm/multi-pop-thor#install Other firmware versions require a newly validated frontend." \
+            --notes "Ready-to-install archive for AYN Thor on ROCKNIX 20261001, matching source bundle, and SHA256SUMS. Installation, removal and rollback steps: https://github.com/ballardcm/multi-pop-thor#install Multi Pop has moved to https://github.com/ballardcm/multi-pop; later releases are published there. Other firmware versions require a newly validated frontend." \
             dist/*

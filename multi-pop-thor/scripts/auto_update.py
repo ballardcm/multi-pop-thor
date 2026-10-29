@@ -8,6 +8,8 @@ release into place, rolling back when the new version fails to reach a running f
 """
 
 import argparse
+import fcntl
+import urllib.parse
 from dataclasses import dataclass, field
 import hashlib
 import importlib.util
@@ -23,7 +25,12 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-TAG = re.compile(r'build-[0-9a-f]{12}')
+# Releases now come from the multi-pop monorepo, which also publishes RG DS and frontend-input releases. Only a Thor
+# date tag such as thor-10.28.26.2 names a Thor theme release; its fields give the order in which releases are newer.
+TAG = re.compile(r'thor-(\d{2})\.(\d{2})\.(\d{2})\.(\d{1,3})')
+ARCHIVE = re.compile(r'multi-pop-thor-rocknix-.+\.zip')
+# The newest Thor release is normally on the first page; a run of other releases could push it further down.
+RELEASE_PAGES = 3
 # A new version that has not reached a running frontend after this many further starts is rolled back.
 FAILED_STARTS_BEFORE_ROLLBACK = 2
 
@@ -32,7 +39,9 @@ FAILED_STARTS_BEFORE_ROLLBACK = 2
 class Config:
     theme: Path = Path('/roms/themes/multi-pop-thor')
     state: Path = Path('/storage/.config/multi-pop-thor')
-    release_api: str = 'https://api.github.com/repos/ballardcm/multi-pop-thor/releases/latest'
+    # The old multi-pop-thor repository stops publishing after the transition release, so every later release is
+    # looked for among the monorepo's releases.
+    release_api: str = 'https://api.github.com/repos/ballardcm/multi-pop/releases?per_page=30'
     frontend_api: str = 'http://127.0.0.1:1234'
     check_interval: float = 6 * 3600
     frontend_wait: float = 180
@@ -234,15 +243,51 @@ def download(url, destination):
         shutil.copyfileobj(source, target)
 
 
+def next_page(header):
+    # GitHub paginates with a Link header such as <https://...&page=2>; rel="next".
+    for part in (header or '').split(','):
+        match = re.fullmatch(r'\s*<([^>]+)>\s*;\s*rel="next"\s*', part)
+        if match:
+            return match.group(1)
+    return None
+
+
+def thor_release(release):
+    # A release qualifies only when it is published, carries a Thor date tag, and has the files staging needs.
+    if not isinstance(release, dict) or release.get('draft') or release.get('prerelease'):
+        return None
+    match = TAG.fullmatch(release.get('tag_name') or '')
+    if not match:
+        return None
+    assets = {asset.get('name'): asset.get('browser_download_url') for asset in release.get('assets') or [] if isinstance(asset, dict)}
+    if 'SHA256SUMS' not in assets or not any(name and ARCHIVE.fullmatch(name) for name in assets):
+        return None
+    month, day, year, revision = (int(field) for field in match.groups())
+    return (year, month, day, revision), release['tag_name'], assets
+
+
 def latest_release(config):
-    request = urllib.request.Request(config.release_api, headers={'User-Agent': 'MultiPopThor-updater', 'Accept': 'application/vnd.github+json'})
-    with urllib.request.urlopen(request, timeout=20) as response:
-        release = json.load(response)
-    tag = release.get('tag_name', '')
-    if not TAG.fullmatch(tag):
-        raise RuntimeError('The latest release does not have a Multi Pop build tag.')
-    assets = {asset['name']: asset['browser_download_url'] for asset in release.get('assets', [])}
-    return tag, assets
+    """Return the newest Thor release's tag and assets, or None when the repository has none yet."""
+    url = config.release_api
+    for _ in range(RELEASE_PAGES):
+        request = urllib.request.Request(url, headers={'User-Agent': 'MultiPopThor-updater', 'Accept': 'application/vnd.github+json'})
+        with urllib.request.urlopen(request, timeout=20) as response:
+            releases = json.load(response)
+            link = response.headers.get('Link')
+        # A single release object, as /releases/latest or a relay returns, is treated as a one-item list.
+        if isinstance(releases, dict):
+            releases = [releases]
+        if not isinstance(releases, list):
+            raise RuntimeError('The release list is not in the expected format.')
+        # The API lists releases by creation time, so a re-run or late publish could put an older tag first.
+        found = [candidate for candidate in map(thor_release, releases) if candidate]
+        if found:
+            _, tag, assets = max(found, key=lambda candidate: candidate[0])
+            return tag, assets
+        url = next_page(link)
+        if not url:
+            break
+    return None
 
 
 def installed_matches(config, manifest):
@@ -259,7 +304,12 @@ def stage_latest(config, manual=False):
         return
     config.updates.mkdir(parents=True, exist_ok=True)
     marker.touch()
-    tag, assets = latest_release(config)
+    latest = latest_release(config)
+    if latest is None:
+        # A repository with no Thor release yet leaves the installed theme current rather than reporting an error.
+        log(config, 'No Thor release found; the installed theme is up to date.')
+        return
+    tag, assets = latest
     known = {(read_json(config.updates / name, {}) or {}).get('tag') for name in ('installed.json', 'staged.json', 'pending.json')}
     if tag in known or tag in read_json(config.updates / 'rejected.json', []):
         return
@@ -342,12 +392,37 @@ def check(config):
     notify(config, message, delay=0)
 
 
+def use_update_source(config):
+    # A tester can point a Thor at a relay through update-source.json. Only HTTPS, or plain HTTP to a loopback port
+    # forwarded over SSH, is accepted, so the override cannot quietly fetch releases over an open network.
+    source = read_json(config.state / 'update-source.json', {}) or {}
+    if not isinstance(source, dict) or not source.get('release_api'):
+        return
+    parsed = urllib.parse.urlsplit(source['release_api'])
+    if parsed.scheme != 'https' and not (parsed.scheme == 'http' and parsed.hostname in ('127.0.0.1', '::1')):
+        raise RuntimeError('Update sources require HTTPS or an SSH-forwarded loopback endpoint.')
+    config.release_api = source['release_api']
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('apply', 'background', 'check'))
     args = parser.parse_args()
     config = Config()
     try:
+        use_update_source(config)
+        config.updates.mkdir(parents=True, exist_ok=True)
+        # A manual check can start while the background check is still downloading; the lock keeps them from
+        # staging or applying over each other. It is released when the process exits.
+        lock = (config.updates / 'process.lock').open('w')
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            log(config, 'Another update operation is running.')
+            # Check for updates was pressed by the player, who would otherwise see nothing happen.
+            if args.command == 'check':
+                notify(config, 'A Multi Pop update check is already running. Try again in a few minutes.', delay=0)
+            return 0
         {'apply': apply, 'background': background, 'check': check}[args.command](config)
     except Exception as error:
         # Startup must continue whatever happens here, so a failure is only recorded.
