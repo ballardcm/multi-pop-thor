@@ -58,13 +58,16 @@ for path in sorted(ROOT.rglob("*.svg")):
 # A registered platform needs its own route and complete artwork so it cannot silently use the library fallback.
 platforms = json.loads((ROOT / "platforms.json").read_text())
 routes = {node.get("if"): node.text.strip() for node in ET.parse(ROOT / "theme.xml").getroot().findall("include")}
+# Two palettes keep the asset names they were contributed under in the RG DS theme, so the
+# shared artwork stays name-for-name with that repo; ROCKNIX's theme value differs for these.
+theme_values = {"odyssey": "odyssey2", "tic-80": "tic80"}
 for key in platforms:
     for folder, extension in (("palettes", "xml"), ("assets/systems", "png"),
                               ("assets/cards", "png"), ("assets/heroes", "png")):
         target = ROOT / folder / f"{key}.{extension}"
         if not target.is_file():
             errors.append(f"Missing platform artwork: {target.relative_to(ROOT)}")
-    if key != "default" and routes.get(f"${{system.theme}} == '{key}'") != f"./palettes/{key}.xml":
+    if key != "default" and routes.get(f"${{system.theme}} == '{theme_values.get(key, key)}'") != f"./palettes/{key}.xml":
         errors.append(f"Missing platform palette route: {key}")
     palette = ET.parse(ROOT / "palettes" / f"{key}.xml")
     for variable, field in (("manufacturer", "manufacturer"), ("hardwareYear", "year")):
