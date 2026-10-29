@@ -1,5 +1,14 @@
 # Multi Pop Thor
 
+> [!WARNING]
+> ## Multi Pop has moved to [ballardcm/multi-pop](https://github.com/ballardcm/multi-pop)
+>
+> Multi Pop Thor now lives in the [Multi Pop monorepo](https://github.com/ballardcm/multi-pop), under [`systems/thor`](https://github.com/ballardcm/multi-pop/tree/main/systems/thor). **This repository will be deleted on 2026-11-27.**
+>
+> - **Installed themes with Automatic updates on** switch to the new repository by themselves: installing this repository's final release, **10.28.26.Transition**, points the updater at the new repository's releases. Nothing else needs doing.
+> - **New installs and manual downloads** come from the [new repository's releases](https://github.com/ballardcm/multi-pop/releases). Thor releases are tagged `thor-`, such as `thor-10.28.26.2`.
+> - **Issues and pull requests** go to the [new repository](https://github.com/ballardcm/multi-pop/issues). This one accepts no new changes.
+
 > **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
 
 [DekosAnjo](https://github.com/DekosAnjo) contributed the additional systems in [Multi Pop RG DS PR #9](https://github.com/ballardcm/multi-pop-rgds/pull/9), ported here from that theme: Channel F, Odyssey², Famicom Disk System, MSX2, Mega CD, Super Cassette Vision, Mega Duck, Nintendo 64DD, Pokémon Mini, Doom, TIC-80, WASM-4, and Watara Supervision. DekosAnjo reported generating their system illustrations with **Nano Banana 2**; the corresponding cards and hero panels derive from those illustrations. These contributions retain the project’s CC BY-NC-SA 4.0 scope where applicable. The SVG logos retain their separate upstream credits and terms. AI assistance (Codex) was used for review fixes and integration in the RG DS theme, and AI assistance (Claude Code) was used to port them to Thor.
@@ -20,7 +29,7 @@ The public copy is compressed to 720p, with audio, camera/location/date metadata
 
 **Keeps itself up to date (optional).** Turn on Automatic updates under UI Settings → Theme Configuration, and the Thor fetches each new release in the background, installs it the next time EmulationStation starts, and rolls back if the new version fails to start. It only moves forward to a newer version number, and the same screen shows the version you are running. It is off until you turn it on. See [Automatic updates](#automatic-updates).
 
-**Pull requests welcome!** Have a fix, new artwork, or an idea to improve the theme? Please send me a [pull request](https://github.com/ballardcm/multi-pop-thor/pulls). I'd love to see what you make. See [CONTRIBUTING.md](CONTRIBUTING.md) for getting started.
+**Pull requests welcome!** Have a fix, new artwork, or an idea to improve the theme? Please send me a [pull request](https://github.com/ballardcm/multi-pop/pulls) in the new repository. I'd love to see what you make. See [CONTRIBUTING.md](CONTRIBUTING.md) for getting started.
 
 The upper display shows a system's original hardware illustration while browsing systems. Its manufacturer, name, and launch year sit in the colored sidebar, while the illustration fills a softly tinted stage. Larger Wi-Fi/battery indicators remain above the artwork, and MULTI POP with the installed version appears in the lower display’s header. Select a system and it becomes a gameplay preview with the game's title, genre, publisher, year, and description. A screenshot appears first, then an available video begins after three seconds with audio off. The lower display keeps a three-cover carousel for browsing. Missing details stay blank and missing artwork uses a labeled system card.
 
@@ -50,7 +59,7 @@ Multi Pop installs alongside ROCKNIX rather than replacing any of it. Activation
 
 ### 1. Download and check the release
 
-From the [latest release](https://github.com/ballardcm/multi-pop-thor/releases/latest), download `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
+From the newest Thor release, tagged `thor-`, on the [Multi Pop releases page](https://github.com/ballardcm/multi-pop/releases), download `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS` into the same folder. Check the download from that folder:
 
 ```sh
 shasum -a 256 --check --ignore-missing SHA256SUMS
@@ -152,12 +161,12 @@ Every PR produces preview downloads under its GitHub Actions run. Releases are p
 
 This happens if the theme folder was deleted while Multi Pop was still activated. SSH keeps working without the frontend, so connect as in [step 2](#2-turn-on-ssh) and run the hand-removal commands from step 2 above. They do not need the theme folder. After the reboot, EmulationStation falls back to another installed theme if Multi Pop was still selected; pick the one you want under UI Settings → Theme Set. Then finish with step 3.
 
-Without SSH there is no simple way back in, which is why the install asks you to leave it on. If you are stuck, open an [issue](https://github.com/ballardcm/multi-pop-thor/issues).
+Without SSH there is no simple way back in, which is why the install asks you to leave it on. If you are stuck, open an [issue](https://github.com/ballardcm/multi-pop/issues).
 
 ### Go back to an earlier version
 
 1. On the Thor, open UI Settings → Theme Configuration and set **Automatic updates** to Off. Otherwise the Thor installs the newest release again.
-2. From [Releases](https://github.com/ballardcm/multi-pop-thor/releases), download that version's `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
+2. From the [Multi Pop releases](https://github.com/ballardcm/multi-pop/releases), download that `thor-` version's `multi-pop-thor-rocknix-20261001.zip` and `SHA256SUMS`, and check it as in [step 1](#1-download-and-check-the-release).
 3. Copy the ZIP to the Thor:
 
    ```sh
@@ -184,8 +193,9 @@ This is an experimental convenience path, not a replacement for the steps above.
 Copy this prompt into Codex or Claude Code:
 
 ```text
-Install the latest published Multi Pop Thor release from
-https://github.com/ballardcm/multi-pop-thor onto my USB-connected AYN Thor.
+Install the latest published Multi Pop Thor release (the newest release
+tagged thor-) from https://github.com/ballardcm/multi-pop onto my
+USB-connected AYN Thor. Thor's sources are under systems/thor.
 
 Read the repository's current README first. Identify the USB network interface
 and SSH destination; do not assume the first handheld or the address from a
@@ -217,7 +227,7 @@ Releases use date labels such as **10.21.26.1**—month, day, year, and the rele
 
 Automatic updates are **off by default**. To turn them on, open UI Settings → Theme Configuration and set **Automatic updates** to On; set it back to Off to stop them, which also discards an update that was downloaded but not yet installed. To check right away, choose **Check for updates** under Tools on that screen; it works whether or not Automatic updates is on. The same screen shows the **Installed version**, which also appears as "VERSION N" under MULTI POP in the lower display’s top bar.
 
-With updates on, an activated Thor checks this repository's latest release at most every six hours after Multi Pop starts. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a [manual step](#go-back-to-an-earlier-version). The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
+With updates on, an activated Thor checks the newest Thor release, tagged `thor-`, in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases) at most every six hours after Multi Pop starts; RG DS, frontend-input, draft and prerelease entries there are ignored. Installations older than 10.28.26.Transition still check this repository, and its final release moves them over. A release is downloaded only when its version number is higher than the installed one, its archive matches the release's `SHA256SUMS`, and its frontend targets the installed firmware. Once nothing is running, a "Multi Pop update ready" message appears, and the update installs at the next EmulationStation start, so it never restarts the frontend while you play. A version that fails to start twice is replaced by the previous one and skipped. Installing an older version is always a [manual step](#go-back-to-an-earlier-version). The [theme README](multi-pop-thor/README.md#automatic-updates) has the details.
 
 ## Artwork
 
@@ -249,7 +259,7 @@ Contributions are welcome: please send a pull request for theme improvements, ar
 
 Original Multi Pop theme material, artwork, tools, and documentation are offered under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), to the extent copyright or similar rights exist and can be licensed. You may download, share, and modify covered material for noncommercial purposes, with attribution, an indication of changes, and shared adaptations under the same or a compatible license.
 
-Credit **Multi Pop by ballardcm** and link to [this repository](https://github.com/ballardcm/multi-pop-thor) and the license. The [full license](LICENSE) and [scope and exceptions](multi-pop-thor/LICENSING.md) explain what is covered. Existing GPL helpers, frontend components, and third-party fonts retain their own licenses.
+Credit **Multi Pop by ballardcm** and link to [the project repository](https://github.com/ballardcm/multi-pop) and the license. The [full license](LICENSE) and [scope and exceptions](multi-pop-thor/LICENSING.md) explain what is covered. Existing GPL helpers, frontend components, and third-party fonts retain their own licenses.
 
 The CC license does not create copyright in purely AI-generated material or restrict uses that do not require permission under applicable law. Attribution is appreciated even where it is not legally required.
 

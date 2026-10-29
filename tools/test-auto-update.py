@@ -18,7 +18,8 @@ auto_update = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(auto_update)
 
 FIRMWARE = 'firmware-a'
-TAG = 'build-0123456789ab'
+TAG = 'thor-10.28.26.2'
+ARCHIVE = 'multi-pop-thor-rocknix-20261001.zip'
 
 
 def theme_files(version, firmware=FIRMWARE, number=None):
@@ -59,6 +60,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             return
         self.send_response(200)
+        # A route may carry the Link header GitHub uses to point at the next page of releases.
+        if isinstance(body, tuple):
+            body, link = body
+            self.send_header('Link', link)
         self.end_headers()
         self.wfile.write(body)
 
@@ -101,18 +106,40 @@ class AutoUpdateTests(unittest.TestCase):
             settings += '\t<string name="subset.autoupdate" value="' + value + '" />\n'
         self.config.es_settings.write_text(settings + '</config>\n')
 
-    def publish(self, files, tag=TAG, sums_override=None):
+    @property
+    def base(self):
+        return 'http://127.0.0.1:%d' % self.server.server_address[1]
+
+    def entry(self, tag, path='', **extra):
+        # Every entry carries complete assets, so only its tag or flags can be the reason it is passed over.
+        return {'tag_name': tag, 'draft': False, 'prerelease': False, **extra, 'assets': [
+            {'name': ARCHIVE, 'browser_download_url': self.base + '/zip' + path},
+            {'name': 'SHA256SUMS', 'browser_download_url': self.base + '/sums' + path}]}
+
+    def noise(self):
+        # The monorepo also publishes RG DS, frontend-input, and unfinished releases, all newer than the Thor one here.
+        return [
+            self.entry('rgds-12.01.26.1', '/rgds'),
+            self.entry('thor-frontend-rocknix-20261001-6', '/frontend'),
+            self.entry('thor-12.02.26.1', '/prerelease', prerelease=True),
+            self.entry('thor-12.03.26.1', '/draft', draft=True),
+            self.entry('build-0123456789ab', '/legacy'),
+        ]
+
+    def publish(self, files, tag=TAG, sums_override=None, releases=None):
         archive = archive_bytes(files)
-        name = 'multi-pop-thor-rocknix-20261001.zip'
         digest = sums_override or hashlib.sha256(archive).hexdigest()
-        base = 'http://127.0.0.1:%d' % self.server.server_address[1]
+        listing = self.noise() + [self.entry(tag)] if releases is None else releases
         self.server.routes.update({
-            '/release': json.dumps({'tag_name': tag, 'assets': [
-                {'name': name, 'browser_download_url': base + '/zip'},
-                {'name': 'SHA256SUMS', 'browser_download_url': base + '/sums'}]}).encode(),
+            '/release': json.dumps(listing).encode(),
             '/zip': archive,
-            '/sums': (digest + '  ' + name + '\n').encode(),
+            '/sums': (digest + '  ' + ARCHIVE + '\n').encode(),
         })
+
+    def assert_only_thor_downloads(self):
+        fetched = [path for path in self.server.requests if path.startswith(('/zip', '/sums'))]
+        self.assertTrue(fetched)
+        self.assertEqual(set(fetched) - {'/zip', '/sums'}, set())
 
     def installed_theme(self):
         return (self.config.theme / 'theme.xml').read_text()
@@ -180,7 +207,7 @@ class AutoUpdateTests(unittest.TestCase):
     def test_older_or_equal_release_is_never_staged(self):
         for number in (1, 0):
             with self.subTest(number=number):
-                tag = 'build-%012d' % number
+                tag = 'thor-01.01.26.%d' % (number + 1)
                 self.publish(theme_files('older', number=number), tag=tag)
                 (self.config.updates / 'last-check').unlink(missing_ok=True)
                 auto_update.background(self.config)
@@ -250,6 +277,96 @@ class AutoUpdateTests(unittest.TestCase):
         self.assertEqual(self.server.notifications[-1], 'Multi Pop updated to version 10.21.26.1.')
         auto_update.check(self.config)
         self.assertEqual(self.server.notifications[-1], 'Multi Pop is up to date (version 10.21.26.1).')
+
+    def test_other_systems_and_frontend_inputs_are_ignored(self):
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+        self.assert_only_thor_downloads()
+
+    def test_prereleases_and_drafts_are_ignored(self):
+        self.publish(theme_files('new'), releases=[
+            self.entry('thor-12.02.26.1', '/prerelease', prerelease=True),
+            self.entry('thor-12.03.26.1', '/draft', draft=True)])
+        auto_update.check(self.config)
+        self.assertIsNone(self.updates('staged.json'))
+        self.assertNotIn('/zip/prerelease', self.server.requests)
+        self.assertNotIn('/zip/draft', self.server.requests)
+        self.assertEqual(self.server.notifications, ['Multi Pop is up to date (version 1).'])
+
+    def test_newest_thor_release_wins_whatever_the_listing_order(self):
+        older = ['thor-10.28.26.1', 'thor-09.30.26.9', 'thor-12.31.25.99']
+        for order in (older + [TAG], [TAG] + older, older[:1] + [TAG] + older[1:]):
+            with self.subTest(order=order):
+                self.publish(theme_files('new'), releases=[self.entry(tag, '' if tag == TAG else '/' + tag) for tag in order])
+                self.assertEqual(auto_update.latest_release(self.config)[0], TAG)
+        # Revision and year order numerically, not as text.
+        self.publish(theme_files('new'), releases=[self.entry('thor-01.02.27.1', '/a'), self.entry('thor-12.31.26.100', '/b'), self.entry('thor-01.02.27.10')])
+        self.assertEqual(auto_update.latest_release(self.config)[0], 'thor-01.02.27.10')
+
+    def test_release_missing_its_downloads_is_ignored(self):
+        incomplete = self.entry('thor-12.31.26.1', '/incomplete')
+        incomplete['assets'] = incomplete['assets'][:1]
+        self.publish(theme_files('new'), releases=[incomplete, self.entry(TAG)])
+        self.assertEqual(auto_update.latest_release(self.config)[0], TAG)
+
+    def test_empty_list_is_up_to_date(self):
+        self.publish(theme_files('new'), releases=[])
+        auto_update.check(self.config)
+        self.assertIsNone(self.updates('staged.json'))
+        self.assertEqual(self.server.notifications, ['Multi Pop is up to date (version 1).'])
+        self.assertNotIn('failed', (self.config.updates / 'auto-update.log').read_text())
+
+    def test_single_release_object_is_accepted(self):
+        self.publish(theme_files('new'))
+        self.server.routes['/release'] = json.dumps(self.entry(TAG)).encode()
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+
+    def test_next_page_is_followed_when_the_first_has_no_thor_release(self):
+        self.publish(theme_files('new'))
+        self.server.routes['/release'] = (json.dumps(self.noise()).encode(), '<' + self.base + '/release2>; rel="next"')
+        self.server.routes['/release2'] = (json.dumps([self.entry(TAG)]).encode(), '<' + self.base + '/release3>; rel="next"')
+        self.server.routes['/release3'] = json.dumps([self.entry('thor-12.31.26.1', '/later')]).encode()
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+        self.assertNotIn('/release3', self.server.requests)
+
+    def test_pages_stop_after_the_limit(self):
+        for page in range(1, 6):
+            self.server.routes['/page%d' % page] = (b'[]', '<%s/page%d>; rel="next"' % (self.base, page + 1))
+        self.config.release_api = self.base + '/page1'
+        self.assertIsNone(auto_update.latest_release(self.config))
+        self.assertEqual([path for path in self.server.requests if path.startswith('/page')], ['/page1', '/page2', '/page3'])
+
+    def test_missing_repository_is_a_logged_failure(self):
+        del self.server.routes['/release']
+        auto_update.background(self.config)
+        self.assertIsNone(self.updates('staged.json'))
+        self.assertIn('Update check failed: HTTP Error 404', (self.config.updates / 'auto-update.log').read_text())
+
+    def test_update_source_override_is_honored(self):
+        relay = self.base + '/relay'
+        self.server.routes['/relay'] = self.server.routes['/release']
+        auto_update.write_json(self.config.state / 'update-source.json', {'release_api': relay})
+        auto_update.use_update_source(self.config)
+        self.assertEqual(self.config.release_api, relay)
+        auto_update.background(self.config)
+        self.assertEqual(self.updates('staged.json')['tag'], TAG)
+        self.assertIn('/relay', self.server.requests)
+        self.assertNotIn('/release', self.server.requests)
+
+    def test_update_source_requires_https_or_loopback(self):
+        default = self.config.release_api
+        auto_update.write_json(self.config.state / 'update-source.json', {'release_api': 'http://192.168.1.5:8000/releases'})
+        with self.assertRaisesRegex(RuntimeError, 'HTTPS'):
+            auto_update.use_update_source(self.config)
+        self.assertEqual(self.config.release_api, default)
+        auto_update.write_json(self.config.state / 'update-source.json', {'release_api': 'https://relay.example/releases'})
+        auto_update.use_update_source(self.config)
+        self.assertEqual(self.config.release_api, 'https://relay.example/releases')
+
+    def test_default_source_is_the_monorepo(self):
+        self.assertEqual(auto_update.Config().release_api, 'https://api.github.com/repos/ballardcm/multi-pop/releases?per_page=30')
 
 
 if __name__ == '__main__':

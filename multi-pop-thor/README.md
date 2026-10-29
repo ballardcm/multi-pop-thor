@@ -63,12 +63,14 @@ Every release has a version number that goes up with each release. Besides Theme
 
 ### How an update happens
 
-1. After each Multi Pop start, a background check looks at this repository's latest release. It checks at most every six hours, so restarting sooner does not check again.
+1. After each Multi Pop start, a background check looks for the newest Thor release, tagged `thor-` (such as `thor-10.28.26.2`), in the [Multi Pop repository](https://github.com/ballardcm/multi-pop/releases). RG DS and frontend-input releases published there, drafts, and prereleases are ignored, and a release counts only when it carries `SHA256SUMS` and the installable ZIP. It checks at most every six hours, so restarting sooner does not check again. Releases up to 10.28.26.Transition checked the old `multi-pop-thor` repository instead; that release moved the check here.
 2. A release is downloaded only when its version number is higher than the installed one, so an automatic update never moves you to an older version. The download must match the release's `SHA256SUMS` and the archive manifest, and its frontend must target the installed firmware.
 3. Once nothing is running (no game, scrape or install), a "Multi Pop update ready" message appears; close it with OK.
 4. The update installs the next time EmulationStation starts, after a reboot or Quit → Restart EmulationStation, so it never restarts the frontend while you are using it. A "Multi Pop updated to version N" message confirms it.
 
 If the new version does not reach a running frontend within two further starts, the previous theme is put back and that release is skipped. One previous theme stays in `/roms/themes/.multi-pop-backup-*` for manual recovery. Installing an older release is a manual step with the updater below. The log is `/storage/.config/multi-pop-thor/update/auto-update.log`.
+
+For testing through a relay, `/storage/.config/multi-pop-thor/update-source.json` containing `{"release_api": "URL"}` replaces the release list address. Only HTTPS, or HTTP to `127.0.0.1` or `::1` such as an SSH-forwarded port, is accepted. Delete the file to return to the published releases.
 
 ## Update an activated installation
 
