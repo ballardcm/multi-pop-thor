@@ -11,8 +11,6 @@
 
 > **AI disclosure:** This theme was developed with the help of AI, and its original system illustrations were AI-generated. Third-party components and their credits are listed below.
 
-[DekosAnjo](https://github.com/DekosAnjo) contributed the additional systems in [Multi Pop RG DS PR #9](https://github.com/ballardcm/multi-pop-rgds/pull/9), ported here from that theme: Channel F, Odyssey², Famicom Disk System, MSX2, Mega CD, Super Cassette Vision, Mega Duck, Nintendo 64DD, Pokémon Mini, Doom, TIC-80, WASM-4, and Watara Supervision. DekosAnjo reported generating their system illustrations with **Nano Banana 2**; the corresponding cards and hero panels derive from those illustrations. These contributions retain the project’s CC BY-NC-SA 4.0 scope where applicable. The SVG logos retain their separate upstream credits and terms. AI assistance (Codex) was used for review fixes and integration in the RG DS theme, and AI assistance (Claude Code) was used to port them to Thor.
-
 A dual-screen theme for AYN Thor running ROCKNIX EmulationStation. The theme is called **Multi Pop**; its folder, runtime identifier, and source repository name are `multi-pop-thor`.
 
 ## Demo
@@ -231,7 +229,7 @@ With updates on, an activated Thor checks the newest Thor release, tagged `thor-
 
 ## Artwork
 
-The 81 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, the original monochrome WonderSwan with its own pearl-white hardware illustration, TurboGrafx-16, and TurboGrafx-CD. Thirteen further systems, from Channel F to Watara Supervision, were contributed by DekosAnjo as described above.
+The 81 artwork entries include Neo Geo Pocket, Neo Geo Pocket Color, PSP, PlayStation Vita, Saturn, PC Engine CD, Sega CD, Virtual Boy, regional variants, arcade platforms, and collections. Each has a distinct palette and matching upper artwork and lower card. These illustrations were created specifically for this theme; the transparent PNG sources are in [`multi-pop-thor/assets/systems`](multi-pop-thor/assets/systems/), and the card and hero PNGs are generated from them. The earlier SVG illustrations remain alongside them as legacy sources. The set also includes Wii, Wii U, Switch, 3DO, Amiga, Atari ST, ZX Spectrum, MSX, the original monochrome WonderSwan with its own pearl-white hardware illustration, TurboGrafx-16, and TurboGrafx-CD. Thirteen further systems, from Channel F to Watara Supervision, were contributed by DekosAnjo; see [Credits and source status](#credits-and-source-status).
 
 ![All 81 Multi Pop artwork entries](docs/artwork-grid.png)
 
@@ -264,6 +262,8 @@ Credit **Multi Pop by ballardcm** and link to [the project repository](https://g
 The CC license does not create copyright in purely AI-generated material or restrict uses that do not require permission under applicable law. Attribution is appreciated even where it is not legally required.
 
 ## Credits and source status
+
+[DekosAnjo](https://github.com/DekosAnjo) contributed the additional systems in [Multi Pop RG DS PR #9](https://github.com/ballardcm/multi-pop-rgds/pull/9), ported here from that theme: Channel F, Odyssey², Famicom Disk System, MSX2, Mega CD, Super Cassette Vision, Mega Duck, Nintendo 64DD, Pokémon Mini, Doom, TIC-80, WASM-4, and Watara Supervision. DekosAnjo reported generating their system illustrations with **Nano Banana 2**; the corresponding cards and hero panels derive from those illustrations. These contributions retain the project’s CC BY-NC-SA 4.0 scope where applicable. The SVG logos retain their separate upstream credits and terms. AI assistance (Codex) was used for review fixes and integration in the RG DS theme, and AI assistance (Claude Code) was used to port them to Thor.
 
 The visual direction is inspired by [Colorful (Simplified)](https://github.com/anthonycaccese/colorful-simplified-es-de). Screen mapping follows the [DII-ESS-AYE Thor layout](https://github.com/beebono/dii-ess-aye); its graphics, sounds, and fonts are not included.
 
